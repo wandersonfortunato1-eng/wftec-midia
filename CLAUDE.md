@@ -2,30 +2,42 @@
 
 Este repositório é **público**. Ele guarda só os arquivos dos posts, que ficam públicos no Instagram de qualquer forma. Nunca coloque aqui nada que não iria para o feed: senhas, tokens, dados de clientes, planilhas internas.
 
-O Wanderson Fortunato (dono da WFtec, Natal/RN) autorizou **publicação direta**, sem aprovação prévia, **um post por dia**, com **conteúdo misto**.
+O Wanderson Fortunato (dono da WFtec, Natal/RN) autorizou **publicação direta**, sem aprovação prévia, **dois posts por dia**, com **conteúdo misto**.
 
 ## Como publicar
 
 - **Metricool:** marca `blogId 7176830`, fuso `America/Fortaleza`, rede `instagram`.
-- **Horário:** **10:07** todos os dias. É o pico de audiência medido pelo Metricool.
+- **Horários (dois por dia):**
+  - **Seg a Sex:** **11:47** e **18:37**.
+  - **Sáb e Dom:** **11:47** e **19:07**.
+  - Por que esses horários:
+    - Sprout Social 2026 (setores de software/tecnologia e serviços financeiros) aponta 11h–14h nos dias úteis.
+    - Hootsuite 2026 aponta o fim da tarde, entre 15h e 19h.
+    - O estudo Metricool 2026 aponta 18h–21h, com Reels e carrossel mais fortes à noite.
+    - Os dados da própria conta no Metricool mostram picos às 10–12h e às 18h.
+  - Revise isso todo mês: rode `getBestTimeToPostByNetwork` e ajuste em até 1 h se os dados da conta mudarem.
 - **Envio:** `createScheduledPost` com `autoPublish: true` e `draft: false`.
 - **Mídia:** use URLs `https://raw.githubusercontent.com/wandersonfortunato1-eng/wftec-midia/main/<caminho>`. O Metricool baixa e copia o arquivo.
   - Faça **commit e push antes** de agendar.
   - Antes de agendar, confira com `curl -sI` que a URL responde 200.
 - **Registro:** depois de agendar, acrescente uma linha em `publicados.md` com o id do Metricool, e faça commit e push.
-- **Duplicidade:** antes de criar o post, rode `getScheduledPosts` para o dia-alvo. Se já houver post às 10:07, não crie outro.
+- **Duplicidade:** antes de criar, rode `getScheduledPosts` para o dia-alvo e só crie o horário que estiver vazio.
 
 ## Calendário semanal
 
-| Dia | Formato | Linha |
+| Dia | Post 1: 11:47 (almoço) | Post 2: 18:37 (fim de semana: 19:07) |
 | --- | --- | --- |
-| Seg | Carrossel 5–7 slides | Educativo de DP (prazos, eSocial, férias, 13º, rescisão, convenção) |
-| Ter | Reels | Produto |
-| Qua | Imagem única | Dado da semana: convenções novas, com número real do D1 |
-| Qui | Reels | Produto |
-| Sex | Carrossel | Produto: como a ferramenta resolve uma dor do DP |
-| Sáb | Reels | Produto ou bastidor |
-| Dom | Imagem única | Frase, lembrete de prazo da semana que vem ou mito × verdade |
+| Seg | Carrossel educativo de DP (prazos, eSocial, férias, 13º, rescisão, convenção) | Imagem: dica de uma ferramenta WFtec |
+| Ter | Imagem: mito × verdade do DP | **Reels** de produto |
+| Qua | Imagem: dado da semana (convenções novas, número real do D1) | Carrossel de produto (dor do DP → solução) |
+| Qui | Carrossel educativo de DP | **Reels** de produto |
+| Sex | Carrossel de produto | Imagem: lembrete dos prazos da semana seguinte (confira as datas na web) |
+| Sáb | Imagem leve (bastidor, frase do DP) | **Reels** |
+| Dom | Imagem: frase ou pergunta para comentar | Carrossel educativo |
+
+**Regras gerais:**
+- Os dois posts do dia nunca têm o mesmo produto nem o mesmo tema.
+- Reels sempre no horário da noite, que é o melhor para Reels.
 
 **Fila de Reels:**
 - **Reels prontos:** `backlog/backlog.json` traz o arquivo, a capa (`-capa.jpg`) e a legenda. Use **na ordem**, sem repetir o que já está em `publicados.md`.
