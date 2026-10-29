@@ -12,8 +12,8 @@ Este repositório é **público**. Ele guarda só os arquivos dos posts, que fic
 
 - **Metricool:** marca `blogId 7176830`, fuso `America/Fortaleza`, rede `instagram`.
 - **Horários:**
-  - **Seg a Sex:** **11:47** (post do almoço) e **18:37** (Reels).
-  - **Sáb e Dom:** **11:47** e **19:07**.
+  - **Seg a Sex (dias úteis):** **11:47** (post do almoço) e **18:37** (Reels).
+  - Sábado, domingo e feriado: sem post.
   - Por que esses horários:
     - Sprout Social 2026 (software/tecnologia e serviços financeiros): 11h–14h nos dias úteis.
     - Hootsuite 2026: fim da tarde, entre 15h e 19h.
@@ -29,17 +29,28 @@ Este repositório é **público**. Ele guarda só os arquivos dos posts, que fic
 - **Registro:** depois de agendar, acrescente uma linha em `publicados.md` com o id do Metricool, e faça commit e push.
 - **Duplicidade:** antes de criar, rode `getScheduledPosts` para o dia-alvo e só crie o horário que estiver vazio.
 
+## Dias sem post
+
+Não há post em sábado, domingo nem nos feriados e emendas abaixo. A tarefa diária, quando o dia seguinte for um desses, termina sem produzir nada.
+
+| Ano | Datas |
+| --- | --- |
+| 2026 | 02/11 (Finados), 20/11 (Consciência Negra), 24/12 a 01/01 (Natal e Ano-Novo) |
+| 2027 | 01/01, 08/02 e 09/02 (Carnaval), 26/03 (Sexta-feira Santa), 21/04 (Tiradentes), 01/05, 27/05 (Corpus Christi), 07/09, 12/10, 02/11, 15/11, 20/11, 24/12 a 31/12 |
+
+Antes de cada ano novo, confira as datas na web e acrescente o ano seguinte aqui.
+
 ## O que publicar
 
 ### Post da noite: Reels NOVO, todo dia
 
 Os três produtos se revezam assim:
 
-| Seg | Ter | Qua | Qui | Sex | Sáb | Dom |
-| --- | --- | --- | --- | --- | --- | --- |
-| Sindicatos | Double Check | Ponto | Sindicatos | Double Check | Ponto | Sindicatos |
+| Seg | Ter | Qua | Qui | Sex |
+| --- | --- | --- | --- | --- |
+| Sindicatos | Double Check | Ponto | Sindicatos | Double Check ou Ponto (alternando a cada semana) |
 
-A Ferramenta de Sindicatos foi o tema mais visto até agora (veja "Análise da conta"). Por isso ela entra 3 vezes por semana.
+A ferramenta de Sindicatos foi o tema mais visto até agora (veja "Análise da conta"). Por isso ela entra 2 vezes por semana.
 
 Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-resumo de tudo não entra. Nunca repita ângulo dos últimos 21 Reels de `publicados.md`.
 
