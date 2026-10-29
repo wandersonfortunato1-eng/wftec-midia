@@ -2,56 +2,132 @@
 
 Este repositório é **público**. Ele guarda só os arquivos dos posts, que ficam públicos no Instagram de qualquer forma. Nunca coloque aqui nada que não iria para o feed: senhas, tokens, dados de clientes, planilhas internas.
 
-O Wanderson Fortunato (dono da WFtec, Natal/RN) autorizou **publicação direta**, sem aprovação prévia, **dois posts por dia**, com **conteúdo misto**.
+**Pedido do Wanderson Fortunato (dono da WFtec, Natal/RN), em 29/10/2026:**
+- **Publicação direta**, sem aprovação prévia, com **dois posts por dia**.
+- **Um VÍDEO NOVO todo dia.** Nada de repostar vídeo antigo.
+- **Só três assuntos:** **Double Check Folha**, **ferramenta de Sindicatos** e **WFtec Ponto**.
+- Os fatos de cada produto estão em **`produtos.md`**. Use só o que estiver lá.
 
 ## Como publicar
 
 - **Metricool:** marca `blogId 7176830`, fuso `America/Fortaleza`, rede `instagram`.
-- **Horários (dois por dia):**
-  - **Seg a Sex:** **11:47** e **18:37**.
+- **Horários:**
+  - **Seg a Sex:** **11:47** (post do almoço) e **18:37** (Reels).
   - **Sáb e Dom:** **11:47** e **19:07**.
   - Por que esses horários:
-    - Sprout Social 2026 (setores de software/tecnologia e serviços financeiros) aponta 11h–14h nos dias úteis.
-    - Hootsuite 2026 aponta o fim da tarde, entre 15h e 19h.
-    - O estudo Metricool 2026 aponta 18h–21h, com Reels e carrossel mais fortes à noite.
-    - Os dados da própria conta no Metricool mostram picos às 10–12h e às 18h.
+    - Sprout Social 2026 (software/tecnologia e serviços financeiros): 11h–14h nos dias úteis.
+    - Hootsuite 2026: fim da tarde, entre 15h e 19h.
+    - Metricool 2026: 18h–21h, com Reels mais fortes à noite.
+    - Dados da própria conta no Metricool: picos às 10–12h e às 18h.
   - Revise isso todo mês: rode `getBestTimeToPostByNetwork` e ajuste em até 1 h se os dados da conta mudarem.
 - **Envio:** `createScheduledPost` com `autoPublish: true` e `draft: false`.
+  - Reels: `instagramData.type = "REEL"` e `videoThumbnailUrl` = capa.jpg.
+  - Carrossel: várias imagens em `media`, na ordem.
 - **Mídia:** use URLs `https://raw.githubusercontent.com/wandersonfortunato1-eng/wftec-midia/main/<caminho>`. O Metricool baixa e copia o arquivo.
   - Faça **commit e push antes** de agendar.
   - Antes de agendar, confira com `curl -sI` que a URL responde 200.
 - **Registro:** depois de agendar, acrescente uma linha em `publicados.md` com o id do Metricool, e faça commit e push.
 - **Duplicidade:** antes de criar, rode `getScheduledPosts` para o dia-alvo e só crie o horário que estiver vazio.
 
-## Calendário semanal
+## O que publicar
 
-| Dia | Post 1: 11:47 (almoço) | Post 2: 18:37 (fim de semana: 19:07) |
-| --- | --- | --- |
-| Seg | Carrossel educativo de DP (prazos, eSocial, férias, 13º, rescisão, convenção) | Imagem: dica de uma ferramenta WFtec |
-| Ter | Imagem: mito × verdade do DP | **Reels** de produto |
-| Qua | Imagem: dado da semana (convenções novas, número real do D1) | Carrossel de produto (dor do DP → solução) |
-| Qui | Carrossel educativo de DP | **Reels** de produto |
-| Sex | Carrossel de produto | Imagem: lembrete dos prazos da semana seguinte (confira as datas na web) |
-| Sáb | Imagem leve (bastidor, frase do DP) | **Reels** |
-| Dom | Imagem: frase ou pergunta para comentar | Carrossel educativo |
+### Post da noite: Reels NOVO, todo dia
 
-**Regras gerais:**
-- Os dois posts do dia nunca têm o mesmo produto nem o mesmo tema.
-- Reels sempre no horário da noite, que é o melhor para Reels.
+Os três produtos se revezam assim:
 
-**Fila de Reels:**
-- **Reels prontos:** `backlog/backlog.json` traz o arquivo, a capa (`-capa.jpg`) e a legenda. Use **na ordem**, sem repetir o que já está em `publicados.md`.
-- **Quando a fila acabar:** faça um Reels novo **sem narração** (texto animado + trilha). O processo está em "Reels sem voz" abaixo.
-- **Se não der para fazer o Reels:** troque por um carrossel. Nunca deixe o dia sem post.
+| Seg | Ter | Qua | Qui | Sex | Sáb | Dom |
+| --- | --- | --- | --- | --- | --- | --- |
+| Sindicatos | Double Check | Ponto | Sindicatos | Double Check | Ponto | Sindicatos |
 
-## Produtos e regras de conteúdo (obrigatórias)
+A Ferramenta de Sindicatos foi o tema mais visto até agora (veja "Análise da conta"). Por isso ela entra 3 vezes por semana.
+
+Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-resumo de tudo não entra. Nunca repita ângulo dos últimos 21 Reels de `publicados.md`.
+
+**Ideias de ângulo:**
+- **Double Check Folha:**
+  - quem saiu e continuou na folha;
+  - a verba que sumiu;
+  - filtro por centro de custo;
+  - tolerância em reais;
+  - salário abaixo do mínimo;
+  - líquido negativo;
+  - salário-família indevido;
+  - custo da folha (INSS patronal e FGTS);
+  - arquivos lidos no seu computador;
+  - exportar para Excel, CSV ou PDF.
+- **Sindicatos:**
+  - enquadramento pelo CNPJ e CNAE;
+  - cores por tipo de documento;
+  - circular do sindicato;
+  - aditivo que muda o piso;
+  - varredura em mais de 6 mil sites;
+  - selo "Nova";
+  - aviso dos 60 dias;
+  - notificações do dia, com o número real do D1;
+  - apresentação da convenção com a cláusula de origem;
+  - filtro de vigência;
+  - convenção do estado X.
+- **Ponto:**
+  - batida nunca bloqueada;
+  - aviso de possível GPS falso;
+  - código de auditoria;
+  - hora do servidor;
+  - aprovação automática dentro da tolerância;
+  - pedido de ajuste;
+  - planilha estilo SCI;
+  - ocorrências (férias, atestado);
+  - motor CLT (tolerância, hora noturna, extras);
+  - interjornada de 11h;
+  - banco de horas com alerta de 6 meses;
+  - fechamento que consolida e estorna;
+  - feriados estaduais em 1 clique.
+
+### Post do almoço (11:47): carrossel ou imagem
+
+- O assunto é um dos três produtos, **diferente** do Reels do mesmo dia.
+- Alterne carrossel (5 a 7 slides) e imagem única.
+- Uma vez por semana, na quarta, entra o "dado da semana" da ferramenta de Sindicatos, com número real do D1.
+
+### Se algo falhar
+
+Se não der para fazer o vídeo (a voz falhou, deu erro na renderização):
+- publique um carrossel no horário da noite;
+- avise o Wanderson.
+
+Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
+
+## Como fazer o Reels novo (voz do Antonio na nuvem)
+
+1. **Roteiro:** escreva de 5 a 7 falas, uma por linha, em `voz/AAAA-MM-DD-tema/falas.txt`.
+   - Fala 1 = gancho em pergunta, até 12 palavras. Última fala = "<produto>. <frase de efeito>. Fale com a gente."
+   - Total de 35 a 55 s. **O máximo é 60 s.**
+   - Números e siglas por extenso para a voz ler certo ("dez minutos", "I P").
+2. **Voz:** faça commit e push. A Action **"Voz do Antonio"** (`.github/workflows/voz.yml`) gera `fala1.mp3…` com `pt-BR-AntonioNeural +14% +2Hz` em cerca de 1 minuto.
+   - Acompanhe com `gh api repos/wandersonfortunato1-eng/wftec-midia/actions/runs --jq '.workflow_runs[0]|.status,.conclusion'`.
+   - Depois rode `git pull --rebase`.
+3. **Composição:** crie `AAAA-MM/AAAA-MM-DD-tema/video.html`, partindo de um modelo de `kit/video/ref/`. O melhor exemplo completo é `2026-10/2026-10-31-ponto-clt/video.html`.
+   - Uma cena por fala.
+   - Gancho escuro de impacto, depois telas claras que imitam o sistema, depois o outro com logo e CTA.
+   - Dados fictícios levam `.mask` e o selo "exemplos ilustrativos".
+   - **Atenção:** os `falas.txt` dos modelos `ref/` são antigos. Não copie "Comparativo de Folha" nem "Fortunato".
+4. **Configuração:** crie `video.json` com:
+   - `{"voz": "voz/AAAA-MM-DD-tema", "min": {"1": 5.2}, "dest": [palavras-chave em laranja], "cues": {...}, "capa": segundos}`.
+5. **Cues:** rode `python3 kit/video/build.py PASTA --analisar`. O comando mostra as pausas de cada fala, e com elas você ajusta os `cues` para cada animação cair na palavra certa.
+6. **Conferência:** rode `python3 kit/video/build.py PASTA --preview 2,6,10,...`.
+   - Olhe os quadros com Read: nada cortado, sobreposto ou vazio demais.
+   - Corrija e repita até ficar bom.
+7. **Renderização:** rode `python3 kit/video/build.py PASTA`. Ele gera `video.mp4` e `capa.jpg` em cerca de 3 minutos.
+   - Faça commit só de `video.html`, `video.json`, `video.mp4` e `capa.jpg`. O `.gitignore` já ignora o resto.
+
+## Regras de conteúdo (obrigatórias)
 
 ### Nomes de produto
 
 | Use | Não use |
 | --- | --- |
 | **Double Check Folha** | "Comparativo de Folha" |
-| **ferramenta de Sindicatos da WFtec** (Busca de Convenções, Monitoramento, Enquadramento Sindical) | "3 ferramentas" |
+| **ferramenta de Sindicatos da WFtec** | "3 ferramentas" |
+| **WFtec Ponto** | — |
 
 ### Dados pessoais e de empresas
 
@@ -62,41 +138,58 @@ O Wanderson Fortunato (dono da WFtec, Natal/RN) autorizou **publicação direta*
 
 - **Double Check Folha:** não cite o Fortunato (a IA).
 - **Ponto:**
-  - Não diga "REP", "REP-P" nem "homologado".
+  - Não diga "REP", "REP-P", "homologado" nem "certificado".
   - A localização é registrada **só na batida**. Nunca diga que o funcionário é rastreado ou monitorado o tempo todo.
   - A marcação nunca é bloqueada.
-- **Notificações de convenção:** o aviso aparece **dentro da ferramenta**, no sino do topo da busca e na aba Notificações. Não prometa e-mail nem WhatsApp. A varredura fecha o aviso **todo dia às 8h**.
+- **Notificações de convenção:** só dentro da ferramenta (sino e aba Notificações), fechadas às 8h. Não prometa e-mail nem WhatsApp.
 
 ### Números e fatos
 
 - Não invente número. Para dados de convenção, consulte o D1 (`cc3e5370-9d3f-458c-9bb9-5c526ba44457`):
   - tabela `alertas_convencoes`: `dia`, `total`, `por_uf`, `por_origem`;
   - tabela `instrumentos`: `tipo`, `uf`, `descoberto_em`, `vigencia_fim`, `origem`.
-- Datas e prazos legais (eSocial, FGTS, 13º etc.): confira na web antes de afirmar. Se houver dúvida, fale de forma geral, sem número.
+- Lei e prazos: confira na web antes de afirmar.
 
 ### Legenda
 
 - Português do Brasil.
 - Gancho na 1ª linha, de 3 a 6 linhas úteis e um CTA "👉 Fale com a gente: wftec.com.br".
 - De 5 a 8 hashtags. Sempre `#wftec`, mais `#departamentopessoal`, `#folhadepagamento`, `#rh`, `#contabilidade` e as do tema.
-- Tom: direto, de quem vive DP. Sem exagero e sem promessas legais.
 
-## Visual
+## Análise da conta (29/10/2026)
 
-- Use o **`kit/base.css`**, tema claro dos vídeos:
+**Números da conta:** 481 seguidores e 7 Reels publicados à mão antes desta rotina. Visualizações de cada Reels:
+
+| Reels | Visualizações |
+| --- | --- |
+| "Pensou que Sindicatos era só busca de convenção?" | **299** |
+| Double Check "O que mudou na folha deste mês?" | 231 |
+| FAQ da Busca de Convenções | 201 |
+| "Site por site?" | 186 |
+| Ponto "Cada batida, um ponto no mapa" | 140 |
+| "Atenção, DP! 17:11:55" | 72 |
+| "Ainda procurando convenção site por site?" | não lido |
+
+**O que os números dizem:**
+- O que mais rende:
+  - **pergunta no primeiro quadro**;
+  - **tema Sindicatos**;
+  - **tela clara do sistema**.
+- O que menos rende: alerta genérico em fundo escuro ("Atenção, DP!").
+
+**Os 7 vídeos de `backlog/` JÁ FORAM POSTADOS e não devem ser repostados.**
+
+**Atualização:** o Metricool só tem dados a partir de 29/10. Toda segunda-feira, leia as métricas de Reels da semana anterior com `getAnalyticsDataByMetrics`:
+- Campos: `IGRE02` (data), `IGRE03` (texto), `IGRE23` (visualizações), `IGRE11` (alcance), `IGRE24` (tempo médio), `IGRE27` (retenção), `IGRE21` (compartilhamentos), `IGRE12` (salvamentos).
+- Anote as conclusões aqui e ajuste ganchos e temas.
+
+## Visual dos carrosséis e imagens
+
+- Use o **`kit/base.css`**, 1080×1350:
   - fundo `#F6F2EF`, laranja `#F15A25`, títulos em Archivo itálico 900, texto em IBM Plex;
-  - classe `.dark` para slides escuros (`#141312`).
-- **Carrossel e imagem:** 1080×1350. Escreva um HTML em `AAAA-MM/AAAA-MM-DD-tema.html`, com um `<section class="slide">` por slide e link `../kit/base.css`. Gere as imagens com `python3 kit/render.py AAAA-MM/AAAA-MM-DD-tema.html AAAA-MM/AAAA-MM-DD-tema`, que cria os PNGs `-1.png`, `-2.png`…
-  - Modelo: `kit/exemplo.html`.
-  - Antes de publicar, olhe os PNGs (Read) para conferir que nada está cortado ou sobreposto.
-  - Converta os PNGs para JPG (qualidade 90) e envie em `media`, na ordem.
-  - Primeiro slide: gancho forte. Último slide: CTA com logo e wftec.com.br.
-- Evite neon, robôs e circuitos.
-
-## Reels sem voz (quando a fila acabar)
-
-- Formato: HTML com `window.render(t)` determinístico, 1080×1920, 30 fps, de 20 a 35 s.
-- Gere os quadros com Playwright e faça `ffmpeg libx264 crf 20 yuv420p`.
-- Trilha: `kit/trilha.wav` em −12 dB, com fade-out de 2 s. Legendas grandes na tela, porque não há narração.
-- Capa: um quadro forte, em JPG, enviado em `videoThumbnailUrl`.
-- No Instagram: `instagramData.type = "REEL"`.
+  - classe `.dark` para slides escuros.
+- Escreva um HTML em `AAAA-MM/AAAA-MM-DD-tema.html`, com um `<section class="slide">` por slide.
+- Gere com `python3 kit/render.py <html> <prefixo>`.
+  - Modelos: `kit/exemplo.html` e `2026-10/2026-10-30-double-check-folha.html`.
+- Olhe os PNGs com Read e converta para JPG (qualidade 90).
+- Primeiro slide: gancho em pergunta. Último slide: CTA com wftec.com.br.

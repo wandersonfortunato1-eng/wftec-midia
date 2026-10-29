@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:0;right:0;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.xl{position:absolute;font-family:Mono;font-size:30px;color:#6b625d;border:1px solid #3A3330;background:#221e1c;padding:10px 16px;border-radius:8px;opacity:0;white-space:nowrap}
+.app{position:absolute;left:0;top:0;width:960px;padding:26px 26px;opacity:0}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.hdr b{font-size:34px}.hdr span{font-family:Mono;font-size:22px;color:var(--muted)}
+.gr{display:grid;grid-template-columns:130px 1fr 1fr 1fr 1fr 170px;align-items:center;font-size:28px;height:96px;border-top:1px solid var(--line);font-family:Mono}
+.gr.h{font-size:17px;letter-spacing:1.5px;color:var(--muted);height:44px;border-top:0}
+.gr .r{text-align:right;font-weight:600}
+.gr.on{background:var(--acs);margin:0 -26px;padding:0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.chips .chip{font-size:28px;opacity:0}
+.oc{display:flex;gap:22px;align-items:center;padding:34px 30px;border-radius:20px;background:#fff;border:2px solid var(--line);margin-bottom:16px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.oc .ic{width:62px;height:62px;flex:none;border-radius:50%;display:grid;place-items:center;font:700 30px Plex;color:#fff;background:var(--bad)}
+.oc b{font-size:38px;display:block}.oc small{font-size:24px;color:var(--muted);font-family:Mono}
+.oc.on{border-color:var(--bad);background:#FFF8F7}
+.tl{flex:1;min-width:0;padding:40px 22px;border-radius:22px;background:#fff;border:2px solid var(--line);opacity:0}
+.tl small{font:600 19px Mono;letter-spacing:1.5px;color:var(--muted)}
+.tl b{display:block;font:italic 900 70px Archivo;margin-top:8px;white-space:nowrap}
+.alr{display:flex;gap:18px;align-items:center;padding:30px 28px;border-radius:20px;background:var(--warns);border:2px solid #EBCF9A;color:#8A5A0B;font-size:32px;font-weight:600;margin-top:40px;opacity:0}
+.comp{font:italic 900 120px Archivo;text-align:center}
+.btn{display:inline-flex;align-items:center;gap:12px;font-size:32px;font-weight:700;padding:18px 34px;border-radius:16px;background:var(--ac);color:#fff}
+.btn.g{background:#F3EDE9;color:#4a4542}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="xls"></div>
+  <div class="hq" id="hq1" style="top:640px;font-size:150px">Planilha<span style="color:var(--ac)">?</span></div>
+  <div class="hq" id="hq2" style="top:900px;font-size:96px">A CLT no<br><span style="color:var(--ac)">automático.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">WFTEC PONTO · ESPELHO</div><div class="n">Já sai <em>calculado.</em></div><div class="d" id="t1d">Espelho mensal pela CLT.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">OCORRÊNCIAS</div><div class="n">Passou, <em>avisou.</em></div><div class="d">Intervalo, horas extras e interjornada.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">BANCO DE HORAS</div><div class="n">Saldo <em>na mão.</em></div><div class="d">Anterior, do mês e total.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">FECHAMENTO</div><div class="n">Fechou, <em>consolidou.</em></div><div class="d" id="t4d">Competência fechada, banco consolidado.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="sE">
+    <div class="card app" id="appE">
+      <div class="hdr"><b>Espelho · <span class="mask" style="width:200px"></span></b><span>OUT/2026</span></div>
+      <div class="gr h"><span>DIA</span><span>ENT</span><span>SAI</span><span>ENT</span><span>SAI</span><span class="r">EXTRA</span></div>
+      <div class="gr" id="g0"><span>01 qui</span><span>08:03</span><span>12:00</span><span>13:00</span><span>17:04</span><span class="r">—</span></div>
+      <div class="gr" id="g1"><span>02 sex</span><span>07:56</span><span>12:01</span><span>13:02</span><span>19:00</span><span class="r" style="color:var(--act)">1h58 · 50%</span></div>
+      <div class="gr" id="g2"><span>03 sáb</span><span>22:00</span><span>02:00</span><span>02:30</span><span>05:00</span><span class="r" style="color:var(--info)">noturna</span></div>
+      <div class="gr" id="g3"><span>04 dom</span><span>08:00</span><span>12:00</span><span>—</span><span>—</span><span class="r" style="color:var(--act)">4h · 100%</span></div>
+      <div class="chips"><span class="chip" id="c0">Tolerância 10 min/dia</span><span class="chip info" id="c1">Noturna 22h–5h · fator 8/7</span><span class="chip ac" id="c2">Extras 50% e 100%</span></div>
+    </div>
+  </div>
+  <div class="sc" id="sO">
+    <div class="oc" id="o0"><div class="ic">!</div><div><b>Mais de 6h sem intervalo</b><small>CLT art. 71</small></div></div>
+    <div class="oc" id="o1"><div class="ic">!</div><div><b>Mais de 2h extras no dia</b><small>CLT art. 59</small></div></div>
+    <div class="oc" id="o2"><div class="ic">!</div><div><b>Menos de 11h entre jornadas</b><small>CLT art. 66</small></div></div>
+    <div class="abs disp" id="oBig" style="left:0;top:640px;width:960px;text-align:center;font-size:76px;opacity:0">Vira ocorrência <em>na hora.</em></div>
+  </div>
+  <div class="sc" id="sB"><div class="abs disp" style="left:0;top:0;width:960px;font-size:44px;color:var(--muted)">Saldo de <span class="mask" style="width:220px"></span></div><div style="height:110px"></div>
+    <div style="display:flex;gap:16px"><div class="tl" id="b0"><small>ANTERIOR</small><b id="bv0">+3h10</b></div><div class="tl" id="b1"><small>DO MÊS</small><b id="bv1">+1h45</b></div><div class="tl" id="b2" style="border-color:var(--ac)"><small>TOTAL</small><b id="bv2" style="color:var(--ac)">+4h55</b></div></div>
+    <div class="alr" id="bA"><span style="font-size:36px">⚠</span><span>Saldo positivo parado há 6 meses: hora de compensar.</span></div>
+  </div>
+  <div class="sc" id="sF">
+    <div class="card" id="fC" style="margin-top:60px;padding:60px 30px;text-align:center;opacity:0">
+      <div class="mono" style="font-size:24px;color:var(--muted);letter-spacing:2px">COMPETÊNCIA</div>
+      <div class="comp">OUT/2026</div>
+      <div id="fSt" class="chip" style="font-size:28px;margin-top:10px">Aberta</div>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:40px"><span class="btn" id="fB1">🔒 Fechar</span><span class="btn g" id="fB2">Reabrir</span></div>
+      <div id="fMsg" style="margin-top:34px;font-size:30px;font-weight:600;min-height:40px"></div>
+    </div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">WFtec Ponto</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Espelho pela CLT</span><span class="chip" style="font-size:26px;padding:10px 20px">Ocorrências automáticas</span><span class="chip" style="font-size:26px;padding:10px 20px">Banco de horas</span><span class="chip ac" style="font-size:26px;padding:10px 20px">A CLT no cálculo</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CLT", "art. 58", "8/7", "50%", "100%", "DSR", "11h", "banco", "NSR", "ponto"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const CELLS = ["=SOMA(B2:E2)", "=SE(F3>2;\"!\";\"\")", "08:03", "17:04", "=F2*1,5", "#REF!", "=PROCV(A4;...)", "12:00", "#VALOR!", "=HORA(C5)-HORA(B5)", "22:00", "=F6*8/7"];
+$("xls").innerHTML = CELLS.map((c, i) => `<div class="xl" id="x${i}" style="left:${60 + (i * 337) % 700}px;top:${160 + (i * 523) % 1300}px">${c}</div>`).join("");
+const SC = ["sE", "sO", "sB", "sF"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    CELLS.forEach((c, i) => { const a = .05 + i * .12; const q = back(seg(L, a, a + .3)); const e = $("x" + i); e.style.opacity = clamp(q * 2) * (1 - seg(L, I + cu("auto", 3.0), I + cu("auto", 3.0) + .3)); e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 3}deg)`; });
+    const h = I + cu("planilha", 2.4); slam("hq1", L, h - .5, 2.2); sx += shake(L, h - .3);
+    $("hq1").style.opacity = parseFloat($("hq1").style.opacity) * (1 - seg(L, I + cu("auto", 3.0), I + cu("auto", 3.0) + .2));
+    slam("hq2", L, I + cu("auto", 3.0), 1.7); sx += shake(L, I + cu("auto", 3.0) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "sE"; tt = "t1";
+    pop("appE", L, .1, 50);
+    ["g0", "g1", "g2", "g3"].forEach((id, i) => { $(id).style.opacity = seg(L, .3 + i * .15, .5 + i * .15); });
+    const cs = [cu("tol", 3.0), cu("not", 5.0), cu("ext", 7.5)];
+    cs.forEach((a, i) => { const q = back(seg(L, I + a, I + a + .35)); $("c" + i).style.opacity = clamp(q * 2); $("c" + i).style.transform = `scale(${1.3 - .3 * clamp(q)})`; });
+    $("g0").className = "gr" + (L > I + cs[0] && L < I + cs[1] ? " on" : ""); $("g2").className = "gr" + (L > I + cs[1] && L < I + cs[2] ? " on" : ""); $("g1").className = "gr" + (L > I + cs[2] && L < I + cs[2] + 1.2 ? " on" : ""); $("g3").className = "gr" + (L > I + cs[2] + 1.2 ? " on" : "");
+    $("t1d").textContent = L < I + cs[0] ? "Espelho mensal pela CLT." : L < I + cs[1] ? "Tolerância de 10 minutos por dia." : L < I + cs[2] ? "Hora noturna reduzida, 22h às 5h." : "Extras de 50% e de 100%.";
+  }
+  if (k === 2) { sc = "sO"; tt = "t2";
+    const os = [cu("o0", .3), cu("o1", 1.6), cu("o2", 3.0)];
+    os.forEach((a, i) => { pop("o" + i, L, I + a, 40); $("o" + i).className = "oc" + (L > I + a + .3 ? " on" : ""); if (L > I + a) sx += shake(L, I + a + .2) * .4; });
+    slam("oBig", L, I + cu("hora", 5.3), 1.6); sx += shake(L, I + cu("hora", 5.3) + .2);
+  }
+  if (k === 3) { sc = "sB"; tt = "t3";
+    ["b0", "b1", "b2"].forEach((id, i) => pop(id, L, I + cu("b" + i, .6 + i * .7), 40));
+    pop("bA", L, I + cu("alerta", 4.0), 30); const aq = Math.sin(seg(L, I + cu("alerta", 4.0) + .4, I + cu("alerta", 4.0) + 1.4) * Math.PI); $("bA").style.boxShadow = `0 0 0 ${8 * aq}px rgba(183,121,31,.25)`;
+  }
+  if (k === 4) { sc = "sF"; tt = "t4";
+    pop("fC", L, .1, 40);
+    const fe = I + cu("fechou", .4), re = I + cu("reabriu", 2.6);
+    const b1 = Math.sin(seg(L, fe, fe + .3) * Math.PI); $("fB1").style.transform = `scale(${1 - .1 * b1})`;
+    const b2 = Math.sin(seg(L, re, re + .3) * Math.PI); $("fB2").style.transform = `scale(${1 - .1 * b2})`;
+    const st = L < fe + .2 ? 0 : L < re + .2 ? 1 : 2;
+    $("fSt").textContent = ["Aberta", "Fechada 🔒", "Reaberta"][st]; $("fSt").className = "chip" + (st === 1 ? " ok" : st === 2 ? " warn" : "");
+    $("fMsg").innerHTML = st === 1 ? "Banco de horas <em>consolidado</em> ✓" : st === 2 ? "Saldo do mês <em>estornado</em> do banco" : "";
+    $("t4d").textContent = st < 2 ? "Competência fechada, banco consolidado." : "Reabriu? O banco estorna sozinho.";
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k === 1 || k === 3 || k === 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

@@ -1,0 +1,4 @@
+{"voz":"voz/2026-10-31-ponto-clt","min":{"1":5.4},
+ "dest":["CLT","planilha","tolerância de dez minutos","hora noturna","cinquenta e de cem por cento","seis horas sem intervalo","duas horas extras","onze horas","ocorrência","Banco de horas","seis meses","consolidado","estorna","Fale com a gente"],
+ "cues":{"planilha":2.9,"auto":3.95,"tol":3.06,"not":4.9,"ext":7.4,"o0":0.2,"o1":2.03,"o2":3.96,"hora":7.14,"b0":1.5,"b1":2.46,"b2":3.2,"alerta":4.04,"fechou":0.3,"reabriu":3.43},
+ "capa":7.5}
