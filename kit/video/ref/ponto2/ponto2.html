@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+/*P1*/
+.card2{background:#fff;border:1px solid #E6DDD7;border-radius:22px;box-shadow:0 16px 44px rgba(60,40,30,.10)}
+.kv2{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.kv2 div{opacity:0}.kv2 small{display:block;font-family:Mono;font-size:16px;letter-spacing:1.2px;color:#6B6461;text-transform:uppercase}.kv2 b{font-size:26px}
+.alert{border-radius:20px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;opacity:0}
+.alert .ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;flex:none;font-size:30px}
+.tl{position:relative;height:150px;margin-top:10px}
+.tl .ax{position:absolute;left:30px;right:30px;top:80px;height:4px;background:#E6DDD7;border-radius:2px}
+.tl .band{position:absolute;top:58px;height:48px;background:rgba(30,142,78,.14);border:2px dashed #1C7438;border-radius:10px}
+.tl .tk{position:absolute;top:96px;font-family:Mono;font-size:18px;color:#6B6461;transform:translateX(-50%)}
+.tl .pt{position:absolute;top:66px;width:32px;height:32px;margin-left:-16px;border-radius:50%;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0}
+.res{display:flex;align-items:center;gap:14px;padding:18px 22px;border-radius:16px;margin-top:14px;font-size:22px;font-weight:600;opacity:0}
+.rtab{display:inline-block;font-size:19px;font-weight:600;padding:9px 14px;border-radius:10px;color:#6B6461}
+.rtab.on{background:#141312;color:#fff}
+.emp{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;margin-top:12px;opacity:0}
+.emp b{font-size:24px}.emp small{display:block;font-size:17px;color:#6B6461;margin-top:2px}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <svg id="hmap" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55"></svg>
+  <div id="hpins"></div>
+  <div class="hq" id="hq1" style="font-size:120px">Cada batida,<br><span style="color:var(--ac)">um ponto no mapa.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t0"><div class="k">PONTO COM GEOLOCALIZAÇÃO</div><div class="n">WFtec <em>Ponto.</em></div><div class="d">Veja tudo o que ele faz.</div></div>
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">A MARCAÇÃO</div><div class="n">Um toque, <em>tudo gravado.</em></div><div class="d" id="t1d">Hora do servidor, coordenadas, rua, bairro e cidade.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">RASTREABILIDADE</div><div class="n" id="t2n">Cada batida, <em>rastreável.</em></div><div class="d" id="t2d">Distância, precisão, IP, aparelho e código de auditoria.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">APROVAÇÃO</div><div class="n" id="t3n">Na regra? <em>Aprova sozinha.</em></div><div class="d" id="t3d">Tolerância configurável pelo RH.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">PORTAL DO RH</div><div class="n" id="t4n">Tudo do RH, <em>num lugar.</em></div><div class="d" id="t4d">Quadros, planilha, ajustes, espelho e banco de horas.</div></div>
+</div>
+
+<div id="stage">
+  <!-- telefone -->
+  <div id="phone"><div class="notch"></div><div id="scrW">
+    <div class="scr" id="scrA">
+      <div class="ph-h"><div class="lg"><i id="phlogo"></i>WF<span class="t">tec</span><small>Ponto</small></div><span class="sair">Sair</span></div>
+      <div class="pc clock"><div class="o">Olá, Ana</div><div class="dt">quarta-feira, 21/10</div><div class="hr" id="phHr">08:04<small>:12</small></div><div class="lc">Escritório Natal · raio de 150 m</div></div>
+      <div class="pbtn" id="pbtn"><span id="pbtnT">Registrar entrada</span><small>A hora é a do servidor, não a do celular</small><div class="ripple" id="rip"></div></div>
+      <div class="gps"><i style="background:#1C7438"></i><span>Você está no local (38 m do ponto central, precisão de 9 m).</span></div>
+      <div class="rc" id="rc"><div class="tt2">✓ Ponto registrado</div>
+        <div class="rr" id="rr0"><span>Marcação</span><span>Entrada</span></div>
+        <div class="rr" id="rr1"><span>Data e hora</span><span>21/10/2026 às 08:04</span></div>
+        <div class="rr" id="rr2"><span>Coordenadas</span><span style="font-family:Mono;font-size:12px">-5.79448, -35.21096</span></div>
+        <div class="rr" id="rr3"><span>Endereço</span><span>Rua Exemplo, 100 · Tirol</span></div>
+        <div class="rr" id="rr4"><span>Município</span><span>Natal - RN</span></div>
+        <div class="rr" id="rr5"><span>Nº do registro</span><span style="font-family:Mono">000128</span></div>
+        <div class="rr" id="rr6"><span>Código</span><span style="font-family:Mono;font-size:12px">a91f3c07e2b84d6f</span></div>
+      </div>
+    </div>
+  </div></div>
+  <!-- rastreabilidade -->
+  <div class="sc" id="sR">
+    <div class="card2" id="rDet" style="padding:22px 24px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:24px">Detalhes da batida · 08:04 · Entrada</b><span class="st p" style="font-size:16px">pendente</span></div>
+      <svg id="rmap" width="910" height="300" style="display:block;margin-top:14px;border-radius:14px"></svg>
+      <div class="kv2" style="margin-top:18px">
+        <div id="k0"><small>Distância do local</small><b>38 m (raio 150 m)</b></div>
+        <div id="k1"><small>Precisão do GPS</small><b>± 9 m</b></div>
+        <div id="k2"><small>IP</small><b style="font-family:Mono">177.•••.•••.42</b></div>
+        <div id="k3"><small>Aparelho</small><b>Android · Chrome</b></div>
+        <div id="k4" style="grid-column:span 2"><small>Código de auditoria (hash encadeado)</small><b style="font-family:Mono;font-size:22px">🔒 a91f3c07e2b84d6f9c10…</b></div>
+      </div>
+    </div>
+    <div class="alert" id="rAl" style="position:absolute;left:0;right:0;top:640px;background:#FBE3E0;border:2px solid #B0271C">
+      <div class="ic" style="background:#B0271C;color:#fff">!</div>
+      <div><div style="font-size:26px;font-weight:700;color:#B0271C">Possível GPS falso</div><div style="font-size:22px;margin-top:6px;line-height:1.35">Deslocamento improvável desde a última marcação (412 km em 20 min): conferir possível GPS falso.</div><div style="font-size:18px;color:#6B6461;margin-top:8px">A batida é gravada e sinalizada para o RH.</div></div>
+    </div>
+  </div>
+  <!-- tolerância -->
+  <div class="sc" id="sT">
+    <div class="card2" style="padding:22px 24px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:24px">Quadro de horário · entrada 08:00</b><span class="chp" style="background:#E0F2E5;color:#1C7438;font-size:16px;padding:4px 12px">tolerância 10 min</span></div>
+      <div class="tl"><div class="ax"></div><div class="band" style="left:250px;width:360px"></div>
+        <div class="tk" style="left:250px">07:50</div><div class="tk" style="left:430px">08:00</div><div class="tk" style="left:610px">08:10</div><div class="tk" style="left:840px">08:25</div>
+        <div class="pt" id="p1" style="left:538px;background:#1C7438"></div><div class="pt" id="p2" style="left:840px;background:#C98A1C"></div></div>
+    </div>
+    <div class="res" id="r1" style="background:#E0F2E5;color:#1C7438;border:2px solid #A9D3B5"><span style="font-family:Mono;font-size:24px">08:06</span>Dentro da tolerância<span class="st a" style="margin-left:auto;font-size:18px">aprovada sozinha</span></div>
+    <div class="res" id="r2" style="background:#FDF1DC;color:#8A5A00;border:2px solid #F1D9A8"><span style="font-family:Mono;font-size:24px">08:25</span>Fora do horário do quadro<span class="st p" style="margin-left:auto;font-size:18px">aguardando o RH</span></div>
+    <div class="res" id="r3" style="background:#FDF1DC;color:#8A5A00;border:2px solid #F1D9A8"><span style="font-family:Mono;font-size:24px">08:02</span>Fora da área · 1,2 km<span class="st p" style="margin-left:auto;font-size:18px">aguardando o RH</span></div>
+    <div class="abs disp" id="tBig" style="left:0;top:720px;width:960px;text-align:center;font-size:66px;opacity:0">Nunca <em>bloqueia.</em></div>
+  </div>
+  <!-- portal do RH / multiempresa -->
+  <div class="sc" id="sP">
+    <div class="card2" id="rh" style="padding:22px 24px">
+      <div style="display:flex;align-items:center;gap:12px"><span class="disp" style="font-size:34px">WFtec <em>Ponto</em></span><span style="font-size:22px;color:#6B6461">| Portal do RH</span></div>
+      <div style="font-size:18px;color:#6B6461;margin-top:4px">Empresa A · ambiente de tratamento do ponto da sua empresa</div>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px" id="rtabs"><span class="rtab">Empresa</span><span class="rtab">Batidas</span><span class="rtab">Quadros de horário</span><span class="rtab">Planilha</span><span class="rtab">Pedidos de ajuste</span><span class="rtab">Espelho e fechamento</span><span class="rtab">Funcionários</span><span class="rtab">Locais</span></div>
+      <div id="rhBody" style="margin-top:18px;height:330px;position:relative"></div>
+    </div>
+    <div class="abs" id="emps" style="left:0;top:520px;width:960px;opacity:0">
+      <div class="mono" style="font-size:18px;color:#6B6461;letter-spacing:1.5px">EMPRESAS · PAINEL DO CONTADOR</div>
+      <div class="card2 emp" id="e0"><div><b>Empresa A</b><small>12 funcionários · fechamento dia 20</small></div><div style="display:flex;gap:10px;align-items:center"><span class="st a" style="font-size:16px">ativa</span><span class="rtab on" id="opB" style="font-size:17px">Operar o ponto</span></div></div>
+      <div class="card2 emp" id="e1"><div><b>Empresa B</b><small>5 funcionários · mês civil</small></div><span class="st a" style="font-size:16px">ativa</span></div>
+      <div class="card2 emp" id="e2"><div><b>Empresa C</b><small>Doméstico (CPF) · 1 funcionário</small></div><span class="chp" style="background:#FCE3D8;color:#B83A16;font-size:16px;padding:4px 12px">aguardando liberação</span></div>
+    </div>
+    <div class="abs" id="banner" style="left:0;top:0;width:960px;padding:16px 20px;border-radius:16px;background:#141312;color:#fff;font-size:20px;opacity:0">Operando a empresa: <b style="color:#FF8A5C">Empresa A</b> — batidas, planilha, espelho, funcionários e locais abaixo são dessa empresa.</div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:140px">WFtec <em>Ponto</em></div>
+    <div style="font-size:40px;color:var(--muted);margin-top:12px">Cada batida, no lugar certo.</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:24px;padding:10px 18px">📍 Localização de cada batida</span><span class="chip" style="font-size:24px;padding:10px 18px">🔒 Código de auditoria</span><span class="chip" style="font-size:24px;padding:10px 18px">✅ Aprovação automática</span><span class="chip" style="font-size:24px;padding:10px 18px">🏢 Portal do RH e multiempresa</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+
+<div class="ilu" id="ilu">dados fictícios</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini;
+const HZ = window.innerWidth > 1500;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(HZ ? 420 : 300); $("phlogo").innerHTML = sz(24);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = typeof id === "string" ? $(id) : id; e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.95 + .05 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+{ const W = ["08:00", "12:00", "13:00", "18:00", "GPS", "NSR", "hash", "IP", "-5.794", "-35.210"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+function mapa(svg, w, h, o) {
+  let s = `<rect width="${w}" height="${h}" fill="${o.bg}"/>`;
+  for (let i = 0; i < 10; i++) { const y = (i * 137 + 40) % h; s += `<path d="M0 ${y} L${w} ${(y + 60 * Math.sin(i)) | 0}" stroke="${o.st}" stroke-width="${i % 3 ? o.sw : o.sw * 2}" fill="none"/>`; }
+  for (let i = 0; i < 12; i++) { const x = (i * 173 + 30) % w; s += `<path d="M${x} 0 L${(x + 40 * Math.cos(i)) | 0} ${h}" stroke="${o.st}" stroke-width="${i % 4 ? o.sw : o.sw * 2}" fill="none"/>`; }
+  if (o.park) s += `<rect x="${w * .7}" y="${h * .1}" width="${w * .16}" height="${h * .3}" rx="10" fill="#DCEBD2"/>`;
+  s += o.extra || "";
+  svg.innerHTML = s;
+}
+mapa($("hmap"), HZ ? 1920 : 1080, HZ ? 1080 : 1920, { bg: "transparent", st: "#3A3330", sw: 3 });
+mapa($("rmap"), 910, 300, { bg: "#F2EFE9", st: "#FFFFFF", sw: 6, park: 1, extra: `<circle cx="380" cy="160" r="105" fill="rgba(241,90,37,.12)" stroke="#F15A25" stroke-width="3"/><circle cx="380" cy="160" r="6" fill="#F15A25"/><text x="300" y="285" font-family="IBM Plex Mono" font-size="18" fill="#B83A16">Escritório Natal · raio 150 m</text><path id="rLine" d="M380 160 L410 140" stroke="#1D5CA3" stroke-width="3" stroke-dasharray="6 5"/><circle id="rAcc" cx="410" cy="140" r="26" fill="rgba(29,92,163,.15)"/><circle id="rMe" cx="410" cy="140" r="10" fill="#1D5CA3" stroke="#fff" stroke-width="3"/><text id="rTx" x="430" y="128" font-family="IBM Plex Mono" font-size="20" font-weight="600" fill="#1D5CA3">38 m</text>` });
+// pinos do gancho
+const PINS = [["08:02", .22, .30], ["08:05", .70, .22], ["12:01", .40, .52], ["13:04", .78, .60], ["18:00", .25, .72], ["08:11", .58, .40]];
+$("hpins").innerHTML = PINS.map(([h, x, y], i) => `<div class="pin" id="pn${i}" style="position:absolute;left:${x * 100}%;top:${y * 100}%;margin-left:-40px;margin-top:-104px;text-align:center"><svg width="80" height="104" viewBox="0 0 24 32"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0z" fill="#F15A25"/><circle cx="12" cy="12" r="5" fill="#fff"/></svg><div style="font-family:Mono;font-weight:600;font-size:30px;color:#fff;background:#141312;border:2px solid #F15A25;border-radius:10px;padding:2px 10px;margin-top:4px">${h}</div></div>`).join("");
+// corpo do portal do RH (muda por aba)
+const RHB = [
+  `<div style="display:flex;gap:14px"><div class="card2" style="flex:1;padding:16px 18px"><div class="mono" style="font-size:16px;color:#6B6461">QUADRO PADRÃO</div><div class="disp" style="font-size:44px;margin-top:6px">44h00<span style="font-size:24px;color:#6B6461">/semana</span></div><div style="font-size:18px;margin-top:6px">seg a sex · 08:00–12:00 · 13:00–17:48</div></div><div class="card2" style="flex:1;padding:16px 18px"><div class="mono" style="font-size:16px;color:#6B6461">SÁBADO</div><div class="disp" style="font-size:44px;margin-top:6px">Descanso</div><div style="font-size:18px;margin-top:6px">8 funcionários no quadro</div></div></div>`,
+  `<div style="font-family:Mono;font-size:16px;color:#6B6461;display:grid;grid-template-columns:110px repeat(4,1fr) 150px;gap:6px;border-bottom:1px solid #E6DDD7;padding-bottom:6px"><span>DATA</span><span>ENT 1</span><span>SAÍ 1</span><span>ENT 2</span><span>SAÍ 2</span><span>OCORRÊNCIA</span></div>` + [["seg 19/10", "08:02", "12:00", "13:01", "17:50", "—"], ["ter 20/10", "08:06", "12:02", "13:00", "17:49", "—"], ["qua 21/10", "", "", "", "", "Atestado"], ["qui 22/10", "07:58", "12:00", "13:05", "18:40", "—"]].map((r) => `<div style="display:grid;grid-template-columns:110px repeat(4,1fr) 150px;gap:6px;font-family:Mono;font-size:19px;padding:10px 0;border-bottom:1px solid #F0E9E4"><span style="font-family:Plex">${r[0]}</span><span>${r[1]}</span><span>${r[2]}</span><span>${r[3]}</span><span>${r[4]}</span><span style="font-family:Plex;font-weight:600;color:${r[5] === "Atestado" ? "#8A5A00" : "#9b928c"}">${r[5]}</span></div>`).join(""),
+  `<div style="display:flex;gap:12px;align-items:center;padding:16px 18px;border:1px solid #E6DDD7;border-radius:14px"><div style="flex:1"><b style="font-size:22px">Colaborador 03</b><div style="font-size:18px;color:#6B6461;margin-top:4px">Pediu inclusão: 20/10 às 18:00 · "esqueci de marcar a saída"</div></div><span class="rtab on" style="background:#F15A25;color:#1F1F1F">Aprovar</span><span class="rtab" style="color:#B0271C;border:1px solid #E6DDD7">Recusar</span></div>`,
+  `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">` + [["trabalhadas", "168h20"], ["extra 50%", "6h40"], ["extra 100%", "4h00"], ["noturnas", "2h17"], ["faltas", "1 dia"], ["atestados", "1 dia"], ["saldo do mês", "+7h40"], ["banco: total", "+12h30"]].map(([a, b], i) => `<div style="border:${i === 7 ? "2px solid #F15A25;background:#FDE7DD" : "1px solid #E6DDD7"};border-radius:12px;padding:14px"><b style="font-family:Mono;font-size:28px;display:block">${b}</b><span style="font-size:16px;color:#6B6461">${a}</span></div>`).join("") + `</div><div style="margin-top:14px;font-size:18px;color:#1C7438;font-weight:600">✓ Espelho calculado pela CLT · competência 2026-10</div>`
+];
+const TABI = [2, 3, 4, 5];
+const TT = ["t0", "t1", "t2", "t3", "t4"];
+window.preparar = async () => {};
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, tt = null, ttA = fade, legOn = true, isO = false, darkOn = false, sc = null, showPhone = false;
+  const SW = TL.sw1;
+  if (k === 0) {
+    darkOn = L < SW + .25; $("dark").style.opacity = 1 - seg(L, SW, SW + .3); $("hook").style.opacity = 1 - seg(L, SW, SW + .25);
+    PINS.forEach((p, i) => { const a = I + .1 + i * .32; const q = back(seg(L, a, a + .4)); const e = $("pn" + i); e.style.opacity = clamp(q * 2); e.style.transform = `translateY(${(1 - clamp(q)) * -300}px)`; if (L > a + .35 && L < a + .6) sx += shake(L, a + .35) * .4; });
+    $("hq1").style.top = (HZ ? 400 : 1080) + "px"; slam("hq1", L, I + 2.0, 1.6);
+    if (L >= SW) { tt = "t0"; ttA = seg(L, SW, SW + .4) * fade; const p = back(seg(L, SW, SW + .5)); $("t0").style.transform = `scale(${.9 + .1 * p})`; $("t0").style.transformOrigin = "0 50%"; showPhone = true; }
+    legOn = true;
+  } else { $("dark").style.opacity = 0; $("hook").style.opacity = 0; }
+  if (k <= 1) {
+    showPhone = showPhone || k === 1;
+    const P = k === 1 ? L : -9;
+    const enter = k === 0 ? eout(seg(L, SW + .1, SW + .7)) : 1; $("phone").style.transform = `translateY(${(1 - enter) * 500}px)`;
+    const tap = TL.tap;
+    const rq = seg(P, tap, tap + .45); $("rip").style.opacity = (1 - rq) * (P > tap ? 1 : 0); $("rip").style.transform = `scale(${1 + rq * 12})`;
+    $("pbtn").style.transform = `scale(${1 - .04 * Math.sin(seg(P, tap, tap + .25) * Math.PI)})`;
+    $("pbtnT").textContent = P < tap + .05 ? "Registrar entrada" : P < tap + .5 ? "Obtendo localização…" : P < tap + .9 ? "Registrando…" : "Registrar saída para intervalo";
+    const rq2 = back(seg(P, tap + .9, tap + 1.3)); $("rc").style.opacity = P > tap + .9 ? clamp(rq2 * 2) : 0; $("rc").style.transform = `translateY(${(1 - clamp(rq2)) * 40}px)`;
+    TL.rr.forEach((a, i) => $("rr" + i).style.opacity = seg(P, a, a + .2));
+    $("scrA").style.transform = `translateY(${-230 * eout(seg(P, TL.rr[2] - .3, TL.rr[2] + .3))}px)`;
+    if (k === 1) tt = "t1";
+  }
+  if (k === 2) { sc = "sR"; tt = "t2";
+    pop("rDet", L, .05, 50);
+    const mq = eout(seg(L, .4, 1.2)); $("rMe").setAttribute("cx", 410 + (1 - mq) * 200); $("rAcc").setAttribute("cx", 410 + (1 - mq) * 200); $("rLine").style.opacity = mq; $("rTx").style.opacity = mq;
+    TL.kv.forEach((a, i) => pop("k" + i, L, a, 15));
+    const lk = Math.sin(seg(L, TL.kv[4] + .2, TL.kv[4] + .7) * Math.PI); $("k4").style.background = lk > .05 ? `rgba(241,90,37,${.15 * lk})` : ""; $("k4").style.borderRadius = "12px";
+    const aq = slam("rAl", L, TL.al, 1.25); sx += shake(L, TL.al + .2);
+    $("t2n").innerHTML = L < TL.al - .2 ? "Cada batida, <em>rastreável.</em>" : "GPS falso? <em>Ele avisa.</em>";
+    $("t2d").textContent = L < TL.al - .2 ? "Distância, precisão, IP, aparelho e código de auditoria." : "Deslocamento impossível vira alerta para o RH.";
+  }
+  if (k === 3) { sc = "sT"; tt = "t3";
+    const p1 = back(seg(L, TL.a1, TL.a1 + .35)); $("p1").style.opacity = clamp(p1 * 2); $("p1").style.transform = `scale(${clamp(p1)})`;
+    pop("r1", L, TL.a1 + .5, 20);
+    const p2 = back(seg(L, TL.a2, TL.a2 + .35)); $("p2").style.opacity = clamp(p2 * 2); $("p2").style.transform = `scale(${clamp(p2)})`;
+    pop("r2", L, TL.a2 + .3, 20); pop("r3", L, TL.a3, 20);
+    slam("tBig", L, TL.a4, 1.6); sx += shake(L, TL.a4 + .2);
+    $("t3n").innerHTML = L < TL.a2 - .2 ? "Na regra? <em>Aprova sozinha.</em>" : "Fora da regra? <em>Vai pro RH.</em>";
+    $("t3d").textContent = L < TL.a2 - .2 ? "Dentro do horário e da tolerância." : L < TL.a4 - .2 ? "Fora do quadro ou fora do local." : "A marcação nunca é bloqueada.";
+  }
+  if (k === 4) { sc = "sP"; tt = "t4";
+    const B = TL.b1; const rhA = 1 - seg(L, B - .15, B + .1);
+    $("rh").style.opacity = rhA; $("rh").style.transform = `scale(${.97 + .03 * eout(seg(L, 0, .4))})`;
+    let cur = -1; TL.tabs.forEach((a, i) => { if (L >= a) cur = i; });
+    [...$("rtabs").children].forEach((e, i) => e.className = "rtab" + (cur >= 0 && i === TABI[cur] ? " on" : "") );
+    if (cur >= 0) { $("rhBody").innerHTML = RHB[cur]; $("rhBody").style.opacity = seg(L, TL.tabs[cur], TL.tabs[cur] + .25); } else $("rhBody").innerHTML = "";
+    $("emps").style.opacity = seg(L, B - .1, B + .15); $("emps").style.top = "90px";
+    ["e0", "e1", "e2"].forEach((id, i) => pop(id, L, B + .1 + i * .18, 20));
+    const ob = Math.sin(seg(L, B + 1.3, B + 1.6) * Math.PI); $("opB").style.transform = `scale(${1 - .08 * ob})`; $("opB").style.background = L > B + 1.3 ? "#F15A25" : "#141312";
+    pop("banner", L, B + 1.7, -20); $("banner").style.top = "560px";
+    $("t4n").innerHTML = L < B ? "Tudo do RH, <em>num lugar.</em>" : "Várias empresas, <em>um painel.</em>";
+    $("t4d").textContent = L < B ? "Quadros, planilha, ajustes, espelho e banco de horas." : "O contador opera o ponto de cada cliente.";
+  }
+  if (k === 5) { isO = true; legOn = false; }
+  $("outro").style.opacity = isO ? seg(L, 0, .3) : 0;
+  if (isO) { $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(L, 0, .6))}) rotate(${(1 - eout(seg(L, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(L, .4 + i * .15, .75 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, L - 1.2) * 6)})`; }
+  $("phone").style.opacity = showPhone ? (k === 1 ? 1 - seg(t, S[1].fim - .18, S[1].fim) : 1) : 0;
+  ["sR", "sT", "sP"].forEach((id) => { const e = $(id); e.style.opacity = id === sc ? fade : 0; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? ttA : 0; });
+  if (tt && tt !== "t0") { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined ? 1 : 0;
+  $("brand").style.opacity = (k === 0 && L < SW) || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = darkOn ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && legOn && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(site/fonts/archivo-900i.woff2);font-weight:900;font-style:italic}
+@font-face{font-family:Plex;src:url(site/fonts/plex-400.woff2);font-weight:400}
+@font-face{font-family:Plex;src:url(site/fonts/plex-500.woff2);font-weight:500}
+@font-face{font-family:Plex;src:url(site/fonts/plex-600.woff2);font-weight:600}
+@font-face{font-family:Plex;src:url(site/fonts/plex-700.woff2);font-weight:700}
+@font-face{font-family:Mono;src:url(site/fonts/mono-500.woff2);font-weight:500}
+@font-face{font-family:Mono;src:url(site/fonts/mono-600.woff2);font-weight:600}
+:root{--paper:#F6F2EF;--ink:#262626;--line:#E6DDD7;--muted:#6B6461;--ac:#F15A25;--act:#B83A16;--acs:#FDE7DD;--carvao:#141312;--ok:#1E8E4E;--oks:#E3F4EA;--bad:#C0392B;--bads:#FBE3E0;--warn:#B7791F;--warns:#FBF0D9;--info:#2F6DB5;--infos:#E3EEFA}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:Plex,sans-serif}
+.abs{position:absolute}.layer{position:absolute;inset:0;opacity:0}
+.disp{font-family:Archivo;font-style:italic;font-weight:900;letter-spacing:-1.5px;line-height:1.02}
+em{font-style:inherit;color:var(--ac)}
+.kick{font-family:Mono;font-size:26px;letter-spacing:3px;color:var(--act)}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:0 18px 50px rgba(60,40,30,.10)}
+.mono{font-family:Mono}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:22px;font-weight:600;padding:7px 16px;border-radius:999px;background:#F3EDE9;color:#4a4542}
+.chip.ok{background:var(--oks);color:#1E6B3E}.chip.bad{background:var(--bads);color:var(--bad)}.chip.warn{background:var(--warns);color:var(--warn)}.chip.info{background:var(--infos);color:var(--info)}.chip.ac{background:var(--ac);color:#fff}
+#brand{position:absolute;left:130px;top:62px;display:flex;align-items:center;gap:14px;font-family:Archivo;font-style:italic;font-weight:900;font-size:36px;z-index:5}
+#brand b{color:var(--ac)}
+#kick{position:absolute;right:130px;top:74px;z-index:5}
+#flash{position:absolute;inset:0;background:var(--paper);opacity:0;z-index:7}
+#leg{position:absolute;left:200px;right:200px;top:968px;text-align:center;font-size:34px;font-weight:600;line-height:1.35;opacity:0;z-index:8}
+#leg span{background:var(--carvao);color:#fff;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:6px 16px;border-radius:10px}
+#leg em{color:#FF8A5C}
+.ilu{position:absolute;right:130px;top:1040px;font-family:Mono;font-size:20px;color:#9b928c}
+/* cena 1 */
+.doc{position:absolute;width:380px;height:500px;padding:34px 34px}
+.doc .l{height:16px;border-radius:8px;background:#EDE6E1;margin-top:20px}
+.doc .h{font-family:Mono;font-size:24px;color:var(--act)}
+.doc .tt{font-weight:700;font-size:34px;margin-top:8px}
+/* cena 2 */
+.drop{position:absolute;top:300px;width:790px;height:330px;border:3px dashed #D9CEC6;border-radius:30px;background:rgba(255,255,255,.55)}
+.drop .lab{position:absolute;left:40px;top:34px;font-size:32px;font-weight:700}
+.drop .sub{position:absolute;left:40px;top:84px;font-size:24px;color:var(--muted)}
+.file{position:absolute;left:40px;top:150px;width:700px;height:150px;display:flex;align-items:center;gap:28px;padding:0 30px;opacity:0}
+.file .ic{width:84px;height:104px;border-radius:12px;display:grid;place-items:center;font-family:Mono;font-weight:600;font-size:22px;color:#fff}
+.file b{font-size:30px;display:block}.file span{font-size:22px;color:var(--muted)}
+/* cena 3 */
+table{border-collapse:collapse;width:100%}
+th{font-family:Mono;font-size:20px;letter-spacing:1.5px;color:var(--muted);text-align:left;font-weight:500;padding:0 22px 14px}
+td{font-size:28px;padding:17px 18px;border-top:1px solid var(--line)}
+td.n{font-family:Mono;font-size:27px;text-align:right}th.n{text-align:right}
+td.up{color:var(--ok);font-weight:600}td.dn{color:var(--bad);font-weight:600}td.z{color:#9b928c}
+tr.r{opacity:0}
+.tab{font-size:24px;font-weight:600;padding:10px 22px;border-radius:12px;color:var(--muted)}
+.tab.on{background:var(--carvao);color:#fff}
+/* cena 4 */
+.stat{position:absolute;width:330px;height:190px;padding:28px 30px;opacity:0}
+.stat b{font-family:Archivo;font-style:italic;font-weight:900;font-size:86px;line-height:1}
+.stat span{display:block;font-size:24px;color:var(--muted);margin-top:12px;font-weight:600}
+.ach{position:absolute;left:880px;width:910px;padding:22px 28px;display:flex;align-items:center;gap:20px;opacity:0}
+.ach .t{font-size:27px;font-weight:600}.ach .s{font-size:22px;color:var(--muted);margin-top:2px}
+#forta{position:absolute;left:880px;top:768px;width:910px;padding:24px 28px;display:flex;gap:22px;opacity:0;background:var(--carvao);color:#fff;border-radius:26px}
+#forta img{width:74px;height:74px;border-radius:50%;flex:none;object-fit:cover}
+#forta .lab{font-family:Mono;font-size:20px;color:#FF8A5C;letter-spacing:1.5px}
+#forta .tx{font-size:25px;line-height:1.38;margin-top:6px;min-height:70px}
+/* cena 5 */
+.bar{height:58px;border-radius:14px;width:0}
+.brow{display:flex;align-items:center;gap:26px;margin-top:30px;opacity:0}
+.brow .nm{width:300px;font-size:28px;font-weight:600}
+.brow .vl{font-family:Mono;font-size:28px;white-space:nowrap}
+/* cena filtros */
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl small{font-family:Mono;font-size:17px;letter-spacing:1.2px;color:var(--muted)}
+.ctl .box{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px;padding:0 18px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font-size:24px;font-weight:600;white-space:nowrap}
+.ctl .box.on{border-color:var(--ac);box-shadow:0 0 0 4px rgba(241,90,37,.15)}
+.dd{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px rgba(40,25,15,.18);padding:8px;opacity:0;z-index:3}
+.dd div{font-size:23px;padding:10px 16px;border-radius:10px;white-space:nowrap}
+.dd div.hl{background:var(--acs);color:var(--act);font-weight:600}
+.vr{display:grid;grid-template-columns:210px 240px 170px 140px 140px 170px;align-items:center;overflow:hidden;border-top:1px solid var(--line);font-size:24px}
+.vr>*{padding:0 14px}.vr .n{font-family:Mono;text-align:right;font-size:24px}
+.vh{display:grid;grid-template-columns:210px 240px 170px 140px 140px 170px;font-family:Mono;font-size:17px;letter-spacing:1.2px;color:var(--muted);padding-bottom:10px}
+.vh>*{padding:0 14px}.vh .n{text-align:right}
+.xb{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:600;padding:16px 20px;border:1.5px solid var(--line);border-radius:14px;background:#fff;margin-top:12px}
+/* cena 6 */
+#cta{display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:26px 46px;border-radius:22px;box-shadow:0 18px 40px rgba(241,90,37,.35)}
+</style></head><body>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div class="kick" id="kick"></div>
+
+<!-- 1 · pergunta -->
+<div class="layer" id="c1">
+  <div class="abs" style="left:130px;top:250px;width:760px">
+    <div class="kick">FECHAMENTO DA FOLHA</div>
+    <h1 class="disp" id="c1t" style="font-size:108px;margin-top:26px">O que mudou na folha <em>deste mês?</em></h1>
+  </div>
+  <div class="card doc" id="d1" style="left:1010px;top:250px"><div class="h">ESPELHO DA FOLHA</div><div class="tt">Agosto/2026</div><div class="l" style="width:90%"></div><div class="l" style="width:70%"></div><div class="l" style="width:84%"></div><div class="l" style="width:60%"></div><div class="l" style="width:88%"></div><div class="l" style="width:52%"></div><div class="l" style="width:76%"></div><div class="l" style="width:66%"></div></div>
+  <div class="card doc" id="d2" style="left:1380px;top:290px"><div class="h">ESPELHO DA FOLHA</div><div class="tt">Setembro/2026</div><div class="l" style="width:86%"></div><div class="l" style="width:74%"></div><div class="l" style="width:80%"></div><div class="l" style="width:64%"></div><div class="l" style="width:90%"></div><div class="l" style="width:58%"></div><div class="l" style="width:72%"></div><div class="l" style="width:62%"></div></div>
+  <div class="abs disp" id="qm" style="left:1300px;top:360px;font-size:240px;color:var(--ac);opacity:0">?</div>
+</div>
+
+<!-- 2 · envio -->
+<div class="layer" id="c2">
+  <div class="abs" style="left:130px;top:150px"><h2 class="disp" id="c2t" style="font-size:92px">Double Check <em>Folha</em></h2></div>
+  <div class="drop" style="left:130px"><div class="lab">Mês anterior</div><div class="sub">Escolha o espelho da folha ou arraste o arquivo</div>
+    <div class="card file" id="f1"><div class="ic" style="background:#C0392B">PDF</div><div><b>espelho-agosto-2026.pdf</b><span>Espelho e resumo da folha · SCI</span></div></div></div>
+  <div class="drop" style="left:1000px"><div class="lab">Mês atual</div><div class="sub">Escolha o espelho da folha ou arraste o arquivo</div>
+    <div class="card file" id="f2"><div class="ic" style="background:#1E7A45">XLSX</div><div><b>folha-setembro-2026.xlsx</b><span>Excel · também aceita CSV/TXT</span></div></div></div>
+  <div class="abs" id="fmt" style="left:130px;top:670px;display:flex;gap:14px;opacity:0"><span class="chip">PDF do SCI</span><span class="chip">Excel</span><span class="chip">CSV / TXT</span></div>
+  <div class="abs" id="conf" style="left:1000px;top:670px;opacity:0"><span class="chip ok">✓ 42 de 42 funcionários conferem com os totais do PDF</span></div>
+  <div class="abs card" id="priv" style="left:130px;top:760px;padding:20px 30px;display:flex;align-items:center;gap:20px;opacity:0">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E8E4E" stroke-width="2.2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    <span style="font-size:28px;font-weight:600">Lido no seu computador. <span style="color:var(--muted);font-weight:500">Os arquivos não ficam guardados.</span></span></div>
+</div>
+
+<!-- 3 · comparação -->
+<div class="layer" id="c3">
+  <div class="abs card" id="tb" style="left:130px;top:160px;width:1100px;height:760px;padding:30px 34px">
+    <div>
+      <div style="display:flex;gap:8px"><span class="tab on" id="tab1">Por funcionário</span><span class="tab" id="tab2">Por verba</span><span class="tab">Valor a valor</span><span class="tab">Alertas</span></div>
+      <div style="display:flex;gap:10px;margin-top:18px"><span class="chip" id="fA">Todos</span><span class="chip" id="fB">Com diferença</span><span class="chip">Admitidos</span><span class="chip">Desligados</span><span class="chip">Férias</span></div>
+    </div>
+    <div class="mono" style="font-size:22px;color:var(--muted);margin:22px 0 18px">Agosto/2026 → Setembro/2026 · líquido por funcionário</div>
+    <table>
+      <tr><th>FUNCIONÁRIO</th><th>SITUAÇÃO</th><th class="n">ANTERIOR</th><th class="n">ATUAL</th><th class="n">DIFERENÇA</th></tr>
+      <tr class="r"><td>Ana Souza</td><td><span class="chip">Ativo</span></td><td class="n">3.250,00</td><td class="n">3.250,00</td><td class="n z">0,00</td></tr>
+      <tr class="r"><td>Bruno Lima</td><td><span class="chip">Ativo</span></td><td class="n">2.980,40</td><td class="n">3.412,90</td><td class="n up">+432,50</td></tr>
+      <tr class="r"><td>Carla Mendes</td><td><span class="chip info">Férias</span></td><td class="n">2.600,00</td><td class="n">3.466,67</td><td class="n up">+866,67</td></tr>
+      <tr class="r"><td>Diego Rocha</td><td><span class="chip bad">Desligado</span></td><td class="n">2.150,00</td><td class="n">—</td><td class="n dn">−2.150,00</td></tr>
+      <tr class="r"><td>Elisa Prado</td><td><span class="chip ok">Admitido</span></td><td class="n">—</td><td class="n">2.400,00</td><td class="n up">+2.400,00</td></tr>
+      <tr class="r"><td>Fábio Nunes</td><td><span class="chip">Ativo</span></td><td class="n">4.120,00</td><td class="n">3.870,00</td><td class="n dn">−250,00</td></tr>
+    </table>
+  </div>
+  <div class="abs card" id="res" style="left:1270px;top:160px;width:520px;padding:26px 30px;opacity:0">
+    <div class="mono" style="font-size:20px;color:var(--muted);letter-spacing:1.5px">RESUMO DA COMPARAÇÃO</div>
+    <div style="display:flex;gap:26px;margin-top:14px;white-space:nowrap">
+      <div><div class="disp" style="font-size:64px">42</div><div style="font-size:22px;color:var(--muted)">funcionários</div></div>
+      <div><div class="disp" style="font-size:64px;color:var(--ac)">9</div><div style="font-size:22px;color:var(--muted)">com diferença</div></div>
+      <div><div class="disp" style="font-size:64px">1/1</div><div style="font-size:22px;color:var(--muted)">entrou / saiu</div></div>
+    </div>
+  </div>
+  <div class="abs card" id="verba" style="left:1270px;top:430px;width:520px;padding:24px 30px;opacity:0;border:2px solid var(--ac)">
+    <div class="mono" style="font-size:20px;color:var(--act);letter-spacing:1.5px">BRUNO LIMA · VERBA POR VERBA</div>
+    <div style="display:flex;justify-content:space-between;font-size:26px;margin-top:14px"><span>Hora extra 50%</span><span class="mono" style="color:var(--ok)">+386,20</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:26px;margin-top:8px"><span>DSR sobre horas extras</span><span class="mono" style="color:var(--ok)">+77,24</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:26px;margin-top:8px"><span>INSS</span><span class="mono" style="color:var(--bad)">−30,94</span></div>
+  </div>
+</div>
+
+<!-- F · filtros -->
+<div class="layer" id="cf">
+  <div class="abs card" id="ftb" style="left:130px;top:160px;width:1160px;height:770px;padding:28px 30px">
+    <div style="display:flex;gap:14px;align-items:flex-end">
+      <div class="ctl"><small>VERBAS</small><div class="box" id="bxV" style="width:270px"><span id="lbV">Todas</span><span>▾</span></div></div>
+      <div class="ctl"><small>CENTRO DE CUSTO</small><div class="box" id="bxC" style="width:240px"><span id="lbC">Todos</span><span>▾</span></div></div>
+      <div class="ctl"><small>FUNCIONÁRIOS</small><div class="box" id="bxF" style="width:200px"><span>Todos</span><span>▾</span></div></div>
+      <div class="ctl"><small>BUSCAR</small><div class="box" id="bxB" style="width:170px;justify-content:flex-start;font-weight:500"><span id="lbB" style="color:#9b928c">nome…</span></div></div>
+      <div class="ctl"><small>TOLERÂNCIA</small><div class="box" id="bxT" style="width:150px"><span id="lbT" class="mono">R$ 0,00</span></div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin:22px 0 20px"><span class="chip ac" id="gA">Todos</span><span class="chip" id="gB">Com diferença</span><span class="chip">Sem diferença</span><span class="chip">Conferidos</span></div>
+    <div class="vh"><span>FUNCIONÁRIO</span><span>VERBA</span><span>C. CUSTO</span><span class="n">ANTERIOR</span><span class="n">ATUAL</span><span class="n">DIFERENÇA</span></div>
+    <div class="vr" id="vr0"><span>Bruno Lima</span><span>Hora extra 50%</span><span style="color:var(--muted)">Loja Centro</span><span class="n">0,00</span><span class="n">386,20</span><span class="n up" style="color:var(--ok);font-weight:600">+386,20</span></div><div class="vr" id="vr1"><span>Bruno Lima</span><span>DSR s/ horas extras</span><span style="color:var(--muted)">Loja Centro</span><span class="n">0,00</span><span class="n">77,24</span><span class="n up" style="color:var(--ok);font-weight:600">+77,24</span></div><div class="vr" id="vr2"><span>Carla Mendes</span><span>Férias + 1/3</span><span style="color:var(--muted)">Loja Centro</span><span class="n">0,00</span><span class="n">3.466,67</span><span class="n up" style="color:var(--ok);font-weight:600">+3.466,67</span></div><div class="vr" id="vr3"><span>Fábio Nunes</span><span>Hora extra 50%</span><span style="color:var(--muted)">Escritório</span><span class="n">512,00</span><span class="n">262,00</span><span class="n dn" style="color:var(--bad);font-weight:600">−250,00</span></div><div class="vr" id="vr4"><span>Gustavo Alves</span><span>Hora extra 50%</span><span style="color:var(--muted)">Loja Norte</span><span class="n">120,00</span><span class="n">180,00</span><span class="n up" style="color:var(--ok);font-weight:600">+60,00</span></div><div class="vr" id="vr5"><span>Ana Souza</span><span>Salário base</span><span style="color:var(--muted)">Escritório</span><span class="n">3.250,00</span><span class="n">3.250,00</span><span class="n z" style="color:#9b928c">0,00</span></div><div class="vr" id="vr6"><span>Helena Dias</span><span>Hora extra 50%</span><span style="color:var(--muted)">Loja Centro</span><span class="n">80,00</span><span class="n">80,40</span><span class="n up" style="color:var(--ok);font-weight:600">+0,40</span></div><div class="vr" id="vr7"><span>Elisa Prado</span><span>Salário base</span><span style="color:var(--muted)">Loja Centro</span><span class="n">—</span><span class="n">2.400,00</span><span class="n up" style="color:var(--ok);font-weight:600">+2.400,00</span></div>
+  </div>
+  <div class="dd" id="ddV" style="left:160px;top:310px;width:330px"><div>Todas</div><div>Salário base</div><div id="ddVh">Hora extra 50%</div><div>DSR s/ horas extras</div><div>Adicional noturno</div><div>Vale-transporte</div><div>INSS</div></div>
+  <div class="dd" id="ddC" style="left:444px;top:310px;width:270px"><div>Todos</div><div id="ddCh">Loja Centro</div><div>Loja Norte</div><div>Escritório</div></div>
+  <div class="dd" id="ddF" style="left:698px;top:310px;width:280px"><div>Todos</div><div>Ana Souza</div><div>Bruno Lima</div><div>Carla Mendes</div><div>Diego Rocha</div><div>Elisa Prado</div></div>
+  <div class="abs card" id="fat" style="left:1330px;top:160px;width:460px;padding:26px 28px;opacity:0">
+    <div class="mono" style="font-size:19px;color:var(--muted);letter-spacing:1.5px">FILTROS ATIVOS</div>
+    <div id="fchips" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;min-height:50px"></div>
+    <div class="mono" style="font-size:19px;color:var(--muted);letter-spacing:1.5px;margin-top:20px">RESULTADO</div>
+    <div class="disp" id="fres" style="font-size:60px;margin-top:6px">8 linhas</div>
+  </div>
+  <div class="abs" id="exp" style="left:1330px;top:520px;width:460px;opacity:0">
+    <div class="mono" style="font-size:19px;color:var(--muted);letter-spacing:1.5px">EXPORTAR</div>
+    <div class="xb" id="x1">⧉ Copiar tabela</div><div class="xb" id="x2"><span style="color:#1E7A45">▦</span> Baixar Excel</div><div class="xb" id="x3"><span style="color:var(--muted)">≡</span> Baixar CSV</div><div class="xb" id="x4"><span style="color:#C0392B">▤</span> Relatório PDF</div>
+  </div>
+  <div class="abs" id="toast" style="left:1330px;top:880px;opacity:0"><span class="chip ok" style="font-size:22px">✓ double-check-folha.pdf</span></div>
+</div>
+
+<!-- 4 · auditoria -->
+<div class="layer" id="c4">
+  <div class="abs" style="left:130px;top:160px"><h2 class="disp" id="c4t" style="font-size:80px">Auditoria de <em>folha</em></h2></div>
+  <div class="card stat" id="st1" style="left:130px;top:300px"><b style="color:var(--bad)" data-n="1">0</b><span>Erros confirmados</span></div>
+  <div class="card stat" id="st2" style="left:490px;top:300px"><b style="color:var(--warn)" data-n="2">0</b><span>Prováveis erros</span></div>
+  <div class="card stat" id="st3" style="left:130px;top:520px"><b data-n="4">0</b><span>Revisões manuais</span></div>
+  <div class="card stat" id="st4" style="left:490px;top:520px"><b style="color:var(--info)" data-n="6">0</b><span>Alertas</span></div>
+  <div class="card ach" id="a1" style="top:300px"><span class="chip bad">Crítico</span><div><div class="t">Líquido negativo</div><div class="s">Gustavo Alves · descontos maiores que os proventos</div></div></div>
+  <div class="card ach" id="a2" style="top:415px"><span class="chip warn">Atenção</span><div><div class="t">Salário abaixo do mínimo</div><div class="s">Helena Dias · salário base de R$ 1.480,00</div></div></div>
+  <div class="card ach" id="a3" style="top:530px"><span class="chip warn">Atenção</span><div><div class="t">Salário-família indevido</div><div class="s">Igor Melo · remuneração acima do limite</div></div></div>
+  <div class="card ach" id="a4" style="top:645px"><span class="chip info">Informativo</span><div><div class="t">Líquido variou 38%</div><div class="s">Bruno Lima · horas extras no mês</div></div></div>
+  <div id="forta"><div><div class="lab">O QUE FOI CONFERIDO</div><div class="tx" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"><span class="chip">Salário mínimo</span><span class="chip">Salário base</span><span class="chip">Líquido</span><span class="chip">Salário-família</span><span class="chip">Estouro de folha</span><span class="chip">Benefício do INSS</span></div></div></div>
+</div>
+
+<!-- 5 · custo -->
+<div class="layer" id="c5">
+  <div class="abs" style="left:130px;top:160px;width:1660px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div><h2 class="disp" id="c5t" style="font-size:80px">Custo da <em>folha</em></h2>
+        <div class="disp" id="tot" style="font-size:130px;margin-top:24px">R$ 0,00</div></div>
+      <span class="chip warn" id="var" style="font-size:30px;padding:12px 24px;opacity:0">▲ 3,8% vs. agosto</span>
+    </div>
+    <div style="margin-top:30px">
+      <div class="brow" id="b1"><div class="nm">Proventos</div><div class="bar" id="bb1" style="background:var(--ac)"></div><div class="vl">R$ 148.900,00</div></div>
+      <div class="brow" id="b2"><div class="nm">INSS patronal (est.)</div><div class="bar" id="bb2" style="background:#4C4C4C"></div><div class="vl">R$ 29.780,00</div></div>
+      <div class="brow" id="b3"><div class="nm">FGTS</div><div class="bar" id="bb3" style="background:#9b928c"></div><div class="vl">R$ 11.912,00</div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:44px" id="c5tabs"><span class="chip">Visão geral</span><span class="chip">Variação</span><span class="chip">Rubricas</span><span class="chip">Centros de custo</span><span class="chip">Horas extras</span><span class="chip">Pontos de atenção</span></div>
+  </div>
+</div>
+
+<!-- 6 · chamada -->
+<div class="layer" id="c6">
+  <div class="abs" id="clogo" style="left:200px;top:300px;width:360px;height:360px;display:flex;align-items:center;justify-content:center"></div>
+  <div class="abs" style="left:680px;top:250px;width:1100px">
+    <h2 class="disp" style="font-size:96px">Quer ver isso com a <em>sua folha?</em></h2>
+    <div style="margin-top:50px;display:flex;align-items:center;gap:36px"><span id="cta">Fale com a WFtec →</span><span class="mono" style="font-size:38px;color:var(--act)">wftec.com.br</span></div>
+    <div style="font-size:28px;color:var(--muted);margin-top:44px">Double Check Folha · Auditoria · Custo da folha</div>
+  </div>
+</div>
+
+<div class="ilu" id="ilu">dados ilustrativos</div>
+<div id="flash"></div>
+<div id="leg"><span></span></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(48); $("clogo").innerHTML = sz(340);
+const ORD = ["c1", "c2", "c3", "cf", "c4", "c5", "c6"];
+const KICK = { c1: "", c2: "DOUBLE CHECK FOLHA", c3: "POR FUNCIONÁRIO · VERBA POR VERBA", cf: "FILTROS E EXPORTAÇÃO", c4: "AUDITORIA DE FOLHA", c5: "CUSTO DA FOLHA", c6: "" };
+const brl = (v) => "R$ " + v.toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .5)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.96 + .04 * clamp(q)})`; };
+// filtros: momentos (tempo local, s) — narração começa em .35
+const FV = [.4, 1.35], FC = [1.75, 2.65], FF = [2.9, 3.5], FB = [3.65, 4.5], FT = [4.9, 5.5], FD = 6.5, FX = 7.9;
+// linha removida em qual etapa: V=verba, C=centro, B=busca
+const REM = ["", "V", "V", "C", "C", "V", "B", "V"];
+const ddShow = (id, a, b, hl) => { const e = $(id); const o = seg(L_, a, a + .2) * (1 - seg(L_, b, b + .2)); e.style.opacity = o; e.style.transform = `translateY(${(1 - o) * -12}px)`; if (hl) $(hl).className = L_ > (a + b) / 2 ? "hl" : ""; };
+let L_ = 0;
+window.preparar = async () => {};
+window.render = function (t) {
+  const S = TL.seg; let k = 0;
+  for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini, nm = ORD[k]; L_ = L;
+  ORD.forEach((id, i) => $(id).style.opacity = i === k ? Math.min(seg(L, 0, .3), 1 - seg(t, S[k].fim - .25, S[k].fim)) : 0);
+  $("kick").textContent = KICK[nm]; $("kick").style.opacity = KICK[nm] ? 1 : 0;
+  $("ilu").style.opacity = ["c3", "cf", "c4", "c5"].includes(nm) ? 1 : 0;
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = Math.abs(t - S[i].ini); if (d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .9;
+  if (nm === "c1") {
+    const p = eout(seg(L, .05, .7)); $("c1t").style.transform = `translateY(${(1 - p) * 50}px)`;
+    const a = back(seg(L, .3, 1.0)), b = back(seg(L, .55, 1.25));
+    $("d1").style.transform = `translateY(${(1 - a) * 300}px) rotate(${-6 + Math.sin(L * 1.3) * 1.2}deg)`; $("d1").style.opacity = clamp(a * 2);
+    $("d2").style.transform = `translateY(${(1 - b) * 300}px) rotate(${5 + Math.sin(L * 1.1 + 1) * 1.2}deg)`; $("d2").style.opacity = clamp(b * 2);
+    const q = back(seg(L, D * .55, D * .55 + .5)); $("qm").style.opacity = clamp(q * 2); $("qm").style.transform = `scale(${q}) rotate(${(1 - clamp(q)) * -30}deg)`;
+  }
+  if (nm === "c2") {
+    const p = eout(seg(L, .05, .6)); $("c2t").style.transform = `translateX(${(1 - p) * -50}px)`;
+    [["f1", .14], ["f2", .30]].forEach(([id, f]) => { const q = back(seg(L, D * f, D * f + .55)); const e = $(id); e.style.opacity = clamp(q * 2); e.style.transform = `translateY(${(1 - clamp(q)) * -160}px) rotate(${(1 - clamp(q)) * -8}deg)`; });
+    pop("fmt", L, D * .40); pop("conf", L, D * .52); pop("priv", L, D * .70);
+  }
+  if (nm === "c3") {
+    pop("tb", L, 0, 60);
+    const rs = document.querySelectorAll("#c3 tr.r");
+    rs.forEach((r, i) => { const q = eout(seg(L, .6 + i * .32, .6 + i * .32 + .4)); r.style.opacity = q; r.style.transform = `translateX(${(1 - q) * -40}px)`; });
+    const fb = L > D * .55; $("fB").className = fb ? "chip ac" : "chip"; $("fA").className = fb ? "chip" : "chip ac";
+    $("tab2").className = L > D * .68 ? "tab on" : "tab"; $("tab1").className = L > D * .68 ? "tab" : "tab on";
+    pop("verba", L, D * .68); pop("res", L, 1.2);
+    if (fb) rs[0].style.opacity = .3;
+  }
+  if (nm === "cf") {
+    pop("ftb", L, 0, 50); pop("fat", L, .3);
+    ddShow("ddV", FV[0], FV[1], "ddVh"); ddShow("ddC", FC[0], FC[1], "ddCh"); ddShow("ddF", FF[0], FF[1]);
+    $("bxV").className = "box" + (L > FV[0] && L < FV[1] + .2 ? " on" : ""); $("bxC").className = "box" + (L > FC[0] && L < FC[1] + .2 ? " on" : "");
+    $("bxF").className = "box" + (L > FF[0] && L < FF[1] + .2 ? " on" : ""); $("bxB").className = "box" + (L > FB[0] && L < FB[1] + .3 ? " on" : ""); $("bxT").className = "box" + (L > FT[0] && L < FT[1] + .3 ? " on" : "");
+    $("lbV").textContent = L > FV[1] ? "Hora extra 50%" : "Todas"; $("lbC").textContent = L > FC[1] ? "Loja Centro" : "Todos";
+    const nb = Math.floor(5 * seg(L, FB[0], FB[1])); $("lbB").textContent = nb ? "Bruno".slice(0, nb) : "nome…"; $("lbB").style.color = nb ? "var(--ink)" : "#9b928c";
+    $("lbT").textContent = L > FT[0] + .3 ? "R$ 1,00" : "R$ 0,00";
+    const gd = L > FD; $("gB").className = gd ? "chip ac" : "chip"; $("gA").className = gd ? "chip" : "chip ac";
+    const ST = { V: FV[1], C: FC[1], B: FB[1] }; let vis = 0;
+    REM.forEach((r, i) => { const q0 = eout(seg(L, .4 + i * .08, .7 + i * .08)); const h = r ? 1 - seg(L, ST[r], ST[r] + .35) : 1; const e = $("vr" + i); e.style.height = (64 * h) + "px"; e.style.opacity = q0 * h; e.style.borderTopWidth = h > .05 ? "1px" : "0"; if (h > .5) vis++; });
+    $("fres").textContent = vis + (vis === 1 ? " linha" : " linhas");
+    const ch = []; if (L > FV[1]) ch.push("Verba: Hora extra 50%"); if (L > FC[1]) ch.push("Loja Centro"); if (L > FB[1]) ch.push("Busca: Bruno"); if (L > FT[0] + .3) ch.push("Tolerância R$ 1,00"); if (gd) ch.push("Com diferença");
+    $("fchips").innerHTML = ch.map((c) => `<span class="chip ac" style="font-size:20px">${c}</span>`).join("");
+    pop("exp", L, FX - .4); ["x1", "x2", "x3", "x4"].forEach((id, i) => { const a = FX + 1.0 + i * .9; const q = Math.sin(seg(L, a, a + .5) * Math.PI); $(id).style.transform = `scale(${1 + .05 * q})`; $(id).style.borderColor = q > .2 ? "var(--ac)" : "var(--line)"; });
+    pop("toast", L, FX + 4.0, 20);
+  }
+  if (nm === "c4") {
+    const p = eout(seg(L, .05, .6)); $("c4t").style.transform = `translateX(${(1 - p) * -50}px)`;
+    ["st1", "st2", "st3", "st4"].forEach((id, i) => { pop(id, L, .3 + i * .18); const b = $(id).querySelector("b"); b.textContent = Math.round(+b.dataset.n * eout(seg(L, .5 + i * .18, 1.4 + i * .18))); });
+    [["a1", .16], ["a2", .28], ["a3", .40], ["a4", .52]].forEach(([id, f]) => pop(id, L, D * f));
+    pop("forta", L, D * .66);
+  }
+  if (nm === "c5") {
+    const p = eout(seg(L, .05, .6)); $("c5t").style.transform = `translateX(${(1 - p) * -50}px)`;
+    $("tot").textContent = brl(190592 * eout(seg(L, .3, 2.2)));
+    [["b1", "bb1", 1000, .2], ["b2", "bb2", 200, .35], ["b3", "bb3", 80, .5]].forEach(([r, b, w, f]) => { $(r).style.opacity = seg(L, D * f, D * f + .3); $(b).style.width = (w * (window.BARK || 1) * eout(seg(L, D * f, D * f + .9))) + "px"; });
+    pop("var", L, D * .62); pop("c5tabs", L, D * .75, 20);
+  }
+  if (nm === "c6") {
+    const q = back(seg(L, 0, .8)); $("clogo").style.transform = `scale(${.5 + .5 * q})`;
+    $("cta").style.transform = `scale(${1 + .04 * Math.sin(Math.max(0, L - 1) * 5)})`;
+  }
+  $("brand").style.opacity = nm === "c6" ? 0 : 1;
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && nm !== "c6") { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

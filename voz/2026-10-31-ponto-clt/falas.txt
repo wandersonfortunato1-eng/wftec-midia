@@ -1,0 +1,6 @@
+Seu ponto calcula a CLT sozinho, ou alguém ainda faz isso na planilha?
+No WFtec Ponto, o espelho já sai calculado: tolerância de dez minutos por dia, hora noturna reduzida das vinte e duas às cinco, e extras de cinquenta e de cem por cento.
+Passou de seis horas sem intervalo, mais de duas horas extras no dia, ou menos de onze horas entre uma jornada e outra? Vira ocorrência na hora.
+Banco de horas também: saldo anterior, saldo do mês e o total, com alerta quando tem saldo parado há seis meses.
+Fechou a competência, o banco é consolidado. Reabriu, ele estorna.
+WFtec Ponto. A CLT no cálculo, não na planilha. Fale com a gente.

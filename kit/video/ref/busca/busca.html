@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.win{position:absolute;width:300px;height:210px;border-radius:16px;background:#2A2522;border:1px solid #3A3330;box-shadow:0 20px 50px rgba(0,0,0,.5);overflow:hidden;opacity:0}
+.win .b{height:30px;background:#3A3330;display:flex;align-items:center;gap:7px;padding:0 12px}.win .b i{width:10px;height:10px;border-radius:50%;background:#5a524d;display:block}
+.win .u{font-family:Mono;font-size:15px;color:#9b928c;margin-left:8px;white-space:nowrap}
+.win .l{height:12px;border-radius:6px;background:#3A3330;margin:16px 16px 0}
+.hq{position:absolute;left:0;right:0;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+/* filtros */
+.fl{margin-bottom:18px}.fl small{display:block;font-family:Mono;font-size:18px;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.fl .bx{height:72px;border:1.5px solid var(--line);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:30px;font-weight:600}
+.fl .bx.on{border-color:var(--ac);box-shadow:0 0 0 5px rgba(241,90,37,.15)}
+.dd{position:absolute;left:28px;right:28px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(40,25,15,.2);padding:10px;opacity:0;z-index:3}
+.dd div{font-size:30px;padding:14px 20px;border-radius:12px;display:flex;align-items:center;gap:14px}
+.dd div.hl{background:var(--acs);color:var(--act);font-weight:700}
+.pt{display:inline-block;width:20px;height:20px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.p-conv{background:#fff}.p-acor{background:#2E9A57}.p-adit{background:#C98A1C}.p-circ{background:#3F7CC4}
+#btnAp{display:flex;align-items:center;justify-content:center;height:78px;border-radius:18px;background:var(--ac);color:#fff;font-size:32px;font-weight:700;margin-top:10px}
+/* cards por tipo */
+.dc{position:relative;padding:22px 24px;border-radius:22px;border:2px solid var(--line);background:#fff;margin-bottom:16px;opacity:0;box-shadow:0 12px 30px rgba(60,40,30,.08)}
+.dc .ty{display:inline-block;font-size:19px;font-weight:700;padding:5px 14px;border-radius:999px;background:#F3EDE9}
+.dc h4{font-size:24px;line-height:1.25;margin-top:10px}
+.dc p{font-size:19px;color:var(--muted);margin-top:6px}
+.dc.acor{background:#EEF7F1;border-color:#B9DEC6}.dc.acor .ty{background:#D3ECDD;color:#1E6B3E}
+.dc.adit{background:#FBF4E6;border-color:#EBCF9A}.dc.adit .ty{background:#F6E5C2;color:#8A5A0B}
+.dc.circ{background:#EEF3FA;border-color:#B7CDEA}.dc.circ .ty{background:#D5E2F4;color:#2B5C99}
+.dc .ring{position:absolute;inset:-8px;border-radius:28px;border:5px solid var(--ac);opacity:0}
+.badge-n{display:inline-block;font-size:18px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--ac);color:#fff;margin-left:8px}
+.badge-s{display:inline-block;font-size:18px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--acs);color:var(--act);margin-left:8px}
+/* slides */
+.deck{position:absolute;left:0;width:960px;height:540px}
+.sl{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;background:#fff;padding:64px 80px 56px;border-top:10px solid var(--ac);box-shadow:0 30px 70px rgba(40,25,15,.25);border-radius:6px;display:flex;flex-direction:column;opacity:0}
+.sl .marca{position:absolute;right:56px;bottom:30px;font:italic 900 24px Archivo;color:#1F1B19}.sl .marca b{color:var(--ac)}
+.sl h1{font:italic 900 70px/1.05 Archivo;margin:18px 0 28px;color:#1F1B19}
+.sl h2{font:italic 900 46px/1.1 Archivo;margin:0 0 30px;color:#1F1B19;display:flex;align-items:center;gap:14px}
+.sl .ct{font:600 24px Plex;color:var(--ac);text-transform:uppercase;letter-spacing:.06em;margin-top:30px}
+.sl .partes{display:grid;grid-template-columns:1fr 1fr;gap:28px;font-size:24px;font-weight:600}.sl .partes small{display:block;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.sl .pe{margin-top:auto;font-size:21px;color:var(--muted)}.sl .pe b{color:#2B2523}
+.sl .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.sl .tile{border:2px solid #EFE5DF;border-radius:16px;padding:22px 22px;display:flex;flex-direction:column;gap:8px}
+.sl .tile small{font-weight:600;color:var(--muted);text-transform:uppercase;font-size:15px;letter-spacing:.05em}.sl .tile b{font:800 38px Archivo;color:var(--ac);white-space:nowrap}.sl .tile span{font-size:18px}
+.cl{display:inline-block;align-self:flex-start;font-size:15px;font-weight:600;background:#FCE3D8;color:#9A3412;border-radius:999px;padding:3px 12px;margin-top:4px}
+.sl .itens{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px 30px}
+.sl .itens li{border-left:6px solid var(--ac);padding:6px 0 6px 20px}.sl .itens b{font-size:24px}.sl .itens p{font-size:20px;line-height:1.45;margin:6px 0;color:#2B2523}
+.sl .v{font:600 22px Mono;color:var(--ac);margin-left:10px}
+#bar{position:absolute;left:0;width:960px;height:76px;border-radius:16px;background:#1A1614;display:flex;align-items:center;justify-content:center;gap:14px;opacity:0}
+#bar span{color:#eee;font:500 22px Mono;min-width:90px;text-align:center}
+#bar .bt{background:#3A3330;color:#fff;font-size:22px;font-weight:600;padding:12px 20px;border-radius:10px}
+#bar .bt.pri{background:var(--ac)}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook"><div id="wins"></div>
+  <div class="hq" id="hq1" style="top:760px;font-size:150px">Site por<br><span style="color:var(--ac)">site?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t0"><div class="k">BUSCA DE CONVENÇÕES · WFTEC</div><div class="n">Num lugar <em>só.</em></div><div class="d">Convenções, acordos, aditivos e circulares.</div></div>
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FILTROS</div><div class="n">Filtre do <em>seu jeito.</em></div><div class="d">Estado, categoria, CNPJ do sindicato e tipo de documento.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">TIPOS DE DOCUMENTO</div><div class="n">Cada tipo, <em>uma cor.</em></div><div class="d" id="t2d">Bateu o olho, identificou.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">VARREDURA</div><div class="n">Além do <em>Mediador.</em></div><div class="d" id="t3d">Varredura diária em +6 mil sites de sindicatos.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">APRESENTAÇÃO DA CONVENÇÃO</div><div class="n">Anexou, <em>apresentou.</em></div><div class="d" id="t4d">PDF ou Word da convenção vira apresentação.</div></div>
+</div>
+
+<div id="stage">
+  <!-- busca / filtros -->
+  <div class="sc" id="sF">
+    <div class="card" id="fCard" style="position:relative;padding:28px 28px">
+      <div class="fl"><small>ESTADO</small><div class="bx" id="bxE"><span id="lbE" style="color:#9b928c">Todos os estados</span><span>▾</span></div></div>
+      <div class="fl"><small>CATEGORIA</small><div class="bx" id="bxC" style="justify-content:flex-start;font-weight:500"><span id="lbC" style="color:#9b928c">Ex.: comércio, construção civil</span></div></div>
+      <div class="fl"><small>CNPJ DO SINDICATO</small><div class="bx" id="bxJ" style="justify-content:flex-start;font-weight:500"><span style="color:#9b928c">Só números ou com pontuação</span></div></div>
+      <div class="fl"><small>TIPO</small><div class="bx" id="bxT"><span id="lbT">Convenção Coletiva</span><span>▾</span></div>
+        <div style="display:flex;gap:22px;margin-top:12px;font-size:21px;color:var(--muted)"><span><i class="pt p-conv"></i> Convenção</span><span><i class="pt p-acor"></i> Acordo</span><span><i class="pt p-adit"></i> Aditivo</span><span><i class="pt p-circ"></i> Circular</span></div></div>
+      <div id="btnAp">Aplicar Filtros</div>
+      <div class="dd" id="ddE" style="top:120px"><div>Todos os estados</div><div>RJ — Rio de Janeiro</div><div id="ddEh">RN — Rio Grande do Norte</div><div>RS — Rio Grande do Sul</div></div>
+      <div class="dd" id="ddT" style="top:500px"><div id="o0"><i class="pt p-conv"></i>Convenção Coletiva</div><div id="o1"><i class="pt p-acor"></i>Acordo Coletivo</div><div id="o2"><i class="pt p-adit"></i>Termo Aditivo</div><div id="o3"><i class="pt p-circ"></i>Circulares do sindicato</div><div id="o4">Todos</div></div>
+    </div>
+  </div>
+  <!-- cores -->
+  <div class="sc" id="sC">
+    <div class="dc" id="k0"><div class="ring"></div><span class="ty">Convenção Coletiva</span><h4>SIND DOS TRAB NAS IND METALÚRGICAS, MECÂNICAS E DE MATERIAL ELÉTRICO · RN</h4><p>Registro RN000344/2026 · vigente até 31/08/2028</p></div>
+    <div class="dc acor" id="k1"><div class="ring"></div><span class="ty">Acordo Coletivo</span><h4>SINDICATO DOS CONTABILISTAS DE CURITIBA × <span class="mask" style="width:200px"></span></h4><p>Registro PR002583/2026 · vigente até 31/08/2028</p></div>
+    <div class="dc adit" id="k2"><div class="ring"></div><span class="ty">Termo Aditivo</span><h4>SIND. DOS EMPREGADOS NO COMÉRCIO · ADITIVO À CONVENÇÃO 2026</h4><p>Altera cláusulas de piso e jornada</p></div>
+    <div class="dc circ" id="k3"><div class="ring"></div><span class="ty">Circular</span><span class="badge-s">Site do sindicato</span><h4>SINDICATO DOS COMERCIÁRIOS · CIRCULAR SOBRE CONTRIBUIÇÃO 2026</h4><p>Publicada no site do sindicato</p></div>
+    <div class="abs disp" id="kBig" style="left:0;top:820px;width:960px;text-align:center;font-size:64px;opacity:0">Bateu o olho, <em>identificou.</em></div>
+  </div>
+  <!-- varredura -->
+  <div class="sc" id="sV">
+    <div class="abs" id="vA" style="left:0;top:0;width:960px">
+      <div style="display:flex;gap:20px"><div class="card" style="flex:1;padding:24px 28px"><div class="mono" style="font-size:19px;color:var(--muted)">MEDIADOR DO MTE</div><div class="disp" style="font-size:72px;margin-top:6px">Todo dia</div></div><div class="card" style="flex:1;padding:24px 28px"><div class="mono" style="font-size:19px;color:var(--muted)">SITES DE SINDICATOS</div><div class="disp" style="font-size:72px;margin-top:6px;color:var(--ac)" id="vC">0</div></div></div>
+      <div id="sites" class="abs" style="left:0;top:200px;width:960px;height:560px"></div>
+    </div>
+    <div class="abs" id="vB" style="left:0;top:0;width:960px;opacity:0">
+      <div class="dc" id="v1" style="opacity:1"><span class="ty">Convenção Coletiva</span><span class="badge-n" id="nv1">Nova</span><h4>EMPREGADOS NO COMÉRCIO DE BENS E SERVIÇOS · RN</h4><p>Entrou no acervo hoje</p></div>
+      <div class="dc adit" id="v2" style="opacity:1"><span class="ty">Termo Aditivo</span><span class="badge-n" id="nv2">Nova</span><span class="badge-s">Site do sindicato</span><h4>ADITIVO DE REAJUSTE · TRABALHADORES EM TRANSPORTES</h4><p>Encontrado na varredura dos sites</p></div>
+      <div class="dc circ" id="v3" style="opacity:1"><span class="ty">Circular</span><span class="badge-n" id="nv3">Nova</span><span class="badge-s">Site do sindicato</span><h4>CIRCULAR DO SINDICATO · CONTRIBUIÇÃO ASSISTENCIAL</h4><p>Encontrada na varredura dos sites</p></div>
+    </div>
+  </div>
+  <!-- apresentação -->
+  <div class="sc" id="sP">
+    <div class="card" id="pUp" style="padding:22px 26px;display:flex;align-items:center;gap:16px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B83A16" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 12l3-3 2 2 4-4"/></svg><span style="font-size:26px;font-weight:600;color:var(--act)">Anexar uma convenção e gerar a apresentação</span></div>
+    <div class="card abs" id="pFile" style="left:0;top:118px;width:960px;padding:18px 24px;display:flex;align-items:center;gap:18px;opacity:0"><div style="width:58px;height:70px;border-radius:10px;background:#C0392B;color:#fff;display:grid;place-items:center;font-family:Mono;font-size:18px">PDF</div><div style="flex:1"><b style="font-size:26px">convencao-comercio-2026.pdf</b><div style="font-size:20px;color:var(--muted)" id="pSt">PDF ou Word · o arquivo não fica guardado</div><div style="height:10px;border-radius:5px;background:#EFE9E5;margin-top:10px;overflow:hidden"><div id="pBar" style="height:100%;width:0;background:var(--ac)"></div></div></div></div>
+    <div class="deck" id="deck" style="top:270px">
+      <section class="sl" id="sl0"><div class="ct">Convenção coletiva · 01/01/2026 a 31/12/2027</div><h1>Empregados no comércio varejista</h1><div class="partes"><div><small>Sindicato dos empregados</small>Sind. dos Empregados no Comércio</div><div><small>Sindicato patronal</small>Sind. do Comércio Varejista</div></div><div class="pe">Data-base <b>janeiro</b> · Registro MTE <b>RN00••••/2026</b></div><div class="marca"><b>WF</b>tec</div></section>
+      <section class="sl" id="sl1"><h2>Os números principais</h2><div class="tiles"><div class="tile" id="ti0"><small>Reajuste</small><b>5,5%</b><span>a partir de jan/2026</span><span class="cl">Cláusula 3ª</span></div><div class="tile" id="ti1"><small>Piso salarial</small><b>R$ 1.720</b><span>comerciário</span><span class="cl">Cláusula 4ª</span></div><div class="tile" id="ti2"><small>Hora extra</small><b>60%</b><span>dias úteis</span><span class="cl">Cláusula 12ª</span></div><div class="tile" id="ti3"><small>Data-base</small><b>Janeiro</b><span>&nbsp;</span></div></div><div class="marca"><b>WF</b>tec</div></section>
+      <section class="sl" id="sl2"><h2>Jornada e benefícios</h2><ul class="itens"><li><b>Banco de horas</b><span class="v">6 meses</span><p>Compensação em até seis meses, com acordo individual.</p><span class="cl">Cláusula 15ª</span></li><li><b>Vale-alimentação</b><span class="v">R$ 380</span><p>Mensal, sem desconto do empregado.</p><span class="cl">Cláusula 21ª</span></li><li><b>Domingos e feriados</b><p>Escala com folga compensatória na semana.</p><span class="cl">Cláusula 17ª</span></li><li><b>Auxílio-creche</b><span class="v">R$ 210</span><p>Para filhos de até 5 anos.</p><span class="cl">Cláusula 23ª</span></li></ul><div class="marca"><b>WF</b>tec</div></section>
+      <section class="sl" id="sl3"><h2><span style="color:var(--ac)">⚠</span> Pontos de atenção</h2><ul class="itens"><li><b>Contribuição assistencial</b><p>Prazo de oposição de 10 dias após o registro.</p><span class="cl">Cláusula 35ª</span></li><li><b>Multa por descumprimento</b><span class="v">10% do piso</span><p>Por empregado e por infração.</p><span class="cl">Cláusula 40ª</span></li><li><b>Estabilidade pré-aposentadoria</b><p>12 meses antes da aposentadoria.</p><span class="cl">Cláusula 28ª</span></li><li><b>Prazo do retroativo</b><p>Diferenças pagas na folha seguinte ao registro.</p><span class="cl">Cláusula 3ª</span></li></ul><div class="marca"><b>WF</b>tec</div></section>
+    </div>
+    <div id="bar" style="top:830px"><span class="bt">◀</span><span id="bN">1/9</span><span class="bt">▶</span><span class="bt pri" id="bPdf">Salvar em PDF</span></div>
+    <div class="abs" id="pToast" style="left:0;top:760px;width:960px;text-align:center;opacity:0"><span class="chip ok" style="font-size:26px;padding:12px 24px">✓ apresentacao-convencao.pdf</span></div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Busca de Convenções</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px"><i class="pt p-conv"></i> Convenções</span><span class="chip" style="font-size:26px;padding:10px 20px"><i class="pt p-acor"></i> Acordos</span><span class="chip" style="font-size:26px;padding:10px 20px"><i class="pt p-adit"></i> Aditivos</span><span class="chip" style="font-size:26px;padding:10px 20px"><i class="pt p-circ"></i> Circulares</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Apresentação da convenção</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini;
+const HZ = window.innerWidth > 1500;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(HZ ? 420 : 300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+{ const W = ["CCT", "ACT", "aditivo", "circular", "piso", "reajuste", "data-base", "FGTS", "INSS", "CNPJ"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+// janelas do gancho
+const URL = ["sindcomercio.org.br", "mediador.trabalho.gov.br", "sindmetal-rn.org", "fetracs.org.br", "sintraconst.com.br", "sindvarejo.org", "sinttel.org.br", "sindhoteis.com.br", "sindsaude.org.br", "sinpro.org.br", "sindtransp.org.br", "sindlimp.org.br"];
+const W = HZ ? 1920 : 1080, H = HZ ? 1080 : 1920;
+$("wins").innerHTML = URL.map((u, i) => { const x = ((i * 379) % (W - 320)) + 10, y = ((i * 547) % (H * .62)) + 60; return `<div class="win" id="w${i}" style="left:${x}px;top:${y}px"><div class="b"><i></i><i></i><i></i><span class="u">${u}</span></div><div class="l" style="width:80%"></div><div class="l" style="width:60%"></div><div class="l" style="width:72%"></div><div class="l" style="width:50%"></div></div>`; }).join("");
+{ let h = ""; for (let i = 0; i < 40; i++) h += `<div class="site" id="st${i}" style="left:${(i % 8) * 120}px;top:${Math.floor(i / 8) * 108}px;opacity:0"><i></i><b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M5 12l5 5 9-10"/></svg></b></div>`; $("sites").innerHTML = h; }
+const SC = ["sF", "sC", "sV", "sP"], TT = ["t0", "t1", "t2", "t3", "t4"];
+const SLS = ["sl0", "sl1", "sl2", "sl3"];
+window.preparar = async () => {};
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, ttA = fade, dark = false, legOn = true, isO = false;
+  if (k === 0) {
+    const sw = I + 3.3; dark = L < sw + .2; $("dark").style.opacity = 1 - seg(L, sw, sw + .3);
+    $("hook").style.opacity = 1 - seg(L, sw, sw + .25);
+    URL.forEach((u, i) => { const a = .1 + i * .19; const q = back(seg(L, a, a + .35)); const e = $("w" + i); e.style.opacity = clamp(q * 2) * .95; e.style.transform = `scale(${.6 + .4 * clamp(q)}) rotate(${((i % 5) - 2) * 4 + Math.sin(L * 2 + i) * 2}deg)`; });
+    slam("hq1", L, I + 1.7, 2); sx += shake(L, I + 1.9);
+    if (L >= sw) { sc = "sF"; tt = "t0"; ttA = seg(L, sw, sw + .4) * fade; const p = back(seg(L, sw, sw + .5)); $("t0").style.transform = `scale(${.9 + .1 * p})`; $("t0").style.transformOrigin = "0 50%"; }
+    legOn = L >= sw;
+  }
+  // tela de filtros (gancho final + cena 1)
+  if (k === 0 || k === 1) {
+    const F = k === 1 ? L : -99;
+    if (k === 0) pop("fCard", L, I + 3.5, 60); else { $("fCard").style.opacity = 1; $("fCard").style.transform = "none"; }
+    const dE = seg(F, I + .1, I + .3) * (1 - seg(F, I + 1.1, I + 1.3)); $("ddE").style.opacity = dE; $("ddEh").className = F > I + .6 ? "hl" : "";
+    $("bxE").className = "bx" + (F > I && F < I + 1.4 ? " on" : ""); $("lbE").textContent = F > I + 1.1 ? "RN — Rio Grande do Norte" : "Todos os estados"; $("lbE").style.color = F > I + 1.1 ? "var(--ink)" : "#9b928c";
+    const cat = "comércio"; const nc = Math.floor(cat.length * seg(F, I + 1.6, I + 2.6)); $("lbC").textContent = nc ? cat.slice(0, nc) : "Ex.: comércio, construção civil"; $("lbC").style.color = nc ? "var(--ink)" : "#9b928c"; $("bxC").className = "bx" + (F > I + 1.5 && F < I + 2.8 ? " on" : "");
+    $("bxJ").className = "bx" + (F > I + 2.8 && F < I + 3.6 ? " on" : "");
+    const dT = seg(F, I + 3.8, I + 4.0) * (1 - seg(F, I + 9.0, I + 9.2)); $("ddT").style.opacity = dT; $("bxT").className = "bx" + (F > I + 3.7 && F < I + 9.2 ? " on" : "");
+    const OT = [I + 5.0, I + 6.35, I + 7.55, I + 8.55]; let hi = -1; OT.forEach((a, i) => { if (F > a) hi = i; }); for (let i = 0; i < 5; i++) $("o" + i).className = i === hi ? "hl" : "";
+    $("lbT").textContent = F > I + 9.0 ? "Todos" : "Convenção Coletiva"; if (F > I + 9.0) $("o4").className = "hl";
+    const bp = Math.sin(seg(F, I + 9.2, I + 9.5) * Math.PI); $("btnAp").style.transform = `scale(${1 - .06 * bp})`;
+    if (k === 1) { sc = "sF"; tt = "t1"; }
+  }
+  if (k === 2) { sc = "sC"; tt = "t2";
+    ["k0", "k1", "k2", "k3"].forEach((id, i) => pop(id, L, .15 + i * .18, 40));
+    [[1, I + 2.2], [2, I + 3.28], [3, I + 4.56]].forEach(([i, a]) => { const r = $("k" + i).querySelector(".ring"); const q = seg(L, a, a + .2) * (1 - seg(L, a + 1.0, a + 1.25)); r.style.opacity = q; $("k" + i).style.transform = `scale(${1 + .03 * q})`; if (q > .5) sx += shake(L, a + .05) * .5; });
+    const kb = slam("kBig", L, I + 6.25, 1.6); sx += shake(L, I + 6.45);
+    $("t2d").textContent = L < I + 2.1 ? "Convenção, acordo, aditivo e circular." : L < I + 6.2 ? "Verde é acordo · amarelo é aditivo · azul é circular." : "Bateu o olho, identificou.";
+  }
+  if (k === 3) { sc = "sV"; tt = "t3";
+    const B = I + 5.6; $("vA").style.opacity = 1 - seg(L, B - .12, B + .08); $("vB").style.opacity = seg(L, B - .08, B + .12);
+    $("vC").textContent = Math.round(6346 * eout(seg(L, I + 1.9, I + 4.9))).toLocaleString("pt-BR");
+    for (let i = 0; i < 40; i++) { const a = I + 1.9 + i * .05; const e = $("st" + i); e.style.opacity = seg(L, a, a + .12); e.querySelector("b").style.opacity = seg(L, a + .4, a + .55); }
+    ["v1", "v2", "v3"].forEach((id, i) => pop(id, L, B + .1 + i * .2, -50));
+    ["nv1", "nv2", "nv3"].forEach((id, i) => { const q = back(seg(L, I + 6.5 + i * .25, I + 6.8 + i * .25)); $(id).style.transform = `scale(${clamp(q) * (1 + .3 * (1 - clamp(q)))})`; $(id).style.display = "inline-block"; });
+    $("t3d").textContent = L < B ? "Varredura diária no Mediador e em +6 mil sites." : "O que chegou agora vem com o selo Nova.";
+  }
+  if (k === 4 || k === 5) {
+    const P = k === 4 ? L : 99;
+    if (k === 4) { sc = "sP"; tt = "t4";
+      pop("pUp", L, .15, 30);
+      const fq = back(seg(L, I + 1.45, I + 1.95)); $("pFile").style.opacity = clamp(fq * 2); $("pFile").style.transform = `translateY(${(1 - clamp(fq)) * -120}px)`;
+      $("pBar").style.width = (100 * eout(seg(L, I + 3.8, I + 5.5))) + "%"; $("pSt").textContent = L < I + 3.8 ? "PDF ou Word · o arquivo não fica guardado" : L < I + 5.5 ? "Montando a apresentação…" : "Apresentação pronta ✓";
+      $("t4d").textContent = L < I + 3.8 ? "Anexe a convenção em PDF ou Word." : L < I + 10.4 ? "A WFtec monta os slides: reajuste, pisos, jornada…" : "Cada item com a cláusula de origem.";
+    }
+    // deck
+    const SW = [I + 5.5, I + 6.35, I + 7.85, I + 9.2]; let cur = 0; SW.forEach((a, i) => { if (P >= a) cur = i; });
+    const sc0 = .75; SLS.forEach((id, i) => { const e = $(id); const a = SW[i]; const q = eout(seg(P, a, a + .35)); const out = i < cur ? 1 : 0; e.style.opacity = P >= a - .01 && (i === cur || (i === cur - 1 && P < SW[cur] + .35)) ? (i === cur ? q : 1) : 0; e.style.transform = `scale(${sc0}) translateX(${i === cur ? (1 - q) * 300 : -(eout(seg(P, SW[cur], SW[cur] + .35))) * 300}px) rotate(${i === cur ? (1 - q) * 4 : 0}deg)`; e.style.zIndex = i === cur ? 2 : 1; });
+    if (P < SW[0]) SLS.forEach((id) => $(id).style.opacity = 0);
+    ["ti0", "ti1", "ti2", "ti3"].forEach((id, i) => { const a = [I + 6.4, I + 7.25, I + 7.9, I + 8.2][i]; $(id).style.borderColor = P > a && P < a + .9 ? "var(--ac)" : "#EFE5DF"; });
+    document.querySelectorAll(".cl").forEach((c) => { const q = Math.sin(seg(P, I + 10.55, I + 11.4) * Math.PI); c.style.transform = `scale(${1 + .25 * q})`; c.style.boxShadow = q > .1 ? "0 0 0 4px rgba(241,90,37,.25)" : "none"; });
+    $("bN").textContent = (cur + 1) + "/9";
+  }
+  if (k === 5) {
+    const ob = I + 3.4; isO = L >= ob; dark = false;
+    if (!isO) { sc = "sP"; tt = "t4"; $("t4d").textContent = "Pronta para salvar em PDF e apresentar ao cliente.";
+      ["pUp", "pFile"].forEach((id) => $(id).style.opacity = 0);
+      $("deck").style.transform = `translateY(${-180 * eout(seg(L, 0, .5))}px)`;
+      pop("bar", L, .2, 20); $("bar").style.transform += ` translateY(${-180}px)`;
+      const bq = Math.sin(seg(L, I + 1.0, I + 1.35) * Math.PI); $("bPdf").style.transform = `scale(${1 - .1 * bq})`; $("bPdf").style.boxShadow = L > I + 1.0 ? "0 0 0 6px rgba(241,90,37,.3)" : "none";
+      pop("pToast", L, I + 1.5, 20);
+    }
+    legOn = !isO;
+  } else { $("deck").style.transform = "none"; $("bar").style.opacity = 0; $("pToast").style.opacity = 0; }
+  $("outro").style.opacity = isO ? seg(L, I + 3.4, I + 3.7) : 0;
+  if (isO) { const o = L - (I + 3.4); $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .12, .6 + i * .12)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  if (k !== 0) $("dark").style.opacity = 0;
+  if (k !== 0) $("hook").style.opacity = 0;
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? (k === 0 ? 1 : fade) : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? ttA : 0; });
+  if (tt && tt !== "t0") { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = (k === 0 && L < I + 3.3) || isO ? 0 : 1;
+  $("ilu").style.opacity = (k === 2 || k === 4 || (k === 5 && !isO)) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = (k === 0 && L < I + 3.4) ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && legOn && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

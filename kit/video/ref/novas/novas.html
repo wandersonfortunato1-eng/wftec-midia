@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:0;right:0;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.pt{display:inline-block;width:20px;height:20px;border-radius:50%;border:1px solid rgba(0,0,0,.15);vertical-align:-3px}
+.p-conv{background:#fff}.p-acor{background:#2E9A57}.p-adit{background:#C98A1C}.p-circ{background:#3F7CC4}
+.app{position:absolute;left:0;top:0;width:960px;padding:24px 26px;opacity:0}
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:22px}
+.tab{font-size:24px;font-weight:600;color:var(--muted);padding:12px 18px;border-bottom:4px solid transparent;margin-bottom:-2px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.tab.on{color:var(--act);border-color:var(--ac)}
+.tab .n{font-size:18px;font-weight:700;background:var(--ac);color:#fff;border-radius:999px;padding:2px 10px}
+.al{display:flex;gap:18px;align-items:flex-start;background:#FFF6F1;border:2px solid #F8C9B4;border-radius:20px;padding:22px 22px;opacity:0}
+.al .bell{width:64px;height:64px;flex:none;border-radius:50%;background:var(--ac);display:grid;place-items:center;transform-origin:50% 10%}
+.al b{font-size:28px;line-height:1.25;display:block}
+.al .m{font-size:20px;color:var(--muted);margin-top:8px;line-height:1.4}
+.al .bts{display:flex;gap:12px;margin-top:16px}
+.bt{font-size:22px;font-weight:700;padding:12px 22px;border-radius:12px;background:var(--ac);color:#fff;display:inline-block}
+.bt.g{background:#F3EDE9;color:#4a4542}
+.ph{height:20px;border-radius:10px;background:#EFE9E5;margin:22px 0 0}
+.fr{display:flex;gap:12px;margin-bottom:16px;align-items:center}
+.fx{font-size:22px;font-weight:600;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;background:#fff;white-space:nowrap}
+.fx.on{border-color:var(--ac);box-shadow:0 0 0 5px rgba(241,90,37,.15)}
+.cnt{font-size:22px;color:var(--muted);margin-bottom:14px}.cnt b{color:var(--ink)}
+.dc{position:relative;padding:18px 22px;border-radius:20px;border:2px solid var(--line);background:#fff;margin-bottom:14px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.dc .ty{display:inline-block;font-size:18px;font-weight:700;padding:4px 13px;border-radius:999px;background:#F3EDE9}
+.dc h4{font-size:22px;line-height:1.25;margin-top:9px}
+.dc p{font-size:18px;color:var(--muted);margin-top:5px}
+.dc.acor{background:#EEF7F1;border-color:#B9DEC6}.dc.acor .ty{background:#D3ECDD;color:#1E6B3E}
+.dc.adit{background:#FBF4E6;border-color:#EBCF9A}.dc.adit .ty{background:#F6E5C2;color:#8A5A0B}
+.dc.circ{background:#EEF3FA;border-color:#B7CDEA}.dc.circ .ty{background:#D5E2F4;color:#2B5C99}
+.dc .ring{position:absolute;inset:-7px;border-radius:26px;border:5px solid var(--ac);opacity:0}
+.badge-n{display:inline-block;font-size:17px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--ac);color:#fff;margin-left:8px}
+.badge-s{display:inline-block;font-size:17px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--acs);color:var(--act);margin-left:8px}
+.nt{font-size:21px;color:var(--muted);line-height:1.4;margin-bottom:16px}
+.nl{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:#fff;border:1.5px solid var(--line);margin-bottom:12px;opacity:0}
+.nl .tx{flex:1;font-size:22px;line-height:1.35}.nl .tx b{font-family:Mono;font-weight:600}
+.nl .tx small{display:block;font-size:18px;color:var(--muted)}
+.nl.hot{border-color:var(--ac);background:#FFF6F1}
+.org{display:flex;gap:14px;justify-content:center;margin-top:10px}
+#clk{position:absolute;left:180px;top:0;width:600px;height:600px;opacity:0}
+#hora{position:absolute;left:0;top:0;width:960px;text-align:center;font-family:Mono;font-weight:600;font-size:90px;color:var(--ac);opacity:0}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div class="hq" id="hq1" style="top:520px;font-size:120px">Convenção<br><span style="color:var(--ac)">nova?</span></div>
+  <div class="hq" id="hq2" style="top:900px;font-size:0"><span class="chip" style="font-size:40px;padding:16px 30px;background:#2A2522;color:#ddd;letter-spacing:0;font-family:Plex;font-style:normal;font-weight:600">Folha de outubro · <span style="color:#7BD39A">fechada ✓</span></span></div>
+  <div class="hq" id="hq3" style="top:1060px;font-size:96px">…e você<br><span style="color:var(--ac)">nem viu.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FERRAMENTA DE SINDICATOS · WFTEC</div><div class="n">O sino <em>te avisa.</em></div><div class="d" id="t1d">Logo no topo da busca.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">ABA NOVAS CONVENÇÕES</div><div class="n">Só as <em>últimas.</em></div><div class="d" id="t2d">As últimas publicadas, num lugar só.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">NOTIFICAÇÕES</div><div class="n">Dia a <em>dia.</em></div><div class="d" id="t3d">O que entrou no acervo em cada dia.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">TODO DIA · 8H</div><div class="n">Abriu, <em>já sabe.</em></div><div class="d" id="t4d">A varredura fecha o aviso às 8h da manhã.</div></div>
+</div>
+
+<div id="stage">
+  <!-- busca com aviso -->
+  <div class="sc" id="sA">
+    <div class="card app" id="appA">
+      <div class="tabs"><div class="tab on">Busca de convenções</div><div class="tab" id="tbA2">Novas convenções <span class="n">6.770</span></div><div class="tab">Notificações</div></div>
+      <div class="al" id="alA">
+        <div class="bell" id="bellA"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+        <div style="flex:1"><b>Novas nos últimos 60 dias: <span id="alN" style="color:var(--act)">0</span> documentos</b>
+          <div class="m" id="alM"><span class="q"><i class="pt p-conv"></i> 1.961 convenções</span>, <span class="q"><i class="pt p-acor"></i> 3.098 acordos</span>, <span class="q"><i class="pt p-adit"></i> 491 aditivos</span>, <span class="q"><i class="pt p-circ"></i> 1.220 circulares</span><br><span class="q">SP 1.881 · RS 927 · PR 662 · RJ 571 · MG 560 · SC 457 …</span></div>
+          <div class="bts"><span class="bt" id="btVer">Ver as novas</span><span class="bt g">×</span></div></div>
+      </div>
+      <div class="fr" style="margin-top:24px"><span class="fx">Estado ▾</span><span class="fx">Categoria</span><span class="fx">CNPJ do sindicato</span><span class="fx">Tipo ▾</span></div>
+      <div class="ph" style="width:92%"></div><div class="ph" style="width:76%"></div><div class="ph" style="width:84%"></div><div class="ph" style="width:60%;margin-bottom:6px"></div>
+    </div>
+  </div>
+  <!-- novas convenções -->
+  <div class="sc" id="sN">
+    <div class="card app" id="appN" style="opacity:1">
+      <div class="tabs"><div class="tab">Busca de convenções</div><div class="tab on">Novas convenções <span class="n">6.770</span></div><div class="tab">Notificações</div></div>
+      <div class="fr"><span class="fx" id="fxE">Estado: <b id="lbE">Todos</b> ▾</span><span class="fx">Tipo: <b>Todos</b> ▾</span></div>
+      <div class="cnt"><b id="cntN">6.770</b> documentos novos <span id="cntE"></span></div>
+      <div class="dc" id="k0"><div class="ring"></div><span class="ty">Convenção Coletiva</span><span class="badge-n">Nova</span><h4>SIND. DOS EMPREGADOS RURAIS DE SÃO JOÃO DA BOA VISTA × SINDICATO RURAL DE AGUAÍ · SP</h4><p>Vigente até 30/09/2027 · Mediador</p></div>
+      <div class="dc acor" id="k1"><div class="ring"></div><span class="ty">Acordo Coletivo</span><span class="badge-n">Nova</span><h4>SIND. DOS EMPREGADOS NO COMÉRCIO DE GUARULHOS × <span class="mask" style="width:220px"></span> · SP</h4><p>Vigente até 31/12/2026 · Mediador</p></div>
+      <div class="dc adit" id="k2"><div class="ring"></div><span class="ty">Termo Aditivo</span><span class="badge-n">Nova</span><h4>SIND. DOS TRAB. NA IND. DE FIAÇÃO E TECELAGEM DE GUARATINGUETÁ · SP</h4><p>Aditivo à convenção coletiva · Mediador</p></div>
+      <div class="dc circ" id="k3"><div class="ring"></div><span class="ty">Circular</span><span class="badge-n">Nova</span><span class="badge-s">Site do sindicato</span><h4>CIRCULAR DO SINDICATO · CONTRIBUIÇÃO E REAJUSTE 2026</h4><p>Encontrada na varredura dos sites</p></div>
+    </div>
+  </div>
+  <!-- notificações -->
+  <div class="sc" id="sH">
+    <div class="card app" id="appH" style="opacity:1">
+      <div class="tabs"><div class="tab">Busca de convenções</div><div class="tab">Novas convenções <span class="n">6.770</span></div><div class="tab on">Notificações</div></div>
+      <div class="nt"><b style="color:var(--ink)">Notificações da varredura</b> · o que entrou no acervo em cada dia, do Mediador e dos sites dos sindicatos</div>
+      <div class="nl hot" id="n0"><div class="tx"><b>28/10/2026</b> — <b style="color:var(--act)">164</b> instrumentos novos<small>SP 56 · RS 23 · RJ 18 · MG 11 · SC 11 · PE 8 …</small></div><span class="bt">Ver</span></div>
+      <div class="nl" id="n1"><div class="tx"><b>27/10/2026</b> — 167 instrumentos novos<small>SP 63 · MG 20 · RS 19 · RJ 13 · SC 11 · PR 10 …</small></div><span class="bt g">Ver</span></div>
+      <div class="nl" id="n2"><div class="tx"><b>26/10/2026</b> — 4 instrumentos novos<small>GO 4</small></div><span class="bt g">Ver</span></div>
+      <div class="nl" id="n3"><div class="tx"><b>25/10/2026</b> — 15 instrumentos novos<small>PR 9 · SP 6</small></div><span class="bt g">Ver</span></div>
+      <div class="nl" id="n4"><div class="tx"><b>24/10/2026</b> — 313 instrumentos novos<small>SP 87 · PR 51 · RS 47 · MG 34 … · <b style="font-family:Plex;color:var(--act)">103 de sites de sindicatos</b></small></div><span class="bt g">Ver</span></div>
+      <div class="nl" id="n5"><div class="tx"><b>23/10/2026</b> — 293 instrumentos novos<small>… · <b style="font-family:Plex;color:var(--act)">67 de sites de sindicatos</b></small></div><span class="bt g">Ver</span></div>
+    </div>
+    <div class="org abs" id="org" style="left:0;width:960px;top:830px;opacity:0"><span class="chip info" style="font-size:26px;padding:12px 22px">Mediador do MTE</span><span class="chip ac" style="font-size:26px;padding:12px 22px">Sites dos sindicatos</span></div>
+  </div>
+  <!-- 8h -->
+  <div class="sc" id="sR">
+    <svg id="clk" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="#fff" stroke="#E6DDD7" stroke-width="4"/><g id="tk"></g><line id="hh" x1="100" y1="100" x2="100" y2="52" stroke="#262626" stroke-width="8" stroke-linecap="round"/><line id="mh" x1="100" y1="100" x2="100" y2="26" stroke="#F15A25" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#262626"/></svg>
+    <div id="hora" style="top:620px">08:00</div>
+    <div class="al abs" id="alR" style="left:0;top:760px;width:960px;padding:18px 20px">
+      <div class="bell" id="bellR" style="width:54px;height:54px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px"><b style="font-size:26px">Novas: 164 hoje</b><span class="bt" id="btR">Ver as novas</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">🔔 Aviso no topo da busca</span><span class="chip" style="font-size:26px;padding:10px 20px">Novas convenções</span><span class="chip" style="font-size:26px;padding:10px 20px">Notificações diárias</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Nenhuma passa batido</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const HZ = window.innerWidth > 1500;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(HZ ? 420 : 300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const ring = (id, L, a) => { const r = Math.sin(seg(L, a, a + 1.0) * Math.PI); $(id).style.transform = `rotate(${Math.sin((L - a) * 38) * 22 * r}deg)`; };
+const fmt = (n) => Math.round(n).toLocaleString("pt-BR");
+{ const W = ["CCT", "ACT", "aditivo", "circular", "NOVA", "piso", "reajuste", "data-base", "SP", "RS"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+{ let h = ""; for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; h += `<line x1="${100 + 80 * Math.sin(a)}" y1="${100 - 80 * Math.cos(a)}" x2="${100 + 70 * Math.sin(a)}" y2="${100 - 70 * Math.cos(a)}" stroke="#C9BEB7" stroke-width="${i % 3 ? 3 : 6}" stroke-linecap="round"/>`; } $("tk").innerHTML = h; }
+const SC = ["sA", "sN", "sH", "sR"], TT = ["t1", "t2", "t3", "t4"];
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false, dark = false;
+  if (k === 0) { dark = true; $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    slam("hq1", L, .15, 2.2); sx += shake(L, .35);
+    pop("hq2", L, I + cu("h2", 2.0), 30);
+    slam("hq3", L, I + cu("h3", 3.0), 1.8); sx += shake(L, I + cu("h3", 3.0) + .2);
+    $("hq1").style.transform += ` translateY(${-120 * eout(seg(L, I + cu("h2", 2.0) - .2, I + cu("h2", 2.0) + .2))}px)`;
+  }
+  $("dark").style.opacity = dark ? 1 : 0; $("hook").style.opacity = k === 0 ? $("hook").style.opacity : 0;
+  if (k === 1) { sc = "sA"; tt = "t1";
+    pop("appA", L, .1, 50);
+    const a = I + cu("sino", 3.2); const q = back(seg(L, a, a + .45)); $("alA").style.opacity = clamp(q * 2); $("alA").style.transform = `translateY(${(1 - clamp(q)) * -60}px)`;
+    ring("bellA", L, a + .1); if (L > a) sx += shake(L, a + .15) * .5;
+    const c = I + cu("sessenta", 6.0); $("alN").textContent = fmt(6770 * eout(seg(L, a + .2, c + .6)));
+    [...$("alM").querySelectorAll(".q")].forEach((e, i) => { e.style.opacity = seg(L, a + .5 + i * .25, a + .8 + i * .25); });
+    const tq = Math.sin(seg(L, c, c + .8) * Math.PI); $("tbA2").style.transform = `scale(${1 + .08 * tq})`;
+    $("t1d").textContent = L < a ? "A ferramenta de Sindicatos da WFtec avisa você." : "Tudo o que entrou nos últimos 60 dias.";
+  } else { $("appA").style.opacity = 0; }
+  if (k === 2) { sc = "sN"; tt = "t2";
+    ["k0", "k1", "k2", "k3"].forEach((id, i) => pop(id, L, I + cu("ultimas", 1.6) + i * .2, 40));
+    const tipos = [cu("c0", 3.6), cu("c1", 4.4), cu("c2", 5.0), cu("c3", 5.7)];
+    tipos.forEach((a, i) => { const r = $("k" + i).querySelector(".ring"); const q = seg(L, I + a, I + a + .15) * (1 - seg(L, I + a + .7, I + a + .9)); r.style.opacity = q; });
+    const e = I + cu("estado", 7.6); $("fxE").className = "fx" + (L > e && L < e + 1.4 ? " on" : "");
+    $("lbE").textContent = L > e + .5 ? "SP" : "Todos"; $("cntN").textContent = L > e + .5 ? fmt(6770 - (6770 - 1881) * eout(seg(L, e + .5, e + 1.1))) : "6.770"; $("cntE").textContent = L > e + .5 ? "em SP" : "";
+    $("t2d").textContent = L < I + tipos[0] - .2 ? "As últimas publicadas, num lugar só." : L < e ? "Cada tipo com a sua cor." : "Filtrando pelo seu estado.";
+  }
+  if (k === 3) { sc = "sH"; tt = "t3";
+    for (let i = 0; i < 6; i++) pop("n" + i, L, .2 + i * .15, -30);
+    const o = I + cu("mediador", 3.0); $("org").style.opacity = seg(L, o, o + .3); $("org").style.transform = `translateY(${(1 - eout(seg(L, o, o + .4))) * 30}px)`;
+    const h = I + cu("hoje", 6.2); const hq = Math.sin(seg(L, h, h + 1.2) * Math.PI); $("n0").style.transform = `scale(${1 + .05 * hq})`; $("n0").style.boxShadow = L > h ? "0 0 0 6px rgba(241,90,37,.22)" : "none"; if (L > h) sx += shake(L, h + .1) * .6;
+    $("t3d").textContent = L < o ? "O que entrou no acervo em cada dia." : L < h ? "Do Mediador e dos sites dos sindicatos." : "Só hoje: 164 documentos novos.";
+  }
+  if (k === 4) { sc = "sR"; tt = "t4";
+    const cq = back(seg(L, .1, .5)); $("clk").style.opacity = clamp(cq * 2); $("clk").style.transform = `scale(${.7 + .3 * clamp(cq)})`;
+    const ang = 120 + (240 - 0) * 0 ; const sp = eout(seg(L, .2, I + cu("oito", 1.8)));
+    const mins = 6 * 60 + 2 * 60 * sp; $("hh").setAttribute("transform", `rotate(${(mins / 60) * 30} 100 100)`); $("mh").setAttribute("transform", `rotate(${(mins % 60) * 6} 100 100)`);
+    const hh = Math.floor(mins / 60), mm = Math.floor(mins % 60); $("hora").textContent = String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
+    pop("hora", L, .3, 20);
+    const a = I + cu("abre", 3.0); pop("alR", L, a, 40); ring("bellR", L, a + .15);
+    const bq = Math.sin(seg(L, a + 1.0, a + 1.3) * Math.PI); $("btR").style.transform = `scale(${1 - .1 * bq})`; $("btR").style.boxShadow = L > a + 1.0 ? "0 0 0 6px rgba(241,90,37,.3)" : "none";
+    $("t4d").textContent = L < a ? "A varredura fecha o aviso às 8h da manhã." : "Abriu a ferramenta, já sabe o que mudou.";
+  }
+  if (k === 5) { isO = L >= .25; }
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

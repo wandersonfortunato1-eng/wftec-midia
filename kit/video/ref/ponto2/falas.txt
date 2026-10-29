@@ -1,0 +1,12 @@
+Ponto pelo celular, com a localização de cada batida. Veja tudo o que o WFtec Ponto faz.
+O funcionário marca com um toque. A batida grava a hora do servidor, as coordenadas, a rua, o bairro e a cidade, e ele recebe o comprovante na hora.
+Cada batida é rastreável: distância do local, precisão do GPS, IP, aparelho e um código de auditoria que não pode ser alterado. E se o deslocamento for impossível, o sistema avisa: possível GPS falso.
+Bateu dentro do horário e da tolerância? Aprova sozinha. Fora do quadro de horário ou fora do local? Vai para o RH aprovar, sem nunca bloquear a marcação.
+O RH tem o próprio portal: quadros de horário, planilha, pedidos de ajuste, espelho pela CLT e banco de horas. E o contador opera várias empresas no mesmo painel.
+WFtec Ponto. Cada batida, no lugar certo. Fale com a gente.
+Ponto pelo celular, com a localização de cada batida. Veja tudo o que o WFtec Ponto faz.
+O funcionário marca com um toque. A batida grava a hora do servidor, as coordenadas, a rua, o bairro e a cidade, e ele recebe o comprovante na hora.
+Cada batida é rastreável: distância do local, precisão do GPS, IP, aparelho e um código de auditoria que não pode ser alterado. E se o deslocamento for impossível, o sistema avisa: possível GPS falso.
+Bateu dentro do horário e da tolerância? Aprova sozinha. Fora do quadro de horário ou fora do local? Vai para o RH aprovar, sem nunca bloquear a marcação.
+O RH tem o próprio portal: quadros de horário, planilha, pedidos de ajuste, espelho pela CLT e banco de horas. E o contador opera várias empresas no mesmo painel.
+WFtec Ponto. Cada batida, no lugar certo. Fale com a gente.

@@ -1,0 +1,28 @@
+html,body{width:1920px!important;height:1080px!important}
+#brand{left:110px;top:70px}
+#dots{left:110px;right:auto;top:200px}
+#ttl{left:110px;top:250px;width:740px;height:560px}
+.tt .n{font-size:96px}
+.tt .big{top:-120px}
+#stage{left:900px;top:90px}
+#leg{left:110px;right:auto;width:740px;top:860px;text-align:left;font-size:34px}
+.ilu{right:60px;top:1030px}
+.hw{font-size:140px}
+#hookA{flex-direction:row;gap:50px;flex-wrap:wrap}
+#oLogo{left:180px!important;top:340px!important}
+#oTxt{left:640px!important;right:80px!important;top:250px!important;text-align:left!important}
+#oChips{justify-content:flex-start!important}
+.kin{padding:0 120px}
+#att{font-size:150px!important}
+#timer{font-size:130px;margin:26px 0 18px}
+.ql{font-size:46px;margin-top:8px}
+#ben{flex-direction:row;flex-wrap:wrap;gap:30px 70px}
+#ben .kw{margin-top:0!important}
+#b1,#b2{font-size:120px!important}#b3{font-size:84px!important;width:100%}
+#chega div{font-size:280px}
+#oLogo{left:180px!important;top:300px!important;width:420px!important;height:420px!important}
+#oTxt{left:720px!important;right:80px!important;top:150px!important;text-align:left!important}
+#oList{flex-direction:row!important;flex-wrap:wrap;align-items:flex-start!important;margin-top:36px!important}
+.tt .n{font-size:92px}
+#ben{align-content:center}#bgnum{color:rgba(38,38,38,.02)!important}
+#hq1{top:230px!important}#hq2{top:520px!important}#hq3{top:640px!important;font-size:84px!important}
