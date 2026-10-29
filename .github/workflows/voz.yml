@@ -1,0 +1,35 @@
+name: Voz do Antonio
+# Gera as falas (edge-tts, pt-BR-AntonioNeural) para cada pasta voz/<pedido>/ que tenha falas.txt e ainda não tenha fala1.mp3.
+on:
+  push:
+    paths: ["voz/**/falas.txt"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  voz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q edge-tts
+      - name: Gerar falas
+        run: |
+          set -e
+          for d in voz/*/; do
+            [ -f "$d/falas.txt" ] || continue
+            [ -f "$d/fala1.mp3" ] && continue
+            i=0
+            while IFS= read -r l || [ -n "$l" ]; do
+              [ -z "$l" ] && continue
+              i=$((i+1))
+              edge-tts --voice pt-BR-AntonioNeural --rate=+14% --pitch=+2Hz --text "$l" --write-media "$d/fala$i.mp3"
+            done < "$d/falas.txt"
+            echo "$d: $i falas"
+          done
+      - name: Salvar
+        run: |
+          git config user.name "voz-antonio"; git config user.email "actions@github.com"
+          git add voz
+          git diff --cached --quiet || (git commit -m "Voz do Antonio gerada" && git pull --rebase && git push)
