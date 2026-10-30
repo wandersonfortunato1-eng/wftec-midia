@@ -10,3 +10,5 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-10-29 21:15 | Story | Story do Reels Ponto CLT | (mesmo vídeo) | 410678607 |
 | 2026-10-30 11:49 | Story | Story do carrossel Double Check | 2026-10/2026-10-30-double-check-folha-story.jpg | 410678639 |
 | 2026-10-30 18:39 | Story | Story do Reels Novas convenções | (mesmo vídeo) | 410678652 |
+| 2026-10-29 21:28 | Carrossel | Sindicatos: enquadramento sindical pelo CNPJ e CNAE | 2026-10/2026-10-29-enquadramento-sindical-*.jpg | 410691118 |
+| 2026-10-29 21:30 | Story | Story do carrossel enquadramento | 2026-10/2026-10-29-enquadramento-sindical-story.jpg | 410691134 |
