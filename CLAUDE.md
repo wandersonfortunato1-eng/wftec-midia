@@ -131,7 +131,12 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 6. **Conferência:** rode `python3 kit/video/build.py PASTA --preview 2,6,10,...`.
    - Olhe os quadros com Read: nada cortado, sobreposto ou vazio demais.
    - Corrija e repita até ficar bom.
-7. **Renderização:** rode `python3 kit/video/build.py PASTA`. Ele gera `video.mp4` e `capa.jpg` em cerca de 3 minutos.
+7. **CAPA (atenção redobrada, pedido do Wanderson):** a capa NUNCA é um quadro do meio do vídeo, porque esse quadro aparece com legenda e tela pela metade e fica feio na grade do perfil.
+   - Gere uma capa desenhada: `python3 kit/capa.py PASTA/capa.jpg "KICKER" "Pergunta com <em>destaque</em>?" "Subtítulo curto"`.
+   - O kicker é o nome do produto em caixa alta. O título é a pergunta-gancho, com até cerca de 7 palavras.
+   - Tudo fica dentro da faixa central que a grade 3:4 mostra.
+   - Rode **depois** do build final, porque o build sobrescreve `capa.jpg`. Olhe a capa com Read antes de publicar.
+8. **Renderização:** rode `python3 kit/video/build.py PASTA`. Ele gera `video.mp4` e `capa.jpg` em cerca de 3 minutos.
    - Faça commit só de `video.html`, `video.json`, `video.mp4` e `capa.jpg`. O `.gitignore` já ignora o resto.
 
 ## Regras de conteúdo (obrigatórias)
