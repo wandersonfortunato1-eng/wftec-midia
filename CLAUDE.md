@@ -23,6 +23,10 @@ Este repositório é **público**. Ele guarda só os arquivos dos posts, que fic
 - **Envio:** `createScheduledPost` com `autoPublish: true` e `draft: false`.
   - Reels: `instagramData.type = "REEL"` e `videoThumbnailUrl` = capa.jpg.
   - Carrossel: várias imagens em `media`, na ordem.
+- **Stories (todo post vai também para os Stories):** para cada post do feed, agende um segundo post `instagramData.type = "STORY"`, **2 minutos depois**, sem `text`.
+  - Reels: use o mesmo vídeo. Pode reaproveitar a URL `static.metricool.com` que o Metricool devolveu no post do feed.
+  - Carrossel ou imagem: gere `AAAA-MM-DD-tema-story.jpg` em 1080×1920. Cole o 1º slide (1080×1350) em y=285, sobre fundo `#F6F2EF`, com PIL.
+  - Registre o Story também em `publicados.md`.
 - **Mídia:** use URLs `https://raw.githubusercontent.com/wandersonfortunato1-eng/wftec-midia/main/<caminho>`. O Metricool baixa e copia o arquivo.
   - Faça **commit e push antes** de agendar.
   - Antes de agendar, confira com `curl -sI` que a URL responde 200.

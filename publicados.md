@@ -7,3 +7,6 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-10-30 18:37 | Reels | Novas convenções e Notificações (aviso das últimas publicadas) | 2026-10/2026-10-30-novas-convencoes.mp4 | 410666736 |
 | 2026-10-30 11:47 | Carrossel | Double Check Folha: 4 coisas que ele pega | 2026-10/2026-10-30-double-check-folha-*.jpg | 410666749 |
 | 2026-10-29 21:13 | Reels NOVO | Ponto: o espelho já sai calculado pela CLT (tolerância, noturna, extras, ocorrências, banco) | 2026-10/2026-10-31-ponto-clt/video.mp4 | 410675491 |
+| 2026-10-29 21:15 | Story | Story do Reels Ponto CLT | (mesmo vídeo) | 410678607 |
+| 2026-10-30 11:49 | Story | Story do carrossel Double Check | 2026-10/2026-10-30-double-check-folha-story.jpg | 410678639 |
+| 2026-10-30 18:39 | Story | Story do Reels Novas convenções | (mesmo vídeo) | 410678652 |
