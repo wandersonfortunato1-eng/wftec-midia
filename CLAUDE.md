@@ -199,6 +199,11 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 
 **Os 7 vídeos de `backlog/` JÁ FORAM POSTADOS e não devem ser repostados.**
 
+**Leitura de 02/11/2026 (Reels de 27/10 a 02/11, via Metricool):**
+- "Saiu convenção nova da sua categoria…" (Sindicatos, 30/10): 24 visualizações, alcance 11, tempo médio 5,1 s, 0 compartilhamentos e 0 salvamentos.
+- "Seu ponto calcula a CLT sozinho…" (Ponto, 29/10): 19 visualizações, alcance 13, tempo médio 3,2 s, 0 compartilhamentos e 0 salvamentos.
+- Conclusão: amostra pequena e tempo médio baixo (3 a 5 s). O que pesa é o primeiro segundo: a pergunta-gancho tem de aparecer já no quadro 1 e ser curta. Sindicatos segue na frente. Ganchos com uma dor concreta (uma verba, uma batida) em vez de lista de funções.
+
 **Atualização:** o Metricool só tem dados a partir de 29/10. Toda segunda-feira, leia as métricas de Reels da semana anterior com `getAnalyticsDataByMetrics`:
 - Campos: `IGRE02` (data), `IGRE03` (texto), `IGRE23` (visualizações), `IGRE11` (alcance), `IGRE24` (tempo médio), `IGRE27` (retenção), `IGRE21` (compartilhamentos), `IGRE12` (salvamentos).
 - Anote as conclusões aqui e ajuste ganchos e temas.

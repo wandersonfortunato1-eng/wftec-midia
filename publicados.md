@@ -12,3 +12,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-10-30 18:39 | Story | Story do Reels Novas convenções | (mesmo vídeo) | 410678652 |
 | 2026-10-29 21:28 | Carrossel | Sindicatos: enquadramento sindical pelo CNPJ e CNAE | 2026-10/2026-10-29-enquadramento-sindical-*.jpg | 410691118 |
 | 2026-10-29 21:30 | Story | Story do carrossel enquadramento | 2026-10/2026-10-29-enquadramento-sindical-story.jpg | 410691134 |
+| 2026-11-03 11:47 | Imagem | Ponto: batida nunca bloqueada (fora do local, GPS fraco, sem localização) | 2026-11/2026-11-03-ponto-batida-livre.jpg | 414651748 |
+| 2026-11-03 11:49 | Story | Story da imagem Ponto batida nunca bloqueada | 2026-11/2026-11-03-ponto-batida-livre-story.jpg | 414651960 |
+| 2026-11-03 18:37 | Reels NOVO | Double Check Folha: a verba que sumiu (ver só o que tem diferença + filtro por verba) | 2026-11/2026-11-03-verba-sumiu/video.mp4 | 414651787 |
+| 2026-11-03 18:39 | Story | Story do Reels Double Check verba que sumiu | (mesmo vídeo) | 414651984 |
