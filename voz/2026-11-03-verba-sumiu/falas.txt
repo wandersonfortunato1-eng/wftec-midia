@@ -1,0 +1,6 @@
+Uma verba sumiu da folha e ninguém percebeu?
+Mês passado tinha adicional, hoje não tem mais. E no meio de cem funcionários, isso passa batido.
+No Double Check Folha, você envia o espelho do mês anterior e o do mês atual, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário e verba por verba, e mostra cada valor que mudou.
+Marque ver só o que tem diferença, filtre pela verba, e a que sumiu aparece na hora.
+Double Check Folha. Nenhuma verba some sem você ver. Fale com a gente.
