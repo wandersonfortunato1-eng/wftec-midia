@@ -1,0 +1,4 @@
+{"voz": "voz/2026-11-04-gps-falso", "min": {"1": 4.6},
+ "dest": ["duas cidades", "Recife", "só no momento da batida", "hora do servidor", "impossível", "possível GPS falso", "não é bloqueada", "gestor", "código de auditoria", "apagada ou alterada", "Fale com a gente"],
+ "cues": {"natal": 0.9, "depois": 1.6, "recife": 2.6, "loc": 1.5, "hora": 4.3, "b2": 1.3, "imp": 2.6, "gps": 4.1, "grav": 2.2, "aviso": 3.4, "gestor": 4.2, "apag": 1.3, "alt": 1.8, "cod": 2.6},
+ "capa": 20}

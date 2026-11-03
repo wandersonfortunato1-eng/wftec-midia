@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:0;right:0;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.pin{position:absolute;left:150px;width:780px;display:flex;align-items:center;gap:26px;padding:30px 36px;border-radius:26px;background:#221e1c;border:2px solid #3A3330;color:#F1ECE8;opacity:0}
+.pin .ic{width:76px;height:76px;flex:none;border-radius:50%;background:var(--ac);display:grid;place-items:center;font-size:40px}
+.pin b{font:italic 900 70px Archivo;flex:1}
+.pin span{font:600 54px Mono;color:#FF8A5C}
+.gap{position:absolute;left:0;right:0;text-align:center;font:600 34px Mono;color:#A89F99;opacity:0}
+.app{position:absolute;left:0;top:0;width:960px;padding:30px 34px;opacity:0}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.hdr b{font-size:34px}.hdr span{font-family:Mono;font-size:22px;color:var(--muted)}
+.fl{display:flex;justify-content:space-between;align-items:center;padding:36px 0;border-top:1px solid var(--line);font-size:36px;opacity:0}
+.fl small{color:var(--muted)}.fl b{font-family:Mono;font-weight:600}
+.fl.on{background:var(--acs);margin:0 -34px;padding:36px 34px}
+.bt{display:grid;grid-template-columns:90px 1fr 170px;align-items:center;gap:20px;padding:28px 30px;border-radius:22px;background:#fff;border:2px solid var(--line);margin-bottom:18px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.bt .ic{width:70px;height:70px;border-radius:50%;background:var(--infos);color:var(--info);display:grid;place-items:center;font-size:34px}
+.bt b{font-size:40px;display:block}.bt small{font:500 24px Mono;color:var(--muted)}
+.bt .h{font:600 46px Mono;text-align:right}
+.bt.on{border-color:var(--warn);background:#FFFBF2}
+.alr{display:flex;gap:20px;align-items:center;justify-content:center;padding:36px 28px;border-radius:24px;background:var(--warns);border:3px solid #EBCF9A;color:#8A5A0B;font:italic 900 66px Archivo;margin-top:30px;opacity:0}
+.btn{display:inline-flex;align-items:center;gap:12px;font-size:32px;font-weight:700;padding:18px 34px;border-radius:16px;background:var(--ok);color:#fff}
+.btn.g{background:#F3EDE9;color:#4a4542}
+.code{font:600 58px Mono;letter-spacing:4px;text-align:center;margin-top:20px}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div class="hq" id="hq1" style="top:330px;font-size:132px">Bateu o ponto<br>em duas<br><span style="color:var(--ac)">cidades?</span></div>
+  <div class="pin" id="p1" style="top:1000px"><div class="ic">📍</div><b>Natal</b><span>08:02</span></div>
+  <div class="gap" id="gp" style="top:1185px">↓ minutos depois ↓</div>
+  <div class="pin" id="p2" style="top:1270px"><div class="ic">📍</div><b>Recife</b><span>08:09</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">WFTEC PONTO · BATIDA</div><div class="n">Só no <em>momento.</em></div><div class="d" id="t1d">A localização é registrada só na batida.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">ALERTA</div><div class="n">Deslocamento <em>impossível.</em></div><div class="d">O sistema compara as batidas.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">PAINEL DO GESTOR</div><div class="n">Gravada, <em>com aviso.</em></div><div class="d" id="t3d">A marcação nunca é bloqueada.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">AUDITORIA</div><div class="n">Nada se <em>apaga.</em></div><div class="d">Correção vira um registro novo.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="sA">
+    <div class="card app" id="appA">
+      <div class="hdr"><b>Batida · <span class="mask" style="width:220px"></span></b><span>ENTRADA</span></div>
+      <div class="fl" id="f0"><small>Hora do servidor</small><b>08:02:14</b></div>
+      <div class="fl" id="f1"><small>Rua e bairro</small><span class="mask" style="width:300px"></span></div>
+      <div class="fl" id="f2"><small>Município</small><b>Natal/RN</b></div>
+      <div class="fl" id="f3"><small>Precisão do GPS</small><b>12 m</b></div>
+      <div class="fl" id="f4"><small>Distância do local</small><b>40 m</b></div>
+    </div>
+  </div>
+  <div class="sc" id="sG">
+    <div class="bt" id="g0"><div class="ic">📍</div><div><b>Natal/RN</b><small>entrada</small></div><div class="h">08:02</div></div>
+    <div class="bt" id="g1"><div class="ic">📍</div><div><b>Recife/PE</b><small>saída</small></div><div class="h">08:09</div></div>
+    <div class="alr" id="gA"><span>⚠</span><span>Possível GPS falso</span></div>
+  </div>
+  <div class="sc" id="sM">
+    <div class="card app" id="appM">
+      <div class="hdr"><b>Batidas · <span class="mask" style="width:200px"></span></b><span>HOJE</span></div>
+      <div class="fl" id="m0" style="opacity:1"><small>Recife/PE · 08:09</small><span class="chip ok" id="mS" style="font-size:32px">Gravada ✓</span></div>
+      <div style="padding:30px 0;border-top:1px solid var(--line)"><span class="chip warn" id="mW" style="font-size:32px;opacity:0">⚠ Possível GPS falso · aviso ao gestor</span></div>
+      <div style="display:flex;gap:16px;padding-top:24px;border-top:1px solid var(--line);opacity:0" id="mB"><span class="btn" id="mB1">Aprovar</span><span class="btn g">Rejeitar</span></div>
+    </div>
+    <div class="abs disp" id="mBig" style="left:0;top:620px;width:960px;text-align:center;font-size:84px;opacity:0">O gestor <em>decide.</em></div>
+  </div>
+  <div class="sc" id="sC">
+    <div class="card" id="cC" style="padding:56px 40px;text-align:center;opacity:0">
+      <div class="mono" style="font-size:24px;color:var(--muted);letter-spacing:2px">CÓDIGO DE AUDITORIA</div>
+      <div class="code" id="cX">····-····-····</div>
+      <div style="display:flex;justify-content:center;gap:14px;margin-top:40px"><span class="chip bad" id="cN1" style="font-size:28px;opacity:0">✕ Apagar</span><span class="chip bad" id="cN2" style="font-size:28px;opacity:0">✕ Alterar</span></div>
+    </div>
+    <div class="abs disp" id="cBig" style="left:0;top:560px;width:960px;text-align:center;font-size:76px;opacity:0">Cada batida, <em>um código.</em></div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">WFtec Ponto</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Batida nunca bloqueada</span><span class="chip" style="font-size:26px;padding:10px 20px">Hora do servidor</span><span class="chip" style="font-size:26px;padding:10px 20px">Código de auditoria</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Aviso de possível GPS falso</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["GPS", "08:02", "NSR", "IP", "12 m", "lat", "lon", "batida", "ponto", "UTC-3"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const SC = ["sA", "sG", "sM", "sC"], TT = ["t1", "t2", "t3", "t4"];
+const HEX = "0123456789ABCDEF", CODE = "7F3A-C91E-24B8";
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    $("hq1").style.opacity = 1; $("hq1").style.transform = `scale(${1.06 - .06 * eout(seg(L, 0, .5))})`;
+    slam("p1", L, I + cu("natal", .9), 1.5); sx += shake(L, I + cu("natal", .9) + .2);
+    $("gp").style.opacity = seg(L, I + cu("depois", 1.7), I + cu("depois", 1.7) + .3);
+    slam("p2", L, I + cu("recife", 2.6), 1.5); sx += shake(L, I + cu("recife", 2.6) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "sA"; tt = "t1";
+    pop("appA", L, .1, 50);
+    const lc = I + cu("loc", 1.5), hc = I + cu("hora", 4.2);
+    ["f1", "f2", "f3", "f4"].forEach((id, i) => { $(id).style.opacity = seg(L, lc + i * .2, lc + .25 + i * .2); });
+    $("f0").style.opacity = seg(L, .3, .6);
+    $("f0").className = "fl" + (L > hc ? " on" : ""); $("f2").className = "fl" + (L > lc + .4 && L < hc ? " on" : "");
+    $("t1d").textContent = L < hc ? "A localização é registrada só na batida." : "Com a hora do servidor.";
+  }
+  if (k === 2) { sc = "sG"; tt = "t2";
+    pop("g0", L, .15, 40); pop("g1", L, I + cu("b2", 1.4), 40);
+    const ac = I + cu("gps", 4.0);
+    $("g0").className = "bt" + (L > I + cu("imp", 2.6) ? " on" : ""); $("g1").className = $("g0").className;
+    slam("gA", L, ac, 1.6); sx += shake(L, ac + .2);
+    const aq = Math.sin(seg(L, ac + .4, ac + 1.4) * Math.PI); $("gA").style.boxShadow = `0 0 0 ${10 * aq}px rgba(183,121,31,.25)`;
+  }
+  if (k === 3) { sc = "sM"; tt = "t3";
+    pop("appM", L, .1, 40);
+    const gc = I + cu("grav", 2.2), wc = I + cu("aviso", 3.3), mc = I + cu("gestor", 4.1);
+    const q = back(seg(L, gc, gc + .35)); $("mS").style.transform = `scale(${1 + .25 * Math.sin(clamp(q) * Math.PI)})`;
+    pop("mW", L, wc, 20); pop("mB", L, mc, 20); slam("mBig", L, mc + .3, 1.5);
+    $("t3d").textContent = L < gc ? "A marcação nunca é bloqueada." : "Gravada, e o gestor decide.";
+  }
+  if (k === 4) { sc = "sC"; tt = "t4";
+    pop("cC", L, .1, 40);
+    pop("cN1", L, I + cu("apag", 1.2), 20); pop("cN2", L, I + cu("alt", 1.8), 20);
+    const cc = I + cu("cod", 2.7); let s = "";
+    for (let i = 0; i < CODE.length; i++) { const c = CODE[i]; if (c === "-") { s += c; continue; } s += L > cc + i * .04 ? c : L > cc - .6 ? HEX[Math.floor((L * 40 + i * 7)) % 16] : "·"; }
+    $("cX").textContent = s;
+    slam("cBig", L, cc + .4, 1.5);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
