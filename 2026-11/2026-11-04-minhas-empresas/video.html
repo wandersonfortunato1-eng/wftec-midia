@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.emp{position:absolute;width:300px;padding:18px 20px;border-radius:16px;background:#221e1c;border:1px solid #3A3330;opacity:0}
+.emp i{display:block;height:16px;border-radius:8px;background:#3A3330;margin-bottom:12px}
+.emp b{display:block;font:600 18px Mono;color:#6b625d}
+.app{position:relative;width:960px;padding:26px 28px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:24px}
+.tab{font-size:27px;font-weight:600;color:var(--muted);padding:12px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.tab.on{color:var(--act);border-color:var(--ac)}
+.tag{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap}
+.t-ok{background:var(--oks);color:#1E6B3E}.t-at{background:#FBF0D9;color:#8A5A0B}.t-ne{background:#F3EDE9;color:#4a4542}.t-nv{background:var(--ac);color:#fff}.t-db{background:#E3EEFA;color:#2B5C99}
+.file{display:flex;align-items:center;gap:26px;padding:36px 34px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4}
+.file .ic{width:84px;height:100px;border-radius:14px;background:#1E8E4E;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:14px}.bar div{height:100%;width:0;background:var(--ac)}
+.cols{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.cols span{font:600 30px Mono;padding:14px 22px;border-radius:14px;background:#fff;border:2px solid var(--line);opacity:0}
+.cols span.ob{border-color:var(--ac);color:var(--act)}
+.st{display:flex;align-items:center;gap:28px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:38px 34px;margin-bottom:24px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.st .n{flex:none;width:72px;height:72px;border-radius:50%;background:var(--ac);color:#fff;font:italic 900 38px Archivo;display:grid;place-items:center}
+.st b{font-size:44px;display:block}.st small{font-size:30px;color:var(--muted)}
+.st.on{border-color:var(--ac);background:#FFF6F1}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:36px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 26px Mono;color:var(--muted);margin-top:8px}
+.cand{display:flex;align-items:center;gap:20px;padding:34px 28px;border:2px solid var(--line);border-radius:20px;margin-top:24px;background:#fff;opacity:0}
+.cand .btn{flex:none;font:700 26px Plex;padding:14px 22px;border-radius:12px;background:#F3EDE9;color:#4a4542}
+.cand.on{border-color:var(--ok);background:#F2FAF5}.cand.on .btn{background:var(--ok);color:#fff}
+.cand div{font-size:32px;line-height:1.3}.cand small{display:block;font-size:25px;color:var(--muted);margin-top:4px}
+.av{border:3px solid var(--ac);background:#FFF6F1;border-radius:24px;padding:34px 32px;margin-top:28px;opacity:0}
+.av .t{font-size:38px;font-weight:700;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips .chip{font-size:30px;padding:12px 24px;opacity:0}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="emps"></div>
+  <div class="hq" id="hq1" style="top:560px;font-size:118px">Qual convenção vale para <span style="color:var(--ac)">cada cliente seu?</span></div>
+  <div class="hq" id="hq2" style="top:1180px;font-size:72px">A WFtec <span style="color:var(--ac)">acompanha.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">NOVIDADE · FERRAMENTA DE SINDICATOS</div><div class="n">Minhas <em>empresas.</em></div><div class="d" id="t1d">A nova aba para a sua carteira.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">ENQUADRAMENTO</div><div class="n">Cada uma, <em>enquadrada.</em></div><div class="d">CNPJ, CNAE, sindicato e documentos.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">CONFIRA</div><div class="n">Você <em>escolhe.</em></div><div class="d">Com o motivo de cada sindicato.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">TODO DIA</div><div class="n">Saiu nova? <em>Avisa.</em></div><div class="d" id="t4d">Na linha da própria empresa.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="sU">
+    <div class="card app" id="appU">
+      <div class="tabs"><div class="tab">Busca</div><div class="tab">Novas</div><div class="tab">Notificações</div><div class="tab on" id="tabME">Minhas empresas <span class="tag t-nv" style="font-size:16px;padding:3px 10px">nova</span></div></div>
+      <div class="file" id="fU"><div class="ic">XLSX</div><div style="flex:1"><b style="font-size:40px">clientes.xlsx</b><div class="muted" style="font-size:24px;margin-top:4px" id="fSt">Excel ou CSV</div><div class="bar"><div id="fBar"></div></div></div></div>
+      <div class="cols"><span class="ob" id="c0">CNPJ · obrigatório</span><span id="c1">Código</span><span id="c2">Razão social</span><span id="c3">CNAE</span></div>
+      <div style="display:flex;align-items:baseline;gap:22px;margin-top:34px"><div class="disp" id="cnt" style="font-size:190px;color:var(--ac);letter-spacing:-3px">0</div><div style="font-size:38px;font-weight:600;line-height:1.3">empresas<br><span class="muted" style="font-weight:500">por escritório</span></div></div>
+    </div>
+  </div>
+  <div class="sc" id="sE">
+    <div class="st" id="e0"><div class="n">1</div><div><b>CNPJ</b><small>cadastro da empresa na Receita</small></div></div>
+    <div class="st" id="e1"><div class="n">2</div><div><b>CNAE</b><small>a atividade define a categoria</small></div></div>
+    <div class="st" id="e2"><div class="n">3</div><div><b>Sindicato</b><small>laboral e patronal da categoria</small></div></div>
+    <div class="st" id="e3"><div class="n">4</div><div><b>Documentos ligados</b><small>convenções, acordos e aditivos</small></div></div>
+  </div>
+  <div class="sc" id="sC">
+    <div class="card app" id="appC" style="padding:34px 30px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px"><div><span class="mask" style="width:340px"></span><div class="muted mono" style="font-size:26px;margin-top:10px">CNPJ ••.•••.•••/0001-••</div></div><span class="tag" id="cSt">Confira: mais de um sindicato</span></div>
+      <div class="cand" id="k0"><span class="btn">Usar esta</span><div>Empregados no comércio <span class="muted">com</span> Comércio varejista<small>atividade principal pelo CNAE · base territorial RN</small></div></div>
+      <div class="cand" id="k1"><span class="btn">Usar esta</span><div>Empregados em supermercados <span class="muted">com</span> Supermercados<small>categoria específica da atividade · RN</small></div></div>
+    </div>
+  </div>
+  <div class="sc" id="sA">
+    <div class="card app" id="appA" style="padding:16px 28px">
+      <div class="row" id="r0"><div><span class="mask" style="width:300px"></span><small>Empregados no comércio · RN</small></div><span class="tag t-ok">Convenção ligada</span></div>
+      <div class="row" id="r1"><div><span class="mask" style="width:250px"></span><small>Convenção 2026/2027</small></div><span class="tag t-nv" id="rNova">Novidade</span></div>
+      <div class="row" id="r2"><div><span class="mask" style="width:330px"></span><small>Data-base 01/12</small></div><span class="tag t-db">Data-base em 28 dias</span></div>
+    </div>
+    <div class="av" id="aV"><div class="t">Saiu uma convenção nova que se enquadra a esta empresa</div><div class="muted" style="font-size:24px;margin-top:10px">Convenção Coletiva · vigência 2026 a 2027 · <span style="color:var(--act);font-weight:700">Ver</span></div></div>
+    <div class="chips"><span class="chip ac" id="h0">Com novidade</span><span class="chip warn" id="h1">Convenção vencendo · 60 dias</span><span class="chip info" id="h2">Data-base em até 45 dias</span></div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Planilha com até 3.000 empresas</span><span class="chip" style="font-size:26px;padding:10px 20px">Enquadramento de cada uma</span><span class="chip" style="font-size:26px;padding:10px 20px">Aviso de convenção nova</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Aba Minhas empresas</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CNPJ", "CNAE", "CCT", "ACT", "aditivo", "piso", "data-base", "RN", "SP", "sindicato"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NE = 14;
+$("emps").innerHTML = Array.from({ length: NE }, (_, i) => `<div class="emp" id="m${i}" style="left:${40 + (i * 317) % 720}px;top:${120 + (i * 461) % 1500}px"><i style="width:${60 + (i * 37) % 35}%"></i><b>CNPJ ••.•••.•••/0001-••</b></div>`).join("");
+const SC = ["sU", "sE", "sC", "sA"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NE; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .9; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 3}deg) translateY(${-L * 14}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("acomp", 3.0), 1.6); sx += shake(L, I + cu("acomp", 3.0) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "sU"; tt = "t1";
+    pop("appU", L, .1, 50);
+    const tq = Math.sin(seg(L, I + cu("aba", 1.5), I + cu("aba", 1.5) + .6) * Math.PI); $("tabME").style.transform = `scale(${1 + .1 * tq})`;
+    const pl = I + cu("planilha", 3.0); const fq = back(seg(L, pl, pl + .45)); $("fU").style.opacity = clamp(fq * 2); $("fU").style.transform = `translateY(${(1 - clamp(fq)) * -80}px)`;
+    $("fBar").style.width = (100 * eout(seg(L, pl + .3, pl + 2.4))) + "%"; $("fSt").textContent = L < pl + 2.4 ? "Lendo a planilha…" : "Empresas na carteira ✓";
+    for (let i = 0; i < 4; i++) pop("c" + i, L, pl + .5 + i * .15, 20);
+    const ct = I + cu("tresmil", 6.2); $("cnt").textContent = Math.round(3000 * eout(seg(L, ct - .6, ct + .5))).toLocaleString("pt-BR");
+    $("t1d").textContent = L < pl ? "A nova aba para a sua carteira." : "Suba a planilha com os CNPJs.";
+  }
+  if (k === 2) { sc = "sE"; tt = "t2";
+    const es = [cu("e0", .3), cu("e1", 2.0), cu("e2", 3.2), cu("e3", 4.6)];
+    es.forEach((a, i) => { pop("e" + i, L, I + a, 40); $("e" + i).className = "st" + (L > I + a && (i === 3 || L < I + es[i + 1]) ? " on" : ""); });
+  }
+  if (k === 3) { sc = "sC"; tt = "t3";
+    pop("appC", L, .1, 40); pop("k0", L, .5, 30); pop("k1", L, .7, 30);
+    const ch = I + cu("escolhe", 2.4); const on = L > ch;
+    $("k0").className = "cand" + (on ? " on" : ""); $("k0").style.opacity = 1; $("k1").style.opacity = on ? .45 : parseFloat($("k1").style.opacity);
+    const bq = Math.sin(seg(L, ch - .2, ch + .1) * Math.PI); $("k0").querySelector(".btn").style.transform = `scale(${1 - .12 * bq})`;
+    $("cSt").textContent = on ? "Convenção ligada" : "Confira: mais de um sindicato"; $("cSt").className = "tag " + (on ? "t-ok" : "t-at");
+  }
+  if (k === 4) { sc = "sA"; tt = "t4";
+    pop("appA", L, .1, 40); ["r0", "r1", "r2"].forEach((id, i) => { $(id).style.opacity = seg(L, .3 + i * .2, .5 + i * .2); });
+    const nv = I + cu("nova", 1.6); const nq = Math.sin(seg(L, nv, nv + .6) * Math.PI); $("rNova").style.transform = `scale(${1 + .2 * nq})`;
+    pop("aV", L, I + cu("aviso", 2.6), 30); if (L > I + cu("aviso", 2.6)) sx += shake(L, I + cu("aviso", 2.6) + .2) * .5;
+    const hs = [cu("h0", 5.0), cu("h1", 6.6), cu("h2", 7.8)];
+    hs.forEach((a, i) => { const q = back(seg(L, I + a, I + a + .35)); $("h" + i).style.opacity = clamp(q * 2); $("h" + i).style.transform = `scale(${1.3 - .3 * clamp(q)})`; });
+    $("t4d").textContent = L < I + hs[0] ? "Na linha da própria empresa." : "Vencendo? Data-base chegando? Um clique.";
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k === 1 || k === 3 || k === 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
