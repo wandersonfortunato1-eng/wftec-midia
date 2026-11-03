@@ -117,6 +117,9 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
    - Fala 1 = gancho em pergunta, até 12 palavras. Última fala = "<produto>. <frase de efeito>. Fale com a gente."
    - Total de 35 a 55 s. **O máximo é 60 s.**
    - Números e siglas por extenso para a voz ler certo ("dez minutos", "I P").
+   - **Pronúncia de siglas (pedido do Wanderson):** CNAE se fala como palavra ("cnáe"), não soletrado. Em `falas.txt` escreva **"Cnáe"**.
+     - Quando a fala usar grafia de pronúncia, crie também `legendas.txt` (mesmas linhas, grafia correta: "CNAE"). A legenda na tela sai desse arquivo.
+     - CNPJ, CPF, FGTS e INSS continuam soletrados, como se fala no DP.
 2. **Voz:** faça commit e push. A Action **"Voz do Antonio"** (`.github/workflows/voz.yml`) gera `fala1.mp3…` com `pt-BR-AntonioNeural +14% +2Hz` em cerca de 1 minuto.
    - Acompanhe com `gh api repos/wandersonfortunato1-eng/wftec-midia/actions/runs --jq '.workflow_runs[0]|.status,.conclusion'`.
    - Depois rode `git pull --rebase`.
