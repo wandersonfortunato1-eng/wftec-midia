@@ -16,3 +16,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-03 11:49 | Story | Story da imagem Ponto batida nunca bloqueada | 2026-11/2026-11-03-ponto-batida-livre-story.jpg | 414651960 |
 | 2026-11-03 18:37 | Reels NOVO | Double Check Folha: a verba que sumiu (ver só o que tem diferença + filtro por verba) | 2026-11/2026-11-03-verba-sumiu/video.mp4 | 414651787 |
 | 2026-11-03 18:39 | Story | Story do Reels Double Check verba que sumiu | (mesmo vídeo) | 414651984 |
+| 2026-11-04 11:47 | Carrossel | Sindicatos: dado da semana (868 instrumentos novos de 28/10 a 03/11, D1) | 2026-11/2026-11-04-dado-semana-sindicatos-*.jpg | 415917140 |
+| 2026-11-04 11:49 | Story | Story do carrossel dado da semana Sindicatos | 2026-11/2026-11-04-dado-semana-sindicatos-story.jpg | 415917209 |
+| 2026-11-04 18:37 | Reels NOVO | Ponto: possível GPS falso (deslocamento impossível; batida gravada com aviso; código de auditoria) | 2026-11/2026-11-04-gps-falso/video.mp4 | 415917167 |
+| 2026-11-04 18:39 | Story | Story do Reels Ponto possível GPS falso | (mesmo vídeo) | 415917220 |
