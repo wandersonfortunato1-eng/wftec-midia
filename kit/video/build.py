@@ -24,6 +24,11 @@ def dur(p): return float(subprocess.check_output(["ffprobe","-v","error","-show_
 falas = sorted(VOZ.glob("fala*.mp3"), key=lambda p: int(re.findall(r"\d+", p.stem)[0])); N = len(falas)
 if not N: raise SystemExit(f"sem falas em {VOZ}")
 textos = [l.strip() for l in (VOZ/"falas.txt").read_text(encoding="utf-8").splitlines() if l.strip()]
+# legendas.txt (opcional, mesma quantidade de linhas): o texto ESCRITO da legenda, quando a fala usa grafia de pronúncia
+# (ex.: a voz lê "Cnáe" para soar como se fala na contabilidade, a legenda mostra "CNAE")
+if (VOZ/"legendas.txt").exists():
+    _l = [l.strip() for l in (VOZ/"legendas.txt").read_text(encoding="utf-8").splitlines() if l.strip()]
+    if len(_l) == len(textos): textos = _l
 d = {}
 for i, f in enumerate(falas, 1):
     w = TMP/f"fala{i}.wav"
