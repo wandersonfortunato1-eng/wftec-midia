@@ -1,0 +1,6 @@
+Bateu o ponto em Natal e, minutos depois, em Recife?
+No WFtec Ponto, a localização é registrada só no momento da batida, com a hora do servidor.
+Se o deslocamento entre duas batidas for impossível, o sistema avisa: possível GPS falso.
+A batida não é bloqueada. Ela fica gravada, com o aviso, para o gestor analisar.
+E nenhuma batida é apagada ou alterada: cada uma leva um código de auditoria.
+WFtec Ponto. A batida é livre, e o gestor fica sabendo. Fale com a gente.
