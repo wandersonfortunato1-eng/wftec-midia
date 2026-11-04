@@ -20,3 +20,5 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-04 11:49 | Story | Story do carrossel dado da semana Sindicatos | 2026-11/2026-11-04-dado-semana-sindicatos-story.jpg | 415917209 |
 | 2026-11-04 18:37 | Reels NOVO | Ponto: possível GPS falso (deslocamento impossível; batida gravada com aviso; código de auditoria) | 2026-11/2026-11-04-gps-falso/video.mp4 | 415917167 |
 | 2026-11-04 18:39 | Story | Story do Reels Ponto possível GPS falso | (mesmo vídeo) | 415917220 |
+| 2026-11-05 18:37 | Reels NOVO | Sindicatos: dado da semana em vídeo (1.088 documentos novos de 29/10 a 04/11, D1; pedido do Wanderson) | 2026-11/2026-11-05-dado-semana/video.mp4 | 416622833 |
+| 2026-11-05 18:39 | Story | Story do Reels dado da semana Sindicatos | (mesmo vídeo) | 416622913 |
