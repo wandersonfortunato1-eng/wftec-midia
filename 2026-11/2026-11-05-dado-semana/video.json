@@ -1,0 +1,4 @@
+{"voz": "voz/2026-11-05-dado-semana", "min": {"1": 4.2, "3": 4.8, "6": 4.8},
+ "dest": ["sete dias", "mil e oitenta e oito", "trezentos e oitenta e quatro", "São Paulo", "trezentos e vinte e cinco", "sites de sindicatos", "seis mil sites", "sino", "Notificações", "não passa batido", "Fale com a gente"],
+ "cues": {"sete": 1.9, "mil": 2.6, "tres": 2.0, "sp": 0.2, "mg": 3.6, "rs": 4.6, "sites": 0.4, "varre": 4.8, "sino": 1.0, "notif": 1.8},
+ "capa": 20}

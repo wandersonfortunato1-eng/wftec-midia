@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:0;right:0;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02}
+.nv{position:absolute;font:700 30px Plex;padding:10px 20px;border-radius:999px;background:var(--ac);color:#fff;opacity:0;white-space:nowrap}
+.nv.d{background:#221e1c;color:#A89F99;border:1px solid #3A3330}
+#dots i{width:32px}
+.cnt{font:italic 900 250px/0.9 Archivo;color:var(--ac);text-align:center;letter-spacing:-6px}
+.bars{display:flex;align-items:flex-end;gap:16px;height:640px;padding:0 10px}
+.bars .b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bars .b i{display:block;width:100%;border-radius:14px 14px 6px 6px;background:#E2D8D1}
+.bars .b.hi i{background:var(--ac)}
+.bars .b b{font:600 28px Mono;margin-bottom:10px;opacity:0}
+.bars .b span{font:600 22px Mono;color:var(--muted);margin-top:12px}
+.uf{display:grid;grid-template-columns:120px 1fr 130px;align-items:center;gap:20px;padding:56px 0;border-top:1px solid var(--line);opacity:0}
+.uf:first-child{border-top:0}
+.uf span{font:italic 900 64px Archivo}
+.uf i{display:block;height:46px;border-radius:12px;background:var(--ac);transform-origin:0 50%}
+.uf b{font:600 44px Mono;text-align:right}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.two .card{padding:40px 34px;opacity:0}
+.two .card small{display:block;font:600 24px Mono;color:var(--muted);letter-spacing:2px}
+.two .card b{display:block;font:italic 900 130px Archivo;margin-top:12px}
+.two .card p{font-size:28px;color:var(--muted);margin-top:6px;line-height:1.3}
+.sites{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px;justify-content:center}
+.sites i{width:58px;height:44px;border-radius:8px;background:#fff;border:1px solid var(--line);opacity:0;position:relative}
+.sites i::after{content:"";position:absolute;left:8px;right:8px;top:8px;height:6px;border-radius:3px;background:#EFE9E5}
+.sites i.ok{border-color:var(--ok)}
+.sites i.ok::before{content:"";position:absolute;right:6px;bottom:6px;width:14px;height:14px;border-radius:50%;background:var(--ok)}
+.app{padding:30px 34px;opacity:0}
+.tabs{display:flex;gap:30px;border-bottom:2px solid var(--line);font-size:30px;font-weight:600;color:var(--muted);margin-top:26px}
+.tabs span{padding-bottom:16px}
+.tabs span.on{color:var(--ink);border-bottom:5px solid var(--ac);margin-bottom:-2px}
+.bell{position:relative;width:84px;height:84px;border-radius:22px;background:#F3EDE9;display:grid;place-items:center;font-size:44px}
+.bell b{position:absolute;right:-12px;top:-12px;min-width:48px;height:48px;border-radius:24px;background:var(--ac);color:#fff;font:700 24px Plex;display:grid;place-items:center;padding:0 8px}
+.nt{padding:40px 0;border-top:1px solid var(--line);opacity:0}
+.nt:first-child{border-top:0}
+.nt .d{font:600 30px Mono}.nt .d em{font-style:normal}
+.nt .u{font:500 24px Mono;color:var(--muted);margin-top:8px}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="nvs"></div>
+  <div class="hq" id="hq1" style="top:560px;font-size:136px">Quantas<br>convenções<br>novas saíram<br><span style="color:var(--ac)">em 7 dias?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">DADO DA SEMANA · SINDICATOS</div><div class="n">Uma semana, <em>muita coisa.</em></div><div class="d">Notificações de 29/10 a 04/11.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">NUM SÓ AVISO</div><div class="n">384 <em>em 04/11.</em></div><div class="d">O maior dia da semana.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">POR ESTADO</div><div class="n">São Paulo <em>na frente.</em></div><div class="d">Documentos novos em 25 estados e no DF.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">DE ONDE VEIO</div><div class="n">Nem tudo está <em>no Mediador.</em></div><div class="d">Varredura diária em mais de 6 mil sites.</div></div>
+  <div class="tt" id="t5"><div class="big">05</div><div class="k">ONDE VOCÊ VÊ</div><div class="n">Dentro da <em>ferramenta.</em></div><div class="d">Sino e aba Notificações.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="card" id="c1" style="padding:120px 30px;text-align:center;opacity:0">
+      <div class="mono" style="font-size:26px;color:var(--muted);letter-spacing:2px">DOCUMENTOS NOVOS · 7 DIAS</div>
+      <div class="cnt" id="n1" style="margin-top:30px">0</div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:40px"><span class="chip" style="font-size:28px">29/10</span><span style="font-size:28px;color:var(--muted)">→</span><span class="chip ac" style="font-size:28px">04/11</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="card" id="c2" style="padding:40px 30px 30px;opacity:0">
+      <div class="bars" id="bars"></div>
+    </div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="card" style="padding:20px 40px">
+      <div class="uf" id="u0"><span>SP</span><i style="width:100%"></i><b>325</b></div>
+      <div class="uf" id="u1"><span>MG</span><i style="width:32%"></i><b>104</b></div>
+      <div class="uf" id="u2"><span>RS</span><i style="width:32%"></i><b>104</b></div>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="two"><div class="card" id="m0"><small>MEDIADOR</small><b>700</b><p>do Ministério do Trabalho</p></div><div class="card" id="m1" style="border:3px solid var(--ac)"><small>SITES DE SINDICATOS</small><b style="color:var(--ac)">388</b><p>achados na varredura</p></div></div>
+    <div class="sites" id="sites"></div>
+  </div>
+  <div class="sc" id="s5">
+    <div class="card app" id="c5">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:36px">Busca de Convenções</b><div class="bell" id="bell">🔔<b>384</b></div></div>
+      <div class="tabs"><span>Busca</span><span>Novas convenções</span><span class="on">Notificações</span></div>
+      <div class="nt" id="e0"><div class="d"><em>04/11</em> · 384 instrumentos novos</div><div class="u">SP 102 · RS 50 · RJ 41 · MG 37…</div></div>
+      <div class="nt" id="e1"><div class="d">03/11 · 4 instrumentos novos</div><div class="u">SP 2 · CE 1 · DF 1</div></div>
+      <div class="nt" id="e2"><div class="d">02/11 · 11 instrumentos novos</div><div class="u">MS 8 · PR 2 · GO 1</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:300px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:640px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Varredura diária</span><span class="chip" style="font-size:26px;padding:10px 20px">Mais de 6 mil sites</span><span class="chip" style="font-size:26px;padding:10px 20px">27 estados</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Aviso todo dia às 8h</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:48px;font-weight:700;padding:28px 54px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Fale com a gente →</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">dados reais do acervo WFtec</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+const fmt = (n) => n.toLocaleString("pt-BR");
+{ const W = ["CCT", "ACT", "aditivo", "circular", "piso", "SP", "RS", "MG", "Nova", "UF"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NV = ["Nova", "Convenção", "Nova", "Acordo", "Nova", "Aditivo", "Nova", "Circular", "Nova", "Convenção", "Nova", "Acordo"];
+$("nvs").innerHTML = NV.map((c, i) => `<div class="nv${c === "Nova" ? "" : " d"}" id="v${i}" style="left:${50 + (i * 337) % 760}px;top:${i % 2 ? 1260 + (i * 131) % 300 : 140 + (i * 97) % 300}px">${c}</div>`).join("");
+const DAYS = [["29/10", 382], ["30/10", 241], ["31/10", 49], ["01/11", 17], ["02/11", 11], ["03/11", 4], ["04/11", 384]];
+$("bars").innerHTML = DAYS.map(([d, n], i) => `<div class="b${i === 6 ? " hi" : ""}"><b id="bn${i}">${n}</b><i id="bi${i}" style="height:0"></i><span>${d}</span></div>`).join("");
+$("sites").innerHTML = Array.from({ length: 48 }, (_, i) => `<i id="w${i}"></i>`).join("");
+const SC = ["s1", "s2", "s3", "s4", "s5"], TT = ["t1", "t2", "t3", "t4", "t5"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    $("hq1").style.transform = `scale(${1.06 - .06 * eout(seg(L, 0, .5))})`;
+    NV.forEach((c, i) => { const a = .3 + i * .14; const q = back(seg(L, a, a + .3)); const e = $("v" + i); e.style.opacity = clamp(q * 2) * .55; e.style.transform = `scale(${.6 + .4 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg)`; });
+    sx += shake(L, I + cu("sete", 1.6));
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("c1", L, .1, 50);
+    const a = I + cu("mil", 2.0); const q = eout(seg(L, a - .6, a + 1.4)); $("n1").textContent = fmt(Math.round(1088 * q));
+    $("n1").style.transform = `scale(${1 + .08 * Math.sin(seg(L, a + 1.4, a + 1.8) * Math.PI)})`;
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("c2", L, .1, 40);
+    DAYS.forEach(([d, n], i) => { const a = .3 + i * .12 + (i === 6 ? I + cu("tres", 1.6) - 1.0 : 0); const q = eout(seg(L, a, a + .5)); $("bi" + i).style.height = (q * 560 * n / 384) + "px"; $("bn" + i).style.opacity = seg(L, a + .3, a + .5); });
+    sx += shake(L, I + cu("tres", 1.6) + .1);
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    const us = [cu("sp", .3), cu("mg", 2.9), cu("rs", 3.5)];
+    us.forEach((a, i) => { const q = pop("u" + i, L, I + a, 30); $("u" + i).querySelector("i").style.transform = `scaleX(${eout(seg(L, I + a, I + a + .6))})`; });
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("m0", L, .2, 40); slam("m1", L, I + cu("sites", .5), 1.4);
+    const vc = I + cu("varre", 3.4);
+    for (let i = 0; i < 48; i++) { const a = vc + i * .03; const e = $("w" + i); e.style.opacity = seg(L, a, a + .15); e.className = L > a + .35 ? "ok" : ""; }
+  }
+  if (k === 5) { sc = "s5"; tt = "t5";
+    pop("c5", L, .1, 40);
+    const bc = I + cu("sino", 1.0), nc = I + cu("notif", 1.8);
+    $("bell").style.transform = `rotate(${Math.sin(seg(L, bc, bc + .8) * Math.PI * 4) * 14 * (1 - seg(L, bc, bc + .8))}deg)`;
+    ["e0", "e1", "e2"].forEach((id, i) => pop(id, L, nc + i * .2, 20));
+  }
+  if (k === 6) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3, t5: 4 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
