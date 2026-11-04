@@ -22,3 +22,5 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-04 18:39 | Story | Story do Reels Ponto possível GPS falso | (mesmo vídeo) | 415917220 |
 | 2026-11-05 18:37 | Reels NOVO | Sindicatos: dado da semana em vídeo (1.088 documentos novos de 29/10 a 04/11, D1; pedido do Wanderson) | 2026-11/2026-11-05-dado-semana/video.mp4 | 416622833 |
 | 2026-11-05 18:39 | Story | Story do Reels dado da semana Sindicatos | (mesmo vídeo) | 416622913 |
+| 2026-11-05 11:47 | Imagem | Double Check Folha: quem saiu da folha (admitido, saiu, férias, valor mudou) | 2026-11/2026-11-05-double-check-quem-saiu.jpg | 417137611 |
+| 2026-11-05 11:49 | Story | Story da imagem Double Check quem saiu | 2026-11/2026-11-05-double-check-quem-saiu-story.jpg | 417137671 |
