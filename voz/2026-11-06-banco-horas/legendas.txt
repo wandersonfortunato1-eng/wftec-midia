@@ -1,0 +1,6 @@
+Tem funcionário com hora extra parada no banco há meses?
+No WFtec Ponto, o banco de horas mostra o saldo anterior, o saldo do mês e o total.
+Quando um saldo positivo fica parado seis meses ou mais, o sistema acende um alerta.
+Assim o DP vê a tempo e decide o que fazer com essas horas.
+Ao fechar a competência, o banco é consolidado. Se precisar reabrir, ele estorna.
+WFtec Ponto. Banco de horas sem surpresa. Fale com a gente.
