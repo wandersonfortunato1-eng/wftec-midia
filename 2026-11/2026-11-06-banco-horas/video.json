@@ -1,0 +1,4 @@
+{"voz": "voz/2026-11-06-banco-horas", "min": {"1": 4.6, "2": 7.0, "3": 6.6, "4": 5.4, "5": 7.0},
+ "dest": ["hora extra parada", "meses", "saldo anterior", "saldo do mês", "total", "seis meses", "alerta", "a tempo", "decide", "consolidado", "estorna", "sem surpresa", "Fale com a gente"],
+ "cues": {"banco": 1.3, "desde": 1.9, "meses": 2.4, "ant": 2.0, "mes": 3.3, "tot": 4.6, "par": 1.6, "alerta": 4.2, "tempo": 1.0, "decide": 1.8, "fech": 0.6, "cons": 2.4, "reab": 3.7, "est": 4.9},
+ "capa": 20}
