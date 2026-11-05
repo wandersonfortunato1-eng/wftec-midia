@@ -26,3 +26,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-05 11:49 | Story | Story da imagem Double Check quem saiu | 2026-11/2026-11-05-double-check-quem-saiu-story.jpg | 417137671 |
 | 2026-11-05 18:35 | Reels NOVO | Sindicatos: nova aba Minhas empresas (carteira enquadrada, aviso de convenção nova; pedido do Wanderson) | 2026-11/2026-11-04-minhas-empresas/video.mp4 | 418262011 |
 | 2026-11-05 18:36 | Story | Story do Reels Minhas empresas | (mesmo vídeo) | 418262026 |
+| 2026-11-06 11:47 | Carrossel | Sindicatos: apresentação da convenção com a cláusula de origem (PDF/Word → slides) | 2026-11/2026-11-06-apresentacao-convencao-*.jpg | 418355964 |
+| 2026-11-06 11:49 | Story | Story do carrossel apresentação da convenção | 2026-11/2026-11-06-apresentacao-convencao-story.jpg | 418356074 |
+| 2026-11-06 18:37 | Reels NOVO | Ponto: banco de horas com alerta de saldo parado há 6 meses (saldo anterior/mês/total; fechamento consolida, reabrir estorna) | 2026-11/2026-11-06-banco-horas/video.mp4 | 418355982 |
+| 2026-11-06 18:39 | Story | Story do Reels Ponto banco de horas | (mesmo vídeo) | 418356082 |
