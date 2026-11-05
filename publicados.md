@@ -24,5 +24,5 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-05 18:39 | Story | Story do Reels dado da semana Sindicatos | (mesmo vídeo) | RASCUNHO (418252178), NÃO publicado |
 | 2026-11-05 11:47 | Imagem | Double Check Folha: quem saiu da folha (admitido, saiu, férias, valor mudou) | 2026-11/2026-11-05-double-check-quem-saiu.jpg | 417137611 |
 | 2026-11-05 11:49 | Story | Story da imagem Double Check quem saiu | 2026-11/2026-11-05-double-check-quem-saiu-story.jpg | 417137671 |
-| 2026-11-05 18:37 | Reels NOVO | Sindicatos: nova aba Minhas empresas (carteira enquadrada, aviso de convenção nova; pedido do Wanderson) | 2026-11/2026-11-04-minhas-empresas/video.mp4 | 418215842 |
-| 2026-11-05 18:39 | Story | Story do Reels Minhas empresas | (mesmo vídeo) | 418215876 |
+| 2026-11-05 18:35 | Reels NOVO | Sindicatos: nova aba Minhas empresas (carteira enquadrada, aviso de convenção nova; pedido do Wanderson) | 2026-11/2026-11-04-minhas-empresas/video.mp4 | 418262011 |
+| 2026-11-05 18:36 | Story | Story do Reels Minhas empresas | (mesmo vídeo) | 418262026 |
