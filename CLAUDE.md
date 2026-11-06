@@ -102,7 +102,7 @@ Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-
   - fechamento que consolida e estorna;
   - feriados estaduais em 1 clique.
 
-### Post do almoço (11:47): conteúdo de VALOR, que dá vontade de salvar e mandar para o colega
+### Post do almoço (11:47): conteúdo de VALOR, que dá vontade de salvar e mandar para o colega (de preferência em Reels)
 
 **Por que mudou (06/11):** em uma semana a conta foi de 481 para 483 seguidores. Os posts falam só do produto, e quem vê é quase só quem já segue. Ninguém compartilha nem salva propaganda. Quem dá seguidor é o conteúdo útil, que circula.
 
@@ -113,7 +113,11 @@ Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-
   - **Qua · Convenções da semana:** número real do D1 por estado, com destaque para RN e o Nordeste. Termine com "comente o seu estado" (gera comentário).
   - **Qui · Convenção explicada:** uma regra que vem da convenção e mexe na folha (reajuste retroativo, piso por função, data-base, aditivo que muda o piso, contribuição ao sindicato). Explique com exemplo e mostre onde conferir a cláusula.
   - **Sex · Checklist para salvar:** lista prática (fechamento de folha, admissão, convenção nova chegou…). Último slide: "Salve para usar no fechamento".
-- Carrossel de 6 a 8 slides. Imagem única só se o assunto couber em uma tela.
+- **Formato (06/11, pedido do Wanderson): REELS é o preferido.**
+  - De segunda a quinta, o post do almoço também é um **Reels curto, de 20 a 35 s**, com a voz do Antonio. Ele segue o mesmo passo a passo do vídeo e tem capa desenhada com o nome da série no kicker.
+  - Na sexta, o "Checklist para salvar" sai em **carrossel** de 6 a 8 slides, porque lista é feita para salvar. Os Stories saem slide a slide.
+  - Se o Reels do almoço falhar, faça carrossel no lugar.
+  - Stories do Reels do almoço: o mesmo vídeo, 2 minutos depois (11:49).
 
 ### Se algo falhar
 
