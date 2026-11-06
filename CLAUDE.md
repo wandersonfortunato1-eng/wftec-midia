@@ -6,6 +6,8 @@ Este repositório é **público**. Ele guarda só os arquivos dos posts, que fic
 - **Publicação direta**, sem aprovação prévia, com **dois posts por dia**.
 - **Um VÍDEO NOVO todo dia.** Nada de repostar vídeo antigo.
 - **Só três assuntos:** **Double Check Folha**, **ferramenta de Sindicatos** e **WFtec Ponto**.
+- **FOCO (06/11/2026, pedido do Wanderson):** o peso fica na **ferramenta de Sindicatos** e no **Double Check Folha**. O Ponto entra no máximo 1 vez a cada duas semanas.
+- **Objetivo:** ganhar seguidores e, principalmente, fazer o pessoal **entrar em contato**.
 - Os fatos de cada produto estão em **`produtos.md`**. Use só o que estiver lá.
 
 ## Como publicar
@@ -55,9 +57,9 @@ Os três produtos se revezam assim:
 
 | Seg | Ter | Qua | Qui | Sex |
 | --- | --- | --- | --- | --- |
-| Sindicatos | Double Check | Ponto | Sindicatos | Double Check ou Ponto (alternando a cada semana) |
+| Sindicatos | Double Check | Sindicatos | Double Check | Sindicatos; a cada 2 semanas, Ponto |
 
-A ferramenta de Sindicatos foi o tema mais visto até agora (veja "Análise da conta"). Por isso ela entra 2 vezes por semana.
+Desde 06/11, o foco é Sindicatos e Double Check Folha (pedido do Wanderson). Sindicatos foi o tema mais visto até agora (veja "Análise da conta").
 
 Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-resumo de tudo não entra. Nunca repita ângulo dos últimos 21 Reels de `publicados.md`.
 
@@ -104,12 +106,12 @@ Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-
 
 **Por que mudou (06/11):** em uma semana a conta foi de 481 para 483 seguidores. Os posts falam só do produto, e quem vê é quase só quem já segue. Ninguém compartilha nem salva propaganda. Quem dá seguidor é o conteúdo útil, que circula.
 
-- Tema dentro dos assuntos dos 3 produtos (folha, convenção/sindicato, ponto/jornada), mas **ensinando**, não vendendo. O produto aparece só no último slide, como "na WFtec isso é automático".
+- Tema dentro de **folha e convenção/sindicato** (o foco do Wanderson), mas **ensinando**, não vendendo. O produto aparece só no último slide, como "na WFtec isso é automático".
 - Séries fixas (o nome da série vai no kicker e na capa, para criar hábito):
   - **Seg · Prazo da semana:** o que vence nesta semana no DP (eSocial, FGTS Digital, DCTFWeb, salário, 13º…). Datas conferidas na web.
   - **Ter · Erro de folha:** um erro comum de fechamento e como pegar antes (verba que some, desligado na folha, piso desatualizado…).
   - **Qua · Convenções da semana:** número real do D1 por estado, com destaque para RN e o Nordeste. Termine com "comente o seu estado" (gera comentário).
-  - **Qui · CLT em 1 minuto:** uma regra de jornada ou ponto explicada com exemplo (tolerância, hora noturna, interjornada, banco de horas). Artigo da CLT citado.
+  - **Qui · Convenção explicada:** uma regra que vem da convenção e mexe na folha (reajuste retroativo, piso por função, data-base, aditivo que muda o piso, contribuição ao sindicato). Explique com exemplo e mostre onde conferir a cláusula.
   - **Sex · Checklist para salvar:** lista prática (fechamento de folha, admissão, convenção nova chegou…). Último slide: "Salve para usar no fechamento".
 - Carrossel de 6 a 8 slides. Imagem única só se o assunto couber em uma tela.
 
@@ -189,7 +191,8 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 - Gancho na 1ª linha, de 3 a 6 linhas úteis.
 - **CTA de crescimento (06/11):** em todo post, peça uma ação que espalhe ou que traga seguidor.
   - Conteúdo de valor: "💾 Salve para usar no fechamento" + "📲 Mande para quem fecha folha com você" + "➕ Siga @wftec_ para receber o próximo".
-  - Produto: "➕ Siga @wftec_" + "👉 Fale com a gente: wftec.com.br".
+  - Produto: "➕ Siga @wftec_" + "💬 Quer ver funcionando com as suas empresas? Chama no WhatsApp do perfil ou comente QUERO". O objetivo é contato, então o pedido de contato tem de ser direto.
+  - Último slide ou cena de todo post: "Chama no WhatsApp (link na bio)".
 - **Primeiro comentário** (`firstCommentText`): uma pergunta simples que dá vontade de responder ("Qual o seu estado?", "Você confere isso hoje como?").
 - **Palavras de busca:** a 1ª frase da legenda leva o termo que o pessoal pesquisa no Instagram ("fechamento de folha", "convenção coletiva", "controle de ponto"), porque a busca lê a legenda.
 - De 5 a 8 hashtags. Sempre `#wftec`, mais `#departamentopessoal`, `#folhadepagamento`, `#rh`, `#contabilidade` e as do tema. Uma vez por semana, inclua as locais `#contabilidadenatal` e `#natalrn`.
