@@ -30,3 +30,4 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-06 11:49 | Story | Story do carrossel apresentação da convenção | 2026-11/2026-11-06-apresentacao-convencao-story.jpg | 418356074 |
 | 2026-11-06 18:37 | Reels NOVO | Ponto: banco de horas com alerta de saldo parado há 6 meses (saldo anterior/mês/total; fechamento consolida, reabrir estorna) | 2026-11/2026-11-06-banco-horas/video.mp4 | 418355982 |
 | 2026-11-06 18:39 | Story | Story do Reels Ponto banco de horas | (mesmo vídeo) | 418356082 |
+| 2026-11-06 17:42–17:46 | Stories | Slides 2 a 6 do carrossel apresentação da convenção (um por um, pedido do Wanderson) | 2026-11/2026-11-06-apresentacao-convencao-story-2..6.jpg | 419384894, 419384920, 419384949, 419384977, 419385002 |

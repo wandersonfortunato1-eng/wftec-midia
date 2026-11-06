@@ -25,7 +25,10 @@ Este repositório é **público**. Ele guarda só os arquivos dos posts, que fic
   - Carrossel: várias imagens em `media`, na ordem.
 - **Stories (todo post vai também para os Stories):** para cada post do feed, agende um segundo post `instagramData.type = "STORY"`, **2 minutos depois**, sem `text`.
   - Reels: use o mesmo vídeo. Pode reaproveitar a URL `static.metricool.com` que o Metricool devolveu no post do feed.
-  - Carrossel ou imagem: gere `AAAA-MM-DD-tema-story.jpg` em 1080×1920. Cole o 1º slide (1080×1350) em y=285, sobre fundo `#F6F2EF`, com PIL.
+  - **Carrossel: TODOS os slides vão para os Stories, um por um (pedido do Wanderson, 06/11).** Só a capa nos Stories deixa a sequência pela metade e fica feio.
+    - Gere com `python3 kit/story.py AAAA-MM/AAAA-MM-DD-tema`. Ele cria `-story-1.jpg … -story-N.jpg` (1080×1920, slide centralizado, contagem "2 / 6").
+    - Agende um Story por slide, **um minuto depois do outro e na ordem**, começando 2 minutos depois do post do feed (11:49, 11:50, 11:51…).
+  - Imagem única: um Story com `-story-1.jpg` (o mesmo `kit/story.py` serve).
   - Registre o Story também em `publicados.md`.
 - **Mídia:** use URLs `https://raw.githubusercontent.com/wandersonfortunato1-eng/wftec-midia/main/<caminho>`. O Metricool baixa e copia o arquivo.
   - Faça **commit e push antes** de agendar.
@@ -97,11 +100,18 @@ Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-
   - fechamento que consolida e estorna;
   - feriados estaduais em 1 clique.
 
-### Post do almoço (11:47): carrossel ou imagem
+### Post do almoço (11:47): conteúdo de VALOR, que dá vontade de salvar e mandar para o colega
 
-- O assunto é um dos três produtos, **diferente** do Reels do mesmo dia.
-- Alterne carrossel (5 a 7 slides) e imagem única.
-- Uma vez por semana, na quarta, entra o "dado da semana" da ferramenta de Sindicatos, com número real do D1.
+**Por que mudou (06/11):** em uma semana a conta foi de 481 para 483 seguidores. Os posts falam só do produto, e quem vê é quase só quem já segue. Ninguém compartilha nem salva propaganda. Quem dá seguidor é o conteúdo útil, que circula.
+
+- Tema dentro dos assuntos dos 3 produtos (folha, convenção/sindicato, ponto/jornada), mas **ensinando**, não vendendo. O produto aparece só no último slide, como "na WFtec isso é automático".
+- Séries fixas (o nome da série vai no kicker e na capa, para criar hábito):
+  - **Seg · Prazo da semana:** o que vence nesta semana no DP (eSocial, FGTS Digital, DCTFWeb, salário, 13º…). Datas conferidas na web.
+  - **Ter · Erro de folha:** um erro comum de fechamento e como pegar antes (verba que some, desligado na folha, piso desatualizado…).
+  - **Qua · Convenções da semana:** número real do D1 por estado, com destaque para RN e o Nordeste. Termine com "comente o seu estado" (gera comentário).
+  - **Qui · CLT em 1 minuto:** uma regra de jornada ou ponto explicada com exemplo (tolerância, hora noturna, interjornada, banco de horas). Artigo da CLT citado.
+  - **Sex · Checklist para salvar:** lista prática (fechamento de folha, admissão, convenção nova chegou…). Último slide: "Salve para usar no fechamento".
+- Carrossel de 6 a 8 slides. Imagem única só se o assunto couber em uma tela.
 
 ### Se algo falhar
 
@@ -176,8 +186,20 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 ### Legenda
 
 - Português do Brasil.
-- Gancho na 1ª linha, de 3 a 6 linhas úteis e um CTA "👉 Fale com a gente: wftec.com.br".
-- De 5 a 8 hashtags. Sempre `#wftec`, mais `#departamentopessoal`, `#folhadepagamento`, `#rh`, `#contabilidade` e as do tema.
+- Gancho na 1ª linha, de 3 a 6 linhas úteis.
+- **CTA de crescimento (06/11):** em todo post, peça uma ação que espalhe ou que traga seguidor.
+  - Conteúdo de valor: "💾 Salve para usar no fechamento" + "📲 Mande para quem fecha folha com você" + "➕ Siga @wftec_ para receber o próximo".
+  - Produto: "➕ Siga @wftec_" + "👉 Fale com a gente: wftec.com.br".
+- **Primeiro comentário** (`firstCommentText`): uma pergunta simples que dá vontade de responder ("Qual o seu estado?", "Você confere isso hoje como?").
+- **Palavras de busca:** a 1ª frase da legenda leva o termo que o pessoal pesquisa no Instagram ("fechamento de folha", "convenção coletiva", "controle de ponto"), porque a busca lê a legenda.
+- De 5 a 8 hashtags. Sempre `#wftec`, mais `#departamentopessoal`, `#folhadepagamento`, `#rh`, `#contabilidade` e as do tema. Uma vez por semana, inclua as locais `#contabilidadenatal` e `#natalrn`.
+
+### Alcance para quem não segue (Trial Reels)
+
+- **Terça e quinta,** o Reels sai como **Reels de teste** (`instagramData.type = "TRIAL_REEL"`). O Instagram mostra primeiro só para quem NÃO segue a conta, que é exatamente o público para ganhar seguidor.
+- Ele não aparece na grade até ser compartilhado com os seguidores. Isso pode ser feito pelo app, se o resultado for bom.
+- Nos outros dias, Reels normal.
+- Toda segunda, na leitura das métricas, compare o alcance dos Trial Reels com o dos normais e anote aqui.
 
 ## Análise da conta (29/10/2026)
 
