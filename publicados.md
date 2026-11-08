@@ -31,3 +31,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-06 18:37 | Reels NOVO | Ponto: banco de horas com alerta de saldo parado há 6 meses (saldo anterior/mês/total; fechamento consolida, reabrir estorna) | 2026-11/2026-11-06-banco-horas/video.mp4 | 418355982 |
 | 2026-11-06 18:39 | Story | Story do Reels Ponto banco de horas | (mesmo vídeo) | 418356082 |
 | 2026-11-06 17:42–17:46 | Stories | Slides 2 a 6 do carrossel apresentação da convenção (um por um, pedido do Wanderson) | 2026-11/2026-11-06-apresentacao-convencao-story-2..6.jpg | 419384894, 419384920, 419384949, 419384977, 419385002 |
+| 2026-11-09 11:47 | Reels NOVO (almoço, Prazo da semana) | Feriado de 20/11: FGTS Digital vence 19/11; eSocial e DCTFWeb do dia 15 (domingo) passam para 16/11; 13º 1ª parcela até 30/11 | 2026-11/2026-11-09-prazos-feriado/video.mp4 | 421193229 |
+| 2026-11-09 11:49 | Story | Story do Reels Prazo da semana (feriado de 20/11) | (mesmo vídeo) | 421193367 |
+| 2026-11-09 18:37 | Reels NOVO | Sindicatos: aditivo que muda o piso (filtro por termo aditivo, card amarelo, varredura diária com selo Nova, documento oficial do Mediador) | 2026-11/2026-11-09-aditivo-piso/video.mp4 | 421193253 |
+| 2026-11-09 18:39 | Story | Story do Reels Sindicatos aditivo que muda o piso | (mesmo vídeo) | 421193385 |
