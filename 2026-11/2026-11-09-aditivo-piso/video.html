@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;width:260px;height:150px;border-radius:18px;background:#F7E3A8;border:2px solid #E2C46E;opacity:0;padding:18px}
+.fc i{display:block;height:14px;border-radius:7px;background:rgba(120,85,10,.25);margin-bottom:12px}
+.fc b{font:600 20px Mono;color:#7a5a10}
+.app{position:relative;width:960px;padding:30px 30px}
+.doc{border-radius:22px;padding:38px 36px;border:2px solid var(--line);background:#fff;margin-bottom:26px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.doc .ty{font:600 24px Mono;letter-spacing:2px;color:var(--muted)}
+.doc .ti{font-size:46px;font-weight:700;margin-top:10px;line-height:1.2}
+.doc .su{font-size:28px;color:var(--muted);margin-top:8px}
+.doc.am{background:#FFF6D6;border-color:#E9C866}.doc.am .ty{color:#8A5A0B}
+.doc.vd{background:#EAF7EF;border-color:#9ED3B2}.doc.vd .ty{color:#1E6B3E}
+.doc.az{background:#E9F1FB;border-color:#A9C6EA}.doc.az .ty{color:#2B5C99}
+.tg{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg.nv{background:var(--ac);color:#fff}.tg.am{background:#FBF0D9;color:#8A5A0B}
+.flt{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.flt span{font:600 30px Plex;padding:16px 26px;border-radius:16px;border:2px solid var(--line);background:#fff;color:#4a4542}
+.flt span.on{border-color:var(--ac);background:#FFF1EA;color:var(--act)}
+.lab{font:600 24px Mono;letter-spacing:2px;color:var(--muted);margin-top:30px}
+.sel{display:flex;justify-content:space-between;align-items:center;font-size:32px;padding:20px 24px;border:2px solid var(--line);border-radius:16px;margin-top:14px;background:#FBF8F6}
+.sg{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sg .s{height:76px;border-radius:14px;background:#fff;border:1px solid var(--line);position:relative;overflow:hidden;opacity:0}
+.sg .s i{display:block;height:16px;background:#EFE9E5}
+.sg .s b{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:var(--ok);opacity:0}
+.btn{display:inline-flex;align-items:center;gap:14px;font:700 34px Plex;padding:22px 34px;border-radius:18px;background:var(--ac);color:#fff}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:24px}.bar div{height:100%;width:0;background:var(--ac)}
+.cl{border-left:8px solid var(--ac);background:#FFF6F1;border-radius:0 18px 18px 0;padding:26px 28px;margin-top:30px;opacity:0}
+.cl b{font-size:34px;display:block}.cl p{font-size:28px;color:var(--muted);margin-top:10px;line-height:1.35}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:600px;font-size:124px">Saiu aditivo mudando <span style="color:var(--ac)">o piso?</span></div>
+  <div class="hq" id="hq2" style="top:1180px;font-size:84px;text-shadow:0 0 30px #141312,0 0 30px #141312">E sua folha <span style="color:var(--ac)">nem viu?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FERRAMENTA DE SINDICATOS</div><div class="n">O piso muda <em>depois.</em></div><div class="d">A convenção sai. O aditivo vem em seguida.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">BUSCA DE CONVENÇÕES</div><div class="n">Filtre por <em>aditivo.</em></div><div class="d">Tipo de documento: termo aditivo.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">CORES DOS CARDS</div><div class="n">Amarelo é <em>aditivo.</em></div><div class="d">Cada tipo com a sua cor.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">VARREDURA DIÁRIA</div><div class="n">Chegou? <em>Nova.</em></div><div class="d">Mediador e mais de 6 mil sites de sindicatos.</div></div>
+  <div class="tt" id="t5"><div class="big">05</div><div class="k">DOCUMENTO OFICIAL</div><div class="n">Confira a <em>cláusula.</em></div><div class="d">Baixe o documento do Mediador.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="doc" id="d0"><div class="ty">CONVENÇÃO COLETIVA</div><div class="ti">Comércio · RN · 2026/2027</div><div class="su">Piso salarial da categoria definido</div></div>
+    <div style="text-align:center;font:italic 900 70px Archivo;color:var(--ac);opacity:0" id="arr">↓ semanas depois</div>
+    <div class="doc am" id="d1" style="margin-top:26px"><div style="display:flex;justify-content:space-between;align-items:center"><div class="ty">TERMO ADITIVO</div><span class="tg nv" id="pNovo">piso novo</span></div><div class="ti">Altera a cláusula do piso salarial</div><div class="su">E a folha continua com o piso antigo?</div></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="card app" id="app2">
+      <div class="lab" style="margin-top:0">ESTADO</div><div class="sel"><span>Rio Grande do Norte</span><span class="muted">▾</span></div>
+      <div class="lab">VIGÊNCIA</div><div class="sel"><span>Vigentes</span><span class="muted">▾</span></div>
+      <div class="lab">TIPO DE DOCUMENTO</div>
+      <div class="flt"><span id="f0">Convenção</span><span id="f1">Acordo</span><span id="f2">Termo aditivo</span><span id="f3">Circular do sindicato</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;margin-top:36px;opacity:0" id="res"><div class="disp" style="font-size:120px;color:#B7791F">Aditivos</div><div style="font-size:32px;color:var(--muted)">só eles na lista</div></div>
+    </div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="doc" id="c0"><div class="ty">CONVENÇÃO · BRANCO</div><div class="ti">Convenção coletiva</div></div>
+    <div class="doc vd" id="c1"><div class="ty">ACORDO · VERDE</div><div class="ti">Acordo coletivo</div></div>
+    <div class="doc am" id="c2"><div class="ty">ADITIVO · AMARELO</div><div class="ti">Termo aditivo</div></div>
+    <div class="doc az" id="c3"><div class="ty">CIRCULAR · AZUL</div><div class="ti">Circular do sindicato</div></div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="sg" id="sg"></div>
+    <div style="display:flex;align-items:baseline;gap:20px;margin-top:30px"><div class="disp" id="cnt" style="font-size:124px;color:var(--ac)">0</div><div style="font-size:36px;font-weight:600;line-height:1.25">sites de sindicatos<br><span class="muted" style="font-weight:500">+ Mediador, todo dia</span></div></div>
+    <div class="doc am" id="dN" style="margin-top:20px"><div style="display:flex;justify-content:space-between;align-items:center"><div class="ty">TERMO ADITIVO · RN</div><span class="tg nv">Nova</span></div><div class="ti">Comércio · 2026/2027</div></div>
+  </div>
+  <div class="sc" id="s5">
+    <div class="card app" id="app5">
+      <div class="doc am" style="opacity:1;margin-bottom:0"><div class="ty">TERMO ADITIVO · RN</div><div class="ti">Comércio · 2026/2027</div></div>
+      <div style="margin-top:34px" id="bt"><span class="btn">⬇ Documento oficial (Mediador)</span></div>
+      <div class="bar"><div id="bBar"></div></div>
+      <div class="muted" style="font-size:26px;margin-top:12px" id="bSt">Baixando…</div>
+      <div class="cl" id="cl"><b>Cláusula · Piso salarial</b><p>Confira o valor e a data em que o piso novo passa a valer.</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Filtro por termo aditivo</span><span class="chip warn" style="font-size:26px;padding:10px 20px">Card amarelo</span><span class="chip" style="font-size:26px;padding:10px 20px">Varredura diária</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Selo Nova</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "ACT", "aditivo", "piso", "cláusula", "RN", "SP", "sindicato", "data-base"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc" id="m${i}" style="left:${30 + (i * 317) % 760}px;top:${110 + (i * 461) % 1550}px"><i style="width:${60 + (i * 37) % 35}%"></i><i style="width:40%"></i><b>TERMO ADITIVO</b></div>`).join("");
+const NS = 36; $("sg").innerHTML = Array.from({ length: NS }, (_, i) => `<div class="s" id="g${i}"><i></i><b></b></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4", "s5"], TT = ["t1", "t2", "t3", "t4", "t5"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .22; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("folha", 2.0), 1.6); sx += shake(L, I + cu("folha", 2.0) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("d0", L, .2, 40); pop("arr", L, I + cu("depois", 2.2), 20); pop("d1", L, I + cu("aditivo", 3.0), 60);
+    const nq = Math.sin(seg(L, I + cu("piso", 4.6), I + cu("piso", 4.6) + .6) * Math.PI); $("pNovo").style.transform = `scale(${1 + .22 * nq})`;
+    if (L > I + cu("aditivo", 3.0)) sx += shake(L, I + cu("aditivo", 3.0) + .25) * .5;
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("app2", L, .1, 40);
+    const ft = I + cu("tipo", 3.6); for (let i = 0; i < 4; i++) $("f" + i).className = (i === 2 && L > ft) ? "on" : "";
+    const fq = Math.sin(seg(L, ft - .1, ft + .4) * Math.PI); $("f2").style.transform = `scale(${1 + .12 * fq})`;
+    pop("res", L, ft + .6, 30);
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    const cs = [cu("c0", .3), cu("c1", 1.0), cu("c2", 1.6), cu("c3", 3.2)];
+    cs.forEach((a, i) => pop("c" + i, L, I + a, 40));
+    const aq = Math.sin(seg(L, I + cu("amarelo", 2.0), I + cu("amarelo", 2.0) + .7) * Math.PI); $("c2").style.transform = `scale(${1 + .06 * aq})`;
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    for (let i = 0; i < NS; i++) { const a = .1 + i * .04; $("g" + i).style.opacity = seg(L, a, a + .2); $("g" + i).querySelector("b").style.opacity = L > I + cu("sites", 2.0) + ((i * 7) % NS) * .05 ? 1 : 0; }
+    const ct = I + cu("seismil", 3.4); $("cnt").textContent = Math.round(6000 * eout(seg(L, ct - .8, ct + .4))).toLocaleString("pt-BR") + (L > ct + .4 ? "+" : "");
+    pop("dN", L, I + cu("nova", 6.0), 50); if (L > I + cu("nova", 6.0)) sx += shake(L, I + cu("nova", 6.0) + .25) * .5;
+  }
+  if (k === 5) { sc = "s5"; tt = "t5";
+    pop("app5", L, .1, 40);
+    const bq = Math.sin(seg(L, I + cu("baixa", 1.0) - .2, I + cu("baixa", 1.0) + .1) * Math.PI); $("bt").style.transform = `scale(${1 - .06 * bq})`;
+    $("bBar").style.width = (100 * eout(seg(L, I + cu("baixa", 1.0), I + cu("baixa", 1.0) + 1.6))) + "%";
+    $("bSt").textContent = L < I + cu("baixa", 1.0) + 1.6 ? "Baixando…" : "Documento oficial baixado ✓";
+    pop("cl", L, I + cu("clausula", 3.4), 30);
+  }
+  if (k === 6) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 5) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

@@ -1,0 +1,4 @@
+{"voz": "voz/2026-11-09-prazos-feriado-almoco", "min": {"1": 3.9, "5": 4.4},
+ "dest": ["vence antes", "dia vinte", "antecipado", "feriado nacional", "dia dezenove", "dia quinze", "domingo", "dia dezesseis", "trinta de novembro", "Salve", "fale com a gente"],
+ "cues": {"fgts": 1.85, "util": 3.2, "antecipa": 4.5, "feriado": 1.3, "dezenove": 4.2, "esocial": 0.5, "dctf": 1.3, "domingo": 3.65, "dezesseis": 6.3, "confira": 2.0},
+ "capa": 1}

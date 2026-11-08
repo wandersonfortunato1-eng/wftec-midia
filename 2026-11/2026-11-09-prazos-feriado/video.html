@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.cal .h{font:600 24px Mono;color:var(--muted);text-align:center;letter-spacing:1px}
+.cal .d{height:150px;border-radius:18px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font:italic 900 58px Archivo;position:relative}
+.cal .d small{font:600 18px Plex;color:var(--muted);margin-top:6px;font-style:normal;text-align:center;line-height:1.1}
+.cal .d.we{background:#F1ECE8;color:#9b928c}
+.cal .d.fe{background:#FBE3E0;border-color:#E7A59D;color:var(--bad)}
+.cal .d.on{background:var(--ac);border-color:var(--ac);color:#fff}.cal .d.on small{color:#fff}
+.mes{font:italic 900 64px Archivo;margin-bottom:22px}
+.rule{border-radius:24px;padding:36px 34px;background:#fff;border:2px solid var(--line);margin-bottom:26px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.rule .ty{font:600 26px Mono;letter-spacing:2px;color:var(--act)}
+.rule .ti{font:italic 900 86px Archivo;letter-spacing:-2px;margin-top:12px;line-height:1}
+.rule .su{font-size:32px;color:var(--muted);margin-top:14px;line-height:1.3}
+.rule.ac{border-color:var(--ac);background:#FFF6F1}
+.chips2{display:flex;gap:14px;margin-top:30px}
+.chips2 span{font:700 34px Plex;padding:14px 28px;border-radius:999px;background:var(--infos);color:var(--info);opacity:0}
+.arrow{font:italic 900 90px Archivo;color:var(--ac);text-align:center;opacity:0}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div class="hq" id="hk" style="top:420px;font-size:46px;font-family:Mono;font-style:normal;font-weight:600;letter-spacing:6px;color:#FF8A5C">PRAZO DA SEMANA</div>
+  <div class="hq" id="hq1" style="top:560px;font-size:150px">Feriado de <span style="color:var(--ac)">20/11:</span></div>
+  <div class="hq" id="hq2" style="top:960px;font-size:120px">seu FGTS vence <span style="color:var(--ac)">antes?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">PRAZO DA SEMANA · FGTS DIGITAL</div><div class="n">Dia 20, <em>ou antes.</em></div><div class="d">Dia não útil: o vencimento é antecipado.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">PRAZO DA SEMANA · FGTS DIGITAL</div><div class="n">Vence <em>quinta, 19.</em></div><div class="d">20/11 é feriado nacional.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">PRAZO DA SEMANA · ESOCIAL E DCTFWEB</div><div class="n">Dia 15 no domingo? <em>Dia 16.</em></div><div class="d">Aqui o prazo passa para o dia útil seguinte.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">PRAZO DA SEMANA · 13º SALÁRIO</div><div class="n">1ª parcela <em>até 30/11.</em></div><div class="d">Segunda-feira, último dia.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="rule" id="r0"><div class="ty">FGTS DIGITAL · REGRA</div><div class="ti">Vence dia <em>20</em></div><div class="su">do mês seguinte à competência</div></div>
+    <div class="arrow" id="ar1">↓</div>
+    <div class="rule ac" id="r1"><div class="ty">NÃO É DIA ÚTIL?</div><div class="ti">Antecipa</div><div class="su">para o dia útil imediatamente anterior</div></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="card" style="padding:34px 30px" id="c2">
+      <div class="mes">Novembro <em>2026</em></div>
+      <div class="cal" id="cal2"></div>
+    </div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="card" style="padding:34px 30px" id="c3">
+      <div class="mes">Novembro <em>2026</em></div>
+      <div class="cal" id="cal3"></div>
+      <div class="chips2"><span id="h0">eSocial · periódicos</span><span id="h1">DCTFWeb</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="rule ac" id="r4" style="padding:50px 40px"><div class="ty">13º SALÁRIO · 1ª PARCELA</div><div class="ti" style="font-size:150px">30/11</div><div class="su">segunda-feira · prazo final da primeira parcela</div></div>
+    <div class="rule" id="r5"><div class="ty">ANTES DE PAGAR</div><div class="su" style="color:var(--ink);font-size:36px;font-weight:600">Confira a folha de novembro contra a de outubro: quem entrou, quem saiu e o que mudou.</div></div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:260px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:600px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Double Check Folha</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">FGTS: 19/11</span><span class="chip" style="font-size:26px;padding:10px 20px">eSocial e DCTFWeb: 16/11</span><span class="chip" style="font-size:26px;padding:10px 20px">13º 1ª parcela: 30/11</span><span class="chip ac" style="font-size:26px;padding:10px 20px">💾 Salve para o fechamento</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["FGTS", "eSocial", "DCTFWeb", "13º", "INSS", "folha", "prazo", "dia 20", "dia 15"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const HD = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"].map((x) => `<div class="h">${x}</div>`).join("");
+$("cal2").innerHTML = HD + [15, 16, 17, 18, 19, 20, 21].map((d) => `<div class="d${d === 15 || d === 21 ? " we" : ""}" id="a${d}">${d}<small id="as${d}"></small></div>`).join("");
+$("cal3").innerHTML = HD + [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((d) => `<div class="d${[8, 14, 15, 21].includes(d) ? " we" : ""}${d === 20 ? " fe" : ""}" id="b${d}">${d}<small id="bs${d}"></small></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    $("hk").style.opacity = seg(L, 0, .2);
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("fgts", 1.6), 1.6); sx += shake(L, I + cu("fgts", 1.6) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("r0", L, .2, 40); pop("ar1", L, I + cu("util", 2.4), 20); pop("r1", L, I + cu("antecipa", 3.4), 60);
+    if (L > I + cu("antecipa", 3.4)) sx += shake(L, I + cu("antecipa", 3.4) + .25) * .5;
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("c2", L, .1, 40);
+    const fe = L > I + cu("feriado", 1.4), vq = L > I + cu("dezenove", 3.2);
+    $("a20").className = "d" + (fe ? " fe" : ""); $("as20").textContent = fe ? "feriado" : "";
+    $("a19").className = "d" + (vq ? " on" : ""); $("as19").textContent = vq ? "vence o FGTS" : "";
+    const q = Math.sin(seg(L, I + cu("dezenove", 3.2), I + cu("dezenove", 3.2) + .6) * Math.PI); $("a19").style.transform = `scale(${1 + .18 * q})`;
+    if (vq) sx += shake(L, I + cu("dezenove", 3.2) + .2) * .5;
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("c3", L, .1, 40); pop("h0", L, I + cu("esocial", .8), 20); pop("h1", L, I + cu("dctf", 1.4), 20);
+    const dm = L > I + cu("domingo", 2.6), sg = L > I + cu("dezesseis", 4.2);
+    $("b15").className = "d we" + (dm ? " fe" : ""); $("bs15").textContent = dm ? "dia 15" : "";
+    $("b16").className = "d" + (sg ? " on" : ""); $("bs16").textContent = sg ? "eSocial e DCTFWeb" : "";
+    $("b19").className = "d"; $("bs19").textContent = "";
+    const q = Math.sin(seg(L, I + cu("dezesseis", 4.2), I + cu("dezesseis", 4.2) + .6) * Math.PI); $("b16").style.transform = `scale(${1 + .18 * q})`;
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("r4", L, .2, 50); pop("r5", L, I + cu("confira", 2.6), 40);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
