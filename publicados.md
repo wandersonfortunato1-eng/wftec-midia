@@ -37,3 +37,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-09 18:39 | Story | Story do Reels Sindicatos aditivo que muda o piso | (mesmo vídeo) | 421193385 |
 | 2026-11-09 11:47 | Reels NOVO (substitui o "Prazo da semana", que o Wanderson não quis) | Double Check Folha: auditoria (salário abaixo do mínimo, líquido negativo, salário-família indevido; arquivos lidos no computador) | 2026-11/2026-11-09-auditoria-folha/video.mp4 | 421708030 |
 | 2026-11-09 11:49 | Story | Story do Reels Double Check auditoria | (mesmo vídeo) | 421708144 |
+| 2026-11-10 11:47 | Reels NOVO (almoço) | Sindicatos: enquadramento pelo CNPJ e CNAE (digita o CNPJ, analisa o CNAE, laboral e patronal com convenção vigente, decisão explicada) | 2026-11/2026-11-10-enquadramento-cnpj/video.mp4 | 422531814 |
+| 2026-11-10 11:49 | Story | Story do Reels Sindicatos enquadramento pelo CNPJ | (mesmo vídeo) | 422531908 |
+| 2026-11-10 18:37 | Trial Reels NOVO | Double Check Folha: custo da folha (proventos, INSS patronal e FGTS, com a variação do mês; verba por verba para achar o porquê) | 2026-11/2026-11-10-custo-folha/video.mp4 | 422531829 |
+| 2026-11-10 18:39 | Story | Story do Reels Double Check custo da folha | (mesmo vídeo) | 422531921 |

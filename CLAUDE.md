@@ -232,6 +232,13 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 - "Seu ponto calcula a CLT sozinho…" (Ponto, 29/10): 19 visualizações, alcance 13, tempo médio 3,2 s, 0 compartilhamentos e 0 salvamentos.
 - Conclusão: amostra pequena e tempo médio baixo (3 a 5 s). O que pesa é o primeiro segundo: a pergunta-gancho tem de aparecer já no quadro 1 e ser curta. Sindicatos segue na frente. Ganchos com uma dor concreta (uma verba, uma batida) em vez de lista de funções.
 
+**Leitura de 09/11/2026 (posts de 03/11 a 09/11, via Metricool):**
+- Reels: "Qual convenção vale para cada cliente seu?" (Sindicatos, Minhas empresas, 05/11) foi disparado o melhor: **129 visualizações, alcance 100, 2 compartilhamentos**, tempo médio 4,0 s. Os outros Reels ficaram entre 12 e 15 visualizações (Ponto banco de horas 13; Ponto GPS falso 12; Double Check verba que sumiu 15, mas com o maior tempo médio: 12,0 s).
+- Feed: carrossel "868 convenções novas em 7 dias" (Sindicatos, número real do D1) liderou com 70 e 45 nas duas primeiras métricas e 1 compartilhamento; os demais posts de feed ficaram entre 23 e 31.
+- Seguidores: 483 → 484 (+1 na semana).
+- Trial Reels × normais: ainda sem Trial Reels publicado; o primeiro sai em 10/11 (Double Check custo da folha). Comparar na próxima leitura.
+- Conclusão: o que mais rende é **Sindicatos falando com o contador sobre a carteira de clientes** ("cada cliente seu", "o CNPJ do seu cliente") e **número real do acervo**. O Double Check segura mais a atenção (12 s) quando mostra uma dor concreta. Ponto rende pouco: manter só a cada duas semanas. Ganchos: falar de "seu cliente" e usar números reais do D1 sempre que couber.
+
 **Atualização:** o Metricool só tem dados a partir de 29/10. Toda segunda-feira, leia as métricas de Reels da semana anterior com `getAnalyticsDataByMetrics`:
 - Campos: `IGRE02` (data), `IGRE03` (texto), `IGRE23` (visualizações), `IGRE11` (alcance), `IGRE24` (tempo médio), `IGRE27` (retenção), `IGRE21` (compartilhamentos), `IGRE12` (salvamentos).
 - Anote as conclusões aqui e ajuste ganchos e temas.
