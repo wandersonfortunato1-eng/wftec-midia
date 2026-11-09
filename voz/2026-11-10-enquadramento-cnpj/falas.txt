@@ -1,0 +1,6 @@
+Qual sindicato vale para o CNPJ do seu cliente?
+Na ferramenta de Sindicatos da WFtec, você digita o CNPJ.
+A WFtec analisa o Cnáe da empresa.
+E aponta os sindicatos laboral e patronal com convenção vigente.
+Cada decisão vem explicada, para você conferir.
+Ferramenta de Sindicatos da WFtec. O enquadramento sem chute. Fale com a gente no WhatsApp do perfil.
