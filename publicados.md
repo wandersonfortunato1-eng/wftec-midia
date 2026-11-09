@@ -35,3 +35,4 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-09 11:49 | Story | Story do Reels Prazo da semana (feriado de 20/11) | (mesmo vídeo) | 421193367 |
 | 2026-11-09 18:37 | Reels NOVO | Sindicatos: aditivo que muda o piso (filtro por termo aditivo, card amarelo, varredura diária com selo Nova, documento oficial do Mediador) | 2026-11/2026-11-09-aditivo-piso/video.mp4 | 421193253 |
 | 2026-11-09 18:39 | Story | Story do Reels Sindicatos aditivo que muda o piso | (mesmo vídeo) | 421193385 |
+| 2026-11-09 11:47 | Reels NOVO (substitui o "Prazo da semana", que o Wanderson não quis) | Double Check Folha: auditoria (salário abaixo do mínimo, líquido negativo, salário-família indevido; arquivos lidos no computador) | 2026-11/2026-11-09-auditoria-folha/video.mp4 | (ver próxima linha) |

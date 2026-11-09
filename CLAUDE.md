@@ -102,22 +102,19 @@ Cada Reels mostra **um ângulo só**: uma dor, uma função, um número. Vídeo-
   - fechamento que consolida e estorna;
   - feriados estaduais em 1 clique.
 
-### Post do almoço (11:47): conteúdo de VALOR, que dá vontade de salvar e mandar para o colega (de preferência em Reels)
+### Post do almoço (11:47): Reels de PRODUTO (Double Check Folha ou Sindicatos)
 
-**Por que mudou (06/11):** em uma semana a conta foi de 481 para 483 seguidores. Os posts falam só do produto, e quem vê é quase só quem já segue. Ninguém compartilha nem salva propaganda. Quem dá seguidor é o conteúdo útil, que circula.
+**Pedido do Wanderson (09/11/2026):** os posts falam SÓ do **Double Check Folha** e da **ferramenta de Sindicatos**. Nada de série educativa (prazos, eSocial, FGTS, 13º etc.). A antiga série de "valor" do almoço foi cancelada.
 
-- Tema dentro de **folha e convenção/sindicato** (o foco do Wanderson), mas **ensinando**, não vendendo. O produto aparece só no último slide, como "na WFtec isso é automático".
-- Séries fixas (o nome da série vai no kicker e na capa, para criar hábito):
-  - **Seg · Prazo da semana:** o que vence nesta semana no DP (eSocial, FGTS Digital, DCTFWeb, salário, 13º…). Datas conferidas na web.
-  - **Ter · Erro de folha:** um erro comum de fechamento e como pegar antes (verba que some, desligado na folha, piso desatualizado…).
-  - **Qua · Convenções da semana:** número real do D1 por estado, com destaque para RN e o Nordeste. Termine com "comente o seu estado" (gera comentário).
-  - **Qui · Convenção explicada:** uma regra que vem da convenção e mexe na folha (reajuste retroativo, piso por função, data-base, aditivo que muda o piso, contribuição ao sindicato). Explique com exemplo e mostre onde conferir a cláusula.
-  - **Sex · Checklist para salvar:** lista prática (fechamento de folha, admissão, convenção nova chegou…). Último slide: "Salve para usar no fechamento".
-- **Formato (06/11, pedido do Wanderson): REELS é o preferido.**
-  - De segunda a quinta, o post do almoço também é um **Reels curto, de 20 a 35 s**, com a voz do Antonio. Ele segue o mesmo passo a passo do vídeo e tem capa desenhada com o nome da série no kicker.
-  - Na sexta, o "Checklist para salvar" sai em **carrossel** de 6 a 8 slides, porque lista é feita para salvar. Os Stories saem slide a slide.
-  - Se o Reels do almoço falhar, faça carrossel no lugar.
-  - Stories do Reels do almoço: o mesmo vídeo, 2 minutos depois (11:49).
+- O almoço mostra o produto que **não** saiu na noite do mesmo dia:
+  - Seg, Qua, Sex (noite = Sindicatos) → almoço = **Double Check Folha**.
+  - Ter, Qui (noite = Double Check) → almoço = **Sindicatos**.
+  - Na sexta em que a noite for Ponto, o almoço é Sindicatos.
+- **Formato:** Reels de 25 a 40 s, mesmo passo a passo do vídeo, capa desenhada (kicker = nome do produto), tipo "REEL". Pasta de voz `voz/AAAA-MM-DD-tema`, com tema diferente do Reels da noite.
+- Um ângulo só por vídeo, sem repetir os últimos 21 Reels (as listas de "Ideias de ângulo" valem para os dois horários).
+- Legenda com o CTA de produto ("➕ Siga @wftec_" + "💬 Chama no WhatsApp do perfil ou comente QUERO").
+- Stories: o mesmo vídeo, 2 minutos depois (11:49).
+- Se o Reels falhar, faça carrossel do mesmo produto no lugar.
 
 ### Se algo falhar
 
@@ -194,7 +191,6 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 - Português do Brasil.
 - Gancho na 1ª linha, de 3 a 6 linhas úteis.
 - **CTA de crescimento (06/11):** em todo post, peça uma ação que espalhe ou que traga seguidor.
-  - Conteúdo de valor: "💾 Salve para usar no fechamento" + "📲 Mande para quem fecha folha com você" + "➕ Siga @wftec_ para receber o próximo".
   - Produto: "➕ Siga @wftec_" + "💬 Quer ver funcionando com as suas empresas? Chama no WhatsApp do perfil ou comente QUERO". O objetivo é contato, então o pedido de contato tem de ser direto.
   - Último slide ou cena de todo post: "Chama no WhatsApp (link na bio)".
 - **Primeiro comentário** (`firstCommentText`): uma pergunta simples que dá vontade de responder ("Qual o seu estado?", "Você confere isso hoje como?").
