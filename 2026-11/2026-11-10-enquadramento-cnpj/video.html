@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;width:260px;height:150px;border-radius:18px;background:#F7E3A8;border:2px solid #E2C46E;opacity:0;padding:18px}
+.fc i{display:block;height:14px;border-radius:7px;background:rgba(120,85,10,.25);margin-bottom:12px}
+.fc b{font:600 20px Mono;color:#7a5a10}
+.app{position:relative;width:960px;padding:30px 30px}
+.doc{border-radius:22px;padding:38px 36px;border:2px solid var(--line);background:#fff;margin-bottom:26px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.doc .ty{font:600 24px Mono;letter-spacing:2px;color:var(--muted)}
+.doc .ti{font-size:46px;font-weight:700;margin-top:10px;line-height:1.2}
+.doc .su{font-size:28px;color:var(--muted);margin-top:8px}
+.doc.am{background:#FFF6D6;border-color:#E9C866}.doc.am .ty{color:#8A5A0B}
+.doc.vd{background:#EAF7EF;border-color:#9ED3B2}.doc.vd .ty{color:#1E6B3E}
+.doc.az{background:#E9F1FB;border-color:#A9C6EA}.doc.az .ty{color:#2B5C99}
+.tg{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg.nv{background:var(--ac);color:#fff}.tg.am{background:#FBF0D9;color:#8A5A0B}
+.flt{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.flt span{font:600 30px Plex;padding:16px 26px;border-radius:16px;border:2px solid var(--line);background:#fff;color:#4a4542}
+.flt span.on{border-color:var(--ac);background:#FFF1EA;color:var(--act)}
+.lab{font:600 24px Mono;letter-spacing:2px;color:var(--muted);margin-top:30px}
+.sel{display:flex;justify-content:space-between;align-items:center;font-size:32px;padding:20px 24px;border:2px solid var(--line);border-radius:16px;margin-top:14px;background:#FBF8F6}
+.sg{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sg .s{height:76px;border-radius:14px;background:#fff;border:1px solid var(--line);position:relative;overflow:hidden;opacity:0}
+.sg .s i{display:block;height:16px;background:#EFE9E5}
+.sg .s b{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:var(--ok);opacity:0}
+.btn{display:inline-flex;align-items:center;gap:14px;font:700 34px Plex;padding:22px 34px;border-radius:18px;background:var(--ac);color:#fff}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:24px}.bar div{height:100%;width:0;background:var(--ac)}
+.cl{border-left:8px solid var(--ac);background:#FFF6F1;border-radius:0 18px 18px 0;padding:26px 28px;margin-top:30px;opacity:0}
+.cl b{font-size:34px;display:block}.cl p{font-size:28px;color:var(--muted);margin-top:10px;line-height:1.35}
+
+.inp{display:flex;align-items:center;gap:18px;font:600 50px Mono;padding:30px 30px;border:3px solid var(--ac);border-radius:20px;background:#fff;margin-top:14px}
+.inp .cur{width:4px;height:56px;background:var(--ac)}
+.cn{border-radius:22px;padding:34px 34px;background:#fff;border:2px solid var(--line);opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.cn .code{font:700 64px Mono;color:var(--act);margin-top:10px}
+.sd{border-radius:22px;padding:34px 34px;background:#fff;border:2px solid var(--line);margin-bottom:24px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.sd .ty{font:600 24px Mono;letter-spacing:2px;color:var(--muted)}
+.sd .ti{font-size:42px;font-weight:700;margin-top:10px;line-height:1.2}
+.sd .tg{margin-top:16px;display:inline-block;font:700 28px Plex;padding:10px 20px;border-radius:999px;background:var(--oks);color:#1E6B3E;opacity:0}
+.ex{border-left:8px solid var(--ac);background:#FFF6F1;border-radius:0 18px 18px 0;padding:30px 30px;margin-bottom:22px;opacity:0}
+.ex b{font-size:36px;display:block}.ex p{font-size:30px;color:#4a4542;margin-top:10px;line-height:1.35}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:560px;font-size:124px">Qual sindicato vale <span style="color:var(--ac)">para esse CNPJ?</span></div>
+  <div class="hq" id="hq2" style="top:1220px;font-size:84px;text-shadow:0 0 30px #141312,0 0 30px #141312">Do seu <span style="color:var(--ac)">cliente.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">ENQUADRAMENTO SINDICAL</div><div class="n">Digite o <em>CNPJ.</em></div><div class="d">Na ferramenta de Sindicatos da WFtec.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">ENQUADRAMENTO SINDICAL</div><div class="n">Ela lê o <em>CNAE.</em></div><div class="d">A atividade da empresa.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">LABORAL E PATRONAL</div><div class="n">Os dois <em>sindicatos.</em></div><div class="d">Com convenção vigente.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">CADA DECISÃO</div><div class="n">Explicada <em>para você.</em></div><div class="d">Para conferir antes de aplicar.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="card app" id="app1">
+      <div class="lab" style="margin-top:0">CNPJ DA EMPRESA</div>
+      <div class="inp"><span id="cnpjT"></span><span class="cur" id="cur"></span></div>
+      <div style="margin-top:34px" id="bt"><span class="btn">🔎 Enquadrar</span></div>
+      <div class="bar"><div id="bBar"></div></div>
+    </div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="cn" id="cn"><div class="lab" style="margin-top:0">CNAE PRINCIPAL</div><div class="code">4711-3/02</div><div style="font-size:34px;margin-top:8px">Comércio varejista de mercadorias em geral</div></div>
+    <div style="text-align:center;font:italic 900 70px Archivo;color:var(--ac);margin-top:40px;opacity:0" id="arr">↓ atividade analisada</div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="sd" id="r0"><div class="ty">SINDICATO LABORAL</div><div class="ti">Empregados no comércio</div><span class="tg" id="g0">✓ Convenção vigente</span></div>
+    <div class="sd" id="r1"><div class="ty">SINDICATO PATRONAL</div><div class="ti">Comércio varejista</div><span class="tg" id="g1">✓ Convenção vigente</span></div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="ex" id="e0"><b>Por que este sindicato?</b><p>A atividade do CNAE principal se enquadra na categoria do comércio.</p></div>
+    <div class="ex" id="e1"><b>Por que esta convenção?</b><p>É a convenção vigente entre o sindicato laboral e o patronal.</p></div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">CNPJ</span><span class="chip ac" style="font-size:26px;padding:10px 20px">CNAE</span><span class="chip" style="font-size:26px;padding:10px 20px">Laboral e patronal</span><span class="chip ok" style="font-size:26px;padding:10px 20px">Decisão explicada</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "ACT", "aditivo", "piso", "cláusula", "RN", "SP", "sindicato", "data-base"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc" id="m${i}" style="left:${30 + (i * 317) % 760}px;top:${110 + (i * 461) % 1550}px"><i style="width:${60 + (i * 37) % 35}%"></i><i style="width:40%"></i><b>${i % 2 ? "LABORAL ?" : "PATRONAL ?"}</b></div>`).join("");
+const CNPJ = "••.•••.•••/0001-••";
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .22; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("folha", 2.0), 1.6); sx += shake(L, I + cu("folha", 2.0) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("app1", L, .1, 40);
+    const ct = I + cu("cnpj", 2.0); const n = Math.round(CNPJ.length * seg(L, ct - 1.0, ct + .3)); $("cnpjT").textContent = CNPJ.slice(0, n);
+    $("cur").style.opacity = Math.floor(L * 3) % 2;
+    const bq = Math.sin(seg(L, ct + .5, ct + .8) * Math.PI); $("bt").style.transform = `scale(${1 - .06 * bq})`;
+    $("bBar").style.width = (100 * eout(seg(L, ct + .7, ct + 1.6))) + "%";
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("cn", L, I + cu("cnae", .6), 50); pop("arr", L, I + cu("emp", 1.4), 20);
+    if (L > I + cu("cnae", .6)) sx += shake(L, I + cu("cnae", .6) + .25) * .4;
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("r0", L, I + cu("lab", 1.4), 50); pop("r1", L, I + cu("pat", 2.0), 50);
+    pop("g0", L, I + cu("vig", 2.9), 10); pop("g1", L, I + cu("vig", 2.9) + .2, 10);
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("e0", L, I + cu("e0", .3), 40); pop("e1", L, I + cu("e1", 1.4), 40);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
