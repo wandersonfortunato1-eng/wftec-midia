@@ -52,6 +52,14 @@ Use só o que está aqui. Se precisar de um fato que não está nesta lista, nã
 
 - Você digita o **CNPJ**, a WFtec analisa o **CNAE** e aponta os sindicatos (laboral e patronal) com convenção vigente, **explicando cada decisão**.
 
+### Minhas empresas: novidades (código de 09/11/2026)
+
+- **Novas convenções** tem a chave **"Minhas empresas" / "Todo o Brasil"**: um clique mostra só os documentos dos sindicatos das empresas da carteira.
+- Na linha da empresa, o aviso de documento novo tem o botão **"Ciente"**: o aviso some e fica registrado no histórico quem deu ciente e quando ("Últimas ações na carteira").
+- Filtros da carteira: **convenção ou aditivo vencendo em até 60 dias** (ou já vencido sem substituto) e **data-base em até 45 dias**.
+- **Exportar Excel** da carteira: empresa, código, CNPJ, sindicato, convenção, vigência, data-base e situação.
+- Empresas removidas vão para o histórico e podem ser reativadas.
+
 ### Dados que podem ser usados
 
 Os números do acervo são públicos e reais. Consulte no D1 a tabela `alertas_convencoes` e a tabela `instrumentos` (com `descoberto_em` e `tipo`).

@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+:root{--bg:#07070A;--neo:#FF6A33;--tx:#F2EDEA;--mu:#9A928E;--gl:rgba(241,90,37,.45);--cy:#45D4FF;--ye:#FFC24A;--gr:#3FE08A}
+html,body{background:var(--bg)!important;color:var(--tx)}
+#bgnum{color:rgba(241,90,37,.045)}
+#grid{position:absolute;left:-540px;right:-540px;bottom:-200px;height:900px;z-index:1;transform:perspective(700px) rotateX(64deg);transform-origin:50% 100%;
+ background-image:linear-gradient(rgba(241,90,37,.55) 2px,transparent 2px),linear-gradient(90deg,rgba(241,90,37,.55) 2px,transparent 2px);background-size:90px 90px;
+ -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+#glow{position:absolute;left:0;right:0;bottom:0;height:700px;z-index:1;background:radial-gradient(ellipse at 50% 100%,rgba(241,90,37,.28),transparent 65%)}
+#scan{position:absolute;left:0;right:0;height:3px;z-index:7;background:linear-gradient(90deg,transparent,rgba(255,106,51,.9),transparent);box-shadow:0 0 22px 6px rgba(255,106,51,.35)}
+#lines{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 2px,transparent 2px 5px)}
+.hc{position:absolute;width:70px;height:70px;border:4px solid var(--ac);z-index:6;opacity:.8;filter:drop-shadow(0 0 8px rgba(241,90,37,.8))}
+#c1{left:28px;top:28px;border-right:0;border-bottom:0}#c2{right:28px;top:28px;border-left:0;border-bottom:0}
+#c3{left:28px;bottom:28px;border-right:0;border-top:0}#c4{right:28px;bottom:28px;border-left:0;border-top:0}
+#hud{position:absolute;left:110px;top:44px;font:600 22px Mono;letter-spacing:3px;color:var(--neo);z-index:6}
+#hud b{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff3b3b;margin-right:10px;box-shadow:0 0 12px #ff3b3b}
+#brand{color:#fff}#dots i{background:rgba(255,255,255,.15)}#dots i.on{background:var(--ac);box-shadow:0 0 12px var(--ac)}
+.tt .k{color:var(--neo)}.tt .n{color:#fff;text-shadow:0 0 30px rgba(241,90,37,.25)}.tt .d{color:var(--mu)}.tt .big{color:rgba(241,90,37,.16)}
+.gls{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:2px solid var(--gl);border-radius:26px;box-shadow:0 0 50px rgba(241,90,37,.16),inset 0 0 40px rgba(241,90,37,.05)}
+.mask{background:rgba(255,255,255,.16)}
+.neo{color:var(--neo);text-shadow:0 0 18px rgba(255,106,51,.75),0 0 50px rgba(255,106,51,.35)}
+.tg{display:inline-flex;align-items:center;gap:8px;font:700 24px Plex;padding:9px 18px;border-radius:999px;white-space:nowrap;border:2px solid}
+.tg.ok{color:var(--gr);border-color:rgba(63,224,138,.6);background:rgba(63,224,138,.1)}
+.tg.nv{color:#fff;border-color:var(--ac);background:var(--ac);box-shadow:0 0 20px rgba(241,90,37,.6)}
+.tg.ye{color:var(--ye);border-color:rgba(255,194,74,.6);background:rgba(255,194,74,.1)}
+.tg.cy{color:var(--cy);border-color:rgba(69,212,255,.6);background:rgba(69,212,255,.1)}
+#leg span{background:rgba(7,7,10,.88);border:2px solid rgba(241,90,37,.55);box-shadow:0 0 24px rgba(241,90,37,.25)}
+.ilu{color:#6f6864}
+/* hook */
+#hook{position:absolute;inset:0;z-index:4;opacity:0}
+.doc{position:absolute;width:250px;padding:16px 18px;border-radius:14px;border:2px solid;font:600 18px Mono;opacity:0;background:rgba(255,255,255,.04)}
+.doc i{display:block;height:12px;border-radius:6px;background:rgba(255,255,255,.18);margin-top:12px}
+.d0{border-color:rgba(255,255,255,.6);color:#fff}.d1{border-color:rgba(63,224,138,.7);color:var(--gr)}.d2{border-color:rgba(255,194,74,.7);color:var(--ye)}.d3{border-color:rgba(69,212,255,.7);color:var(--cy)}
+#ring{position:absolute;left:140px;top:300px;width:800px;height:800px;opacity:0}
+#cnt{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:250px;letter-spacing:-6px;opacity:0}
+#cntS{position:absolute;left:0;right:0;top:850px;text-align:center;font:600 34px Mono;letter-spacing:4px;color:var(--mu);opacity:0}
+#hq{position:absolute;left:60px;right:60px;top:1090px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:112px;letter-spacing:-3px;line-height:1.02;color:#fff;opacity:0}
+#hq .g1,#hq .g2{position:absolute;inset:0;opacity:0}
+/* cena 1 */
+.app{width:960px;padding:30px}
+.ph{display:flex;justify-content:space-between;align-items:center;font:600 24px Mono;letter-spacing:2px;color:var(--mu)}
+.sw{position:relative;display:flex;margin-top:24px;border:2px solid rgba(255,255,255,.14);border-radius:999px;padding:6px}
+.sw span{position:relative;z-index:2;flex:1;text-align:center;font:700 30px Plex;padding:18px 0;color:var(--mu)}
+.sw span.on{color:#fff}
+#knob{position:absolute;z-index:1;top:6px;bottom:6px;width:calc(50% - 6px);border-radius:999px;background:var(--ac);box-shadow:0 0 30px rgba(241,90,37,.7)}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px;border-top:1px solid rgba(255,255,255,.08)}
+.ln small{display:block;font:500 22px Mono;color:var(--mu);margin-top:8px}
+.ln .tp{font-size:30px;font-weight:700}
+#lst{height:520px;overflow:hidden;margin-top:12px;position:relative}
+#lstIn{position:absolute;left:0;right:0;top:0}
+/* cena 2 */
+.av{border:2px solid var(--ac);border-radius:22px;padding:28px;margin-top:24px;background:rgba(241,90,37,.1);box-shadow:0 0 40px rgba(241,90,37,.35)}
+.av .t{font-size:34px;font-weight:700;line-height:1.25}
+.btnc{display:inline-block;margin-top:22px;font:700 32px Plex;padding:16px 40px;border-radius:14px;border:2px solid #fff;color:#fff}
+#log{margin-top:26px;padding:24px 28px}
+#log .h{font:600 22px Mono;letter-spacing:2px;color:var(--mu)}
+#logL{font:500 28px Mono;margin-top:14px;white-space:nowrap;overflow:hidden}
+/* cena 3 */
+.gau{position:absolute;width:440px;text-align:center;opacity:0}
+.gau svg{width:400px;height:400px}
+.gau .v{position:absolute;left:0;right:0;top:120px;font-family:Archivo;font-style:italic;font-weight:900;font-size:150px;letter-spacing:-4px}
+.gau .u{position:absolute;left:0;right:0;top:290px;font:600 26px Mono;letter-spacing:3px;color:var(--mu)}
+.gau .l{font-size:36px;font-weight:700;margin-top:18px;line-height:1.2}
+/* cena 4 */
+.xl{display:flex;align-items:center;gap:24px;padding:26px 28px;margin-bottom:26px}
+.xl .ic{width:90px;height:108px;border-radius:14px;background:#1E8E4E;display:grid;place-items:center;font:700 24px Mono;box-shadow:0 0 30px rgba(63,224,138,.5);flex:none}
+.tb{padding:22px 24px}
+.tb .hr,.tb .rr{display:grid;grid-template-columns:1.3fr 1.2fr 1fr 1fr .9fr;gap:12px;align-items:center}
+.tb .hr span{font:600 19px Mono;letter-spacing:1px;color:var(--neo);padding-bottom:14px;opacity:0}
+.tb .rr{padding:20px 0;border-top:1px solid rgba(255,255,255,.08);opacity:0}
+.tb .rr span{font:500 21px Mono;color:#ddd}
+.tb .rr i{display:block;height:16px;border-radius:8px;background:rgba(255,255,255,.16)}
+/* outro */
+#outro{z-index:5}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="glow"></div><div id="grid"></div>
+<div class="hc" id="c1"></div><div class="hc" id="c2"></div><div class="hc" id="c3"></div><div class="hc" id="c4"></div>
+<div id="hud"><b></b>VARREDURA DIÁRIA · ONLINE</div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div id="hook">
+  <div id="docs"></div>
+  <svg id="ring" viewBox="0 0 800 800"><g fill="none" stroke="#F15A25"><circle cx="400" cy="400" r="380" stroke-width="3" stroke-dasharray="6 18" opacity=".7" id="r1"/><circle cx="400" cy="400" r="330" stroke-width="10" stroke-dasharray="180 60" opacity=".5" id="r2"/><circle cx="400" cy="400" r="290" stroke-width="2" opacity=".35"/></g></svg>
+  <div id="cnt" class="neo">0</div>
+  <div id="cntS">DOCUMENTOS NOVOS · 60 DIAS</div>
+  <div id="hq">Quais são dos <span class="neo">seus clientes?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">NOVAS CONVENÇÕES</div><div class="n">Só a sua <em>carteira.</em></div><div class="d">Um clique e o resto some.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">NOVO · BOTÃO CIENTE</div><div class="n">Leu? <em>Deu baixa.</em></div><div class="d">Com histórico de quem e quando.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">FILTROS DA CARTEIRA</div><div class="n">Antes de <em>vencer.</em></div><div class="d">Vencendo e data-base chegando.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">EXPORTAR</div><div class="n">Tudo no <em>Excel.</em></div><div class="d">A carteira inteira, num arquivo.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="sN">
+    <div class="gls app" id="appN">
+      <div class="ph"><span>NOVAS CONVENÇÕES · ÚLTIMOS 60 DIAS</span><span class="neo">●</span></div>
+      <div class="sw"><div id="knob"></div><span id="swM">Minhas empresas (14)</span><span id="swB">Todo o Brasil (9.016)</span></div>
+      <div id="lst"><div id="lstIn"></div></div>
+    </div>
+  </div>
+  <div class="sc" id="sC">
+    <div class="gls app" id="appC">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px"><div><span class="mask" style="width:330px"></span><div class="mono" style="font-size:24px;color:var(--mu);margin-top:10px">CNPJ ••.•••.•••/0001-•• · Comércio · RN</div></div><span class="tg nv" id="cTag">Novidade</span></div>
+      <div class="av" id="cAv"><div class="t">Saiu documento novo que se enquadra a esta empresa</div><div class="mono" style="font-size:22px;color:var(--mu);margin-top:10px">Termo Aditivo · vigência 2026/2027</div><div class="btnc" id="cBtn">Ciente</div></div>
+    </div>
+    <div class="gls" id="log"><div class="h">ÚLTIMAS AÇÕES NA CARTEIRA</div><div id="logL"></div></div>
+  </div>
+  <div class="sc" id="sF">
+    <div class="gau" id="g0" style="left:0;top:20px"><svg viewBox="0 0 400 400"><circle cx="200" cy="200" r="170" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="22"/><circle id="ga0" cx="200" cy="200" r="170" fill="none" stroke="#FFC24A" stroke-width="22" stroke-linecap="round" stroke-dasharray="1068" stroke-dashoffset="1068" transform="rotate(-90 200 200)" style="filter:drop-shadow(0 0 12px #FFC24A)"/></svg><div class="v" id="gv0" style="color:var(--ye)">0</div><div class="u">DIAS</div><div class="l">Convenção<br>vencendo</div></div>
+    <div class="gau" id="g1" style="left:520px;top:20px"><svg viewBox="0 0 400 400"><circle cx="200" cy="200" r="170" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="22"/><circle id="ga1" cx="200" cy="200" r="170" fill="none" stroke="#45D4FF" stroke-width="22" stroke-linecap="round" stroke-dasharray="1068" stroke-dashoffset="1068" transform="rotate(-90 200 200)" style="filter:drop-shadow(0 0 12px #45D4FF)"/></svg><div class="v" id="gv1" style="color:var(--cy)">0</div><div class="u">DIAS</div><div class="l">Data-base<br>chegando</div></div>
+    <div style="position:absolute;left:0;right:0;top:640px;display:flex;justify-content:center;gap:16px" id="fCh"><span class="tg ye" id="f0">Convenção vencendo · 60 dias</span><span class="tg cy" id="f1">Data-base em até 45 dias</span></div>
+  </div>
+  <div class="sc" id="sX">
+    <div class="gls xl" id="xF"><div class="ic">XLSX</div><div style="flex:1"><b style="font-size:40px">carteira.xlsx</b><div class="mono" style="font-size:22px;color:var(--mu);margin-top:8px" id="xSt">Exportar Excel</div></div><span class="tg nv">Exportar Excel</span></div>
+    <div class="gls tb" id="xT">
+      <div class="hr"><span>EMPRESA</span><span>SINDICATO</span><span>CONVENÇÃO</span><span>VIGÊNCIA</span><span>DATA-BASE</span></div>
+      <div id="xR"></div>
+    </div>
+  </div>
+</div>
+
+<div id="outro">
+  <svg class="abs" id="oRing" style="left:240px;top:200px;width:600px;height:600px" viewBox="0 0 800 800"><g fill="none" stroke="#F15A25"><circle cx="400" cy="400" r="380" stroke-width="3" stroke-dasharray="6 18" opacity=".7"/><circle cx="400" cy="400" r="330" stroke-width="10" stroke-dasharray="180 60" opacity=".5"/></g></svg>
+  <div class="abs" id="oLogo" style="left:390px;top:350px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:860px;text-align:center">
+    <div class="disp" style="font-size:150px;color:#fff">WF<em class="neo">tec</em></div>
+    <div style="font-size:38px;color:var(--mu);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="tg cy">Só a sua carteira</span><span class="tg ok">Ciente com histórico</span><span class="tg ye">Vencendo · data-base</span><span class="tg nv">Excel</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 46px;border-radius:24px;box-shadow:0 0 50px rgba(241,90,37,.6)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--neo);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="lines"></div><div id="scan"></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px;filter:drop-shadow(0 0 30px rgba(241,90,37,.7))" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "ACT", "ADITIVO", "CIRCULAR", "MEDIADOR", "CNPJ", "CNAE", "PISO", "DATA-BASE"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 4 === 0) ? W[(r + c) % W.length] : (((r * 9301 + c * 49297) % 65535).toString(16).toUpperCase().padStart(4, "0"))) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const TP = ["CONVENÇÃO", "ACORDO", "ADITIVO", "CIRCULAR"], UF = ["SP", "RS", "RN", "MG", "PR", "BA", "CE", "PE", "SC", "RJ", "GO", "PB"];
+const ND = 18;
+$("docs").innerHTML = Array.from({ length: ND }, (_, i) => `<div class="doc d${i % 4}" id="dc${i}" style="left:${30 + (i * 293) % 790}px;top:${150 + (i * 397) % 1550}px">${TP[i % 4]} · ${UF[i % 12]}<i style="width:${55 + (i * 37) % 40}%"></i></div>`).join("");
+// lista Novas convenções
+const ALL = Array.from({ length: 16 }, (_, i) => ({ t: TP[(i * 3) % 4], uf: UF[(i * 5) % 12], m: [4, 7, 12].includes(i) }));
+$("lstIn").innerHTML = ALL.map((d, i) => `<div class="ln" id="ln${i}"><div><div class="tp">${d.t[0] + d.t.slice(1).toLowerCase()} · ${d.uf}</div><small>Sindicato •••••••• · vigência 2026/2027</small></div>${d.m ? '<span class="tg nv">Sua carteira</span>' : `<span class="tg ${["", "ok", "ye", "cy"][(i * 3) % 4] || "ok"}" style="${(i * 3) % 4 === 0 ? "color:#fff;border-color:rgba(255,255,255,.5)" : ""}">${d.t[0] + d.t.slice(1).toLowerCase()}</span>`}</div>`).join("");
+$("xR").innerHTML = Array.from({ length: 5 }, (_, i) => `<div class="rr" id="xr${i}"><i style="width:${70 + (i * 13) % 25}%"></i><i style="width:${60 + (i * 17) % 30}%"></i><span>${["CCT", "CCT", "ACT", "CCT", "Aditivo"][i]} 26/27</span><span>${["31/12/27", "30/04/27", "31/05/27", "28/02/27", "31/12/27"][i]}</span><span>${["01/01", "01/05", "01/06", "01/03", "01/01"][i]}</span></div>`).join("");
+const SC = ["sN", "sC", "sF", "sX"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .18; $("flash").style.background = "#FF6A33";
+  $("bgnum").style.transform = `translateY(${-(t * 30) % 400}px)`;
+  $("grid").style.backgroundPosition = `0 ${(t * 120) % 90}px`;
+  $("scan").style.top = ((t * 520) % 2100 - 90) + "px";
+  $("hud").style.opacity = .55 + .45 * Math.abs(Math.sin(t * 2.2));
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < ND; i++) { const a = .02 + i * .07; const q = back(seg(L, a, a + .3)); const e = $("dc" + i); e.style.opacity = clamp(q * 2) * .75; e.style.transform = `translateY(${-L * 60 - i * 3}px) scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg)`; }
+    $("ring").style.opacity = seg(L, 0, .4); $("r1").setAttribute("transform", `rotate(${L * 40} 400 400)`); $("r2").setAttribute("transform", `rotate(${-L * 70} 400 400)`);
+    const cq = back(seg(L, .05, .4)); $("cnt").style.opacity = clamp(cq * 2); $("cnt").style.transform = `scale(${1.6 - .6 * clamp(cq)})`;
+    $("cnt").textContent = Math.round(9016 * eout(seg(L, .1, 2.6))).toLocaleString("pt-BR");
+    $("cntS").style.opacity = seg(L, .5, .9);
+    const qa = I + cu("quais", 3.6); const hq = back(seg(L, qa, qa + .3)); $("hq").style.opacity = clamp(hq * 2.5); $("hq").style.transform = `scale(${1.7 - .7 * clamp(hq)})`;
+    const gl = L > qa && L < qa + .45 ? Math.sin((L - qa) * 80) * 10 : 0; $("hq").style.textShadow = gl ? `${gl}px 0 #45D4FF, ${-gl}px 0 #FF3B3B` : "none";
+    sx += shake(L, qa + .15);
+  } else $("hook").style.opacity = 0;
+  if (k === 1) { sc = "sN"; tt = "t1";
+    pop("appN", L, .1, 50);
+    const sw = I + cu("clique", 4.2); const p = eout(seg(L, sw, sw + .35));
+    $("knob").style.left = `calc(${(1 - p) * 50}% + 6px)`; $("swM").className = p > .5 ? "on" : ""; $("swB").className = p > .5 ? "" : "on";
+    const scroll = L < sw ? (L * 90) % 400 : 0; $("lstIn").style.transform = `translateY(${-scroll}px)`;
+    ALL.forEach((d, i) => { const e = $("ln" + i); const gone = !d.m && p > 0; e.style.display = !d.m && p >= 1 ? "none" : "flex"; e.style.opacity = d.m ? 1 : 1 - p; if (d.m && p >= 1) { const q = back(seg(L, sw + .35 + [4, 7, 12].indexOf(i) * .15, sw + .7 + [4, 7, 12].indexOf(i) * .15)); e.style.transform = `scale(${.9 + .1 * clamp(q)})`; e.style.boxShadow = `inset 4px 0 0 var(--ac)`; } else { e.style.transform = ""; e.style.boxShadow = ""; } });
+    if (p > 0 && p < 1) sx += 0; if (L > sw) sx += shake(L, sw + .1) * .5;
+  }
+  if (k === 2) { sc = "sC"; tt = "t2";
+    pop("appC", L, .1, 40);
+    const av = I + cu("aviso", .3); const aq = back(seg(L, av, av + .4)); $("cAv").style.opacity = clamp(aq * 2); $("cAv").style.transform = `scale(${.9 + .1 * clamp(aq)})`;
+    $("cAv").style.boxShadow = `0 0 ${30 + 25 * Math.abs(Math.sin(L * 5))}px rgba(241,90,37,.45)`;
+    const ci = I + cu("ciente", 2.6); const bq = Math.sin(seg(L, ci - .15, ci + .15) * Math.PI); $("cBtn").style.transform = `scale(${1 - .12 * bq})`;
+    const done = L > ci + .15; $("cBtn").style.background = L > ci ? "#fff" : "transparent"; $("cBtn").style.color = L > ci ? "#07070A" : "#fff";
+    if (done) { const g = eout(seg(L, ci + .3, ci + .8)); $("cAv").style.opacity = 1 - g; $("cAv").style.transform = `scale(${1 - .15 * g})`; $("cAv").style.maxHeight = (400 * (1 - g)) + "px"; $("cAv").style.marginTop = (24 * (1 - g)) + "px"; $("cAv").style.padding = (28 * (1 - g)) + "px"; }
+    else { $("cAv").style.maxHeight = "400px"; $("cAv").style.marginTop = "24px"; $("cAv").style.padding = "28px"; }
+    $("cAv").style.overflow = "hidden";
+    $("cTag").textContent = done ? "Ciente ✓" : "Novidade"; $("cTag").className = "tg " + (done ? "ok" : "nv");
+    pop("log", L, ci + .5, 30);
+    const tx = "Ciente · ██████ · 10/11 · 12:14"; const n = Math.round(tx.length * seg(L, ci + .7, ci + 1.6)); $("logL").innerHTML = `<span style="color:var(--gr)">✓</span> ` + tx.slice(0, n).replace(/██████/, '<span class="mask" style="width:150px"></span>') + (n < tx.length && L > ci + .7 ? '<span class="neo">▌</span>' : "");
+  }
+  if (k === 3) { sc = "sF"; tt = "t3";
+    const g = [[I + cu("venc", 1.8), 60, "0"], [I + cu("data", 4.0), 45, "1"]];
+    g.forEach(([a, v, i]) => { pop("g" + i, L, a - .4, 40); const f = eout(seg(L, a - .2, a + 1.0)); $("ga" + i).setAttribute("stroke-dashoffset", 1068 * (1 - f * v / 60)); $("gv" + i).textContent = Math.round(v * f); });
+    pop("f0", L, I + cu("venc", 1.8) + .6, 20); pop("f1", L, I + cu("data", 4.0) + .6, 20);
+  }
+  if (k === 4) { sc = "sX"; tt = "t4";
+    const ex = I + cu("excel", 1.6); const fq = back(seg(L, ex - .3, ex + .2)); $("xF").style.opacity = clamp(fq * 2); $("xF").style.transform = `translateY(${(1 - clamp(fq)) * -90}px)`;
+    $("xSt").textContent = L < ex + .6 ? "Gerando…" : "Pronto ✓ · empresa, sindicato, convenção, vigência, data-base";
+    pop("xT", L, ex + .1, 40);
+    document.querySelectorAll(".tb .hr span").forEach((e, i) => { e.style.opacity = seg(L, ex + .3 + i * .25, ex + .5 + i * .25); });
+    for (let i = 0; i < 5; i++) { const q = back(seg(L, ex + 1.4 + i * .18, ex + 1.7 + i * .18)); const e = $("xr" + i); e.style.opacity = clamp(q * 2); e.style.transform = `translateX(${(1 - clamp(q)) * 60}px)`; }
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; $("oRing").style.transform = `rotate(${o * 30}deg) scale(${.6 + .4 * eout(seg(o, 0, .6))})`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .04 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("hud").style.display = k === 0 || isO ? "block" : "none";
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`;
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
