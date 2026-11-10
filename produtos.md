@@ -60,6 +60,13 @@ Use só o que está aqui. Se precisar de um fato que não está nesta lista, nã
 - **Exportar Excel** da carteira: empresa, código, CNPJ, sindicato, convenção, vigência, data-base e situação.
 - Empresas removidas vão para o histórico e podem ser reativadas.
 
+### Prova do vínculo e certificação (código de 10/11/2026)
+
+- Na carteira (Minhas empresas), cada empresa tem a **prova do vínculo** em 3 colunas: **1. O que a Receita diz** (CNPJ, CNAE, município; matriz ou filial), **2. O que o Enquadramento concluiu** (sindicato laboral e patronal), **3. O que a convenção diz** (convenção ligada e a abrangência da cláusula 1ª).
+- Confere no **registro oficial do MTE (CNES)**: registro sindical ativo e se o município da empresa está na base territorial do sindicato ("Base ok (CNES)" ou "Fora da base (CNES)"). Se não bater, dá para **Trocar** ou **Refazer**.
+- Botão **"Certifiquei este vínculo"**: registra quem conferiu e quando, com a base legal anotada (art. 511 e 581 da CLT, atividade preponderante pelo CNAE; base territorial; convenção ligada; art. 611 da CLT). Pode desfazer. Filtros "Certificada" e "Vínculo ainda não certificado".
+- **Ficha da convenção** (piso, reajuste, data-base, benefícios, o que mudou em relação à anterior) extraída pela IA "a conferir", com botão "Confirmar ficha", e texto de **comunicado ao cliente** que você revisa antes de enviar.
+
 ### Dados que podem ser usados
 
 Os números do acervo são públicos e reais. Consulte no D1 a tabela `alertas_convencoes` e a tabela `instrumentos` (com `descoberto_em` e `tipo`).

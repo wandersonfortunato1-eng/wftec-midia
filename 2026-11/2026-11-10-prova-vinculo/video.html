@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+:root{--bg:#07070A;--neo:#FF6A33;--tx:#F2EDEA;--mu:#9A928E;--gl:rgba(241,90,37,.45);--cy:#45D4FF;--ye:#FFC24A;--gr:#3FE08A}
+html,body{background:var(--bg)!important;color:var(--tx)}
+#bgnum{color:rgba(241,90,37,.045)}
+#grid{position:absolute;left:-540px;right:-540px;bottom:-200px;height:900px;z-index:1;transform:perspective(700px) rotateX(64deg);transform-origin:50% 100%;
+ background-image:linear-gradient(rgba(241,90,37,.55) 2px,transparent 2px),linear-gradient(90deg,rgba(241,90,37,.55) 2px,transparent 2px);background-size:90px 90px;
+ -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+#glow{position:absolute;left:0;right:0;bottom:0;height:700px;z-index:1;background:radial-gradient(ellipse at 50% 100%,rgba(241,90,37,.28),transparent 65%)}
+#scan{position:absolute;left:0;right:0;height:3px;z-index:7;background:linear-gradient(90deg,transparent,rgba(255,106,51,.9),transparent);box-shadow:0 0 22px 6px rgba(255,106,51,.35)}
+#lines{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 2px,transparent 2px 5px)}
+.hc{position:absolute;width:70px;height:70px;border:4px solid var(--ac);z-index:6;opacity:.8;filter:drop-shadow(0 0 8px rgba(241,90,37,.8))}
+#c1{left:28px;top:28px;border-right:0;border-bottom:0}#c2{right:28px;top:28px;border-left:0;border-bottom:0}
+#c3{left:28px;bottom:28px;border-right:0;border-top:0}#c4{right:28px;bottom:28px;border-left:0;border-top:0}
+#hud{position:absolute;left:110px;top:44px;font:600 22px Mono;letter-spacing:3px;color:var(--neo);z-index:6}
+#hud b{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff3b3b;margin-right:10px;box-shadow:0 0 12px #ff3b3b}
+#brand{color:#fff}#dots i{background:rgba(255,255,255,.15)}#dots i.on{background:var(--ac);box-shadow:0 0 12px var(--ac)}
+.tt .k{color:var(--neo)}.tt .n{color:#fff;text-shadow:0 0 30px rgba(241,90,37,.25)}.tt .d{color:var(--mu)}.tt .big{color:rgba(241,90,37,.16)}
+.gls{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:2px solid var(--gl);border-radius:26px;box-shadow:0 0 50px rgba(241,90,37,.16),inset 0 0 40px rgba(241,90,37,.05)}
+.mask{background:rgba(255,255,255,.16)}
+.neo{color:var(--neo);text-shadow:0 0 18px rgba(255,106,51,.75),0 0 50px rgba(255,106,51,.35)}
+.tg{display:inline-flex;align-items:center;gap:8px;font:700 24px Plex;padding:9px 18px;border-radius:999px;white-space:nowrap;border:2px solid}
+.tg.ok{color:var(--gr);border-color:rgba(63,224,138,.6);background:rgba(63,224,138,.1)}
+.tg.nv{color:#fff;border-color:var(--ac);background:var(--ac);box-shadow:0 0 20px rgba(241,90,37,.6)}
+.tg.ye{color:var(--ye);border-color:rgba(255,194,74,.6);background:rgba(255,194,74,.1)}
+.tg.cy{color:var(--cy);border-color:rgba(69,212,255,.6);background:rgba(69,212,255,.1)}
+#leg span{background:rgba(7,7,10,.88);border:2px solid rgba(241,90,37,.55);box-shadow:0 0 24px rgba(241,90,37,.25)}
+.ilu{color:#6f6864}
+/* hook */
+#hook{position:absolute;inset:0;z-index:4;opacity:0}
+.doc{position:absolute;width:250px;padding:16px 18px;border-radius:14px;border:2px solid;font:600 18px Mono;opacity:0;background:rgba(255,255,255,.04)}
+.doc i{display:block;height:12px;border-radius:6px;background:rgba(255,255,255,.18);margin-top:12px}
+.d0{border-color:rgba(255,255,255,.6);color:#fff}.d1{border-color:rgba(63,224,138,.7);color:var(--gr)}.d2{border-color:rgba(255,194,74,.7);color:var(--ye)}.d3{border-color:rgba(69,212,255,.7);color:var(--cy)}
+#ring{position:absolute;left:140px;top:300px;width:800px;height:800px;opacity:0}
+#cnt{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:250px;letter-spacing:-6px;opacity:0}
+#cntS{position:absolute;left:0;right:0;top:850px;text-align:center;font:600 34px Mono;letter-spacing:4px;color:var(--mu);opacity:0}
+#hq{position:absolute;left:60px;right:60px;top:1090px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:112px;letter-spacing:-3px;line-height:1.02;color:#fff;opacity:0}
+#hq .g1,#hq .g2{position:absolute;inset:0;opacity:0}
+/* cena 1 */
+.app{width:960px;padding:30px}
+.ph{display:flex;justify-content:space-between;align-items:center;font:600 24px Mono;letter-spacing:2px;color:var(--mu)}
+.sw{position:relative;display:flex;margin-top:24px;border:2px solid rgba(255,255,255,.14);border-radius:999px;padding:6px}
+.sw span{position:relative;z-index:2;flex:1;text-align:center;font:700 30px Plex;padding:18px 0;color:var(--mu)}
+.sw span.on{color:#fff}
+#knob{position:absolute;z-index:1;top:6px;bottom:6px;width:calc(50% - 6px);border-radius:999px;background:var(--ac);box-shadow:0 0 30px rgba(241,90,37,.7)}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px;border-top:1px solid rgba(255,255,255,.08)}
+.ln small{display:block;font:500 22px Mono;color:var(--mu);margin-top:8px}
+.ln .tp{font-size:30px;font-weight:700}
+#lst{height:520px;overflow:hidden;margin-top:12px;position:relative}
+#lstIn{position:absolute;left:0;right:0;top:0}
+/* cena 2 */
+.av{border:2px solid var(--ac);border-radius:22px;padding:28px;margin-top:24px;background:rgba(241,90,37,.1);box-shadow:0 0 40px rgba(241,90,37,.35)}
+.av .t{font-size:34px;font-weight:700;line-height:1.25}
+.btnc{display:inline-block;margin-top:22px;font:700 32px Plex;padding:16px 40px;border-radius:14px;border:2px solid #fff;color:#fff}
+#log{margin-top:26px;padding:24px 28px}
+#log .h{font:600 22px Mono;letter-spacing:2px;color:var(--mu)}
+#logL{font:500 28px Mono;margin-top:14px;white-space:nowrap;overflow:hidden}
+/* cena 3 */
+.gau{position:absolute;width:440px;text-align:center;opacity:0}
+.gau svg{width:400px;height:400px}
+.gau .v{position:absolute;left:0;right:0;top:120px;font-family:Archivo;font-style:italic;font-weight:900;font-size:150px;letter-spacing:-4px}
+.gau .u{position:absolute;left:0;right:0;top:290px;font:600 26px Mono;letter-spacing:3px;color:var(--mu)}
+.gau .l{font-size:36px;font-weight:700;margin-top:18px;line-height:1.2}
+/* cena 4 */
+.xl{display:flex;align-items:center;gap:24px;padding:26px 28px;margin-bottom:26px}
+.xl .ic{width:90px;height:108px;border-radius:14px;background:#1E8E4E;display:grid;place-items:center;font:700 24px Mono;box-shadow:0 0 30px rgba(63,224,138,.5);flex:none}
+.tb{padding:22px 24px}
+.tb .hr,.tb .rr{display:grid;grid-template-columns:1.3fr 1.2fr 1fr 1fr .9fr;gap:12px;align-items:center}
+.tb .hr span{font:600 19px Mono;letter-spacing:1px;color:var(--neo);padding-bottom:14px;opacity:0}
+.tb .rr{padding:20px 0;border-top:1px solid rgba(255,255,255,.08);opacity:0}
+.tb .rr span{font:500 21px Mono;color:#ddd}
+.tb .rr i{display:block;height:16px;border-radius:8px;background:rgba(255,255,255,.16)}
+/* outro */
+#outro{z-index:5}
+/* prova */
+#hcard{position:absolute;left:190px;top:330px;width:700px;padding:30px 34px;opacity:0}
+#hcard .r{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font:500 26px Mono;color:var(--mu)}
+#hq2{position:absolute;left:60px;right:60px;top:1240px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:96px;letter-spacing:-2px;color:#fff;opacity:0}
+.col{position:absolute;left:0;width:960px;padding:26px 30px;opacity:0}
+.col .h{display:flex;align-items:center;gap:18px;font:700 30px Plex}
+.col .h b{width:56px;height:56px;border-radius:50%;background:var(--ac);display:grid;place-items:center;font:italic 900 30px Archivo;box-shadow:0 0 20px rgba(241,90,37,.7);flex:none}
+.col .h small{font:600 20px Mono;letter-spacing:2px;color:var(--mu);margin-left:auto}
+.kv{display:flex;justify-content:space-between;gap:20px;margin-top:16px;font-size:27px}
+.kv span:first-child{font:500 22px Mono;color:var(--mu);letter-spacing:1px;padding-top:5px;flex:none}
+.kv span:last-child{text-align:right;font-weight:600}
+.lnk{position:absolute;left:478px;width:4px;background:linear-gradient(var(--ac),var(--neo));box-shadow:0 0 16px var(--ac);transform-origin:50% 0}
+.x{position:absolute;left:452px;width:56px;height:56px;border-radius:50%;background:var(--bg);border:3px solid var(--ac);display:grid;place-items:center;font:900 30px Plex;color:var(--neo);box-shadow:0 0 18px rgba(241,90,37,.7);opacity:0}
+#map{position:absolute;left:180px;top:20px;width:600px;height:600px}
+.mu{position:absolute;padding:10px 16px;border-radius:12px;font:600 22px Mono;border:2px solid rgba(255,255,255,.25);color:#ddd;background:rgba(255,255,255,.05);opacity:0;white-space:nowrap}
+#cnesB{position:absolute;left:0;right:0;top:660px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.tg.bad{color:#FF6B6B;border-color:rgba(255,107,107,.7);background:rgba(255,107,107,.1)}
+#seal{position:absolute;left:280px;top:40px;width:400px;height:400px;opacity:0}
+#seal .in{position:absolute;inset:50px;border-radius:50%;border:6px solid var(--gr);display:grid;place-items:center;text-align:center;box-shadow:0 0 50px rgba(63,224,138,.5),inset 0 0 40px rgba(63,224,138,.25);font:italic 900 46px Archivo;color:var(--gr);letter-spacing:-1px;line-height:1}
+#certBtn{position:absolute;left:0;right:0;top:40px;text-align:center}
+#certBtn span{display:inline-block;font:700 40px Plex;padding:26px 50px;border-radius:18px;background:var(--ac);color:#fff;box-shadow:0 0 40px rgba(241,90,37,.7)}
+#certLog{position:absolute;left:0;width:960px;top:480px;padding:26px 30px;opacity:0}
+#certLog .t{font:500 25px Mono;line-height:1.55;color:#ddd;margin-top:12px}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="glow"></div><div id="grid"></div>
+<div class="hc" id="c1"></div><div class="hc" id="c2"></div><div class="hc" id="c3"></div><div class="hc" id="c4"></div>
+<div id="hud"><b></b>CONFERÊNCIA DE ENQUADRAMENTO</div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div id="hook">
+  <svg id="ring" viewBox="0 0 800 800" style="top:200px"><g fill="none" stroke="#F15A25"><circle cx="400" cy="400" r="380" stroke-width="3" stroke-dasharray="6 18" opacity=".7" id="r1"/><circle cx="400" cy="400" r="330" stroke-width="10" stroke-dasharray="180 60" opacity=".5" id="r2"/><circle cx="400" cy="400" r="290" stroke-width="2" opacity=".35"/></g></svg>
+  <div class="gls" id="hcard"><div class="mono" style="font-size:22px;letter-spacing:3px;color:var(--neo)">CLIENTE</div><div style="margin-top:12px"><span class="mask" style="width:420px;height:34px"></span></div><div class="r"><span>CNPJ ••.•••.•••/0001-••</span><span class="tg ye" id="hq3">sindicato ?</span></div></div>
+  <div id="hq">O sindicato do seu cliente <span class="neo">está certo?</span></div>
+  <div id="hq2">Você consegue <span class="neo">provar?</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">NOVIDADE · FERRAMENTA DE SINDICATOS</div><div class="n">Prova do <em>vínculo.</em></div><div class="d">Receita × sindicato × convenção.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">LADO A LADO</div><div class="n">Lado a <em>lado.</em></div><div class="d">CNAE, sindicatos e a cláusula 1ª.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">REGISTRO OFICIAL · CNES/MTE</div><div class="n">Na base <em>territorial?</em></div><div class="d">O município da empresa é conferido.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">CERTIFICAÇÃO</div><div class="n">Bateu? <em>Certifica.</em></div><div class="d">Quem, quando e a base legal.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="sP">
+    <div class="gls col" id="p0" style="top:0"><div class="h"><b>1</b>O que a Receita diz<small>RECEITA</small></div></div>
+    <div class="gls col" id="p1" style="top:300px"><div class="h"><b>2</b>O que o enquadramento concluiu<small>WFTEC</small></div></div>
+    <div class="gls col" id="p2" style="top:600px"><div class="h"><b>3</b>O que a convenção diz<small>MEDIADOR</small></div></div>
+    <div class="lnk" id="l0" style="top:108px;height:192px"></div><div class="lnk" id="l1" style="top:408px;height:192px"></div>
+    <div class="x" id="x0" style="top:176px">×</div><div class="x" id="x1" style="top:476px">×</div>
+  </div>
+  <div class="sc" id="sD">
+    <div class="gls col" id="d0" style="top:0;opacity:1"><div class="h"><b>1</b>Receita</div>
+      <div class="kv" id="d0a"><span>CNPJ</span><span class="mono">••.•••.•••/0001-••</span></div>
+      <div class="kv" id="d0b"><span>CNAE</span><span class="neo">4781-4/00 · varejo de vestuário</span></div>
+      <div class="kv" id="d0c"><span>MUNICÍPIO</span><span>Natal/RN</span></div></div>
+    <div class="gls col" id="d1" style="top:300px;opacity:1"><div class="h"><b>2</b>Enquadramento</div>
+      <div class="kv" id="d1a"><span>LABORAL</span><span>Empregados no comércio</span></div>
+      <div class="kv" id="d1b"><span>PATRONAL</span><span>Comércio varejista</span></div></div>
+    <div class="gls col" id="d2" style="top:560px;opacity:1"><div class="h"><b>3</b>Convenção</div>
+      <div class="kv" id="d2a"><span>LIGADA</span><span>Convenção Coletiva · 2026/2027</span></div>
+      <div class="kv" id="d2b"><span>CLÁUSULA 1ª</span><span style="font-weight:500;font-size:24px;line-height:1.35">“…empregados no comércio varejista<br>dos municípios de <span class="neo">Natal</span>, …”</span></div></div>
+  </div>
+  <div class="sc" id="sB">
+    <div id="map">
+      <svg viewBox="0 0 600 600" style="position:absolute;inset:0"><circle id="bz" cx="300" cy="300" r="250" fill="rgba(63,224,138,.06)" stroke="#3FE08A" stroke-width="3" stroke-dasharray="10 10"/><g id="radar"><path d="M300 300 L300 50 A250 250 0 0 1 516 175 Z" fill="rgba(241,90,37,.18)"/></g></svg>
+      <div class="mu" id="m0" style="left:220px;top:250px;border-color:var(--ac);color:#fff;box-shadow:0 0 22px rgba(241,90,37,.7)">◉ NATAL</div>
+      <div class="mu" id="m1" style="left:70px;top:150px">Parnamirim</div>
+      <div class="mu" id="m2" style="left:330px;top:120px">Extremoz</div>
+      <div class="mu" id="m3" style="left:350px;top:400px">Macaíba</div>
+      <div class="mu" id="m4" style="left:60px;top:420px">São Gonçalo</div>
+    </div>
+    <div id="cnesB"><span class="tg ok" id="b0">Registro sindical ativo</span><span class="tg ok" id="b1">Base ok (CNES)</span></div>
+    <div style="position:absolute;left:0;right:0;top:760px;display:flex;justify-content:center;gap:14px" id="bad"><span class="tg bad">Fora da base (CNES)</span><span class="tg nv" id="trc">Trocar ⇄</span></div>
+  </div>
+  <div class="sc" id="sK">
+    <div id="certBtn"><span id="cb">Certifiquei este vínculo</span></div>
+    <div id="seal"><svg viewBox="0 0 400 400" style="position:absolute;inset:0"><circle cx="200" cy="200" r="190" fill="none" stroke="#3FE08A" stroke-width="3" stroke-dasharray="4 10" id="sr"/></svg><div class="in">CERTI-<br>FICADA<br><span style="font:600 20px Mono;letter-spacing:2px;font-style:normal">✓ VÍNCULO</span></div></div>
+    <div class="gls" id="certLog"><div class="mono" style="font-size:22px;letter-spacing:2px;color:var(--mu)">BASE LEGAL ANOTADA NA CERTIFICAÇÃO</div>
+      <div class="t" id="clT"></div></div>
+  </div>
+</div>
+
+<div id="outro">
+  <svg class="abs" id="oRing" style="left:240px;top:200px;width:600px;height:600px" viewBox="0 0 800 800"><g fill="none" stroke="#F15A25"><circle cx="400" cy="400" r="380" stroke-width="3" stroke-dasharray="6 18" opacity=".7"/><circle cx="400" cy="400" r="330" stroke-width="10" stroke-dasharray="180 60" opacity=".5"/></g></svg>
+  <div class="abs" id="oLogo" style="left:390px;top:350px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:860px;text-align:center">
+    <div class="disp" style="font-size:150px;color:#fff">WF<em class="neo">tec</em></div>
+    <div style="font-size:38px;color:var(--mu);margin-top:10px">Ferramenta de Sindicatos · enquadramento com prova</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="tg cy">Receita × sindicato × convenção</span><span class="tg ok">Base territorial (CNES)</span><span class="tg nv">Vínculo certificado</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 46px;border-radius:24px;box-shadow:0 0 50px rgba(241,90,37,.6)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--neo);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="lines"></div><div id="scan"></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px;filter:drop-shadow(0 0 30px rgba(241,90,37,.7))" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CNAE", "CNPJ", "CNES", "MTE", "CCT", "ART.511", "ART.581", "ART.611", "BASE"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 4 === 0) ? W[(r + c) % W.length] : (((r * 9301 + c * 49297) % 65535).toString(16).toUpperCase().padStart(4, "0"))) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const LEG = "Art. 511 e 581 CLT (atividade preponderante, CNAE 4781-4/00) · estabelecimento em Natal/RN · CNES: registro Ativo, base territorial cobre o município · CCT 2026/2027 · art. 611 CLT";
+const SC = ["sP", "sD", "sB", "sK"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .18; $("flash").style.background = "#FF6A33";
+  $("bgnum").style.transform = `translateY(${-(t * 30) % 400}px)`;
+  $("grid").style.backgroundPosition = `0 ${(t * 120) % 90}px`;
+  $("scan").style.top = ((t * 520) % 2100 - 90) + "px";
+  $("hud").style.opacity = .55 + .45 * Math.abs(Math.sin(t * 2.2));
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    $("ring").style.opacity = seg(L, 0, .4); $("r1").setAttribute("transform", `rotate(${L * 40} 400 400)`); $("r2").setAttribute("transform", `rotate(${-L * 70} 400 400)`);
+    pop("hcard", L, .05, 60);
+    $("hq3").style.opacity = .5 + .5 * Math.abs(Math.sin(L * 6));
+    const q1 = back(seg(L, .1, .4)); $("hq").style.opacity = clamp(q1 * 2.5); $("hq").style.transform = `scale(${1.6 - .6 * clamp(q1)})`; $("hq").style.top = "820px";
+    const pv = I + cu("provar", 2.0); const q2 = back(seg(L, pv, pv + .3)); $("hq2").style.opacity = clamp(q2 * 2.5); $("hq2").style.transform = `scale(${1.8 - .8 * clamp(q2)})`;
+    const gl = L > pv && L < pv + .45 ? Math.sin((L - pv) * 80) * 10 : 0; $("hq2").style.textShadow = gl ? `${gl}px 0 #45D4FF, ${-gl}px 0 #FF3B3B` : "none";
+    sx += shake(L, pv + .15);
+  } else $("hook").style.opacity = 0;
+  if (k === 1) { sc = "sP"; tt = "t1";
+    const a = .6;
+    pop("p0", L, a, 40); pop("p1", L, a + .4, 40); pop("p2", L, a + .8, 40);
+    ["l0", "l1"].forEach((id, i) => { const q = eout(seg(L, a + .5 + i * .4, a + .9 + i * .4)); $(id).style.transform = `scaleY(${q})`; $(id).style.opacity = q; });
+    ["x0", "x1"].forEach((id, i) => { const q = back(seg(L, a + 1.2 + i * .3, a + 1.5 + i * .3)); $(id).style.opacity = clamp(q * 2); $(id).style.transform = `scale(${.4 + .6 * clamp(q)}) rotate(${L * 90}deg)`; });
+  }
+  if (k === 2) { sc = "sD"; tt = "t2";
+    const r = I + cu("receita", .2), e = I + cu("enq", 2.6), c = I + cu("conv", 5.0);
+    pop("d0", L, r - .1, 30); ["d0a", "d0b", "d0c"].forEach((id, i) => pop(id, L, r + .2 + i * .3, 15));
+    pop("d1", L, e - .3, 30); ["d1a", "d1b"].forEach((id, i) => pop(id, L, e + i * .5, 15));
+    pop("d2", L, c - .3, 30); ["d2a", "d2b"].forEach((id, i) => pop(id, L, c + i * .4, 15));
+    [["d0", r, e], ["d1", e, c], ["d2", c, 99]].forEach(([id, a, b]) => { $(id).style.borderColor = L > a && L < b ? "var(--ac)" : "rgba(241,90,37,.25)"; $(id).style.boxShadow = L > a && L < b ? "0 0 50px rgba(241,90,37,.35)" : "none"; });
+  }
+  if (k === 3) { sc = "sB"; tt = "t3";
+    $("radar").setAttribute("transform", `rotate(${L * 140} 300 300)`);
+    const bz = eout(seg(L, .2, 1.0)); $("bz").setAttribute("r", 250 * bz);
+    ["m0", "m1", "m2", "m3", "m4"].forEach((id, i) => pop(id, L, .4 + i * .15, 20));
+    $("m0").style.transform += ` scale(${1 + .08 * Math.sin(L * 6)})`;
+    const ok = I + cu("base", 3.0); pop("b0", L, ok, 20); pop("b1", L, ok + .3, 20);
+    const nb = I + cu("naobateu", 5.6); const bq = back(seg(L, nb, nb + .35)); $("bad").style.opacity = clamp(bq * 2); $("bad").style.transform = `scale(${1.3 - .3 * clamp(bq)})`;
+    const tq = Math.sin(seg(L, nb + .8, nb + 1.2) * Math.PI); $("trc").style.transform = `scale(${1 + .15 * tq})`;
+  }
+  if (k === 4) { sc = "sK"; tt = "t4";
+    const cl = I + cu("clique", .9); pop("certBtn", L, .05, 30);
+    const bq = Math.sin(seg(L, cl, cl + .3) * Math.PI); $("cb").style.transform = `scale(${1 - .12 * bq})`;
+    const st = cl + .35; const sq = back(seg(L, st, st + .35)); $("seal").style.opacity = clamp(sq * 2); $("seal").style.transform = `scale(${2.2 - 1.2 * clamp(sq)}) rotate(${(1 - clamp(sq)) * -25}deg)`; $("sr").setAttribute("transform", `rotate(${L * 50} 200 200)`);
+    $("certBtn").style.opacity = L > st ? 1 - seg(L, st, st + .25) : $("certBtn").style.opacity; sx += shake(L, st + .3);
+    const lg = I + cu("gravado", 2.4); pop("certLog", L, lg - .3, 30);
+    const tx = "Certificada por ██████ em 10/11/2026 17:42\n" + LEG; const n = Math.round(tx.length * seg(L, lg, lg + 2.6));
+    $("clT").innerHTML = tx.slice(0, n).replace("██████", '<span class="mask" style="width:150px"></span>').replace("\n", '<br><span style="color:var(--neo)">').replace(/$/, "</span>") + (n < tx.length && L > lg ? '<span class="neo">▌</span>' : "");
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; $("oRing").style.transform = `rotate(${o * 30}deg) scale(${.6 + .4 * eout(seg(o, 0, .6))})`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .04 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = { t1: 0, t2: 1, t3: 2, t4: 3 }[tt]; document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx !== undefined && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx !== undefined && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("hud").style.display = k === 0 || isO ? "block" : "none";
+  $("ilu").style.opacity = (k >= 0 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`;
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
