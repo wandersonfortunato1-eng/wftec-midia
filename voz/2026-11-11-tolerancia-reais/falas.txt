@@ -1,0 +1,6 @@
+Diferença de centavos atrapalhando a conferência da folha?
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário e verba por verba. Só que diferença de centavos também entra na lista.
+Então você define a tolerância em reais. Por exemplo, um real. O que fica abaixo dela não conta como diferença.
+Marque ver só o que tem diferença, e sobra na tela o que você precisa conferir.
+Double Check Folha. Conferência sem ruído. Fale com a gente no WhatsApp do perfil.
