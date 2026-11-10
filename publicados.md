@@ -37,7 +37,11 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-09 18:39 | Story | Story do Reels Sindicatos aditivo que muda o piso | (mesmo vídeo) | 421193385 |
 | 2026-11-09 11:47 | Reels NOVO (substitui o "Prazo da semana", que o Wanderson não quis) | Double Check Folha: auditoria (salário abaixo do mínimo, líquido negativo, salário-família indevido; arquivos lidos no computador) | 2026-11/2026-11-09-auditoria-folha/video.mp4 | 421708030 |
 | 2026-11-09 11:49 | Story | Story do Reels Double Check auditoria | (mesmo vídeo) | 421708144 |
-| 2026-11-10 11:47 | Reels NOVO (almoço) | Sindicatos: enquadramento pelo CNPJ e CNAE (digita o CNPJ, analisa o CNAE, laboral e patronal com convenção vigente, decisão explicada) | 2026-11/2026-11-10-enquadramento-cnpj/video.mp4 | 422531814 |
-| 2026-11-10 11:49 | Story | Story do Reels Sindicatos enquadramento pelo CNPJ | (mesmo vídeo) | 422531908 |
-| 2026-11-10 18:37 | Trial Reels NOVO | Double Check Folha: custo da folha (proventos, INSS patronal e FGTS, com a variação do mês; verba por verba para achar o porquê) | 2026-11/2026-11-10-custo-folha/video.mp4 | 422531829 |
-| 2026-11-10 18:39 | Story | Story do Reels Double Check custo da folha | (mesmo vídeo) | 422531921 |
+| 2026-11-10 11:47 | Reels NOVO (almoço) | Sindicatos: enquadramento pelo CNPJ e CNAE (digita o CNPJ, analisa o CNAE, laboral e patronal com convenção vigente, decisão explicada) | 2026-11/2026-11-10-enquadramento-cnpj/video.mp4 | 422531814 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-10 11:49 | Story | Story do Reels Sindicatos enquadramento pelo CNPJ | (mesmo vídeo) | 422531908 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-10 18:37 | Trial Reels NOVO | Double Check Folha: custo da folha (proventos, INSS patronal e FGTS, com a variação do mês; verba por verba para achar o porquê) | 2026-11/2026-11-10-custo-folha/video.mp4 | 422531829 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-10 18:39 | Story | Story do Reels Double Check custo da folha | (mesmo vídeo) | 422531921 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-11 11:47 | Reels NOVO (almoço) | Double Check Folha: tolerância em reais (diferença de centavos; ver só o que tem diferença) | 2026-11/2026-11-11-tolerancia-reais/video.mp4 | 423819439 |
+| 2026-11-11 11:49 | Story | Story do Reels Double Check tolerância em reais | (mesmo vídeo) | 423819562 |
+| 2026-11-11 18:37 | Reels NOVO | Sindicatos: convenção do estado (RN: 75 documentos novos de 12/10 a 10/11, D1: 40 circulares, 31 acordos, 3 convenções, 1 aditivo; cores por tipo; varredura e selo Nova) | 2026-11/2026-11-11-convencoes-rn/video.mp4 | 423819455 |
+| 2026-11-11 18:39 | Story | Story do Reels Sindicatos convenções do RN | (mesmo vídeo) | 423819577 |
