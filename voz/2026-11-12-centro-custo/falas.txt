@@ -1,0 +1,6 @@
+Qual setor fez a sua folha subir este mês?
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário e verba por verba. Mas a empresa tem vários setores.
+Então filtre por centro de custo. Escolha a loja, e a tela mostra só quem é de lá.
+Quem entrou, quem saiu, e cada valor que mudou naquele setor. Pronto, achou o motivo.
+Double Check Folha. A diferença tem endereço. Fale com a gente no WhatsApp do perfil.
