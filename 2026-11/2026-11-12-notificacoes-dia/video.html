@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;width:260px;height:150px;border-radius:18px;background:#F7E3A8;border:2px solid #E2C46E;opacity:0;padding:18px}
+.fc i{display:block;height:14px;border-radius:7px;background:rgba(120,85,10,.25);margin-bottom:12px}
+.fc b{font:600 20px Mono;color:#7a5a10}
+.app{position:relative;width:960px;padding:30px 30px}
+.doc{border-radius:22px;padding:38px 36px;border:2px solid var(--line);background:#fff;margin-bottom:26px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.doc .ty{font:600 24px Mono;letter-spacing:2px;color:var(--muted)}
+.doc .ti{font-size:46px;font-weight:700;margin-top:10px;line-height:1.2}
+.doc .su{font-size:28px;color:var(--muted);margin-top:8px}
+.doc.am{background:#FFF6D6;border-color:#E9C866}.doc.am .ty{color:#8A5A0B}
+.doc.vd{background:#EAF7EF;border-color:#9ED3B2}.doc.vd .ty{color:#1E6B3E}
+.doc.az{background:#E9F1FB;border-color:#A9C6EA}.doc.az .ty{color:#2B5C99}
+.tg{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg.nv{background:var(--ac);color:#fff}.tg.am{background:#FBF0D9;color:#8A5A0B}
+.flt{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.flt span{font:600 30px Plex;padding:16px 26px;border-radius:16px;border:2px solid var(--line);background:#fff;color:#4a4542}
+.flt span.on{border-color:var(--ac);background:#FFF1EA;color:var(--act)}
+.lab{font:600 24px Mono;letter-spacing:2px;color:var(--muted);margin-top:30px}
+.sel{display:flex;justify-content:space-between;align-items:center;font-size:32px;padding:20px 24px;border:2px solid var(--line);border-radius:16px;margin-top:14px;background:#FBF8F6}
+.bk{display:flex;align-items:center;gap:22px;margin-bottom:26px;opacity:0}
+.bk .nm{font:italic 900 96px Archivo;width:170px;text-align:right;color:var(--ac)}
+.bk .bx{flex:1}.bk .bx b{font-size:38px;display:block}.bk .bx .br{height:22px;border-radius:11px;margin-top:12px;width:0;background:var(--ac)}
+.bign{display:flex;align-items:baseline;gap:22px;margin:10px 0 40px;opacity:0}.bign .disp{font-size:220px;color:var(--ac);line-height:.9}.bign span{font-size:36px;font-weight:600;line-height:1.25}
+.tabs{display:flex;gap:10px;margin-bottom:26px}.tabs span{font:700 30px Plex;padding:16px 26px;border-radius:16px;background:#F3EDE9;color:#4a4542}.tabs span.on{background:var(--ac);color:#fff}
+.nt{border-radius:20px;padding:28px 30px;border:2px solid var(--line);background:#fff;margin-bottom:20px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.nt .d{font:700 26px Mono;color:var(--act);letter-spacing:1px}.nt .tx{font-size:36px;font-weight:700;margin-top:8px}.nt .uf{font-size:28px;color:var(--muted);margin-top:8px}
+.bell{width:260px;height:260px;border-radius:50%;background:#fff;border:3px solid var(--line);margin:0 auto;display:grid;place-items:center;position:relative;opacity:0;box-shadow:0 18px 40px rgba(60,40,30,.10)}
+.bell svg{width:140px;height:140px}.bell .bd{position:absolute;top:18px;right:12px;font:700 30px Plex;padding:10px 18px;border-radius:999px;background:var(--ac);color:#fff}
+.inf{display:flex;align-items:center;gap:24px;border-radius:22px;padding:30px 32px;border:2px solid var(--line);background:#fff;margin-top:30px;opacity:0}
+.inf .ic{font:italic 900 64px Archivo;color:var(--ac);min-width:150px;text-align:center}.inf b{font-size:38px;display:block}.inf small{font-size:28px;color:var(--muted)}
+.tgl{display:flex;border-radius:18px;border:2px solid var(--line);overflow:hidden;margin-bottom:28px;opacity:0}.tgl span{flex:1;text-align:center;font:700 32px Plex;padding:22px 10px;background:#fff;color:#4a4542}.tgl span.on{background:var(--ac);color:#fff}
+.em{display:flex;justify-content:space-between;align-items:center;border-radius:20px;padding:28px 30px;border:2px solid var(--line);background:#fff;margin-bottom:20px;opacity:0}
+.em .ty{font:600 22px Mono;letter-spacing:1.5px;color:var(--muted);margin-top:10px}
+.tg{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap;background:var(--ac);color:#fff}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:500px;font-size:112px">Quantos documentos sindicais <span style="color:var(--ac)">novos?</span></div>
+  <div class="hq" id="hq2" style="top:1220px;font-size:96px;text-shadow:0 0 30px #141312,0 0 30px #141312">Em <span style="color:var(--ac)">um só dia.</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">DADO REAL DO ACERVO</div><div class="n">Em <em>11/11.</em></div><div class="d">Ferramenta de Sindicatos da WFtec.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">ABA NOTIFICAÇÕES</div><div class="n">Cada dia, <em>por estado.</em></div><div class="d">O histórico fica guardado.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">SINO NO TOPO DA BUSCA</div><div class="n">Últimos <em>60 dias.</em></div><div class="d">O aviso fecha todo dia às 8h.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">MINHAS EMPRESAS</div><div class="n">Só os dos seus <em>clientes.</em></div><div class="d">Um clique em Novas convenções.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="bign" id="bN"><div class="disp" id="nN">0</div><span>documentos novos<br><span class="muted" style="font-weight:500">em 11/11/2026</span></span></div>
+    <div class="bk" id="k0"><div class="nm">47</div><div class="bx"><b>São Paulo</b><div class="br" id="r0"></div></div></div>
+    <div class="bk" id="k1"><div class="nm">20</div><div class="bx"><b>Goiás</b><div class="br" id="r1"></div></div></div>
+    <div class="bk" id="k2"><div class="nm">12</div><div class="bx"><b>Rio de Janeiro</b><div class="br" id="r2"></div></div></div>
+    <div class="mono muted" style="font-size:24px;margin-top:20px;letter-spacing:1px">ACERVO WFTEC · AVISO DE 11/11/2026</div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="tabs"><span>Novas convenções</span><span class="on">Notificações</span></div>
+    <div class="nt" id="n0"><div class="d">11/11</div><div class="tx">150 instrumentos novos</div><div class="uf">SP 47 · GO 20 · RJ 12 · MG 11 · DF 10…</div></div>
+    <div class="nt" id="n1"><div class="d">10/11</div><div class="tx">201 instrumentos novos</div><div class="uf">SP 74 · MG 28 · RS 22 · RJ 13 · PR 13…</div></div>
+    <div class="nt" id="n2"><div class="d">09/11</div><div class="tx">1 instrumento novo</div><div class="uf">SP 1</div></div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="bell" id="bell"><svg viewBox="0 0 24 24" fill="none" stroke="#F15A25" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="bd">60 dias</span></div>
+    <div class="inf" id="i0"><div class="ic">8h</div><div><b>O aviso fecha todo dia</b><small>Horário de Brasília</small></div></div>
+    <div class="inf" id="i1"><div class="ic">60</div><div><b>Dias no sino</b><small>Tudo o que entrou, por tipo e por estado</small></div></div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="tgl" id="tgl"><span id="tA">Minhas empresas</span><span id="tB" class="on">Todo o Brasil</span></div>
+    <div class="em" id="e0"><div><span class="mask" style="width:330px"></span><div class="ty">ADITIVO · COMÉRCIO · RN</div></div><span class="tg">Nova</span></div>
+    <div class="em" id="e1"><div><span class="mask" style="width:280px"></span><div class="ty">CONVENÇÃO · ASSEIO E CONSERVAÇÃO · RN</div></div><span class="tg">Nova</span></div>
+    <div class="em" id="e2"><div><span class="mask" style="width:300px"></span><div class="ty">CIRCULAR · TRANSPORTE · PB</div></div><span class="tg">Nova</span></div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip ac" style="font-size:26px;padding:10px 20px">Notificações do dia</span><span class="chip" style="font-size:26px;padding:10px 20px">Sino de 60 dias</span><span class="chip" style="font-size:26px;padding:10px 20px">Minhas empresas</span><span class="chip" style="font-size:26px;padding:10px 20px">Selo Nova</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "ACT", "aditivo", "SP", "GO", "RJ", "sindicato", "circular", "8h"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc" id="m${i}" style="left:${30 + (i * 317) % 760}px;top:${110 + (i * 461) % 1550}px"><i style="width:${60 + (i * 37) % 35}%"></i><i style="width:40%"></i><b>${["CIRCULAR · SP", "ACORDO · GO", "CONVENÇÃO · RJ", "ADITIVO · MG"][i % 4]}</b></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .22; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("dia", 2.2), 1.6); sx += shake(L, I + cu("dia", 2.2) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    const na = I + cu("n150", 2.4); pop("bN", L, na - .6, 30); $("nN").textContent = Math.round(150 * eout(seg(L, na - .6, na + .2)));
+    if (L > na + .2) sx += shake(L, na + .25) * .5;
+    const W = [100, 42.5, 25.5]; [cu("sp", 3.4), cu("go", 5.0), cu("rj", 6.2)].forEach((a, i) => { pop("k" + i, L, I + a, 30); $("r" + i).style.width = (W[i] * eout(seg(L, I + a + .1, I + a + .8))) + "%"; });
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    [cu("n0", .3), cu("n1", 1.2), cu("n2", 2.0)].forEach((a, i) => pop("n" + i, L, I + a, 40));
+    const ea = I + cu("estado", 5.0); $("n0").style.borderColor = L > ea ? "var(--ac)" : ""; $("n0").style.transform = `scale(${1 + .04 * Math.sin(seg(L, ea, ea + .5) * Math.PI)})`;
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("i0", L, I + cu("oito", 1.4), 40);
+    const ba = I + cu("sino", 3.6); pop("bell", L, ba - .3, 30); $("bell").style.transform += ` rotate(${Math.sin(seg(L, ba, ba + .8) * Math.PI * 6) * 10 * (1 - seg(L, ba, ba + .8))}deg)`;
+    pop("i1", L, I + cu("sessenta", 5.0), 40);
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("tgl", L, .1, 30);
+    const ca = I + cu("clique", 3.6); const on = L > ca; $("tA").className = on ? "on" : ""; $("tB").className = on ? "" : "on";
+    for (let i = 0; i < 3; i++) { pop("e" + i, L, .3 + i * .2, 30); }
+    if (L > ca) { const h = 1 - seg(L, ca + .1, ca + .6); $("e2").style.opacity = h; $("e2").style.display = h <= 0 ? "none" : ""; for (const i of [0,1]) $("e"+i).style.borderColor = "var(--ac)"; } else { $("e2").style.display = ""; for (const i of [0,1]) $("e"+i).style.borderColor = ""; }
+    if (L > ca) sx += shake(L, ca + .1) * .4;
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k === 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

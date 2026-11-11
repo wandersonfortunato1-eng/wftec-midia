@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;padding:14px 22px;border-radius:14px;background:#3a1d1a;border:2px solid #7a2e25;font:600 30px Mono;color:#ff7a66;opacity:0}
+.app{position:relative;width:960px;padding:30px 30px}
+.fl{display:flex;align-items:center;gap:26px;padding:30px 30px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4;margin-bottom:22px;opacity:0}
+.fl .ic{width:84px;height:100px;border-radius:14px;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.fl b{font-size:38px}.fl small{display:block;font-size:26px;color:var(--muted);margin-top:4px}
+.fmt{display:flex;gap:14px;margin-top:10px}.fmt span{font:700 30px Plex;padding:14px 26px;border-radius:999px;background:var(--infos);color:var(--info);opacity:0}
+.tb{width:100%;border-collapse:collapse;font-size:28px}
+.tb th{font:600 20px Mono;letter-spacing:1.5px;color:var(--muted);text-align:left;padding:0 8px 14px}
+.tb td{padding:22px 8px;border-top:1px solid var(--line)}
+.tb td.n{font-family:Mono;text-align:right}.tb th.n{text-align:right}
+.tb tr{opacity:0}
+.up{color:var(--bad);font-weight:700}.dn{color:var(--ok);font-weight:700}
+.au{display:flex;align-items:center;gap:26px;border-radius:24px;padding:36px 34px;margin-bottom:24px;background:#fff;border:2px solid var(--line);opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.au .ic{flex:none;width:80px;height:80px;border-radius:50%;background:var(--bads);color:var(--bad);font:italic 900 46px Archivo;display:grid;place-items:center}
+.au b{font-size:42px;display:block}.au small{font-size:28px;color:var(--muted)}
+.au.on{border-color:var(--bad);background:#FFF5F3}
+.pc{width:520px;height:340px;margin:10px auto 0;border-radius:26px;background:#262626;padding:22px;position:relative;opacity:0}
+.pc .sc2{width:100%;height:100%;border-radius:14px;background:#F6F2EF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.pc .sc2 b{font:italic 900 60px Archivo;color:var(--ok)}
+.pc .ft{position:absolute;left:180px;right:180px;bottom:-40px;height:40px;background:#3a3a3a;border-radius:0 0 18px 18px}
+.ok2{display:flex;justify-content:center;gap:14px;margin-top:90px;flex-wrap:wrap}.ok2 span{font:700 32px Plex;padding:16px 28px;border-radius:999px;background:var(--oks);color:#1E6B3E;opacity:0}
+
+.flt2{display:flex;align-items:center;justify-content:space-between;gap:20px;border-radius:22px;padding:26px 30px;background:#fff;border:2px solid var(--line);margin-bottom:24px;opacity:0}
+.flt2 b{font-size:34px}.flt2 .in{font:700 36px Plex;padding:14px 24px;border-radius:14px;border:3px solid var(--line);background:#FBF8F6;min-width:330px;text-align:right}
+.flt2.on .in{border-color:var(--ac);background:#FFF6F1;color:var(--act)}
+.cc{display:inline-block;font:700 22px Plex;padding:6px 14px;border-radius:999px;white-space:nowrap}
+.cc.a{background:#E9F1FB;color:#2B5C99}.cc.l{background:#FFF1EA;color:var(--act)}.cc.p{background:#EAF7EF;color:#1E6B3E}
+.st{display:inline-block;font:700 22px Plex;padding:6px 14px;border-radius:999px;margin-left:8px;opacity:0}
+.st.ad{background:var(--oks);color:#1E6B3E}.st.sa{background:var(--bads);color:var(--bad)}.st.mu{background:#FBF0D9;color:#8A5A0B}
+.cnt{display:flex;align-items:baseline;gap:20px;margin:0 0 18px 10px;opacity:0}.cnt .disp{font-size:110px;color:var(--ac)}.cnt span{font-size:32px;color:var(--muted)}
+.tb{font-size:25px}.tb td{padding:16px 6px;white-space:nowrap}.tb td.n,.tb th.n{white-space:nowrap}.tb .mask{max-width:120px}.cnt .disp{font-size:96px}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:520px;font-size:124px;text-shadow:0 0 40px #141312">Qual <span style="color:var(--ac)">setor</span> fez a folha subir?</div>
+  <div class="hq" id="hq2" style="top:1220px;font-size:90px;text-shadow:0 0 30px #141312,0 0 30px #141312">Neste <span style="color:var(--ac)">mês.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">DOUBLE CHECK FOLHA</div><div class="n">Envie os <em>dois meses.</em></div><div class="d">O espelho do mês passado e o deste mês.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">VERBA POR VERBA</div><div class="n">A empresa <em>inteira.</em></div><div class="d">Vários setores misturados na mesma lista.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">FILTRO POR CENTRO DE CUSTO</div><div class="n">Escolha o <em>setor.</em></div><div class="d">A tela mostra só quem é de lá.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">NAQUELE SETOR</div><div class="n">Achou o <em>motivo.</em></div><div class="d">Quem entrou, quem saiu e o que mudou.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="fl" id="u0"><div class="ic" style="background:#C0392B">PDF</div><div><b>Espelho · mês passado</b><small>PDF do SCI</small></div></div>
+    <div class="fl" id="u1"><div class="ic" style="background:#1E8E4E">XLSX</div><div><b>Espelho · este mês</b><small>Excel</small></div></div>
+    <div class="fmt"><span id="q0">PDF do SCI</span><span id="q1">Excel</span><span id="q2">CSV</span></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="flt2" id="fb"><b>Centro de custo</b><div class="in" id="fv">Todos ▾</div></div>
+    <div class="cnt" id="cnt"><div class="disp" id="cntN">7</div><span id="cntT">funcionários com diferença</span></div>
+    <div class="card app" id="app2">
+      <table class="tb"><tr style="opacity:1"><th>FUNCIONÁRIO</th><th>CENTRO DE CUSTO</th><th>VERBA</th><th class="n">DIFERENÇA</th></tr>
+      <tr id="w0"><td><span class="mask" style="width:150px"></span></td><td><span class="cc a">Administrativo</span></td><td>Salário</td><td class="n up">+ R$ 210,00</td></tr>
+      <tr id="w1"><td><span class="mask" style="width:130px"></span><span class="st ad" id="x1">Admitido</span></td><td><span class="cc l">Loja</span></td><td>Salário</td><td class="n up">+ R$ 1.980,00</td></tr>
+      <tr id="w2"><td><span class="mask" style="width:160px"></span></td><td><span class="cc p">Produção</span></td><td>Hora extra 50%</td><td class="n up">+ R$ 318,40</td></tr>
+      <tr id="w3"><td><span class="mask" style="width:120px"></span><span class="st mu" id="x3">Valor mudou</span></td><td><span class="cc l">Loja</span></td><td>Comissão</td><td class="n up">+ R$ 1.245,00</td></tr>
+      <tr id="w4"><td><span class="mask" style="width:150px"></span></td><td><span class="cc a">Administrativo</span></td><td>Vale-transporte</td><td class="n dn">− R$ 46,00</td></tr>
+      <tr id="w5"><td><span class="mask" style="width:120px"></span><span class="st sa" id="x5">Saiu</span></td><td><span class="cc l">Loja</span></td><td>Salário</td><td class="n dn">− R$ 1.620,00</td></tr>
+      <tr id="w6"><td><span class="mask" style="width:150px"></span></td><td><span class="cc p">Produção</span></td><td>Adicional noturno</td><td class="n up">+ R$ 92,10</td></tr></table>
+    </div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Double Check Folha</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Verba por verba</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Filtro por centro de custo</span><span class="chip" style="font-size:26px;padding:10px 20px">Admitidos e desligados</span><span class="chip" style="font-size:26px;padding:10px 20px">PDF do SCI, Excel, CSV</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["INSS", "FGTS", "verba", "líquido", "folha", "SCI", "salário", "13º", "CSV"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+const CCN=["Administrativo","Loja","Produção"];
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc" id="m${i}" style="left:${30 + (i * 317) % 700}px;top:${110 + (i * 461) % 1550}px">${CCN[i % 3]} ${i % 2 ? "+" : "−"}R$ ${(i*137)%900+100},00</div>`).join("");
+const SC = ["s1", "s2"], TT = ["t1", "t2", "t3", "t4"];
+const LOJA = [1, 3, 5];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .3; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.25 - .25 * clamp(q1)})`;
+    slam("hq2", L, I + cu("mes", 1.9), 1.6); sx += shake(L, I + cu("mes", 1.9) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("u0", L, I + cu("passado", 1.6), 60); pop("u1", L, I + cu("deste", 2.6), 60);
+    [cu("pdf", 4.0), cu("excel", 4.8), cu("csv", 5.4)].forEach((a, i) => pop("q" + i, L, I + a, 20));
+  }
+  if (k >= 2 && k <= 4) sc = "s2";
+  for (const i of [1,3,5]) $("x"+i).style.opacity = 0;
+  if (k === 2) { tt = "t2"; $("fb").style.opacity = 0; $("cnt").style.opacity = 0;
+    pop("app2", L, .1, 40);
+    for (let i = 0; i < 7; i++) { const a = I + cu("comp", .6) + i * .25; $("w" + i).style.opacity = seg(L, a, a + .3); $("w" + i).style.display = ""; $("w"+i).style.background=""; }
+    const sa = I + cu("setores", 4.0); document.querySelectorAll("#s2 .cc").forEach((e, i) => { e.style.transform = `scale(${1 + .18 * Math.sin(seg(L, sa + i * .08, sa + i * .08 + .45) * Math.PI)})`; });
+    if (L > sa) { pop("cnt", L, sa + .2, 20); $("cntN").textContent = "7"; $("cntT").textContent = "diferenças, 3 setores"; }
+  }
+  if (k === 3 || k === 4) { $("app2").style.opacity = 1; $("app2").style.transform = "none"; document.querySelectorAll("#s2 .cc").forEach((e) => e.style.transform = "none"); }
+  if (k === 3) { tt = "t3";
+    pop("fb", L, .1, 30);
+    const fa = I + cu("loja", 2.4); const on = L > fa;
+    $("fv").textContent = on ? "Loja ▾" : "Todos ▾"; $("fb").className = on ? "flt2 on" : "flt2"; $("fb").style.opacity = 1;
+    $("fb").querySelector(".in").style.transform = `scale(${1 + .12 * Math.sin(seg(L, fa - .1, fa + .4) * Math.PI)})`;
+    for (let i = 0; i < 7; i++) { $("w"+i).style.background=""; if (LOJA.includes(i)) { $("w" + i).style.opacity = 1; $("w" + i).style.display = ""; } else { const h = 1 - seg(L, fa + .2, fa + .7); $("w" + i).style.opacity = h; $("w" + i).style.display = h <= 0 ? "none" : ""; } }
+    $("cnt").style.opacity = 1; $("cnt").style.transform = "none"; $("cntN").textContent = L > fa + .7 ? "3" : "7"; $("cntT").textContent = L > fa + .7 ? "diferenças na Loja" : "diferenças, 3 setores";
+    if (L > fa + .7) sx += shake(L, fa + .9) * .4;
+  }
+  if (k === 4) { tt = "t4";
+    $("fb").style.opacity = 1; $("fb").style.transform = "none"; $("fv").textContent = "Loja ▾"; $("fb").className = "flt2 on";
+    for (let i = 0; i < 7; i++) { if (LOJA.includes(i)) { $("w" + i).style.opacity = 1; $("w" + i).style.display = ""; } else $("w" + i).style.display = "none"; }
+    [["x1", cu("entrou", .4)], ["x5", cu("saiu", 1.2)], ["x3", cu("mudou", 2.6)]].forEach(([id, a]) => { pop(id, L, I + a, 10); const r = $("w" + id.slice(1)); r.style.background = L > I + a ? "#FFF1EA" : ""; });
+    $("cnt").style.opacity = 1; $("cnt").style.transform = "none"; $("cntN").textContent = "3"; $("cntT").textContent = L > I + cu("motivo", 4.0) ? "e o motivo apareceu" : "diferenças na Loja";
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 2 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
