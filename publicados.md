@@ -41,7 +41,11 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-10 11:49 | Story | Story do Reels Sindicatos enquadramento pelo CNPJ | (mesmo vídeo) | 422531908 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-10 18:37 | Trial Reels NOVO | Double Check Folha: custo da folha (proventos, INSS patronal e FGTS, com a variação do mês; verba por verba para achar o porquê) | 2026-11/2026-11-10-custo-folha/video.mp4 | 422531829 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-10 18:39 | Story | Story do Reels Double Check custo da folha | (mesmo vídeo) | 422531921 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
-| 2026-11-11 11:47 | Reels NOVO (almoço) | Double Check Folha: tolerância em reais (diferença de centavos; ver só o que tem diferença) | 2026-11/2026-11-11-tolerancia-reais/video.mp4 | 423819439 |
-| 2026-11-11 11:49 | Story | Story do Reels Double Check tolerância em reais | (mesmo vídeo) | 423819562 |
-| 2026-11-11 18:37 | Reels NOVO | Sindicatos: convenção do estado (RN: 75 documentos novos de 12/10 a 10/11, D1: 40 circulares, 31 acordos, 3 convenções, 1 aditivo; cores por tipo; varredura e selo Nova) | 2026-11/2026-11-11-convencoes-rn/video.mp4 | 423819455 |
-| 2026-11-11 18:39 | Story | Story do Reels Sindicatos convenções do RN | (mesmo vídeo) | 423819577 |
+| 2026-11-11 11:47 | Reels NOVO (almoço) | Double Check Folha: tolerância em reais (diferença de centavos; ver só o que tem diferença) | 2026-11/2026-11-11-tolerancia-reais/video.mp4 | 423819439 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-11 11:49 | Story | Story do Reels Double Check tolerância em reais | (mesmo vídeo) | 423819562 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-11 18:37 | Reels NOVO | Sindicatos: convenção do estado (RN: 75 documentos novos de 12/10 a 10/11, D1: 40 circulares, 31 acordos, 3 convenções, 1 aditivo; cores por tipo; varredura e selo Nova) | 2026-11/2026-11-11-convencoes-rn/video.mp4 | 423819455 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-11 18:39 | Story | Story do Reels Sindicatos convenções do RN | (mesmo vídeo) | 423819577 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-12 11:47 | Reels NOVO (almoço) | Sindicatos: notificações do dia com número real do D1 (11/11: 150 instrumentos novos · SP 47 · GO 20 · RJ 12; aba Notificações, aviso às 8h, sino de 60 dias, Minhas empresas) | 2026-11/2026-11-12-notificacoes-dia/video.mp4 | 425081406 |
+| 2026-11-12 11:49 | Story | Story do Reels Sindicatos notificações do dia | (mesmo vídeo) | 425081491 |
+| 2026-11-12 18:37 | Trial Reels NOVO | Double Check Folha: filtro por centro de custo (qual setor fez a folha subir; admitido, saiu, valor que mudou no setor) | 2026-11/2026-11-12-centro-custo/video.mp4 | 425081556 |
+| 2026-11-12 18:39 | Story | Story do Reels Double Check centro de custo | (mesmo vídeo) | 425081646 |
