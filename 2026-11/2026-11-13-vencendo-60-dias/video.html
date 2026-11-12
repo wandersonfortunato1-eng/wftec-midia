@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.emp{position:absolute;width:300px;padding:18px 20px;border-radius:16px;background:#221e1c;border:1px solid #3A3330;opacity:0}
+.emp i{display:block;height:16px;border-radius:8px;background:#3A3330;margin-bottom:12px}
+.emp b{display:block;font:600 18px Mono;color:#6b625d}
+.app{position:relative;width:960px;padding:26px 28px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:24px}
+.tab{font-size:27px;font-weight:600;color:var(--muted);padding:12px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.tab.on{color:var(--act);border-color:var(--ac)}
+.tag{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap}
+.t-ok{background:var(--oks);color:#1E6B3E}.t-at{background:#FBF0D9;color:#8A5A0B}.t-ne{background:#F3EDE9;color:#4a4542}.t-nv{background:var(--ac);color:#fff}.t-db{background:#E3EEFA;color:#2B5C99}
+.file{display:flex;align-items:center;gap:26px;padding:36px 34px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4}
+.file .ic{width:84px;height:100px;border-radius:14px;background:#1E8E4E;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:14px}.bar div{height:100%;width:0;background:var(--ac)}
+.cols{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.cols span{font:600 30px Mono;padding:14px 22px;border-radius:14px;background:#fff;border:2px solid var(--line);opacity:0}
+.cols span.ob{border-color:var(--ac);color:var(--act)}
+.st{display:flex;align-items:center;gap:28px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:38px 34px;margin-bottom:24px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.st .n{flex:none;width:72px;height:72px;border-radius:50%;background:var(--ac);color:#fff;font:italic 900 38px Archivo;display:grid;place-items:center}
+.st b{font-size:44px;display:block}.st small{font-size:30px;color:var(--muted)}
+.st.on{border-color:var(--ac);background:#FFF6F1}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:36px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 26px Mono;color:var(--muted);margin-top:8px}
+.cand{display:flex;align-items:center;gap:20px;padding:34px 28px;border:2px solid var(--line);border-radius:20px;margin-top:24px;background:#fff;opacity:0}
+.cand .btn{flex:none;font:700 26px Plex;padding:14px 22px;border-radius:12px;background:#F3EDE9;color:#4a4542}
+.cand.on{border-color:var(--ok);background:#F2FAF5}.cand.on .btn{background:var(--ok);color:#fff}
+.cand div{font-size:32px;line-height:1.3}.cand small{display:block;font-size:25px;color:var(--muted);margin-top:4px}
+.av{border:3px solid var(--ac);background:#FFF6F1;border-radius:24px;padding:34px 32px;margin-top:28px;opacity:0}
+.av .t{font-size:38px;font-weight:700;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips .chip{font-size:30px;padding:12px 24px;opacity:0}
+
+.row{padding:44px 0}.row small{font-size:31px;margin-top:12px}.tag{font-size:30px;padding:10px 22px}.row .mask{height:34px}.tab{font-size:30px}.av .t{font-size:42px}
+.flts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.flts span{font:700 27px Plex;padding:12px 22px;border-radius:999px;background:#fff;border:2px solid var(--line);color:#4a4542;opacity:0}
+.flts span.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.cnt2{display:flex;align-items:baseline;gap:18px;margin:4px 0 14px 6px}.cnt2 .disp{font-size:92px;color:var(--ac)}.cnt2 span{font-size:30px;color:var(--muted)}
+.row.hl{background:#FFF6F1}
+.t-vd{background:var(--bads);color:var(--bad)}
+.hist{border:2px solid var(--line);background:#fff;border-radius:22px;padding:26px 30px;margin-top:26px;opacity:0}
+.hist .k2{font:600 22px Mono;letter-spacing:1.5px;color:var(--muted);margin-bottom:14px}
+.hist .l{font-size:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ci{flex:none;font:700 28px Plex;padding:16px 28px;border-radius:14px;background:var(--ac);color:#fff}
+.ci.ok{background:var(--oks);color:#1E6B3E}
+.nt{text-align:center;margin-top:30px;opacity:0}.nt span{display:inline-block;font:700 32px Plex;padding:18px 32px;border-radius:999px;background:var(--oks);color:#1E6B3E}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="kin" id="hook">
+  <div id="emps"></div>
+  <div class="hq" id="hq1" style="top:500px;font-size:112px;text-shadow:0 0 40px #141312">Qual <span style="color:var(--ac)">cliente seu</span> tem convenção vencendo?</div>
+  <div class="hq" id="hq2" style="top:1230px;font-size:80px;text-shadow:0 0 30px #141312,0 0 30px #141312">Antes do <span style="color:var(--ac)">susto.</span></div>
+</div>
+
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FERRAMENTA DE SINDICATOS</div><div class="n">Minhas <em>empresas.</em></div><div class="d">A sua carteira, cada uma com o seu sindicato.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">FILTRO DA CARTEIRA</div><div class="n">Vencendo em <em>60 dias.</em></div><div class="d">Convenção ou aditivo. Ou já vencido.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">FILTRO DA CARTEIRA</div><div class="n">Data-base em <em>45 dias.</em></div><div class="d">Tempo de avisar o cliente antes.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">DOCUMENTO NOVO</div><div class="n">Clicou em <em>Ciente.</em></div><div class="d">Fica registrado quem viu e quando.</div></div>
+</div>
+
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="card app" id="app1" style="padding:20px 28px">
+      <div class="tabs"><div class="tab">Busca</div><div class="tab">Novas</div><div class="tab">Notificações</div><div class="tab on" id="tabME">Minhas empresas</div></div>
+      <div class="row" id="a0"><div><span class="mask" style="width:300px"></span><small>Empregados no comércio · RN</small></div><span class="tag t-ok">Vigente</span></div>
+      <div class="row" id="a1"><div><span class="mask" style="width:260px"></span><small>Trabalhadores em hotéis · RN</small></div><span class="tag t-ok">Vigente</span></div>
+      <div class="row" id="a2"><div><span class="mask" style="width:320px"></span><small>Construção civil · PB</small></div><span class="tag t-ok">Vigente</span></div>
+      <div class="row" id="a3"><div><span class="mask" style="width:240px"></span><small>Empregados em condomínios · RN</small></div><span class="tag t-ok">Vigente</span></div>
+      <div class="row" id="a4"><div><span class="mask" style="width:290px"></span><small>Transporte de cargas · PE</small></div><span class="tag t-ok">Vigente</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="flts"><span id="f0">Vencendo em até 60 dias</span><span id="f1">Data-base em até 45 dias</span></div>
+    <div class="cnt2" id="cnA"><div class="disp" id="cnN">3</div><span id="cnT">empresas para olhar agora</span></div>
+    <div class="card app" id="app2" style="padding:16px 28px">
+      <div class="row" id="v0"><div><span class="mask" style="width:300px"></span><small id="v0s">Convenção · vence em 23 dias</small></div><span class="tag t-at" id="v0t">Vencendo</span></div>
+      <div class="row" id="v1"><div><span class="mask" style="width:250px"></span><small id="v1s">Aditivo · vence em 41 dias</small></div><span class="tag t-at" id="v1t">Vencendo</span></div>
+      <div class="row" id="v2"><div><span class="mask" style="width:320px"></span><small id="v2s">Convenção vencida · sem substituto</small></div><span class="tag t-vd" id="v2t">Vencido</span></div>
+    </div>
+    <div class="nt" id="nt"><span>Tempo de avisar o cliente ✓</span></div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="card app" id="app4" style="padding:34px 30px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px"><div><span class="mask" style="width:340px"></span><div class="muted mono" style="font-size:26px;margin-top:10px">CNPJ ••.•••.•••/0001-••</div></div><span class="tag t-nv" id="nNova">Documento novo</span></div>
+      <div class="av" id="aV" style="display:flex;align-items:center;gap:22px"><div style="flex:1"><div class="t">Saiu um termo aditivo do sindicato desta empresa</div><div class="muted" style="font-size:24px;margin-top:10px">Termo aditivo · vigência 2026 a 2027</div></div><span class="ci" id="ci">Ciente</span></div>
+    </div>
+    <div class="hist" id="hist"><div class="k2">ÚLTIMAS AÇÕES NA CARTEIRA</div><div class="l"><span class="tag t-ok">Ciente</span><span class="mask" style="width:200px"></span><span class="muted mono" style="font-size:26px">13/11 · 09:12</span></div></div>
+  </div>
+</div>
+
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Minhas empresas</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Vencendo em até 60 dias</span><span class="chip" style="font-size:26px;padding:10px 20px">Data-base em até 45 dias</span><span class="chip" style="font-size:26px;padding:10px 20px">Ciente registrado</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CNPJ", "CNAE", "CCT", "ACT", "aditivo", "piso", "data-base", "RN", "SP", "sindicato"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NE = 14;
+$("emps").innerHTML = Array.from({ length: NE }, (_, i) => `<div class="emp" id="m${i}" style="left:${40 + (i * 317) % 720}px;top:${120 + (i * 461) % 1500}px"><i style="width:${60 + (i * 37) % 35}%"></i><b>CNPJ ••.•••.•••/0001-••</b></div>`).join("");
+const SC = ["s1", "s2", "s4"], TT = ["t1", "t2", "t3", "t4"];
+const DB = [["Data-base 01/12 · em 18 dias","Data-base"],["Data-base 15/12 · em 32 dias","Data-base"],["Data-base 01/01 · em 49 dias","Data-base"]];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NE; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .9; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 3}deg) translateY(${-L * 14}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.2 - .2 * clamp(q1)})`;
+    slam("hq2", L, I + cu("venc", 1.6), 1.6); sx += shake(L, I + cu("venc", 1.6) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("app1", L, .1, 50);
+    const tq = Math.sin(seg(L, I + cu("aba", 1.9), I + cu("aba", 1.9) + .6) * Math.PI); $("tabME").style.transform = `scale(${1 + .1 * tq})`;
+    for (let i = 0; i < 5; i++) { const a = I + cu("carteira", 3.4) + i * .18; $("a" + i).style.opacity = seg(L, a, a + .3); }
+    const sd = I + cu("sind", 5.0); document.querySelectorAll("#s1 small").forEach((e, i) => { e.style.color = L > sd + i * .1 ? "var(--act)" : ""; });
+  }
+  if (k === 2 || k === 3) { sc = "s2"; pop("f0", L, .1, 10); pop("f1", L, .2, 10); $("app2").style.opacity = 1; }
+  if (k === 2) { tt = "t2";
+    const fa = I + cu("filtro", .6); $("f0").className = L > fa ? "on" : ""; $("f1").className = "";
+    $("f0").style.transform = `scale(${1 + .12 * Math.sin(seg(L, fa - .1, fa + .4) * Math.PI)})`;
+    $("cnA").style.opacity = seg(L, fa, fa + .3);
+    for (let i = 0; i < 3; i++) { const a = fa + .3 + i * .2; $("v" + i).style.opacity = i === 2 ? seg(L, I + cu("vencido", 5.1), I + cu("vencido", 5.1) + .3) : seg(L, a, a + .3); $("v" + i).className = "row"; }
+    $("v0s").textContent = "Convenção · vence em 23 dias"; $("v1s").textContent = "Aditivo · vence em 41 dias"; $("v2s").textContent = "Convenção vencida · sem substituto";
+    $("v0t").textContent = $("v1t").textContent = "Vencendo"; $("v0t").className = $("v1t").className = "tag t-at"; $("v2t").textContent = "Vencido"; $("v2t").className = "tag t-vd";
+    $("cnT").textContent = "empresas para olhar agora"; $("nt").style.opacity = 0;
+    if (L > I + cu("vencido", 5.1)) sx += shake(L, I + cu("vencido", 5.1) + .2) * .5;
+  }
+  if (k === 3) { tt = "t3";
+    const fb = I + cu("database", 1.2); $("f0").className = L > fb ? "" : "on"; $("f1").className = L > fb ? "on" : "";
+    $("f1").style.transform = `scale(${1 + .12 * Math.sin(seg(L, fb - .1, fb + .4) * Math.PI)})`;
+    $("cnA").style.opacity = 1; const sw = L > fb + .3;
+    for (let i = 0; i < 3; i++) { $("v" + i).style.opacity = sw ? seg(L, fb + .3 + i * .15, fb + .6 + i * .15) : 1 - seg(L, fb, fb + .3); }
+    if (sw) { for (let i = 0; i < 3; i++) { $("v" + i + "s").textContent = DB[i][0]; $("v" + i + "t").textContent = DB[i][1]; $("v" + i + "t").className = "tag t-db"; } $("v2s").textContent = "Data-base 20/12 · em 37 dias"; $("cnT").textContent = "data-base chegando"; }
+    pop("nt", L, I + cu("avisar", 4.0), 20);
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("app4", L, .1, 40); const nv = I + cu("novo", .3); $("nNova").style.transform = `scale(${1 + .2 * Math.sin(seg(L, nv, nv + .6) * Math.PI)})`;
+    pop("aV", L, I + cu("aviso", 2.3), 30);
+    const ca = I + cu("ciente", 4.8); const done = L > ca + .3;
+    $("ci").style.transform = `scale(${1 - .14 * Math.sin(seg(L, ca - .15, ca + .2) * Math.PI)})`; $("ci").className = done ? "ci ok" : "ci"; $("ci").textContent = done ? "Ciente ✓" : "Ciente";
+    if (done) { $("aV").style.opacity = 1 - .55 * seg(L, ca + .6, ca + 1.0); }
+    pop("hist", L, ca + .7, 30);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); const kk = (k === 2 || k === 3) && id === "s2"; e.style.opacity = id === sc && !isO ? (kk ? Math.min(k === 2 ? seg(L, 0, .2) : 1, k === 3 ? 1 - seg(t, S[k].fim - .18, S[k].fim) : 1) : fade) : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
