@@ -45,7 +45,11 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-11 11:49 | Story | Story do Reels Double Check tolerância em reais | (mesmo vídeo) | 423819562 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-11 18:37 | Reels NOVO | Sindicatos: convenção do estado (RN: 75 documentos novos de 12/10 a 10/11, D1: 40 circulares, 31 acordos, 3 convenções, 1 aditivo; cores por tipo; varredura e selo Nova) | 2026-11/2026-11-11-convencoes-rn/video.mp4 | 423819455 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-11 18:39 | Story | Story do Reels Sindicatos convenções do RN | (mesmo vídeo) | 423819577 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
-| 2026-11-12 11:47 | Reels NOVO (almoço) | Sindicatos: notificações do dia com número real do D1 (11/11: 150 instrumentos novos · SP 47 · GO 20 · RJ 12; aba Notificações, aviso às 8h, sino de 60 dias, Minhas empresas) | 2026-11/2026-11-12-notificacoes-dia/video.mp4 | 425081406 |
-| 2026-11-12 11:49 | Story | Story do Reels Sindicatos notificações do dia | (mesmo vídeo) | 425081491 |
-| 2026-11-12 18:37 | Trial Reels NOVO | Double Check Folha: filtro por centro de custo (qual setor fez a folha subir; admitido, saiu, valor que mudou no setor) | 2026-11/2026-11-12-centro-custo/video.mp4 | 425081556 |
-| 2026-11-12 18:39 | Story | Story do Reels Double Check centro de custo | (mesmo vídeo) | 425081646 |
+| 2026-11-12 11:47 | Reels NOVO (almoço) | Sindicatos: notificações do dia com número real do D1 (11/11: 150 instrumentos novos · SP 47 · GO 20 · RJ 12; aba Notificações, aviso às 8h, sino de 60 dias, Minhas empresas) | 2026-11/2026-11-12-notificacoes-dia/video.mp4 | 425081406 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-12 11:49 | Story | Story do Reels Sindicatos notificações do dia | (mesmo vídeo) | 425081491 — ERRO (limite do Metricool), NÃO publicado |
+| 2026-11-12 18:37 | Trial Reels NOVO | Double Check Folha: filtro por centro de custo (qual setor fez a folha subir; admitido, saiu, valor que mudou no setor) | 2026-11/2026-11-12-centro-custo/video.mp4 | 425081556 — ERRO (limite do Metricool), NÃO publicado |
+| 2026-11-12 18:39 | Story | Story do Reels Double Check centro de custo | (mesmo vídeo) | 425081646 — ERRO (limite do Metricool), NÃO publicado |
+| 2026-11-13 11:47 | Reels NOVO (almoço) | Double Check Folha: exportar relatório em PDF para o cliente (ver só o que tem diferença; Excel e CSV) | 2026-11/2026-11-13-relatorio-pdf/video.mp4 | 426355043 |
+| 2026-11-13 11:49 | Story | Story do Reels Double Check relatório em PDF | (mesmo vídeo) | 426355233 |
+| 2026-11-13 18:37 | Reels NOVO | Sindicatos: Minhas empresas, filtros de convenção/aditivo vencendo em até 60 dias (ou vencido sem substituto) e data-base em até 45 dias; botão Ciente | 2026-11/2026-11-13-vencendo-60-dias/video.mp4 | 426355092 |
+| 2026-11-13 18:39 | Story | Story do Reels Sindicatos convenção vencendo em 60 dias | (mesmo vídeo) | 426355249 |
