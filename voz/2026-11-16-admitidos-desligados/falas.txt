@@ -1,0 +1,6 @@
+Quem entrou e quem saiu da folha este mês?
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário e mostra quem foi admitido, quem saiu e quem está de férias.
+E cada valor que mudou, verba por verba. Nada passa sem você ver.
+Os arquivos são lidos no seu computador, sem ficar guardados.
+Double Check Folha. A folha conferida antes de fechar. Fale com a gente no WhatsApp do perfil.
