@@ -53,3 +53,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-13 11:49 | Story | Story do Reels Double Check relatório em PDF | (mesmo vídeo) | 426355233 |
 | 2026-11-13 18:37 | Reels NOVO | Sindicatos: Minhas empresas, filtros de convenção/aditivo vencendo em até 60 dias (ou vencido sem substituto) e data-base em até 45 dias; botão Ciente | 2026-11/2026-11-13-vencendo-60-dias/video.mp4 | 426355092 |
 | 2026-11-13 18:39 | Story | Story do Reels Sindicatos convenção vencendo em 60 dias | (mesmo vídeo) | 426355249 |
+| 2026-11-16 11:47 | Reels NOVO (almoço) | Double Check Folha: quem entrou e quem saiu da folha (admitido, saiu, férias, valor que mudou verba por verba; arquivos lidos no computador) | 2026-11/2026-11-16-admitidos-desligados/video.mp4 | 429403593 |
+| 2026-11-16 11:49 | Story | Story do Reels Double Check admitidos e desligados | (mesmo vídeo) | 429403675 |
+| 2026-11-16 18:37 | Reels NOVO | Sindicatos: circular do sindicato (489 circulares em 30 dias, 15/10 a 13/11, 22 estados; SP 155, RJ 91, PR 38, RN 14, D1; Minhas empresas; filtro por tipo; selo Nova) | 2026-11/2026-11-16-circular-sindicato/video.mp4 | 429403612 |
+| 2026-11-16 18:39 | Story | Story do Reels Sindicatos circular do sindicato | (mesmo vídeo) | 429403684 |
