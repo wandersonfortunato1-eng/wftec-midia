@@ -239,6 +239,14 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 - Trial Reels × normais: ainda sem Trial Reels publicado; o primeiro sai em 10/11 (Double Check custo da folha). Comparar na próxima leitura.
 - Conclusão: o que mais rende é **Sindicatos falando com o contador sobre a carteira de clientes** ("cada cliente seu", "o CNPJ do seu cliente") e **número real do acervo**. O Double Check segura mais a atenção (12 s) quando mostra uma dor concreta. Ponto rende pouco: manter só a cada duas semanas. Ganchos: falar de "seu cliente" e usar números reais do D1 sempre que couber.
 
+**Leitura de 16/11/2026 (posts de 09/11 a 16/11, via Metricool):**
+- **Problema grave:** desde 10/11, TODOS os posts agendados pela rotina (Reels e Stories de 10, 11, 12, 13 e 16/11) ficaram com status ERROR no Metricool: "You have reached your Metricool account limit". Nada disso foi ao ar. O Wanderson foi avisado em 16/11; é preciso ampliar o plano/limite do Metricool.
+- O único Reels publicado na semana foi o postado à mão em 10/11 ("Mais de 9 mil documentos sindicais novos em 60 dias. Quais são dos seus clientes?", Sindicatos/Minhas empresas): **120 visualizações, alcance 90, tempo médio 3,7 s, 1 compartilhamento**.
+- Feed: nenhum post de feed na semana.
+- Seguidores: 484 → 483 (−1).
+- Trial Reels × normais: ainda sem comparação, porque os Trial Reels de 10/11 e 12/11 não saíram (limite do Metricool).
+- Conclusão: de novo, Sindicatos + "seus clientes" + número real do acervo é o que alcança. Manter esse gancho. Como os ângulos de 10 a 16/11 não foram ao ar, eles podem voltar quando o limite for resolvido (com vídeo novo).
+
 **Atualização:** o Metricool só tem dados a partir de 29/10. Toda segunda-feira, leia as métricas de Reels da semana anterior com `getAnalyticsDataByMetrics`:
 - Campos: `IGRE02` (data), `IGRE03` (texto), `IGRE23` (visualizações), `IGRE11` (alcance), `IGRE24` (tempo médio), `IGRE27` (retenção), `IGRE21` (compartilhamentos), `IGRE12` (salvamentos).
 - Anote as conclusões aqui e ajuste ganchos e temas.
