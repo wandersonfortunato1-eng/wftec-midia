@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;padding:14px 22px;border-radius:14px;background:#22201e;border:2px solid #3A3330;font:600 30px Mono;color:#9b918b;opacity:0}
+.fc.a{background:#16301f;border-color:#2c6b44;color:#7fd8a1}.fc.s{background:#3a1d1a;border-color:#7a2e25;color:#ff7a66}
+.app{position:relative;width:960px;padding:30px 30px}
+.fl{display:flex;align-items:center;gap:26px;padding:30px 30px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4;margin-bottom:22px;opacity:0}
+.fl .ic{width:84px;height:100px;border-radius:14px;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.fl b{font-size:38px}.fl small{display:block;font-size:26px;color:var(--muted);margin-top:4px}
+.fmt{display:flex;gap:14px;margin-top:10px}.fmt span{font:700 30px Plex;padding:14px 26px;border-radius:999px;background:var(--infos);color:var(--info);opacity:0}
+.sum{display:flex;gap:14px;margin-bottom:24px}
+.sum>div{flex:1;text-align:center;border-radius:22px;padding:22px 8px;background:#fff;border:2px solid var(--line);opacity:0}
+.sum>div .disp{font-size:84px;line-height:1}.sum>div small{display:block;font:600 26px Plex;color:var(--muted);margin-top:6px}
+.sum .a{border-color:#9ED3B2;background:#F2FAF5}.sum .a .disp{color:var(--ok)}
+.sum .s{border-color:#EBB3AA;background:#FFF5F3}.sum .s .disp{color:var(--bad)}
+.sum .f{border-color:#A9C6EA;background:#EEF4FC}.sum .f .disp{color:var(--info)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 27px Mono;color:var(--muted);margin-top:10px}
+.tg2{display:inline-block;font:700 30px Plex;padding:10px 22px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg2.a{background:var(--oks);color:#1E6B3E}.tg2.s{background:var(--bads);color:var(--bad)}.tg2.f{background:var(--infos);color:var(--info)}
+.row.hl{background:#FFF6F1}
+.tb{width:100%;border-collapse:collapse;font-size:28px}
+.tb th{font:600 20px Mono;letter-spacing:1.5px;color:var(--muted);text-align:left;padding:0 8px 14px}
+.tb td{padding:24px 8px;border-top:1px solid var(--line);white-space:nowrap}
+.tb td.n{font-family:Mono;text-align:right}.tb th.n{text-align:right}
+.tb tr{opacity:0}
+.up{color:var(--bad);font-weight:700}.dn{color:var(--ok);font-weight:700}
+.pc{width:620px;height:400px;margin:10px auto 0;border-radius:26px;background:#262626;padding:22px;position:relative;opacity:0}
+.pc .sc2{width:100%;height:100%;border-radius:14px;background:#F6F2EF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.pc .sc2 b{font:italic 900 64px Archivo;color:var(--ok)}
+.pc .ft{position:absolute;left:220px;right:220px;bottom:-40px;height:40px;background:#3a3a3a;border-radius:0 0 18px 18px}
+.ok2{display:flex;justify-content:center;gap:14px;margin-top:90px;flex-wrap:wrap}.ok2 span{font:700 34px Plex;padding:18px 30px;border-radius:999px;background:var(--oks);color:#1E6B3E;opacity:0}
+.cv{position:absolute;width:250px;height:140px;border-radius:18px;background:#fff;border:2px solid #E2D6CF;opacity:0;padding:18px}
+.cv i{display:block;height:13px;border-radius:7px;background:#E7DDD6;margin-bottom:12px}.cv b{font:600 20px Mono;color:var(--ac)}
+.er{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0;border-top:1px solid var(--line);opacity:0}
+.er:first-of-type{border-top:0}.er small{display:block;font:500 26px Mono;color:var(--muted);margin-top:10px}
+.bt{font:700 28px Plex;padding:14px 22px;border-radius:14px;border:2px solid var(--line);background:#fff;color:#4a4542;white-space:nowrap}
+.bt.on{border-color:var(--ac);background:var(--ac);color:#fff}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:10px}
+.tab{font-size:30px;font-weight:600;color:var(--muted);padding:12px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;white-space:nowrap}.tab.on{color:var(--act);border-color:var(--ac)}
+.fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.fh b{font:italic 900 46px Archivo}
+.tgx{font:700 26px Plex;padding:10px 20px;border-radius:999px;white-space:nowrap}
+.tgx.am{background:#FBF0D9;color:#8A5A0B}.tgx.ok{background:var(--oks);color:#1E6B3E}
+.fi{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;border-top:1px solid var(--line);font-size:32px;opacity:0}
+.fi span:first-child{font:600 24px Mono;letter-spacing:1.5px;color:var(--muted)}.fi b{font-size:38px}
+.mu{margin-top:18px;padding:24px 26px;border-radius:18px;background:#FFF1EA;border:2px solid #F6C3AD;font-size:32px;opacity:0}
+.mu small{display:block;font:600 22px Mono;letter-spacing:1.5px;color:var(--act);margin-bottom:8px}
+.cbtn{display:block;text-align:center;margin-top:30px;font:700 38px Plex;padding:26px;border-radius:20px;background:var(--ac);color:#fff;opacity:0}
+.msg{font-size:31px;line-height:1.5;color:#3b3633}
+.msg p{margin:0 0 16px;opacity:0}
+.rv{display:flex;justify-content:space-between;align-items:center;margin-top:20px;opacity:0}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:440px;font-size:118px;text-shadow:0 0 40px #141312">Saiu a convenção <span style="color:var(--ac)">nova.</span></div>
+  <div class="hq" id="hq2" style="top:1150px;font-size:92px;text-shadow:0 0 30px #141312,0 0 30px #141312">O que muda para o <span style="color:var(--ac)">seu cliente?</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">MINHAS EMPRESAS</div><div class="n">Cada empresa, <em>uma ficha.</em></div><div class="d">A ficha da convenção de cada cliente.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">FICHA DA CONVENÇÃO</div><div class="n">O que <em>importa.</em></div><div class="d">E o que mudou em relação à anterior.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">VOCÊ CONFERE</div><div class="n">Confirmar <em>ficha.</em></div><div class="d">A IA extrai, você confere.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">COMUNICADO AO CLIENTE</div><div class="n">Texto <em>pronto.</em></div><div class="d">Você revisa antes de enviar.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="card app" id="app1" style="padding:20px 30px">
+      <div class="tabs"><div class="tab">Busca</div><div class="tab">Novas convenções</div><div class="tab on">Minhas empresas</div></div>
+      <div class="er" id="r0"><div><span class="mask" style="width:330px"></span><small>Comércio varejista · RN</small></div><span class="bt" id="b0">Ficha da convenção</span></div>
+      <div class="er" id="r1"><div><span class="mask" style="width:280px"></span><small>Condomínios · RN</small></div><span class="bt" id="b1">Ficha da convenção</span></div>
+      <div class="er" id="r2"><div><span class="mask" style="width:300px"></span><small>Hotéis e restaurantes · PB</small></div><span class="bt" id="b2">Ficha da convenção</span></div>
+      <div class="er" id="r3"><div><span class="mask" style="width:250px"></span><small>Transporte de cargas · CE</small></div><span class="bt" id="b3">Ficha da convenção</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="card app" id="app2" style="padding:26px 34px">
+      <div class="fh"><b>Ficha da convenção</b></div>
+      <div class="fi" id="i0"><span>PISO</span><b>R$ 1.712,00</b></div>
+      <div class="fi" id="i1"><span>REAJUSTE</span><b>5,5%</b></div>
+      <div class="fi" id="i2"><span>DATA-BASE</span><b>1º de janeiro</b></div>
+      <div class="fi" id="i3"><span>BENEFÍCIOS</span><b>Vale-alimentação</b></div>
+      <div class="mu" id="mu"><small>O QUE MUDOU × CONVENÇÃO ANTERIOR</small>Piso <b>+ R$ 89,00</b> · reajuste <b>5,5%</b></div>
+    </div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="card app" id="app3" style="padding:26px 34px">
+      <div class="fh"><b>Ficha da convenção</b><span class="tgx am" id="tg">IA · a conferir</span></div>
+      <div class="fi" style="opacity:1"><span>PISO</span><b>R$ 1.712,00</b></div>
+      <div class="fi" style="opacity:1"><span>REAJUSTE</span><b>5,5%</b></div>
+      <div class="fi" style="opacity:1"><span>DATA-BASE</span><b>1º de janeiro</b></div>
+      <span class="cbtn" id="cb">Confirmar ficha</span>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="card app" id="app4" style="padding:30px 36px">
+      <div class="fh"><b style="font-size:40px">Comunicado ao cliente</b></div>
+      <div class="msg"><p id="p0">Prezado cliente,</p><p id="p1">foi publicada a nova convenção coletiva da sua categoria.</p><p id="p2">Principais mudanças: piso de <b>R$ 1.712,00</b> e reajuste de <b>5,5%</b>, a partir da data-base.</p></div>
+      <div class="rv" id="rv"><span class="tgx am">Revise antes de enviar</span><span class="bt on">Revisar</span></div>
+    </div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip ac" style="font-size:26px;padding:10px 20px">Ficha da convenção</span><span class="chip" style="font-size:26px;padding:10px 20px">O que mudou</span><span class="chip" style="font-size:26px;padding:10px 20px">Confirmar ficha</span><span class="chip" style="font-size:26px;padding:10px 20px">Comunicado ao cliente</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["piso", "CCT", "reajuste", "aditivo", "sindicato", "data-base", "cláusula", "acordo", "CNPJ"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+const VV = ["Convenção · Nova", "Aditivo · Nova", "Piso?", "Reajuste?"];
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="cv" id="m${i}" style="left:${30 + (i * 317) % 700}px;top:${110 + (i * 461) % 1550}px"><i style="width:80%"></i><i style="width:55%"></i><b>${VV[i % 4]}</b></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .3; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.2 - .2 * clamp(q1)})`;
+    slam("hq2", L, I + cu("muda", 1.6), 1.5); sx += shake(L, I + cu("muda", 1.6) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("app1", L, .1, 40);
+    for (let i = 0; i < 4; i++) { const a = I + cu("carteira", 2.5) + i * .15; $("r" + i).style.opacity = seg(L, a, a + .3); }
+    const fc = I + cu("ficha", 4.2); $("b0").className = L > fc ? "bt on" : "bt"; $("b0").style.transform = `scale(${1 + .12 * Math.sin(seg(L, fc, fc + .5) * Math.PI)})`;
+    $("r0").style.background = L > fc ? "#FFF6F1" : "";
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("app2", L, .1, 40);
+    ["piso", "reaj", "data", "ben"].forEach((c, i) => pop("i" + i, L, I + cu(c, .3 + i * .8), 24));
+    pop("mu", L, I + cu("mudou", 3.6), 30);
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("app3", L, .1, 40);
+    const tg = I + cu("conf", .8); $("tg").style.transform = `scale(${1 + .15 * Math.sin(seg(L, tg, tg + .5) * Math.PI)})`;
+    pop("cb", L, I + cu("confere", 2.4), 30);
+    const ck = I + cu("clica", 3.4);
+    if (L > ck) { $("tg").className = "tgx ok"; $("tg").textContent = "Confirmada ✓"; $("cb").style.background = "var(--ok)"; $("cb").textContent = "Ficha confirmada ✓"; } else { $("tg").className = "tgx am"; $("tg").textContent = "IA · a conferir"; $("cb").style.background = ""; $("cb").textContent = "Confirmar ficha"; }
+    $("cb").style.transform += ` scale(${1 - .06 * Math.sin(seg(L, ck - .15, ck + .15) * Math.PI)})`;
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("app4", L, .1, 40);
+    [0, 1, 2].forEach((i) => pop("p" + i, L, I + cu("com", .6) + i * .45, 16));
+    pop("rv", L, I + cu("rev", 3.0), 20);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 1 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
