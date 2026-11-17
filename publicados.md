@@ -58,6 +58,10 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-16 18:37 | Reels NOVO | Sindicatos: circular do sindicato (489 circulares em 30 dias, 15/10 a 13/11, 22 estados; SP 155, RJ 91, PR 38, RN 14, D1; Minhas empresas; filtro por tipo; selo Nova) | 2026-11/2026-11-16-circular-sindicato/video.mp4 | 429403612 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-16 18:39 | Story | Story do Reels Sindicatos circular do sindicato | (mesmo vídeo) | 429403684 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-17 11:47 | Reels NOVO (almoço) | Sindicatos: ficha da convenção (piso, reajuste, data-base, benefícios, o que mudou × anterior; IA "a conferir" + Confirmar ficha; comunicado ao cliente para revisar) | 2026-11/2026-11-17-ficha-convencao/video.mp4 | 430809329 |
-| 2026-11-17 11:49 | Story | Story do Reels Sindicatos ficha da convenção | (mesmo vídeo) | 430809428 |
+| 2026-11-17 11:49 | Story | Story do Reels Sindicatos ficha da convenção | (mesmo vídeo) | 430809428 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
 | 2026-11-17 18:37 | Trial Reels NOVO | Double Check Folha: busca pelo nome / filtro por funcionário (o líquido mudou, por quê? verba por verba; tolerância em reais; exportar) | 2026-11/2026-11-17-filtro-funcionario/video.mp4 | 430809343 |
-| 2026-11-17 18:39 | Story | Story do Reels Double Check filtro por funcionário | (mesmo vídeo) | 430809444 |
+| 2026-11-17 18:39 | Story | Story do Reels Double Check filtro por funcionário | (mesmo vídeo) | 430809444 — ERRO no Metricool ("You have reached your Metricool account limit"), NÃO publicado |
+| 2026-11-18 11:47 | Reels NOVO (almoço) | Double Check Folha: arquivos lidos no seu computador (a folha do cliente precisa sair do seu PC? PDF do SCI, Excel ou CSV; sem ficarem guardados; quem entrou, quem saiu, o que mudou) | 2026-11/2026-11-18-arquivos-computador/video.mp4 | 432174268 |
+| 2026-11-18 11:49 | Story | Story do Reels Double Check arquivos no computador | (mesmo vídeo) | 432174350 |
+| 2026-11-18 18:37 | Reels NOVO | Sindicatos: base territorial (o sindicato cobre o município do cliente? prova do vínculo; Receita × enquadramento pelo CNAE; registro oficial do MTE/CNES, Base ok ou Fora da base; Trocar/Refazer; Certifiquei este vínculo) | 2026-11/2026-11-18-base-territorial/video.mp4 | 432174295 |
+| 2026-11-18 18:39 | Story | Story do Reels Sindicatos base territorial | (mesmo vídeo) | 432174358 |
