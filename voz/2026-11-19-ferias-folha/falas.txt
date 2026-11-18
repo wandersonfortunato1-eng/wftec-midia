@@ -1,6 +1,6 @@
 O líquido mudou porque o funcionário está de férias, ou é erro?
-No Double Check Folha, você envia o espelho do mês passado e o deste mês.
-Ele compara funcionário por funcionário e mostra quem está de férias.
-Também mostra quem foi admitido e quem saiu.
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário e mostra quem está de férias. Você entende a diferença na hora.
+Também mostra quem foi admitido e quem saiu no mês, separado do resto.
 E, verba por verba, cada valor que mudou. Com a tolerância em reais, a diferença de centavos sai da frente.
 Double Check Folha. Férias não vira susto no fechamento. Fale com a gente no WhatsApp do perfil.
