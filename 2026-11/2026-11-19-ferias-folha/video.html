@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;padding:14px 22px;border-radius:14px;background:#22201e;border:2px solid #3A3330;font:600 30px Mono;color:#9b918b;opacity:0}
+.fc.a{background:#16301f;border-color:#2c6b44;color:#7fd8a1}.fc.s{background:#3a1d1a;border-color:#7a2e25;color:#ff7a66}
+.app{position:relative;width:960px;padding:30px 30px}
+.fl{display:flex;align-items:center;gap:26px;padding:30px 30px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4;margin-bottom:22px;opacity:0}
+.fl .ic{width:84px;height:100px;border-radius:14px;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.fl b{font-size:38px}.fl small{display:block;font-size:26px;color:var(--muted);margin-top:4px}
+.fmt{display:flex;gap:14px;margin-top:10px}.fmt span{font:700 30px Plex;padding:14px 26px;border-radius:999px;background:var(--infos);color:var(--info);opacity:0}
+.sum{display:flex;gap:14px;margin-bottom:24px}
+.sum>div{flex:1;text-align:center;border-radius:22px;padding:22px 8px;background:#fff;border:2px solid var(--line);opacity:0}
+.sum>div .disp{font-size:84px;line-height:1}.sum>div small{display:block;font:600 26px Plex;color:var(--muted);margin-top:6px}
+.sum .a{border-color:#9ED3B2;background:#F2FAF5}.sum .a .disp{color:var(--ok)}
+.sum .s{border-color:#EBB3AA;background:#FFF5F3}.sum .s .disp{color:var(--bad)}
+.sum .f{border-color:#A9C6EA;background:#EEF4FC}.sum .f .disp{color:var(--info)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 27px Mono;color:var(--muted);margin-top:10px}
+.tg2{display:inline-block;font:700 30px Plex;padding:10px 22px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg2.a{background:var(--oks);color:#1E6B3E}.tg2.s{background:var(--bads);color:var(--bad)}.tg2.f{background:var(--infos);color:var(--info)}
+.row.hl{background:#FFF6F1}
+.tb{width:100%;border-collapse:collapse;font-size:28px}
+.tb th{font:600 20px Mono;letter-spacing:1.5px;color:var(--muted);text-align:left;padding:0 8px 14px}
+.tb td{padding:24px 8px;border-top:1px solid var(--line);white-space:nowrap}
+.tb td.n{font-family:Mono;text-align:right}.tb th.n{text-align:right}
+.tb tr{opacity:0}
+.up{color:var(--bad);font-weight:700}.dn{color:var(--ok);font-weight:700}
+.pc{width:620px;height:400px;margin:10px auto 0;border-radius:26px;background:#262626;padding:22px;position:relative;opacity:0}
+.pc .sc2{width:100%;height:100%;border-radius:14px;background:#F6F2EF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.pc .sc2 b{font:italic 900 64px Archivo;color:var(--ok)}
+.pc .ft{position:absolute;left:220px;right:220px;bottom:-40px;height:40px;background:#3a3a3a;border-radius:0 0 18px 18px}
+.ok2{display:flex;justify-content:center;gap:14px;margin-top:90px;flex-wrap:wrap}.ok2 span{font:700 34px Plex;padding:18px 30px;border-radius:999px;background:var(--oks);color:#1E6B3E;opacity:0}
+.fi{display:flex;justify-content:center;gap:34px;margin-top:40px}
+.fi>div{width:270px;text-align:center;opacity:0}
+.fi .ic{width:200px;height:240px;margin:0 auto;border-radius:22px;color:#fff;display:grid;place-items:center;font:700 52px Mono;box-shadow:0 20px 40px rgba(0,0,0,.18);position:relative}
+.fi .ic:after{content:"";position:absolute;right:0;top:0;width:60px;height:60px;background:rgba(255,255,255,.35);border-radius:0 22px 0 18px}
+.fi b{display:block;font-size:40px;margin-top:22px}.fi small{display:block;font:500 26px Mono;color:var(--muted);margin-top:6px}
+#lap{position:absolute;left:230px;top:180px;width:620px;opacity:0}
+#flyf{position:absolute;left:440px;top:-40px;width:200px;padding:16px;border-radius:14px;background:#C0392B;color:#fff;font:700 28px Mono;text-align:center;opacity:0;z-index:3}
+#cloud{position:absolute;left:770px;top:-30px;font-size:110px;opacity:0}
+#cloud i{position:absolute;left:-10px;right:-10px;top:58px;height:10px;background:var(--bad);border-radius:5px;transform:rotate(-30deg)}
+.tol{display:flex;align-items:center;gap:18px;font:600 30px Plex;margin-bottom:18px}
+.tol .sw{width:84px;height:46px;border-radius:999px;background:#ddd;position:relative}
+.tol .sw i{position:absolute;top:5px;left:5px;width:36px;height:36px;border-radius:50%;background:#fff}
+.tol b{font-family:Mono;color:var(--act)}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:560px;font-size:112px;text-shadow:0 0 40px #141312">O líquido mudou porque está de <span style="color:var(--ac)">férias</span>, ou é <span style="color:var(--ac)">erro?</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">DOUBLE CHECK FOLHA</div><div class="n">Envie os <em>dois meses.</em></div><div class="d">O espelho do mês passado e o deste mês.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">FUNCIONÁRIO POR FUNCIONÁRIO</div><div class="n">Quem está <em>de férias.</em></div><div class="d">Marcado na comparação.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">MOVIMENTAÇÃO</div><div class="n">Quem entrou, <em>quem saiu.</em></div><div class="d">Separado do resto.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">VERBA POR VERBA</div><div class="n">Só a diferença <em>que importa.</em></div><div class="d">Tolerância em reais.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="fl" id="u0" style="margin-top:60px"><div class="ic" style="background:#C0392B">PDF</div><div><b>Espelho · mês passado</b><small>outubro</small></div></div>
+    <div class="fl" id="u1"><div class="ic" style="background:#C0392B">PDF</div><div><b>Espelho · este mês</b><small>novembro</small></div></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="card app" id="app1" style="padding:12px 30px;margin-top:30px">
+      <div class="row" id="r0"><div><span class="mask" style="width:300px"></span><small>Líquido · out → nov</small></div><span class="tg2" id="g0">Sem diferença</span></div>
+      <div class="row" id="r1"><div><span class="mask" style="width:260px"></span><small>Líquido · out → nov</small></div><span class="tg2 f" id="g1">Férias</span></div>
+      <div class="row" id="r2"><div><span class="mask" style="width:320px"></span><small>Líquido · out → nov</small></div><span class="tg2" id="g2">Sem diferença</span></div>
+      <div class="row" id="r3"><div><span class="mask" style="width:280px"></span><small>Líquido · out → nov</small></div><span class="tg2 f" id="g3">Férias</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="sum" style="margin-top:40px"><div class="a" id="x0"><div class="disp">2</div><small>Admitidos</small></div><div class="s" id="x1"><div class="disp">1</div><small>Saiu</small></div><div class="f" id="x2"><div class="disp">2</div><small>Férias</small></div></div>
+    <div class="card app" id="cy" style="padding:12px 30px;opacity:0">
+      <div class="row" id="y0" style="opacity:1"><div><span class="mask" style="width:280px"></span><small>Admissão no mês</small></div><span class="tg2 a">Admitido</span></div>
+      <div class="row" id="y1" style="opacity:1"><div><span class="mask" style="width:240px"></span><small>Admissão no mês</small></div><span class="tg2 a">Admitido</span></div>
+      <div class="row" id="y2" style="opacity:1"><div><span class="mask" style="width:320px"></span><small>Rescisão no mês</small></div><span class="tg2 s">Saiu</span></div>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="card app" id="app4" style="padding:26px 30px;margin-top:30px">
+      <div class="tol"><div class="sw" id="sw"><i id="swi"></i></div>Tolerância em reais: <b>R$ 1,00</b></div>
+      <table class="tb"><tr><th>VERBA</th><th class="n">OUT</th><th class="n">NOV</th><th class="n">DIF.</th></tr>
+      <tr id="v0"><td>Salário</td><td class="n">3.200,00</td><td class="n">1.600,00</td><td class="n dn">−1.600,00</td></tr>
+      <tr id="v1"><td>Férias</td><td class="n">0,00</td><td class="n">1.600,00</td><td class="n up">+1.600,00</td></tr>
+      <tr id="v2"><td>1/3 de férias</td><td class="n">0,00</td><td class="n">533,33</td><td class="n up">+533,33</td></tr>
+      <tr id="v3"><td>Vale-transporte</td><td class="n">192,00</td><td class="n">192,37</td><td class="n">+0,37</td></tr>
+      <tr id="v4"><td>INSS</td><td class="n">310,40</td><td class="n">310,82</td><td class="n">+0,42</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Double Check Folha · férias não vira susto</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip ac" style="font-size:26px;padding:10px 20px">Quem está de férias</span><span class="chip" style="font-size:26px;padding:10px 20px">Admitido e saiu</span><span class="chip" style="font-size:26px;padding:10px 20px">Verba por verba</span><span class="chip" style="font-size:26px;padding:10px 20px">Tolerância em reais</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["INSS", "FGTS", "verba", "líquido", "folha", "SCI", "admissão", "férias", "CSV"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+const VV = [["", "líquido −1.600"], ["a", "férias"], ["s", "erro?"]];
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc ${VV[i % 3][0]}" id="m${i}" style="left:${30 + (i * 317) % 700}px;top:${110 + (i * 461) % 1550}px">${VV[i % 3][1]}</div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .35; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    $("hq1").style.opacity = 1; $("hq1").style.transform = `scale(${1.06 - .06 * eout(seg(L, 0, .35))})`;
+    sx += shake(L, I + cu("erro", 2.8));
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("u0", L, I + cu("passado", 2.2), 60); pop("u1", L, I + cu("deste", 3.3), 60);
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("app1", L, .1, 40);
+    for (let i = 0; i < 4; i++) { const a = .3 + i * .2; $("r" + i).style.opacity = seg(L, a, a + .3); }
+    const fa = I + cu("ferias", 2.6); [1, 3].forEach((i, j) => { $("r" + i).className = L > fa + j * .15 ? "row hl" : "row"; $("g" + i).style.transform = `scale(${1 + .2 * Math.sin(seg(L, fa + j * .15, fa + j * .15 + .5) * Math.PI)})`; });
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("x2", L, .1, 20);
+    pop("x0", L, I + cu("admitido", 1.0), 30); pop("cy", L, I + cu("admitido", 1.0) - .05, 20); pop("y0", L, I + cu("admitido", 1.0) + .1, 30); pop("y1", L, I + cu("admitido", 1.0) + .25, 30);
+    pop("x1", L, I + cu("saiu", 1.9), 30); pop("y2", L, I + cu("saiu", 1.9) + .1, 30);
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("app4", L, .1, 40);
+    const ta = I + cu("tol", 3.6);
+    for (let i = 0; i < 5; i++) { const a = .3 + i * .15; const small = i >= 3; $("v" + i).style.opacity = small ? seg(L, a, a + .3) * (1 - seg(L, ta + .2, ta + .5)) : seg(L, a, a + .3); $("v" + i).style.display = small && L > ta + .55 ? "none" : ""; $("v" + i).style.background = !small && L > I + cu("valor", 1.2) && L < I + cu("valor", 1.2) + 1.2 ? "#FFF6F1" : ""; }
+    const on = L > ta; $("sw").style.background = on ? "var(--ac)" : "#ddd"; $("swi").style.left = (5 + 38 * eout(seg(L, ta, ta + .25))) + "px";
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 2 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
