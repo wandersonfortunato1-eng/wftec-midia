@@ -69,3 +69,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-19 11:49 | Story | Story do Reels Sindicatos varredura em 6 mil sites | (mesmo vídeo) | 433564790 |
 | 2026-11-19 18:37 | Trial Reels NOVO | Double Check Folha: férias ou erro? (quem está de férias, admitido e saiu, verba por verba, tolerância em reais) | 2026-11/2026-11-19-ferias-folha/video.mp4 | 433564707 |
 | 2026-11-19 18:39 | Story | Story do Reels Double Check férias | (mesmo vídeo) | 433564806 |
+| 2026-11-23 11:47 | Reels NOVO (almoço) | Double Check Folha: filtro por verba, hora extra (a hora extra subiu, de quem? funcionário por funcionário, mês passado × este mês e a diferença; ver só o que tem diferença; exportar Excel, CSV ou PDF) | 2026-11/2026-11-23-hora-extra-verba/video.mp4 | 438084652 |
+| 2026-11-23 11:49 | Story | Story do Reels Double Check hora extra por verba | (mesmo vídeo) | 438084762 |
+| 2026-11-23 18:37 | Reels NOVO | Sindicatos: botão Ciente em Minhas empresas (documento novo do seu cliente, quem viu? 895 documentos novos de 16 a 21/11 nos 27 estados, D1; chave Minhas empresas em Novas convenções; histórico de quem viu e quando) | 2026-11/2026-11-23-ciente-carteira/video.mp4 | 438084679 |
+| 2026-11-23 18:39 | Story | Story do Reels Sindicatos botão Ciente | (mesmo vídeo) | 438084773 |
