@@ -247,6 +247,13 @@ Nunca deixe o dia sem post e nunca reposte um vídeo antigo.
 - Trial Reels × normais: ainda sem comparação, porque os Trial Reels de 10/11 e 12/11 não saíram (limite do Metricool).
 - Conclusão: de novo, Sindicatos + "seus clientes" + número real do acervo é o que alcança. Manter esse gancho. Como os ângulos de 10 a 16/11 não foram ao ar, eles podem voltar quando o limite for resolvido (com vídeo novo).
 
+**Leitura de 23/11/2026 (posts de 16/11 a 23/11, via Metricool):**
+- **O problema continua:** TODOS os posts agendados pela rotina de 17, 18, 19 e 23/11 (Reels e Stories) seguem com status ERROR, "You have reached your Metricool account limit". Nada foi ao ar. O Wanderson foi avisado de novo em 23/11.
+- Reels e feed: nenhum dado na semana, porque nada foi publicado.
+- Seguidores: 484 (16/11) → 487 (22/11), +3 na semana, mesmo sem post novo.
+- Trial Reels × normais: ainda sem comparação (nenhum Trial Reels saiu).
+- Conclusão: sem dado novo. Manter o que funcionou: Sindicatos com "seu cliente" e número real do D1; Double Check com uma dor concreta.
+
 **Atualização:** o Metricool só tem dados a partir de 29/10. Toda segunda-feira, leia as métricas de Reels da semana anterior com `getAnalyticsDataByMetrics`:
 - Campos: `IGRE02` (data), `IGRE03` (texto), `IGRE23` (visualizações), `IGRE11` (alcance), `IGRE24` (tempo médio), `IGRE27` (retenção), `IGRE21` (compartilhamentos), `IGRE12` (salvamentos).
 - Anote as conclusões aqui e ajuste ganchos e temas.
