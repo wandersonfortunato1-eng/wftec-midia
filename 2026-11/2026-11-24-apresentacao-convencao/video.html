@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.emp{position:absolute;width:300px;padding:18px 20px;border-radius:16px;background:#221e1c;border:1px solid #3A3330;opacity:0}
+.emp i{display:block;height:16px;border-radius:8px;background:#3A3330;margin-bottom:12px}
+.emp b{display:block;font:600 18px Mono;color:#6b625d}
+.app{position:relative;width:960px;padding:26px 28px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:24px}
+.tab{font-size:27px;font-weight:600;color:var(--muted);padding:12px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.tab.on{color:var(--act);border-color:var(--ac)}
+.tag{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap}
+.t-ok{background:var(--oks);color:#1E6B3E}.t-at{background:#FBF0D9;color:#8A5A0B}.t-ne{background:#F3EDE9;color:#4a4542}.t-nv{background:var(--ac);color:#fff}.t-db{background:#E3EEFA;color:#2B5C99}
+.file{display:flex;align-items:center;gap:26px;padding:36px 34px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4}
+.file .ic{width:84px;height:100px;border-radius:14px;background:#1E8E4E;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:14px}.bar div{height:100%;width:0;background:var(--ac)}
+.cols{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.cols span{font:600 30px Mono;padding:14px 22px;border-radius:14px;background:#fff;border:2px solid var(--line);opacity:0}
+.cols span.ob{border-color:var(--ac);color:var(--act)}
+.st{display:flex;align-items:center;gap:28px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:38px 34px;margin-bottom:24px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.st .n{flex:none;width:72px;height:72px;border-radius:50%;background:var(--ac);color:#fff;font:italic 900 38px Archivo;display:grid;place-items:center}
+.st b{font-size:44px;display:block}.st small{font-size:30px;color:var(--muted)}
+.st.on{border-color:var(--ac);background:#FFF6F1}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:36px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 26px Mono;color:var(--muted);margin-top:8px}
+.cand{display:flex;align-items:center;gap:20px;padding:34px 28px;border:2px solid var(--line);border-radius:20px;margin-top:24px;background:#fff;opacity:0}
+.cand .btn{flex:none;font:700 26px Plex;padding:14px 22px;border-radius:12px;background:#F3EDE9;color:#4a4542}
+.cand.on{border-color:var(--ok);background:#F2FAF5}.cand.on .btn{background:var(--ok);color:#fff}
+.cand div{font-size:32px;line-height:1.3}.cand small{display:block;font-size:25px;color:var(--muted);margin-top:4px}
+.av{border:3px solid var(--ac);background:#FFF6F1;border-radius:24px;padding:34px 32px;margin-top:28px;opacity:0}
+.av .t{font-size:38px;font-weight:700;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips .chip{font-size:30px;padding:12px 24px;opacity:0}
+
+.row{padding:44px 0}.row small{font-size:31px;margin-top:12px}.tag{font-size:30px;padding:10px 22px}.row .mask{height:34px}.tab{font-size:30px}.av .t{font-size:42px}
+.flts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.flts span{font:700 27px Plex;padding:12px 22px;border-radius:999px;background:#fff;border:2px solid var(--line);color:#4a4542;opacity:0}
+.flts span.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.cnt2{display:flex;align-items:baseline;gap:18px;margin:4px 0 14px 6px}.cnt2 .disp{font-size:92px;color:var(--ac)}.cnt2 span{font-size:30px;color:var(--muted)}
+.row.hl{background:#FFF6F1}
+.t-vd{background:var(--bads);color:var(--bad)}
+.hist{border:2px solid var(--line);background:#fff;border-radius:22px;padding:26px 30px;margin-top:26px;opacity:0}
+.hist .k2{font:600 22px Mono;letter-spacing:1.5px;color:var(--muted);margin-bottom:14px}
+.hist .l{font-size:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ci{flex:none;font:700 28px Plex;padding:16px 28px;border-radius:14px;background:var(--ac);color:#fff}
+.ci.ok{background:var(--oks);color:#1E6B3E}
+.nt{text-align:center;margin-top:30px;opacity:0}.nt span{display:inline-block;font:700 32px Plex;padding:18px 32px;border-radius:999px;background:var(--oks);color:#1E6B3E}
+
+.big2{text-align:center;margin-top:40px;opacity:0}.big2 .disp{font-size:230px;line-height:1;color:var(--ac)}.big2 div.s{font-size:38px;color:var(--muted);margin-top:8px}
+.ufb{margin-top:46px}
+.ufb .l{display:flex;align-items:center;gap:18px;margin-bottom:20px;opacity:0}
+.ufb .l b{width:70px;font:700 34px Mono}.ufb .l .br{height:46px;border-radius:12px;background:var(--ac)}.ufb .l span{font:700 32px Mono;color:var(--act)}
+.tg{display:flex;background:#EFE9E5;border-radius:999px;padding:6px;margin:0 0 26px;width:max-content}
+.tg span{font:700 30px Plex;padding:14px 30px;border-radius:999px;color:#6b625d}
+.tg span.on{background:var(--ac);color:#fff}
+.dc{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 26px;border-radius:20px;border:2px solid var(--line);margin-bottom:16px;opacity:0}
+.dc b{font-size:32px;display:block}.dc small{font:500 25px Mono;color:var(--muted)}
+.dc.cv{background:#fff}.dc.ac{background:#EEF8F1;border-color:#BFE3CB}.dc.ad{background:#FFF8E1;border-color:#F0DB9B}.dc.ci2{background:#EEF4FC;border-color:#BCD3EE}
+
+.sl{background:#fff;border:2px solid var(--line);border-radius:26px;padding:34px 34px;box-shadow:0 14px 34px rgba(60,40,30,.09);opacity:0}
+.sl .k2{font:600 22px Mono;letter-spacing:1.5px;color:var(--muted)}
+.sl h3{font:italic 900 64px Archivo;margin:10px 0 22px;letter-spacing:-1px}
+.it{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 0;border-top:1px solid var(--line);opacity:0}
+.it b{font-size:36px}.it small{display:block;font-size:26px;color:var(--muted);margin-top:6px}
+.cl{flex:none;font:700 26px Mono;padding:10px 18px;border-radius:12px;background:#FFF1EA;color:var(--act);border:2px solid #F7C9B5}
+.it.on{background:#FFF6F1}
+.pdfb{display:flex;justify-content:center;margin-top:34px;opacity:0}.pdfb span{font:700 36px Plex;padding:22px 40px;border-radius:18px;background:var(--ac);color:#fff;box-shadow:0 14px 30px rgba(241,90,37,.3)}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.th{background:#fff;border:2px solid var(--line);border-radius:22px;padding:26px 26px;min-height:190px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.th .k2{font:600 20px Mono;letter-spacing:1.5px;color:var(--muted)}
+.th b{display:block;font:italic 900 46px Archivo;margin-top:8px}
+.th i{display:block;height:14px;border-radius:7px;background:#EFE9E5;margin-top:16px}
+.th.at{border-color:var(--ac);background:#FFF6F1}
+.mk{margin-top:34px;opacity:0}.mk .t{font-size:34px;font-weight:700}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="emps"></div>
+  <div class="hq" id="hq1" style="top:440px;font-size:112px;text-shadow:0 0 40px #141312">Seu cliente <span style="color:var(--ac)">perguntou:</span></div>
+  <div class="hq" id="hq2" style="top:900px;font-size:120px;text-shadow:0 0 30px #141312,0 0 30px #141312">o que mudou na <span style="color:var(--ac)">convenção nova?</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FERRAMENTA DE SINDICATOS</div><div class="n"><em>141</em> convenções novas.</div><div class="d">Convenções coletivas de 16 a 22 de novembro.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">APRESENTAÇÃO DA CONVENÇÃO</div><div class="n">Anexe o <em>PDF ou Word.</em></div><div class="d">A WFtec monta a apresentação.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">NOS SLIDES</div><div class="n">O que <em>importa.</em></div><div class="d">Reajuste, pisos, jornada, benefícios.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">CLÁUSULA DE ORIGEM</div><div class="n">Cada item <em>com a fonte.</em></div><div class="d">E dá para salvar em PDF.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="big2" id="bg"><div class="disp" id="cnt">0</div><div class="s">convenções coletivas novas · 16 a 22/11</div></div>
+    <div class="ufb" id="ufb"></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="file" id="fi" style="opacity:0"><div class="ic" style="background:#C0392B">PDF</div><div style="flex:1"><b style="font-size:38px">Convenção coletiva 2026–2027</b><small style="display:block;font-size:26px;color:var(--muted);margin-top:6px">Comércio · RN · PDF ou Word</small><div class="bar"><div id="pb"></div></div></div></div>
+    <div class="mk" id="mk"><div class="t" id="mkt">Montando a apresentação…</div></div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="thumbs" id="thumbs">
+      <div class="th" id="h0"><div class="k2">SLIDE 1</div><b>Reajuste</b><i style="width:80%"></i><i style="width:55%"></i></div>
+      <div class="th" id="h1"><div class="k2">SLIDE 2</div><b>Pisos</b><i style="width:70%"></i><i style="width:60%"></i></div>
+      <div class="th" id="h2"><div class="k2">SLIDE 3</div><b>Jornada</b><i style="width:75%"></i><i style="width:45%"></i></div>
+      <div class="th" id="h3"><div class="k2">SLIDE 4</div><b>Benefícios</b><i style="width:85%"></i><i style="width:50%"></i></div>
+      <div class="th at" id="h4" style="grid-column:1 / span 2"><div class="k2">SLIDE 5</div><b>Pontos de atenção</b><i style="width:70%"></i><i style="width:40%"></i></div>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="sl" id="slc"><div class="k2">APRESENTAÇÃO · SLIDE 2</div><h3>Pisos</h3>
+      <div class="it" id="i0"><div><b>Piso geral</b><small>R$ 1.820,00</small></div><span class="cl">Cláusula 4ª</span></div>
+      <div class="it" id="i1"><div><b>Piso de caixa</b><small>R$ 1.910,00</small></div><span class="cl">Cláusula 4ª §1º</span></div>
+      <div class="it" id="i2"><div><b>Reajuste</b><small>5,0% sobre o salário de outubro</small></div><span class="cl">Cláusula 3ª</span></div>
+    </div>
+    <div class="pdfb" id="pdfb"><span>⬇ Salvar em PDF</span></div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos · a convenção explicada em slides</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">PDF ou Word</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Apresentação pronta</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Cláusula de origem</span><span class="chip" style="font-size:26px;padding:10px 20px">Salva em PDF</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "piso", "reajuste", "cláusula", "data-base", "jornada", "aditivo", "RN", "SP", "Nova"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NE = 14;
+$("emps").innerHTML = Array.from({ length: NE }, (_, i) => `<div class="emp" id="m${i}" style="left:${40 + (i * 317) % 720}px;top:${120 + (i * 461) % 1500}px"><i style="width:${60 + (i * 37) % 35}%"></i><b>Cláusula ${(i * 7) % 60 + 1}ª</b></div>`).join("");
+const UF = [["SP", 25], ["SC", 22], ["PR", 22], ["RS", 21], ["GO", 14]];
+$("ufb").innerHTML = UF.map((u, i) => `<div class="l" id="u${i}"><b>${u[0]}</b><div class="br" id="ub${i}" style="width:0"></div><span>${u[1]}</span></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NE; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .9; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 3}deg) translateY(${-L * 14}px)`; }
+    const q1 = back(seg(L, 0, .35)); $("hq1").style.opacity = clamp(q1 * 2.5); $("hq1").style.transform = `scale(${1.2 - .2 * clamp(q1)})`;
+    slam("hq2", L, I + cu("mudou", 1.2), 1.5); sx += shake(L, I + cu("mudou", 1.2) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    const n = I + cu("num", 5.5); pop("bg", L, .2, 30);
+    $("cnt").textContent = Math.round(141 * eout(seg(L, .3, n + .4)));
+    for (let i = 0; i < 5; i++) { const a = n + .5 + i * .2; $("u" + i).style.opacity = seg(L, a, a + .3); $("ub" + i).style.width = (620 * UF[i][1] / 25 * eout(seg(L, a, a + .6))) + "px"; }
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    pop("fi", L, I + cu("anexe", .3), 50);
+    const m = I + cu("monta", 2.6); $("pb").style.width = (100 * eout(seg(L, I + cu("anexe", .3) + .3, m + .4))) + "%";
+    pop("mk", L, m - .6, 20); $("mkt").textContent = L > m + .4 ? "✓ Apresentação pronta" : "Montando a apresentação…"; $("mkt").style.color = L > m + .4 ? "#1E6B3E" : "";
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    [cu("h0", 1.0), cu("h1", 1.7), cu("h2", 2.3), cu("h3", 3.0), cu("h4", 4.0)].forEach((a, i) => pop("h" + i, L, I + a, 40));
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("slc", L, .1, 40);
+    for (let i = 0; i < 3; i++) { const a = I + cu("cl", .9) + i * .35; $("i" + i).style.opacity = seg(L, a, a + .3); }
+    const pd = I + cu("pdf", 3.2); pop("pdfb", L, pd, 30); $("pdfb").style.transform += ` scale(${1 + .08 * Math.sin(seg(L, pd + .3, pd + .9) * Math.PI)})`;
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 2 && k <= 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
