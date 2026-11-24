@@ -1,0 +1,6 @@
+Uma verba sumiu da folha do seu cliente. Você viu?
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Ele compara funcionário por funcionário, verba por verba.
+Marque ver só o que tem diferença. A verba que estava no mês passado e não veio neste mês salta na tela.
+Filtre pela verba ou pelo funcionário. E exporte para Excel, CSV ou PDF.
+Double Check Folha. Nenhuma verba some sem você ver. Fale com a gente no WhatsApp do perfil.
