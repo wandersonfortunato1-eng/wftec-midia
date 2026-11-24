@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;padding:14px 22px;border-radius:14px;background:#22201e;border:2px solid #3A3330;font:600 30px Mono;color:#9b918b;opacity:0}
+.fc.a{background:#16301f;border-color:#2c6b44;color:#7fd8a1}.fc.s{background:#3a1d1a;border-color:#7a2e25;color:#ff7a66}
+.app{position:relative;width:960px;padding:30px 30px}
+.fl{display:flex;align-items:center;gap:26px;padding:30px 30px;border:3px dashed #E2B9A6;border-radius:24px;background:#FFF8F4;margin-bottom:22px;opacity:0}
+.fl .ic{width:84px;height:100px;border-radius:14px;color:#fff;display:grid;place-items:center;font:700 24px Mono;flex:none}
+.fl b{font-size:38px}.fl small{display:block;font-size:26px;color:var(--muted);margin-top:4px}
+.fmt{display:flex;gap:14px;margin-top:10px}.fmt span{font:700 30px Plex;padding:14px 26px;border-radius:999px;background:var(--infos);color:var(--info);opacity:0}
+.sum{display:flex;gap:14px;margin-bottom:24px}
+.sum>div{flex:1;text-align:center;border-radius:22px;padding:22px 8px;background:#fff;border:2px solid var(--line);opacity:0}
+.sum>div .disp{font-size:84px;line-height:1}.sum>div small{display:block;font:600 26px Plex;color:var(--muted);margin-top:6px}
+.sum .a{border-color:#9ED3B2;background:#F2FAF5}.sum .a .disp{color:var(--ok)}
+.sum .s{border-color:#EBB3AA;background:#FFF5F3}.sum .s .disp{color:var(--bad)}
+.sum .f{border-color:#A9C6EA;background:#EEF4FC}.sum .f .disp{color:var(--info)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0;border-top:1px solid var(--line);opacity:0}
+.row:first-child{border-top:0}
+.row small{display:block;font:500 27px Mono;color:var(--muted);margin-top:10px}
+.tg2{display:inline-block;font:700 30px Plex;padding:10px 22px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg2.a{background:var(--oks);color:#1E6B3E}.tg2.s{background:var(--bads);color:var(--bad)}.tg2.f{background:var(--infos);color:var(--info)}
+.row.hl{background:#FFF6F1}
+.tb{width:100%;border-collapse:collapse;font-size:28px}
+.tb th{font:600 20px Mono;letter-spacing:1.5px;color:var(--muted);text-align:left;padding:0 8px 14px}
+.tb td{padding:24px 8px;border-top:1px solid var(--line);white-space:nowrap}
+.tb td.n{font-family:Mono;text-align:right}.tb th.n{text-align:right}
+.tb tr{opacity:0}
+.up{color:var(--bad);font-weight:700}.dn{color:var(--ok);font-weight:700}
+.pc{width:620px;height:400px;margin:10px auto 0;border-radius:26px;background:#262626;padding:22px;position:relative;opacity:0}
+.pc .sc2{width:100%;height:100%;border-radius:14px;background:#F6F2EF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.pc .sc2 b{font:italic 900 64px Archivo;color:var(--ok)}
+.pc .ft{position:absolute;left:220px;right:220px;bottom:-40px;height:40px;background:#3a3a3a;border-radius:0 0 18px 18px}
+.ok2{display:flex;justify-content:center;gap:14px;margin-top:90px;flex-wrap:wrap}.ok2 span{font:700 34px Plex;padding:18px 30px;border-radius:999px;background:var(--oks);color:#1E6B3E;opacity:0}
+.fi{display:flex;justify-content:center;gap:34px;margin-top:40px}
+.fi>div{width:270px;text-align:center;opacity:0}
+.fi .ic{width:200px;height:240px;margin:0 auto;border-radius:22px;color:#fff;display:grid;place-items:center;font:700 52px Mono;box-shadow:0 20px 40px rgba(0,0,0,.18);position:relative}
+.fi .ic:after{content:"";position:absolute;right:0;top:0;width:60px;height:60px;background:rgba(255,255,255,.35);border-radius:0 22px 0 18px}
+.fi b{display:block;font-size:40px;margin-top:22px}.fi small{display:block;font:500 26px Mono;color:var(--muted);margin-top:6px}
+#lap{position:absolute;left:230px;top:180px;width:620px;opacity:0}
+#flyf{position:absolute;left:440px;top:-40px;width:200px;padding:16px;border-radius:14px;background:#C0392B;color:#fff;font:700 28px Mono;text-align:center;opacity:0;z-index:3}
+#cloud{position:absolute;left:770px;top:-30px;font-size:110px;opacity:0}
+#cloud i{position:absolute;left:-10px;right:-10px;top:58px;height:10px;background:var(--bad);border-radius:5px;transform:rotate(-30deg)}
+.tol{display:flex;align-items:center;gap:18px;font:600 30px Plex;margin-bottom:18px}
+.tol .sw{width:84px;height:46px;border-radius:999px;background:#ddd;position:relative}
+.tol .sw i{position:absolute;top:5px;left:5px;width:36px;height:36px;border-radius:50%;background:#fff}
+.tol b{font-family:Mono;color:var(--act)}
+
+.vf{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 26px}
+.vf span{font:700 32px Plex;padding:16px 28px;border-radius:999px;background:#fff;border:2px solid var(--line);color:#4a4542;opacity:0}
+.vf span.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.lbl{font:600 24px Mono;letter-spacing:2px;color:var(--muted);margin:30px 0 6px 6px;opacity:0}
+.tb td.nm{width:300px}
+.ex{display:flex;justify-content:center;gap:22px;margin-top:40px}
+.ex span{font:700 36px Plex;padding:22px 40px;border-radius:18px;color:#fff;opacity:0}
+
+.vrow td.nm{width:auto}
+.sumiu{background:#FFF5F3!important}
+.tgs{display:inline-block;font:700 24px Plex;padding:6px 14px;border-radius:999px;background:var(--bads);color:var(--bad);margin-left:10px;vertical-align:middle}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:500px;font-size:112px;text-shadow:0 0 40px #141312">Uma <span style="color:var(--ac)">verba sumiu</span> da folha do seu cliente.</div>
+  <div class="hq" id="hq2" style="top:1120px;font-size:150px;text-shadow:0 0 40px #141312">Você <span style="color:var(--ac)">viu?</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">DOUBLE CHECK FOLHA</div><div class="n">Envie os <em>dois meses.</em></div><div class="d">O espelho do mês passado e o deste mês.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">VERBA POR VERBA</div><div class="n">Tudo <em>comparado.</em></div><div class="d">Funcionário por funcionário.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">SÓ O QUE TEM DIFERENÇA</div><div class="n">A verba que <em>sumiu.</em></div><div class="d">Estava no mês passado e não veio neste.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">FILTROS E EXPORTAÇÃO</div><div class="n">Pronto para <em>o cliente.</em></div><div class="d">Excel, CSV ou PDF.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="fl" id="u0" style="margin-top:40px"><div class="ic" style="background:#C0392B">PDF</div><div><b>Espelho · mês passado</b><small>outubro</small></div></div>
+    <div class="fl" id="u1"><div class="ic" style="background:#1E8E4E">XLS</div><div><b>Espelho · este mês</b><small>novembro</small></div></div>
+    <div class="fmt" style="justify-content:center;margin-top:30px"><span id="f0">PDF do SCI</span><span id="f1">Excel</span><span id="f2">CSV</span></div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="card app" id="app3" style="padding:26px 30px;margin-top:30px">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px"><span class="mask" style="width:300px"></span><span class="muted" style="font-size:28px">out → nov</span></div>
+      <table class="tb"><tr style="opacity:1"><th>VERBA</th><th class="n">OUT</th><th class="n">NOV</th><th class="n">DIF.</th></tr>
+      <tr id="h0"><td>Salário</td><td class="n">2.400,00</td><td class="n">2.400,00</td><td class="n">0,00</td></tr>
+      <tr id="h1"><td>Insalubridade</td><td class="n">303,60</td><td class="n">—</td><td class="n up">−303,60</td></tr>
+      <tr id="h2"><td>Hora extra 50%</td><td class="n">163,64</td><td class="n">163,64</td><td class="n">0,00</td></tr>
+      <tr id="h3"><td>INSS</td><td class="n">251,32</td><td class="n">251,32</td><td class="n">0,00</td></tr>
+      <tr id="h4"><td>Vale-transporte</td><td class="n">144,00</td><td class="n">144,00</td><td class="n">0,00</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="card app" id="app4" style="padding:26px 30px;margin-top:20px">
+      <div class="tol"><div class="sw" id="sw"><i id="swi"></i></div>Ver só o que tem diferença</div>
+      <table class="tb"><tr style="opacity:1"><th>VERBA</th><th class="n">OUT</th><th class="n">NOV</th><th class="n">DIF.</th></tr>
+      <tr id="k0"><td>Salário</td><td class="n">2.400,00</td><td class="n">2.400,00</td><td class="n">0,00</td></tr>
+      <tr id="k1"><td>Insalubridade<span class="tgs" id="tgs">sumiu</span></td><td class="n">303,60</td><td class="n">—</td><td class="n up">−303,60</td></tr>
+      <tr id="k2"><td>Hora extra 50%</td><td class="n">163,64</td><td class="n">163,64</td><td class="n">0,00</td></tr>
+      <tr id="k3"><td>INSS</td><td class="n">251,32</td><td class="n">251,32</td><td class="n">0,00</td></tr>
+      <tr id="k4"><td>Vale-transporte</td><td class="n">144,00</td><td class="n">144,00</td><td class="n">0,00</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="sc" id="s5">
+    <div class="lbl" id="lb" style="margin-top:80px">FILTRAR</div>
+    <div class="vf"><span id="b0">Por verba</span><span id="b1">Por funcionário</span><span id="b2">Por centro de custo</span><span id="b3" class="on">Só o que tem diferença</span></div>
+    <div class="card app" id="app5" style="padding:30px 30px;opacity:0;text-align:center;margin-top:20px"><div class="muted" style="font-size:30px">Exportar</div>
+    <div class="ex" style="margin-top:24px"><span id="e0" style="background:#1E8E4E">Excel</span><span id="e1" style="background:#2B5C99">CSV</span><span id="e2" style="background:#C0392B">PDF</span></div></div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Double Check Folha · nenhuma verba some sem você ver</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip ac" style="font-size:26px;padding:10px 20px">Verba por verba</span><span class="chip" style="font-size:26px;padding:10px 20px">Funcionário por funcionário</span><span class="chip" style="font-size:26px;padding:10px 20px">Só o que tem diferença</span><span class="chip" style="font-size:26px;padding:10px 20px">Excel, CSV ou PDF</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["INSS", "FGTS", "verba", "líquido", "folha", "SCI", "insalubridade", "noturno", "CSV"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+const VV = [["s", "Insalubridade −303,60"], ["", "cadê a verba?"], ["s", "−303,60"]];
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc ${VV[i % 3][0]}" id="m${i}" style="left:${30 + (i * 317) % 700}px;top:${110 + (i * 461) % 1550}px">${VV[i % 3][1]}</div>`).join("");
+const SC = ["s1", "s3", "s4", "s5"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .35; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    $("hq1").style.opacity = 1; $("hq1").style.transform = `scale(${1.06 - .06 * eout(seg(L, 0, .35))})`;
+    slam("hq2", L, I + cu("viu", 2.4), 1.7); sx += shake(L, I + cu("viu", 2.4) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("u0", L, I + cu("passado", 2.0), 60); pop("u1", L, I + cu("deste", 2.8), 60);
+    const fm = I + cu("pdf", 3.8); pop("f0", L, fm, 20); pop("f1", L, fm + .5, 20); pop("f2", L, fm + .9, 20);
+  }
+  if (k === 2) { sc = "s3"; tt = "t2";
+    pop("app3", L, .1, 40);
+    for (let i = 0; i < 5; i++) { const a = I + cu("verba", 1.2) + i * .2; $("h" + i).style.opacity = seg(L, a, a + .3); }
+  }
+  if (k === 3) { sc = "s4"; tt = "t3";
+    pop("app4", L, .1, 40);
+    const ta = I + cu("so", .6);
+    for (let i = 0; i < 5; i++) { const zero = i !== 1; const a = .2 + i * .1; $("k" + i).style.opacity = zero ? seg(L, a, a + .3) * (1 - seg(L, ta + .2, ta + .5)) : seg(L, a, a + .3); $("k" + i).style.display = zero && L > ta + .55 ? "none" : ""; }
+    const on = L > ta; $("sw").style.background = on ? "var(--ac)" : "#ddd"; $("swi").style.left = (5 + 38 * eout(seg(L, ta, ta + .25))) + "px";
+    const sl = I + cu("salta", 3.5); $("k1").className = L > sl ? "sumiu" : ""; $("k1").style.transform = `scale(${1 + .06 * Math.sin(seg(L, sl, sl + .6) * Math.PI)})`;
+    $("tgs").style.opacity = seg(L, sl, sl + .3);
+  }
+  if (k === 4) { sc = "s5"; tt = "t4";
+    pop("lb", L, .1, 10); for (let i = 0; i < 4; i++) pop("b" + i, L, .15 + i * .08, 15);
+    const fv = I + cu("verba2", .6), ff = I + cu("func2", 1.4);
+    $("b0").className = L > fv ? "on" : ""; $("b1").className = L > ff ? "on" : "";
+    $("b0").style.transform = `scale(${1 + .15 * Math.sin(seg(L, fv - .1, fv + .4) * Math.PI)})`;
+    $("b1").style.transform = `scale(${1 + .15 * Math.sin(seg(L, ff - .1, ff + .4) * Math.PI)})`;
+    const ex = I + cu("exporte", 2.2); pop("app5", L, ex - .3, 20); pop("e0", L, ex, 30); pop("e1", L, ex + .35, 30); pop("e2", L, ex + .7, 30);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k >= 2 && k <= 3) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>
