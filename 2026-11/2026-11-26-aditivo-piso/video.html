@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+.kin{position:absolute;inset:0;z-index:4;opacity:0}
+.hq{position:absolute;left:60px;right:60px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1.02;opacity:0}
+.fc{position:absolute;width:260px;height:150px;border-radius:18px;background:#F7E3A8;border:2px solid #E2C46E;opacity:0;padding:18px}
+.fc i{display:block;height:14px;border-radius:7px;background:rgba(120,85,10,.25);margin-bottom:12px}
+.fc b{font:600 20px Mono;color:#7a5a10}
+.app{position:relative;width:960px;padding:30px 30px}
+.doc{border-radius:22px;padding:38px 36px;border:2px solid var(--line);background:#fff;margin-bottom:26px;opacity:0;box-shadow:0 10px 26px rgba(60,40,30,.07)}
+.doc .ty{font:600 24px Mono;letter-spacing:2px;color:var(--muted)}
+.doc .ti{font-size:46px;font-weight:700;margin-top:10px;line-height:1.2}
+.doc .su{font-size:28px;color:var(--muted);margin-top:8px}
+.doc.am{background:#FFF6D6;border-color:#E9C866}.doc.am .ty{color:#8A5A0B}
+.doc.vd{background:#EAF7EF;border-color:#9ED3B2}.doc.vd .ty{color:#1E6B3E}
+.doc.az{background:#E9F1FB;border-color:#A9C6EA}.doc.az .ty{color:#2B5C99}
+.tg{display:inline-block;font:700 26px Plex;padding:8px 18px;border-radius:999px;white-space:nowrap;background:#F3EDE9;color:#4a4542}
+.tg.nv{background:var(--ac);color:#fff}.tg.am{background:#FBF0D9;color:#8A5A0B}
+.flt{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.flt span{font:600 30px Plex;padding:16px 26px;border-radius:16px;border:2px solid var(--line);background:#fff;color:#4a4542}
+.flt span.on{border-color:var(--ac);background:#FFF1EA;color:var(--act)}
+.lab{font:600 24px Mono;letter-spacing:2px;color:var(--muted);margin-top:30px}
+.sel{display:flex;justify-content:space-between;align-items:center;font-size:32px;padding:20px 24px;border:2px solid var(--line);border-radius:16px;margin-top:14px;background:#FBF8F6}
+.sg{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sg .s{height:76px;border-radius:14px;background:#fff;border:1px solid var(--line);position:relative;overflow:hidden;opacity:0}
+.sg .s i{display:block;height:16px;background:#EFE9E5}
+.sg .s b{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:var(--ok);opacity:0}
+.btn{display:inline-flex;align-items:center;gap:14px;font:700 34px Plex;padding:22px 34px;border-radius:18px;background:var(--ac);color:#fff}
+.bar{height:14px;border-radius:7px;background:#EFE9E5;overflow:hidden;margin-top:24px}.bar div{height:100%;width:0;background:var(--ac)}
+.cl{border-left:8px solid var(--ac);background:#FFF6F1;border-radius:0 18px 18px 0;padding:26px 28px;margin-top:30px;opacity:0}
+.cl b{font-size:34px;display:block}.cl p{font-size:28px;color:var(--muted);margin-top:10px;line-height:1.35}
+
+.tw{display:flex;gap:0;border-radius:999px;background:#EFE8E3;padding:8px;width:max-content;margin:0 auto 30px}
+.tw span{font:700 34px Plex;padding:18px 34px;border-radius:999px;color:#6b625d}
+.tw span.on{background:var(--ac);color:#fff}
+.bn{font:italic 900 300px Archivo;color:var(--ac);line-height:.9;text-align:center;letter-spacing:-10px}
+.bnl{text-align:center;font:700 52px Plex;margin-top:10px}
+.bns{display:flex;justify-content:center;gap:16px;margin-top:40px}
+.bns span{font:700 32px Plex;padding:16px 28px;border-radius:999px;background:#fff;border:2px solid var(--line);opacity:0}
+.src{text-align:center;font:500 26px Mono;color:var(--muted);margin-top:40px;opacity:0}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="dark"></div>
+<div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+<div id="dots"><i></i><i></i><i></i><i></i></div>
+<div class="kin" id="hook">
+  <div id="fcs"></div>
+  <div class="hq" id="hq1" style="top:560px;font-size:124px">Saiu aditivo que muda <span style="color:var(--ac)">o piso</span></div>
+  <div class="hq" id="hq2" style="top:1130px;font-size:110px;text-shadow:0 0 30px #141312,0 0 30px #141312">do <span style="color:var(--ac)">seu cliente?</span></div>
+</div>
+<div id="ttl">
+  <div class="tt" id="t1"><div class="big">01</div><div class="k">FERRAMENTA DE SINDICATOS</div><div class="n">O piso muda <em>no meio.</em></div><div class="d">A convenção sai. O aditivo pode vir depois.</div></div>
+  <div class="tt" id="t2"><div class="big">02</div><div class="k">NÚMERO REAL DO ACERVO</div><div class="n">63 aditivos <em>em 7 dias.</em></div><div class="d">De 18 a 24 de novembro.</div></div>
+  <div class="tt" id="t3"><div class="big">03</div><div class="k">BUSCA DE CONVENÇÕES</div><div class="n">Amarelo é <em>aditivo.</em></div><div class="d">Chegou agora? Selo Nova.</div></div>
+  <div class="tt" id="t4"><div class="big">04</div><div class="k">MINHAS EMPRESAS</div><div class="n">Só da <em>sua carteira.</em></div><div class="d">Os sindicatos dos seus clientes.</div></div>
+</div>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="doc" id="d0"><div class="ty">CONVENÇÃO COLETIVA</div><div class="ti">Categoria · 2026/2027</div><div class="su">Piso salarial da categoria definido</div></div>
+    <div style="text-align:center;font:italic 900 70px Archivo;color:var(--ac);opacity:0" id="arr">↓ no meio da vigência</div>
+    <div class="doc am" id="d1" style="margin-top:26px"><div style="display:flex;justify-content:space-between;align-items:center"><div class="ty">TERMO ADITIVO</div><span class="tg nv" id="pNovo">piso novo</span></div><div class="ti">Altera a cláusula do piso salarial</div><div class="su">A folha do seu cliente já está com ele?</div></div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="bn" id="bn" style="margin-top:120px">0</div>
+    <div class="bnl" id="bnl" style="opacity:0">termos aditivos novos</div>
+    <div class="bns"><span id="n0">18 a 24/11</span><span id="n1">16 estados</span></div>
+    <div class="src" id="src">acervo da ferramenta de Sindicatos da WFtec</div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="card app" id="app3">
+      <div class="lab" style="margin-top:0">TIPO DE DOCUMENTO</div>
+      <div class="flt"><span id="f0">Convenção</span><span id="f1">Acordo</span><span id="f2">Termo aditivo</span><span id="f3">Circular do sindicato</span></div>
+    </div>
+    <div class="doc am" id="c0" style="margin-top:30px"><div style="display:flex;justify-content:space-between;align-items:center"><div class="ty">TERMO ADITIVO</div><span class="tg nv" id="nv0">Nova</span></div><div class="ti">Termo aditivo de convenção coletiva</div></div>
+    <div class="doc am" id="c1"><div class="ty">TERMO ADITIVO</div><div class="ti">Termo aditivo de acordo coletivo</div></div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="tw" id="tw"><span id="w0">Minhas empresas</span><span id="w1" class="on">Todo o Brasil</span></div>
+    <div class="doc am" id="e0"><div style="display:flex;justify-content:space-between;align-items:center"><div class="ty">TERMO ADITIVO</div><span class="tg nv">Nova</span></div><div class="ti">Sindicato do seu cliente</div><div class="su"><span class="mask" style="width:280px"></span></div></div>
+    <div class="doc am" id="e1"><div class="ty">TERMO ADITIVO</div><div class="ti">Sindicato do seu cliente</div><div class="su"><span class="mask" style="width:220px"></span></div></div>
+    <div class="doc" id="e2"><div class="ty">CONVENÇÃO COLETIVA</div><div class="ti">Sindicato do seu cliente</div><div class="su"><span class="mask" style="width:250px"></span></div></div>
+  </div>
+</div>
+<div id="outro">
+  <div class="abs" id="oLogo" style="left:390px;top:280px;width:300px;height:300px"></div>
+  <div class="abs" id="oTxt" style="left:60px;right:60px;top:620px;text-align:center">
+    <div class="disp" style="font-size:150px">WF<em>tec</em></div>
+    <div style="font-size:38px;color:var(--muted);margin-top:10px">Ferramenta de Sindicatos · nenhum aditivo passa batido</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px" id="oList"><span class="chip" style="font-size:26px;padding:10px 20px">Filtro por termo aditivo</span><span class="chip warn" style="font-size:26px;padding:10px 20px">Card amarelo</span><span class="chip ac" style="font-size:26px;padding:10px 20px">Selo Nova</span><span class="chip" style="font-size:26px;padding:10px 20px">Minhas empresas</span></div>
+    <div style="margin-top:50px;display:inline-flex;align-items:center;gap:16px;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:28px 44px;border-radius:24px;box-shadow:0 18px 40px rgba(241,90,37,.35)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--act);margin-top:30px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini, C = TL.cue || {};
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px" `);
+$("mini").innerHTML = sz(52); $("oLogo").innerHTML = sz(300);
+const pop = (id, t, a, dy = 40) => { const q = back(seg(t, a, a + .4)); const e = $(id); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * dy}px) scale(${.94 + .06 * clamp(q)})`; return q; };
+const slam = (id, t, a, s0 = 1.8) => { const q = back(seg(t, a, a + .3)); const e = $(id); e.style.opacity = clamp(q * 2.5); e.style.transform = `scale(${s0 - (s0 - 1) * clamp(q)})`; return q; };
+const shake = (t, a) => { const d = t - a; return d > 0 && d < .25 ? Math.sin(d * 90) * 12 * (1 - d / .25) : 0; };
+const cu = (k, d) => (C[k] !== undefined ? C[k] : d);
+{ const W = ["CCT", "ACT", "aditivo", "piso", "cláusula", "RN", "SP", "sindicato", "data-base"]; let s = ""; for (let r = 0; r < 60; r++) { let l = ""; for (let c = 0; c < 9; c++) l += (((r * 7 + c * 13) % 5 === 0) ? W[(r + c) % W.length] : String((r * 9301 + c * 49297) % 99999).padStart(5, "0")) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const NF = 12;
+$("fcs").innerHTML = Array.from({ length: NF }, (_, i) => `<div class="fc" id="m${i}" style="left:${30 + (i * 317) % 760}px;top:${110 + (i * 461) % 1550}px"><i style="width:${60 + (i * 37) % 35}%"></i><i style="width:40%"></i><b>TERMO ADITIVO</b></div>`).join("");
+const SC = ["s1", "s2", "s3", "s4"], TT = ["t1", "t2", "t3", "t4"];
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const L = t - S[k].ini, D = S[k].fim - S[k].ini;
+  const fade = Math.min(seg(L, 0, .2), 1 - seg(t, S[k].fim - .18, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .85;
+  $("bgnum").style.transform = `translateY(${-(t * 22) % 400}px)`;
+  let sx = 0, sc = null, tt = null, isO = false;
+  if (k === 0) {
+    $("hook").style.opacity = 1 - seg(L, D - .2, D);
+    for (let i = 0; i < NF; i++) { const a = .05 + i * .1; const q = back(seg(L, a, a + .3)); const e = $("m" + i); e.style.opacity = clamp(q * 2) * .22; e.style.transform = `scale(${.7 + .3 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg) translateY(${-L * 16}px)`; }
+    $("hq1").style.opacity = 1; $("hq1").style.transform = `scale(${1.06 - .06 * eout(seg(L, 0, .35))})`;
+    slam("hq2", L, I + cu("cli", 1.8), 1.6); sx += shake(L, I + cu("cli", 1.8) + .2);
+  } else $("hook").style.opacity = 0;
+  $("dark").style.opacity = k === 0 ? 1 : 0;
+  if (k === 1) { sc = "s1"; tt = "t1";
+    pop("d0", L, .2, 40); pop("arr", L, I + cu("meio", 2.2), 20); pop("d1", L, I + cu("piso", 1.4), 60);
+    const nq = Math.sin(seg(L, I + cu("piso", 1.4) + .4, I + cu("piso", 1.4) + 1.0) * Math.PI); $("pNovo").style.transform = `scale(${1 + .22 * nq})`;
+  }
+  if (k === 2) { sc = "s2"; tt = "t2";
+    const ct = I + cu("n63", 5.5); $("bn").textContent = Math.round(63 * eout(seg(L, .3, ct + .2)));
+    pop("bnl", L, ct, 20); pop("n0", L, I + cu("data", 1.0), 20); pop("n1", L, I + cu("est", 7.5), 20); pop("src", L, .4, 10);
+    if (L > ct) sx += shake(L, ct + .2) * .5;
+  }
+  if (k === 3) { sc = "s3"; tt = "t3";
+    pop("app3", L, .1, 40);
+    const ft = I + cu("filtre", .4); for (let i = 0; i < 4; i++) $("f" + i).className = (i === 2 && L > ft) ? "on" : "";
+    $("f2").style.transform = `scale(${1 + .12 * Math.sin(seg(L, ft - .1, ft + .4) * Math.PI)})`;
+    pop("c0", L, I + cu("amarelo", 1.6), 50); pop("c1", L, I + cu("amarelo", 1.6) + .3, 50);
+    const nv = I + cu("nova", 4.5); $("nv0").style.transform = `scale(${1 + .3 * Math.sin(seg(L, nv, nv + .5) * Math.PI)})`;
+  }
+  if (k === 4) { sc = "s4"; tt = "t4";
+    pop("tw", L, .1, 20);
+    const mt = I + cu("minhas", .5); $("w0").className = L > mt ? "on" : ""; $("w1").className = L > mt ? "" : "on";
+    $("tw").style.transform = `scale(${1 + .06 * Math.sin(seg(L, mt - .1, mt + .4) * Math.PI)})`;
+    for (let i = 0; i < 3; i++) pop("e" + i, L, mt + .4 + i * .25, 40);
+  }
+  if (k === 5) isO = L >= .25;
+  $("outro").style.opacity = isO ? seg(L, .25, .55) : 0;
+  if (isO) { const o = L - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .05 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  SC.forEach((id) => { const e = $(id); e.style.opacity = id === sc && !isO ? fade : 0; if (id === sc) e.style.transform = `scale(${1 + .02 * seg(L, 0, D)})`; });
+  TT.forEach((id) => { $(id).style.opacity = id === tt && !isO ? fade : 0; });
+  if (tt) { const p = back(seg(L, .05, .45)); $(tt).style.transform = `translateX(${(1 - p) * -50}px) scale(${1.12 - .12 * clamp(p)})`; $(tt).style.transformOrigin = "0 50%"; }
+  const idx = TT.indexOf(tt); document.querySelectorAll("#dots i").forEach((e, i) => e.className = idx >= 0 && i <= idx ? "on" : "");
+  $("dots").style.opacity = idx >= 0 && !isO ? 1 : 0;
+  $("brand").style.opacity = k === 0 || isO ? 0 : 1;
+  $("ilu").style.opacity = (k === 1 || k === 3 || k === 4) ? 1 : 0;
+  document.body.style.transform = `translateX(${sx}px)`; document.documentElement.style.background = k === 0 ? "#141312" : "#F6F2EF";
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

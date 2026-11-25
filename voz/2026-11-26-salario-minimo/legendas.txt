@@ -1,0 +1,6 @@
+Tem salário abaixo do mínimo na folha do seu cliente?
+No Double Check Folha, você envia o espelho do mês passado e o deste mês, em PDF do SCI, Excel ou CSV.
+Os arquivos são lidos no seu computador, sem ficarem guardados.
+A auditoria de folha aponta o que precisa de atenção. O salário abaixo do mínimo aparece na hora.
+Filtre pelo funcionário, confira verba por verba e exporte para Excel, CSV ou PDF.
+Double Check Folha. Salário abaixo do mínimo não passa sem você ver. Fale com a gente no WhatsApp do perfil.
