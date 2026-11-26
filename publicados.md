@@ -85,3 +85,7 @@ Uma linha por post. A rotina diária lê isto para não repetir tema.
 | 2026-11-26 11:49 | Story | Story do Reels Sindicatos aditivo que muda o piso | (mesmo vídeo) | 442462475 |
 | 2026-11-26 18:37 | Trial Reels NOVO | Double Check Folha: salário abaixo do mínimo (auditoria de folha aponta na hora; arquivos lidos no computador; filtro por funcionário, verba por verba; exportar Excel, CSV ou PDF) | 2026-11/2026-11-26-salario-minimo/video.mp4 | 442462425 |
 | 2026-11-26 18:39 | Story | Story do Reels Double Check salário abaixo do mínimo | (mesmo vídeo) | 442462485 |
+| 2026-11-27 11:47 | Reels NOVO (almoço) | Double Check Folha: líquido negativo (tem líquido negativo na folha do seu cliente? funcionário por funcionário, verba por verba; auditoria de folha aponta líquido negativo, salário abaixo do mínimo e salário-família indevido; só o que tem diferença; exportar) | 2026-11/2026-11-27-liquido-negativo/video.mp4 | 443758943 |
+| 2026-11-27 11:49 | Story | Story do Reels Double Check líquido negativo | (mesmo vídeo) | 443759037 |
+| 2026-11-27 18:37 | Reels NOVO | Sindicatos: enquadramento pelo CNPJ e CNAE, vídeo novo (o de 10/11 não foi ao ar; qual sindicato vale para o CNPJ do seu cliente? laboral e patronal com convenção vigente; decisão explicada; mais de 8 mil convenções coletivas vigentes no acervo, D1 26/11: 8.852) | 2026-11/2026-11-27-enquadramento-cnpj/video.mp4 | 443758961 |
+| 2026-11-27 18:39 | Story | Story do Reels Sindicatos enquadramento pelo CNPJ | (mesmo vídeo) | 443759048 |
