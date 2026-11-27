@@ -19,6 +19,9 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]; KIT = ROOT/"kit"
 P = pathlib.Path(sys.argv[1]).resolve(); CFG = json.loads((P/"video.json").read_text(encoding="utf-8"))
 VOZ = ROOT/CFG["voz"]; TMP = P/"_voz"; TMP.mkdir(exist_ok=True)
 FPS, INI, VW, VH = 30, .25, 1080, 1920
+# "formato": "horizontal" (1920x1080) e "max" (duração máxima, padrão 60 s) no video.json: para vídeos de apresentação fora do Reels
+if CFG.get("formato") == "horizontal": VW, VH = 1920, 1080
+MAXD = float(CFG.get("max", 60))
 def run(*a): return subprocess.run(a, check=True, capture_output=True, text=True)
 def dur(p): return float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",str(p)]).decode())
 falas = sorted(VOZ.glob("fala*.mp3"), key=lambda p: int(re.findall(r"\d+", p.stem)[0])); N = len(falas)
@@ -45,7 +48,7 @@ for i in range(1, N+1):
     L = max(INI + d[i] + .35, MIN.get(i, 0)) + (1.0 if i == N else 0)
     segs.append({"ini": round(t,3), "fim": round(t+L,3)}); t += L
 TOTAL = t
-if TOTAL > 60: raise SystemExit(f"vídeo com {TOTAL:.1f}s: passa de 60 s, encurte as falas")
+if TOTAL > MAXD: raise SystemExit(f"vídeo com {TOTAL:.1f}s: passa de {MAXD:.0f} s, encurte as falas")
 def blocos(txt):
     out, cur = [], ""
     for p in re.split(r"(?<=[.?!,:])\s+", txt.strip()):
@@ -85,7 +88,7 @@ ins, fil = [], []
 for k in range(N):
     ins += ["-i", str(TMP/f"fala{k+1}.wav")]; ms = int((segs[k]["ini"]+INI)*1000)
     fil.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=mono,adelay={ms}|{ms}[a{k}]")
-ins += ["-i", str(KIT/"trilha.wav")]
+ins += ["-stream_loop", "-1", "-i", str(KIT/"trilha.wav")]
 fil.append("".join(f"[a{k}]" for k in range(N)) + f"amix=inputs={N}:normalize=0,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,loudnorm=I=-15:TP=-2:LRA=7,apad=whole_dur={TOTAL},asplit=2[voz][sc]")
 fil.append(f"[{N}:a]atrim=0:{TOTAL},asetpts=N/SR/TB,aresample=48000,highpass=f=60,volume=-13dB,afade=t=out:st={TOTAL-2.2}:d=2.2[m0]")
 fil.append("[sc]aformat=channel_layouts=stereo[sc2];[m0][sc2]sidechaincompress=threshold=0.03:ratio=6:attack=30:release=450[mus]")
