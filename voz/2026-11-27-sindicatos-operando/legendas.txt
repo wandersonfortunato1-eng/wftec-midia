@@ -1,0 +1,20 @@
+Vamos ver, na prática, a ferramenta de Sindicatos da WFtec. No portal, clique em Sindicatos.
+Aqui você tem a Busca de convenções e o Enquadramento sindical. Vamos começar pela busca.
+Escolha o estado: Rio Grande do Norte. O município: Natal. E o segmento: Comércio.
+No tipo, marque todos, deixe só as vigentes, e clique em Aplicar Filtros.
+Pronto: as convenções do comércio de Natal. O termo aditivo novo aparece em amarelo, com o selo Nova.
+Em cada card, você vê a vigência, a abrangência, e baixa o documento oficial do Mediador.
+Na aba Novas convenções, aparece tudo o que entrou nos últimos sessenta dias.
+E em Notificações, o resumo de cada dia, por estado.
+Agora, a sua carteira. Em Minhas empresas, clique em Subir planilha, e escolha o arquivo com os CNPJs dos seus clientes.
+A WFtec analisa empresa por empresa: lê o CNAE, encontra o sindicato e liga as convenções.
+Pronto: a carteira enquadrada. Nove com convenção, duas para conferir, e uma sem convenção.
+Saiu documento novo? O aviso aparece na linha da empresa. Leu? Clique em Ciente.
+Para as que estão para conferir, abra a Conferência rápida.
+Uma empresa por vez: Receita, sindicato e convenção, lado a lado. É este? Um clique, e vai para a próxima.
+Atividade mista? Diga o que a empresa faz de fato, e a WFtec refaz a análise.
+Abra a prova do vínculo. O registro oficial do Ministério do Trabalho confirma a base territorial. Bateu? Certifique.
+Fica gravado quem conferiu, quando, e a base legal.
+E a carteira inteira sai no Excel, com sindicato, convenção, vigência e data-base.
+Por fim, o Enquadramento sindical: digite o CNPJ, e veja o sindicato, a convenção em vigor e o motivo de cada decisão.
+Ferramenta de Sindicatos da WFtec. Menos busca, mais segurança no DP. Fale com a gente.
