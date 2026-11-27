@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+/*BASE*/
+:root{--bg:#07070A;--neo:#FF6A33;--tx:#F2EDEA;--mu:#9A928E;--gl:rgba(241,90,37,.45);--cy:#45D4FF;--ye:#FFC24A;--gr:#3FE08A;--rd:#FF6B6B}
+html,body{width:1920px!important;height:1080px!important;background:var(--bg)!important;color:var(--tx)}
+#bgnum{color:rgba(241,90,37,.04);font-size:26px}
+#grid{position:absolute;left:-600px;right:-600px;bottom:-260px;height:760px;z-index:1;transform:perspective(700px) rotateX(66deg);transform-origin:50% 100%;
+ background-image:linear-gradient(rgba(241,90,37,.5) 2px,transparent 2px),linear-gradient(90deg,rgba(241,90,37,.5) 2px,transparent 2px);background-size:90px 90px;
+ -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 80%);mask-image:linear-gradient(to top,#000 10%,transparent 80%)}
+#glow{position:absolute;left:0;right:0;bottom:0;height:500px;z-index:1;background:radial-gradient(ellipse at 50% 100%,rgba(241,90,37,.22),transparent 65%)}
+#scan{position:absolute;top:0;bottom:0;width:3px;z-index:7;background:linear-gradient(transparent,rgba(255,106,51,.8),transparent);box-shadow:0 0 22px 6px rgba(255,106,51,.3)}
+#lines{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 5px)}
+.hc{position:absolute;width:50px;height:50px;border:3px solid var(--ac);z-index:6;opacity:.75;filter:drop-shadow(0 0 8px rgba(241,90,37,.8))}
+#c1{left:22px;top:22px;border-right:0;border-bottom:0}#c2{right:22px;top:22px;border-left:0;border-bottom:0}
+#c3{left:22px;bottom:22px;border-right:0;border-top:0}#c4{right:22px;bottom:22px;border-left:0;border-top:0}
+#top{position:absolute;left:90px;right:90px;top:48px;height:60px;display:flex;align-items:center;justify-content:space-between;z-index:6}
+#brand{position:static;font-size:38px;color:#fff}
+#chap{display:flex;gap:10px}
+#chap span{font:600 18px Mono;letter-spacing:2px;color:rgba(255,255,255,.35);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.1)}
+#chap span.on{color:#fff;border-color:var(--ac);background:rgba(241,90,37,.18);box-shadow:0 0 18px rgba(241,90,37,.45)}
+#chap span.ok{color:rgba(255,106,51,.75)}
+#prog{position:absolute;left:90px;right:90px;top:120px;height:3px;background:rgba(255,255,255,.08);z-index:6}
+#prog i{display:block;height:100%;width:0;background:var(--ac);box-shadow:0 0 12px var(--ac)}
+#left{position:absolute;left:90px;top:200px;width:640px;z-index:4}
+.kk{font:600 22px Mono;letter-spacing:3px;color:var(--neo)}
+.tl{font-family:Archivo;font-style:italic;font-weight:900;font-size:84px;line-height:.98;letter-spacing:-2px;color:#fff;margin-top:18px}
+.ds{font-size:30px;color:var(--mu);margin-top:22px;line-height:1.35;font-weight:500}
+.nb{position:absolute;right:0;top:-40px;font-family:Archivo;font-style:italic;font-weight:900;font-size:130px;color:rgba(241,90,37,.14)}
+#panel{position:absolute;left:790px;top:170px;width:1040px;height:740px;z-index:3;border-radius:26px;overflow:hidden}
+.gls{background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border:2px solid var(--gl);border-radius:22px;box-shadow:0 0 50px rgba(241,90,37,.14),inset 0 0 40px rgba(241,90,37,.05)}
+#ptabs{display:flex;gap:4px;padding:18px 24px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+#ptabs span{white-space:nowrap;font:600 19px Plex;color:var(--mu);padding:12px 16px;border-bottom:3px solid transparent}
+#ptabs span.on{color:#fff;border-color:var(--ac)}
+#pbody{position:absolute;left:0;right:0;top:72px;bottom:0;padding:30px 34px}
+.scn{position:absolute;left:30px;top:26px;width:830px;opacity:0;zoom:1.2}
+.mask{background:rgba(255,255,255,.16)}
+.neo{color:var(--neo);text-shadow:0 0 18px rgba(255,106,51,.7),0 0 40px rgba(255,106,51,.3)}
+.tg{display:inline-flex;align-items:center;gap:8px;font:700 21px Plex;padding:8px 16px;border-radius:999px;white-space:nowrap;border:2px solid}
+.tg.ok{color:var(--gr);border-color:rgba(63,224,138,.6);background:rgba(63,224,138,.1)}
+.tg.nv{color:#fff;border-color:var(--ac);background:var(--ac);box-shadow:0 0 18px rgba(241,90,37,.55)}
+.tg.ye{color:var(--ye);border-color:rgba(255,194,74,.6);background:rgba(255,194,74,.1)}
+.tg.cy{color:var(--cy);border-color:rgba(69,212,255,.6);background:rgba(69,212,255,.1)}
+.tg.wh{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+.tg.rd{color:var(--rd);border-color:rgba(255,107,107,.6);background:rgba(255,107,107,.1)}
+.tg.gh{color:var(--mu);border-color:rgba(255,255,255,.15)}
+.rv{opacity:0}
+.fld{border:2px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 18px;background:rgba(0,0,0,.25)}
+.fld small{display:block;font:600 16px Mono;letter-spacing:2px;color:var(--mu)}
+.fld b{display:block;font-size:27px;margin-top:4px;font-weight:600}
+.fld.hi{border-color:var(--ac);box-shadow:0 0 22px rgba(241,90,37,.45)}
+.btn{display:inline-block;font:700 24px Plex;padding:14px 30px;border-radius:14px;background:var(--ac);color:#fff;box-shadow:0 0 26px rgba(241,90,37,.6)}
+.btn.o{background:transparent;border:2px solid #fff;box-shadow:none}
+.card{background:rgba(255,255,255,.04);border:2px solid;border-radius:16px;padding:16px 20px;box-shadow:none}
+.card .t{font-size:24px;font-weight:700}.card small{display:block;font:500 17px Mono;color:var(--mu);margin-top:6px}
+.c-cv{border-color:rgba(255,255,255,.65)}.c-ac{border-color:rgba(63,224,138,.75)}.c-ad{border-color:rgba(255,194,74,.8)}.c-ci{border-color:rgba(69,212,255,.8)}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 4px;border-top:1px solid rgba(255,255,255,.08)}
+.ln .t{font-size:24px;font-weight:600}.ln small{display:block;font:500 17px Mono;color:var(--mu);margin-top:5px}
+.mono{font-family:Mono}
+.col3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.pc{padding:18px}.pc .h{display:flex;align-items:center;gap:10px;font:700 22px Plex}.pc .h b{width:40px;height:40px;border-radius:50%;background:var(--ac);display:grid;place-items:center;font:italic 900 22px Archivo;box-shadow:0 0 14px rgba(241,90,37,.7)}
+.kv{margin-top:14px}.kv span{display:block;font:500 15px Mono;letter-spacing:1px;color:var(--mu)}.kv b{display:block;font-size:21px;margin-top:3px}
+#leg{left:240px!important;right:240px!important;top:950px!important;font-size:31px!important;text-align:center}
+#leg span{background:rgba(7,7,10,.88);border:2px solid rgba(241,90,37,.5);box-shadow:0 0 22px rgba(241,90,37,.2)}
+.ilu{right:90px!important;top:1030px!important;color:#6f6864;font-size:18px}
+/* hook e outro */
+#hook,#intro,#outro{position:absolute;inset:0;z-index:5;opacity:0}
+.doc{position:absolute;width:230px;padding:14px 16px;border-radius:12px;border:2px solid;font:600 16px Mono;background:rgba(255,255,255,.04)}
+.doc i{display:block;height:10px;border-radius:5px;background:rgba(255,255,255,.18);margin-top:10px}
+.d0{border-color:rgba(255,255,255,.6);color:#fff}.d1{border-color:rgba(63,224,138,.7);color:var(--gr)}.d2{border-color:rgba(255,194,74,.7);color:var(--ye)}.d3{border-color:rgba(69,212,255,.7);color:var(--cy)}
+#hq{position:absolute;left:160px;right:160px;top:330px;text-align:center;font-family:Archivo;font-style:italic;font-weight:900;font-size:118px;letter-spacing:-3px;line-height:1.02;color:#fff}
+.pil{position:absolute;top:470px;width:470px;padding:34px 32px;text-align:left}
+.pil .n{font:italic 900 70px Archivo;color:rgba(241,90,37,.3)}.pil .t{font:italic 900 50px Archivo;color:#fff;margin-top:4px}.pil small{display:block;font-size:24px;color:var(--mu);margin-top:12px;line-height:1.35}
+#flash{background:#FF6A33}
+</style></head><body>
+<div id="bgnum"></div>
+<div id="glow"></div><div id="grid"></div>
+<div class="hc" id="c1"></div><div class="hc" id="c2"></div><div class="hc" id="c3"></div><div class="hc" id="c4"></div>
+<div id="top"><div id="brand"><span id="mini"></span><span>WF<b>tec</b></span></div>
+  <div id="chap"><span>BUSCA</span><span>NOVIDADES</span><span>APRESENTAÇÃO</span><span>ENQUADRAMENTO</span><span>CARTEIRA</span></div></div>
+<div id="prog"><i id="progI"></i></div>
+
+<div id="hook"><div id="docs"></div>
+  <div id="hq">Ainda procura convenção <span class="neo">site por site,</span><br>cliente por cliente?</div></div>
+
+<div id="intro">
+  <div style="position:absolute;left:0;right:0;top:200px;text-align:center"><div class="kk">CONHEÇA</div><div class="tl" style="font-size:110px">Ferramenta de <em class="neo">Sindicatos</em></div></div>
+  <div class="gls pil rv" style="left:190px" data-a=".38"><div class="n">01</div><div class="t">Convenções</div><small>Busca, varredura diária e novidades de todo o Brasil.</small></div>
+  <div class="gls pil rv" style="left:725px" data-a=".55"><div class="n">02</div><div class="t">Enquadramento</div><small>O sindicato certo pelo CNPJ e pelo CNAE.</small></div>
+  <div class="gls pil rv" style="left:1260px" data-a=".75"><div class="n">03</div><div class="t">Sua carteira</div><small>Os clientes enquadrados e acompanhados.</small></div>
+</div>
+
+<div id="left"><div class="nb" id="lNb"></div><div class="kk" id="lK"></div><div class="tl" id="lT"></div><div class="ds" id="lD"></div></div>
+
+<div id="panel" class="gls"><div id="ptabs"><span data-t="b">Busca de convenções</span><span data-t="n">Novas convenções</span><span data-t="e">Minhas empresas</span><span data-t="o">Notificações</span><span data-t="q">Enquadramento</span></div>
+<div id="pbody">
+
+<!-- 2 filtros -->
+<div class="scn" data-k="2" data-tab="b">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="fld rv hl" data-a=".08"><small>ESTADO</small><b>RN — Rio Grande do Norte</b></div>
+    <div class="fld rv hl" data-a=".2"><small>MUNICÍPIO</small><b>Natal</b></div>
+    <div class="fld rv hl" data-a=".32"><small>SEGMENTO</small><b>Comércio</b></div>
+    <div class="fld rv hl" data-a=".5"><small>PALAVRA NO NOME DO SINDICATO</small><b>comerciários</b></div>
+    <div class="fld rv hl" data-a=".72" style="grid-column:1/3"><small>CNPJ DO SINDICATO</small><b class="mono" style="color:var(--mu)">opcional · ••.•••.•••/0001-••</b></div>
+  </div>
+  <div class="rv" data-a=".85" style="margin-top:30px;font:500 20px Mono;color:var(--mu)">Base territorial oficial do sindicato (CNES/MTE) · segmentos pela categoria oficial</div>
+</div>
+
+<!-- 3 tipo e vigencia -->
+<div class="scn" data-k="3" data-tab="b">
+  <div class="mono" style="font-size:18px;letter-spacing:2px;color:var(--mu)">TIPO DE DOCUMENTO</div>
+  <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap">
+    <span class="tg wh rv hl" data-a=".08">Convenção</span><span class="tg ok rv hl" data-a=".14">Acordo</span><span class="tg ye rv hl" data-a=".22">Termo aditivo</span><span class="tg cy rv hl" data-a=".32">Circular do sindicato</span></div>
+  <div class="mono" style="font-size:18px;letter-spacing:2px;color:var(--mu);margin-top:46px">VIGÊNCIA</div>
+  <div style="display:flex;gap:14px;margin-top:14px"><span class="tg nv rv hl" data-a=".6">Vigentes</span><span class="tg gh rv" data-a=".68">Todas</span><span class="tg gh rv" data-a=".76">Não vigentes</span></div>
+  <div class="rv pl" data-a=".9" style="margin-top:60px"><span class="btn">Aplicar Filtros</span></div>
+</div>
+
+<!-- 4 cores e baixar -->
+<div class="scn" data-k="4" data-tab="b">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="card c-cv rv" data-a=".04"><div class="t">Convenção Coletiva · RN</div><small>Empregados no comércio · 2026/2027</small><div style="margin-top:12px"><span class="btn pl" data-a=".75" style="font-size:19px;padding:9px 18px">Baixar documento</span></div></div>
+    <div class="card c-ac rv" data-a=".12"><div class="t">Acordo Coletivo · RN</div><small>Sindicato •••••••• · 2026/2027</small></div>
+    <div class="card c-ad rv" data-a=".2"><div class="t">Termo Aditivo · RN</div><small>Altera piso salarial · 2026/2027</small></div>
+    <div class="card c-ci rv" data-a=".28"><div class="t">Circular do sindicato · RN</div><small>PDF no site do sindicato</small></div>
+  </div>
+  <div class="gls rv" data-a=".8" style="margin-top:34px;padding:20px 24px;display:flex;align-items:center;gap:20px;border-color:var(--gr)"><div style="width:64px;height:78px;border-radius:10px;background:#C0392B;display:grid;place-items:center;font:700 18px Mono">PDF</div><div><b style="font-size:26px">Documento oficial · Mediador (MTE)</b><div class="mono" style="font-size:18px;color:var(--gr);margin-top:6px">baixado ✓</div></div></div>
+</div>
+
+<!-- 5 mediador ao vivo -->
+<div class="scn" data-k="5" data-tab="b">
+  <div class="ln rv" data-a=".02" style="border:0"><div><div class="t">Convenção Coletiva · RN</div><small>vigência 2026/2027</small></div><span class="tg wh">Convenção</span></div>
+  <div class="ln rv" data-a=".06"><div><div class="t">Termo Aditivo · RN</div><small>vigência 2026/2027</small></div><span class="tg ye">Aditivo</span></div>
+  <div class="ln rv" data-a=".7" id="lnNew"><div><div class="t">Convenção Coletiva · RN</div><small>registrada agora no Mediador</small></div><span class="tg nv">Nova</span></div>
+  <div class="gls" style="margin-top:28px;padding:22px 26px;display:flex;align-items:center;gap:22px">
+    <svg width="70" height="70" viewBox="0 0 70 70" id="radarS"><circle cx="35" cy="35" r="31" fill="none" stroke="#F15A25" stroke-width="2" opacity=".6"/><path d="M35 35 L35 4 A31 31 0 0 1 62 20 Z" fill="rgba(241,90,37,.45)"/></svg>
+    <div><div class="mono" style="font-size:18px;letter-spacing:2px;color:var(--mu)">MEDIADOR · MINISTÉRIO DO TRABALHO</div><div style="font-size:28px;font-weight:700;margin-top:6px" id="medTx">conferindo no Mediador…</div></div></div>
+</div>
+
+<!-- 6 varredura -->
+<div class="scn" data-k="6" data-tab="n">
+  <div style="display:flex;align-items:baseline;gap:20px"><div class="neo" style="font:italic 900 120px Archivo;letter-spacing:-3px" id="sites">0</div><div style="font-size:30px;font-weight:600;line-height:1.25">sites de sindicatos<br><span style="color:var(--mu)">+ o Mediador, todo dia</span></div></div>
+  <div id="ufs" style="display:grid;grid-template-columns:repeat(9,1fr);gap:10px;margin-top:26px"></div>
+  <div class="card c-cv rv" data-a=".82" style="margin-top:28px;display:flex;justify-content:space-between;align-items:center"><div><div class="t">Convenção Coletiva · RN</div><small>descoberta hoje na varredura</small></div><span class="tg nv">Nova</span></div>
+</div>
+
+<!-- 7 novas e notificacoes -->
+<div class="scn" data-k="7" data-tab="o">
+  <div style="display:flex;border:2px solid rgba(255,255,255,.14);border-radius:999px;padding:5px;position:relative" class="rv" data-a=".02"><div id="knob" style="position:absolute;top:5px;bottom:5px;width:calc(50% - 5px);border-radius:999px;background:var(--ac);box-shadow:0 0 24px rgba(241,90,37,.7)"></div><span id="swB" style="position:relative;flex:1;text-align:center;font:700 24px Plex;padding:12px 0">Todo o Brasil</span><span id="swM" style="position:relative;flex:1;text-align:center;font:700 24px Plex;padding:12px 0">Minhas empresas</span></div>
+  <div class="gls rv" data-a=".2" style="margin-top:24px;padding:20px 24px"><div class="mono" style="font-size:17px;letter-spacing:2px;color:var(--mu)">NOTIFICAÇÕES DA VARREDURA · O QUE ENTROU EM CADA DIA</div><div style="font-size:30px;font-weight:700;margin-top:10px">28/10: <span class="neo">164</span> instrumentos novos</div><div style="display:flex;gap:10px;margin-top:12px"><span class="tg wh">SP 56</span><span class="tg wh">RS 23</span><span class="tg gh">…</span></div></div>
+  <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap"><span class="tg wh rv" data-a=".35">Convenções</span><span class="tg ok rv" data-a=".4">Acordos</span><span class="tg ye rv" data-a=".45">Aditivos</span><span class="tg cy rv" data-a=".5">Circulares</span></div>
+  <div class="ln rv" data-a=".85" style="margin-top:18px"><div><div class="t">Termo Aditivo · RN</div><small>Documento novo para empresa(s) da sua carteira</small></div><span class="tg nv">Sua carteira</span></div>
+</div>
+
+<!-- 8 apresentacao -->
+<div class="scn" data-k="8" data-tab="b">
+  <div class="gls rv" data-a=".02" style="padding:20px 24px;display:flex;align-items:center;gap:20px;border-style:dashed"><div style="width:64px;height:78px;border-radius:10px;background:#2B5C99;display:grid;place-items:center;font:700 17px Mono">DOCX</div><div style="flex:1"><b style="font-size:26px">convencao-comercio.pdf</b><div style="height:10px;border-radius:5px;background:rgba(255,255,255,.1);margin-top:12px;overflow:hidden"><div id="apBar" style="height:100%;width:0;background:var(--ac)"></div></div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+    <div class="gls rv" data-a=".45" style="padding:18px 20px"><div class="kk" style="font-size:16px">REAJUSTE</div><span class="mask" style="width:70%;height:22px;margin-top:10px"></span><div class="mono" style="font-size:16px;color:var(--neo);margin-top:10px">↳ Cláusula 3ª</div></div>
+    <div class="gls rv" data-a=".55" style="padding:18px 20px"><div class="kk" style="font-size:16px">PISOS</div><span class="mask" style="width:60%;height:22px;margin-top:10px"></span><div class="mono" style="font-size:16px;color:var(--neo);margin-top:10px">↳ Cláusula 4ª</div></div>
+    <div class="gls rv" data-a=".65" style="padding:18px 20px"><div class="kk" style="font-size:16px">JORNADA</div><span class="mask" style="width:75%;height:22px;margin-top:10px"></span><div class="mono" style="font-size:16px;color:var(--neo);margin-top:10px">↳ Cláusula 12ª</div></div>
+    <div class="gls rv" data-a=".75" style="padding:18px 20px"><div class="kk" style="font-size:16px">BENEFÍCIOS</div><span class="mask" style="width:55%;height:22px;margin-top:10px"></span><div class="mono" style="font-size:16px;color:var(--neo);margin-top:10px">↳ Cláusula 18ª</div></div>
+  </div>
+  <div class="rv" data-a=".88" style="margin-top:22px;display:flex;gap:14px"><span class="btn" style="font-size:20px;padding:10px 22px">Salvar em PDF</span><span class="tg gh">o arquivo não fica guardado</span></div>
+</div>
+
+<!-- 9 enquadramento -->
+<div class="scn" data-k="9" data-tab="q">
+  <div class="fld hi rv" data-a=".02"><small>CNPJ DA EMPRESA</small><b class="mono" id="cnpjT"></b></div>
+  <div class="gls rv" data-a=".35" style="margin-top:20px;padding:18px 22px"><div class="mono" style="font-size:17px;letter-spacing:2px;color:var(--mu)">CNAE PRINCIPAL</div><div style="font-size:27px;font-weight:700;margin-top:6px"><span class="neo">4781-4/00</span> · Comércio varejista de artigos do vestuário</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px">
+    <div class="gls rv" data-a=".55" style="padding:18px 22px"><div class="mono" style="font-size:16px;letter-spacing:2px;color:var(--mu)">SINDICATO LABORAL</div><div style="font-size:24px;font-weight:700;margin-top:6px">Empregados no comércio · RN</div><span class="tg ok" style="margin-top:10px;font-size:17px">convenção vigente</span></div>
+    <div class="gls rv" data-a=".65" style="padding:18px 22px"><div class="mono" style="font-size:16px;letter-spacing:2px;color:var(--mu)">SINDICATO PATRONAL</div><div style="font-size:24px;font-weight:700;margin-top:6px">Comércio varejista · RN</div><span class="tg ok" style="margin-top:10px;font-size:17px">convenção vigente</span></div>
+  </div>
+  <div class="rv" data-a=".85" style="margin-top:18px;font-size:22px;color:var(--mu);line-height:1.4"><b style="color:var(--neo)">Por quê:</b> a atividade principal pelo CNAE define a categoria; base territorial do sindicato inclui o município.</div>
+</div>
+
+<!-- 10 carteira upload -->
+<div class="scn" data-k="10" data-tab="e">
+  <div class="gls rv" data-a=".02" style="padding:20px 24px;display:flex;align-items:center;gap:20px;border-style:dashed"><div style="width:64px;height:78px;border-radius:10px;background:#1E8E4E;display:grid;place-items:center;font:700 17px Mono">XLSX</div><div style="flex:1"><b style="font-size:26px">clientes.xlsx</b><div class="mono" style="font-size:17px;color:var(--mu);margin-top:4px">colunas: CNPJ (obrigatória) · código · razão social · CNAE</div><div style="height:10px;border-radius:5px;background:rgba(255,255,255,.1);margin-top:10px;overflow:hidden"><div id="upBar" style="height:100%;width:0;background:var(--ac)"></div></div></div><div class="neo" style="font:italic 900 70px Archivo" id="upN">0</div></div>
+  <div style="margin-top:14px">
+    <div class="ln rv" data-a=".55"><div><span class="mask" style="width:260px"></span><small>Empregados no comércio · RN</small></div><span class="tg ok">Convenção ligada</span></div>
+    <div class="ln rv" data-a=".62"><div><span class="mask" style="width:220px"></span><small>Trabalhadores em condomínios · RN</small></div><span class="tg ok">Convenção ligada</span></div>
+    <div class="ln rv" data-a=".69"><div><span class="mask" style="width:300px"></span><small>Empregados em transportes · PE</small></div><span class="tg ok">Convenção ligada</span></div>
+    <div class="ln rv" data-a=".76"><div><span class="mask" style="width:240px"></span><small>2 sindicatos possíveis</small></div><span class="tg ye">Confira</span></div>
+  </div>
+</div>
+
+<!-- 11 conferencia rapida -->
+<div class="scn" data-k="11" data-tab="e" style="zoom:1.13;width:880px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div class="kk">CONFERÊNCIA RÁPIDA</div><div class="mono" style="font-size:18px;color:var(--mu)">uma empresa por vez · teclas 1, 2, P</div></div>
+  <div class="gls rv" data-a=".02" style="margin-top:14px;padding:16px 22px"><span class="mask" style="width:320px"></span><div class="mono" style="font-size:17px;color:var(--mu);margin-top:8px">••.•••.•••/0001-•• · Natal/RN · CNAE 4781-4/00 · matriz</div><div style="margin-top:10px;display:flex;gap:10px"><span class="tg ye">Mais de um sindicato possível</span><span class="tg rd">Atividade mista</span></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
+    <div class="card c-cv rv" data-a=".3" id="qc0" style="border-color:rgba(255,255,255,.25)"><div class="t">1 · Empregados no comércio</div><small>Base ok (CNES) · recomendado</small><div style="margin-top:10px"><span class="tg ok" style="font-size:17px">É este</span></div></div>
+    <div class="card c-cv rv" data-a=".38" style="border-color:rgba(255,255,255,.25)"><div class="t">2 · Empregados em supermercados</div><small>outra categoria do CNAE secundário</small></div>
+  </div>
+  <div class="fld rv" data-a=".7" style="margin-top:16px"><small>OU DIGA O QUE A EMPRESA FAZ DE FATO</small><b id="ativT" style="font-size:24px"></b></div>
+  <div class="rv pl" data-a=".88" style="margin-top:14px"><span class="btn" style="font-size:20px;padding:10px 22px">Declarar e refazer</span></div>
+</div>
+
+<!-- 12 prova -->
+<div class="scn" data-k="12" data-tab="e">
+  <div class="col3">
+    <div class="gls pc rv" data-a=".04"><div class="h"><b>1</b>Receita</div><div class="kv"><span>CNAE</span><b class="neo">4781-4/00</b></div><div class="kv"><span>MUNICÍPIO</span><b>Natal/RN</b></div><div class="kv"><span>ESTABELECIMENTO</span><b>matriz</b></div></div>
+    <div class="gls pc rv" data-a=".2"><div class="h"><b>2</b>Sindicato</div><div class="kv"><span>LABORAL</span><b>Empregados no comércio</b></div><div class="kv"><span>PATRONAL</span><b>Comércio varejista</b></div><div class="kv"><span>REGISTRO (CNES)</span><b style="color:var(--gr)">ativo</b></div></div>
+    <div class="gls pc rv" data-a=".36"><div class="h"><b>3</b>Convenção</div><div class="kv"><span>LIGADA</span><b>CCT 2026/2027</b></div><div class="kv"><span>CLÁUSULA 1ª</span><b style="font-size:18px;font-weight:500">“…comércio varejista dos municípios de <span class="neo">Natal</span>, …”</b></div></div>
+  </div>
+  <div class="gls rv" data-a=".7" style="margin-top:22px;padding:20px 24px;display:flex;align-items:center;gap:22px;border-color:var(--gr)"><svg width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="rgba(63,224,138,.08)" stroke="#3FE08A" stroke-width="3" stroke-dasharray="6 6"/><circle cx="40" cy="40" r="7" fill="#FF6A33"/></svg><div><div class="mono" style="font-size:17px;letter-spacing:2px;color:var(--mu)">BASE TERRITORIAL OFICIAL · CNES/MTE</div><div style="font-size:28px;font-weight:700;margin-top:6px">Natal está na base do sindicato</div></div><span class="tg ok" style="margin-left:auto">Base ok (CNES)</span></div>
+</div>
+
+<!-- 13 certificar -->
+<div class="scn" data-k="13" data-tab="e">
+  <div style="text-align:center" class="rv pl" data-a=".08" id="certB"><span class="btn" style="font-size:30px;padding:20px 40px">Certifiquei este vínculo</span></div>
+  <div id="seal" style="position:absolute;left:360px;top:0;width:260px;height:260px;opacity:0"><svg viewBox="0 0 260 260" style="position:absolute;inset:0"><circle cx="130" cy="130" r="124" fill="none" stroke="#3FE08A" stroke-width="3" stroke-dasharray="4 10" id="sr"/></svg><div style="position:absolute;inset:30px;border-radius:50%;border:5px solid var(--gr);display:grid;place-items:center;text-align:center;box-shadow:0 0 40px rgba(63,224,138,.5),inset 0 0 30px rgba(63,224,138,.25);font:italic 900 34px Archivo;color:var(--gr);line-height:1">CERTI-<br>FICADA</div></div>
+  <div class="gls rv" data-a=".45" style="position:absolute;left:0;right:0;top:300px;padding:22px 26px"><div class="mono" style="font-size:17px;letter-spacing:2px;color:var(--mu)">BASE LEGAL ANOTADA NA CERTIFICAÇÃO</div><div class="mono" style="font-size:21px;line-height:1.55;margin-top:10px" id="certT"></div></div>
+</div>
+
+<!-- 14 avisos filtros excel -->
+<div class="scn" data-k="14" data-tab="e">
+  <div class="ln rv" data-a=".02" style="border:0"><div><span class="mask" style="width:280px"></span><small>Empregados no comércio · RN</small></div><span class="tg nv">Novidade</span></div>
+  <div class="gls rv" data-a=".1" style="padding:16px 20px;border-color:var(--ac);background:rgba(241,90,37,.08)"><div style="font-size:24px;font-weight:700">Saiu documento novo que se enquadra a esta empresa</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px"><span class="mono" style="font-size:17px;color:var(--mu)">Termo Aditivo · 2026/2027</span><span class="btn o" style="font-size:18px;padding:8px 18px">Ciente</span></div></div>
+  <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap"><span class="tg ye rv hl" data-a=".42">Convenção vencendo · 60 dias</span><span class="tg cy rv hl" data-a=".55">Data-base em até 45 dias</span><span class="tg ok rv" data-a=".6">Certificada</span></div>
+  <div class="gls rv" data-a=".8" style="margin-top:24px;padding:18px 22px;display:flex;align-items:center;gap:20px"><div style="width:60px;height:72px;border-radius:10px;background:#1E8E4E;display:grid;place-items:center;font:700 16px Mono;box-shadow:0 0 24px rgba(63,224,138,.5)">XLSX</div><div><b style="font-size:24px">carteira.xlsx</b><div class="mono" style="font-size:16px;color:var(--mu);margin-top:4px">empresa · código · CNPJ · sindicato · convenção · vigência · data-base · situação</div></div><span class="btn pl" data-a=".85" style="margin-left:auto;font-size:19px;padding:10px 20px">Exportar Excel</span></div>
+</div>
+
+<!-- 15 ficha e comunicado -->
+<div class="scn" data-k="15" data-tab="e" style="zoom:1.12;width:890px">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+    <div class="gls rv" data-a=".04" style="padding:16px 18px"><div class="kk" style="font-size:15px">PISO</div><span class="mask" style="width:80%;height:20px;margin-top:10px"></span></div>
+    <div class="gls rv" data-a=".1" style="padding:16px 18px"><div class="kk" style="font-size:15px">REAJUSTE</div><span class="mask" style="width:60%;height:20px;margin-top:10px"></span></div>
+    <div class="gls rv" data-a=".16" style="padding:16px 18px"><div class="kk" style="font-size:15px">DATA-BASE</div><span class="mask" style="width:50%;height:20px;margin-top:10px"></span></div>
+  </div>
+  <div class="gls rv" data-a=".28" style="margin-top:14px;padding:16px 20px"><div class="kk" style="font-size:15px">O QUE MUDOU EM RELAÇÃO À CONVENÇÃO ANTERIOR</div><span class="mask" style="width:85%;height:18px;margin-top:10px"></span><span class="mask" style="width:65%;height:18px;margin-top:8px;display:block"></span></div>
+  <div style="display:flex;gap:10px;margin-top:12px" class="rv" data-a=".36"><span class="tg ye">Ficha extraída pela IA · a conferir</span><span class="tg ok pl" data-a=".45">Confirmar ficha</span></div>
+  <div class="gls rv" data-a=".55" style="margin-top:16px;padding:18px 22px"><div style="display:flex;justify-content:space-between"><div class="kk" style="font-size:15px">COMUNICADO AO CLIENTE</div><span class="tg gh" style="font-size:16px">Copiar</span></div><div style="font-size:21px;line-height:1.45;margin-top:10px;color:#ddd;height:92px;overflow:hidden" id="comT"></div><div class="mono" style="font-size:15px;color:var(--mu);margin-top:6px">você revisa antes de enviar</div></div>
+</div>
+
+</div></div>
+
+<div id="outro">
+  <svg class="abs" id="oRing" style="left:150px;top:240px;width:600px;height:600px" viewBox="0 0 800 800"><g fill="none" stroke="#F15A25"><circle cx="400" cy="400" r="380" stroke-width="3" stroke-dasharray="6 18" opacity=".7"/><circle cx="400" cy="400" r="330" stroke-width="10" stroke-dasharray="180 60" opacity=".5"/></g></svg>
+  <div class="abs" id="oLogo" style="left:300px;top:390px;width:300px;height:300px"></div>
+  <div class="abs" style="left:860px;right:120px;top:240px">
+    <div class="disp" style="font-size:150px;color:#fff">WF<em class="neo">tec</em></div>
+    <div style="font-size:40px;color:var(--mu);margin-top:6px">Ferramenta de Sindicatos</div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px" id="oList"><span class="tg wh">Busca com filtros</span><span class="tg nv">Varredura diária</span><span class="tg cy">Apresentação da convenção</span><span class="tg ok">Enquadramento</span><span class="tg ye">Carteira certificada</span></div>
+    <div style="margin-top:44px;display:inline-flex;background:var(--ac);color:#fff;font-size:44px;font-weight:700;padding:26px 44px;border-radius:22px;box-shadow:0 0 50px rgba(241,90,37,.6)" id="oCta">Chama no WhatsApp (link na bio)</div>
+    <div class="mono" style="font-size:38px;color:var(--neo);margin-top:26px">wftec.com.br</div>
+  </div>
+</div>
+<div class="ilu" id="ilu">exemplos ilustrativos</div>
+<div id="leg"><span></span></div>
+<div id="lines"></div><div id="scan"></div>
+<div id="flash"></div>
+<script>
+const LOGO = `__LOGO__`;
+const TL = __TIMELINE__;
+const I = TL.ini;
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eout = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sz = (w) => LOGO.replace("<svg ", `<svg style="width:${w}px;height:${w}px;filter:drop-shadow(0 0 24px rgba(241,90,37,.7))" `);
+$("mini").innerHTML = sz(48); $("oLogo").innerHTML = sz(300);
+{ const W = ["CCT", "ACT", "ADITIVO", "CIRCULAR", "MEDIADOR", "CNPJ", "CNAE", "CNES", "PISO", "DATA-BASE"]; let s = ""; for (let r = 0; r < 40; r++) { let l = ""; for (let c = 0; c < 16; c++) l += (((r * 7 + c * 13) % 4 === 0) ? W[(r + c) % W.length] : (((r * 9301 + c * 49297) % 65535).toString(16).toUpperCase().padStart(4, "0"))) + "   "; s += l + "\n"; } $("bgnum").textContent = s; }
+const TP = ["CONVENÇÃO", "ACORDO", "ADITIVO", "CIRCULAR"], UF = ["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"];
+$("docs").innerHTML = Array.from({ length: 26 }, (_, i) => `<div class="doc d${i % 4}" id="dc${i}" style="left:${30 + (i * 337) % 1660}px;top:${60 + (i * 211) % 960}px">${TP[i % 4]} · ${UF[(i * 5) % 27]}<i style="width:${55 + (i * 37) % 40}%"></i></div>`).join("");
+$("ufs").innerHTML = UF.map((u, i) => `<div id="uf${i}" style="text-align:center;font:700 20px Mono;padding:12px 0;border-radius:10px;border:2px solid rgba(255,255,255,.12);color:var(--mu)">${u}</div>`).join("");
+// textos do lado esquerdo por fala (índice = cena)
+const L = [null, null,
+ ["01", "BUSCA DE CONVENÇÕES", "Filtre do <em>seu jeito.</em>", "Estado, município, segmento, palavra no nome ou CNPJ do sindicato."],
+ ["01", "BUSCA DE CONVENÇÕES", "Tipo e <em>vigência.</em>", "Convenção, acordo, aditivo ou circular. Vigentes ou não."],
+ ["01", "BUSCA DE CONVENÇÕES", "Uma cor para <em>cada tipo.</em>", "E o documento oficial do Mediador, em um clique."],
+ ["01", "BUSCA DE CONVENÇÕES", "Mediador <em>ao vivo.</em>", "O que acabou de ser registrado já entra na sua busca."],
+ ["02", "VARREDURA DIÁRIA", "Todo dia, <em>todo o Brasil.</em>", "Mediador + mais de 6 mil sites, nos 27 estados."],
+ ["02", "NOVIDADES", "Nada passa <em>batido.</em>", "Novas convenções e Notificações, por tipo e por estado."],
+ ["03", "APRESENTAÇÃO DA CONVENÇÃO", "A convenção <em>explicada.</em>", "PDF ou Word vira apresentação, com a cláusula de origem."],
+ ["04", "ENQUADRAMENTO SINDICAL", "O sindicato <em>certo.</em>", "Pelo CNPJ e pelo CNAE, com a decisão explicada."],
+ ["05", "MINHAS EMPRESAS", "Sua carteira <em>inteira.</em>", "Até 3.000 empresas, enquadradas e ligadas às convenções."],
+ ["05", "CONFERÊNCIA RÁPIDA", "Uma por vez, <em>sem travar.</em>", "Escolha o sindicato ou declare a atividade."],
+ ["05", "PROVA DO VÍNCULO", "Receita × sindicato <em>× convenção.</em>", "Com a base territorial do registro oficial (CNES/MTE)."],
+ ["05", "CERTIFICAÇÃO", "Bateu? <em>Certifica.</em>", "Quem conferiu, quando e a base legal."],
+ ["05", "ACOMPANHAMENTO", "Aviso, filtros <em>e Excel.</em>", "Documento novo, vencendo, data-base e a carteira no Excel."],
+ ["05", "FICHA DA CONVENÇÃO", "Do piso ao <em>comunicado.</em>", "Piso, reajuste, data-base, o que mudou e o texto para o cliente."],
+];
+const CH = [null, null, 0, 0, 0, 0, 1, 1, 2, 3, 4, 4, 4, 4, 4, 4, null];
+const scn = [...document.querySelectorAll(".scn")];
+const typeTx = (el, tx, p) => { const n = Math.round(tx.length * clamp(p)); el.innerHTML = tx.slice(0, n) + (p > 0 && p < 1 ? '<span class="neo">▌</span>' : ""); };
+const LEG = "Art. 511 e 581 CLT (atividade preponderante, CNAE 4781-4/00) · estabelecimento em Natal/RN · CNES: registro Ativo, base territorial cobre o município · CCT 2026/2027 · art. 611 CLT";
+const COM = "Prezado cliente, foi registrado um termo aditivo à convenção coletiva da sua categoria, com vigência 2026/2027. Ele altera o piso salarial a partir da data-base. Já estamos aplicando na folha…";
+let lastK = -1;
+window.render = function (t) {
+  const S = TL.seg; let k = 0; for (let i = 0; i < S.length; i++) if (t >= S[i].ini) k = i;
+  const Lt = t - S[k].ini, D = S[k].fim - S[k].ini, SP = Math.max(1, D - .9);
+  const P = (a) => I + a * SP; // fração da fala -> segundos desde o início da cena
+  const fade = Math.min(seg(Lt, 0, .25), 1 - seg(t, S[k].fim - .2, S[k].fim));
+  let fl = 0; for (let i = 1; i < S.length; i++) { const d = t - S[i].ini; if (d >= 0 && d < .22) fl = Math.max(fl, 1 - d / .22); } $("flash").style.opacity = fl * .12;
+  $("bgnum").style.transform = `translateY(${-(t * 26) % 400}px)`;
+  $("grid").style.backgroundPosition = `${(t * 40) % 90}px ${(t * 100) % 90}px`;
+  $("scan").style.left = ((t * 420) % 2400 - 200) + "px";
+  const last = S.length - 1, isO = k === last && Lt >= .25;
+  $("progI").style.width = (100 * t / S[last].fim) + "%";
+  // capítulos
+  const ch = CH[k]; [...$("chap").children].forEach((e, i) => e.className = ch === i ? "on" : (ch !== null && ch !== undefined && i < ch ? "ok" : ""));
+  $("top").style.opacity = k === 0 || isO ? 0 : 1; $("prog").style.opacity = k === 0 ? 0 : 1;
+  // hook
+  $("hook").style.opacity = k === 0 ? 1 - seg(Lt, D - .2, D) : 0;
+  if (k === 0) { for (let i = 0; i < 26; i++) { const a = i * .05; const q = back(seg(Lt, a, a + .3)); const e = $("dc" + i); e.style.opacity = clamp(q * 2) * .4; e.style.transform = `translateY(${-Lt * 40}px) scale(${.6 + .4 * clamp(q)}) rotate(${((i % 5) - 2) * 4}deg)`; }
+    const q = back(seg(Lt, .1, .45)); $("hq").style.opacity = clamp(q * 2.5); $("hq").style.transform = `scale(${1.5 - .5 * clamp(q)})`; }
+  // intro
+  $("intro").style.opacity = k === 1 ? fade : 0;
+  if (k === 1) document.querySelectorAll("#intro .rv").forEach((e) => { const q = back(seg(Lt, P(+e.dataset.a), P(+e.dataset.a) + .45)); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * 60}px)`; });
+  // painel
+  const inP = k >= 2 && k <= 15;
+  $("panel").style.opacity = inP ? (k === 2 ? seg(Lt, 0, .35) : 1) * (k === 15 ? 1 - seg(t, S[k].fim - .2, S[k].fim) : 1) : 0;
+  $("panel").style.transform = inP ? `scale(${k === 2 ? .94 + .06 * eout(seg(Lt, 0, .5)) : 1})` : "";
+  $("left").style.opacity = inP ? fade : 0;
+  if (inP) { const x = L[k]; $("lNb").textContent = x[0]; $("lK").textContent = x[1]; $("lT").innerHTML = x[2]; $("lD").textContent = x[3];
+    const p = back(seg(Lt, .05, .45)); $("left").style.transform = `translateX(${(1 - p) * -40}px)`; }
+  scn.forEach((e) => { const on = +e.dataset.k === k; e.style.opacity = on ? fade : 0; });
+  const cur = scn.find((e) => +e.dataset.k === k);
+  if (cur) { const tab = cur.dataset.tab; [...$("ptabs").children].forEach((e) => e.className = e.dataset.t === tab ? "on" : "");
+    cur.querySelectorAll(".rv").forEach((e) => { const a = P(+e.dataset.a); const q = back(seg(Lt, a, a + .4)); e.style.opacity = clamp(q * 1.6); e.style.transform = `translateY(${(1 - clamp(q)) * 26}px) scale(${.96 + .04 * clamp(q)})`; });
+    cur.querySelectorAll(".hl").forEach((e) => { const a = P(+e.dataset.a); const h = Math.sin(seg(Lt, a, a + .8) * Math.PI); e.style.boxShadow = h > .01 ? `0 0 ${30 * h}px rgba(241,90,37,${.8 * h})` : ""; if (e.classList.contains("fld")) e.classList.toggle("hi", Lt > a && Lt < a + 1.2); });
+    cur.querySelectorAll(".pl").forEach((e) => { const a = P(+e.dataset.a) + .3; const h = Math.sin(seg(Lt, a, a + .3) * Math.PI); const b = e.classList.contains("rv") ? e.firstElementChild || e : e; b.style.transform = `scale(${1 - .1 * h})`; });
+  }
+  // cenas especiais
+  if (k === 5) { $("radarS").style.transform = `rotate(${Lt * 200}deg)`; $("medTx").innerHTML = Lt < P(.68) ? "conferindo no Mediador…" : 'Mediador conferido agora: <span class="neo">1 novo trazido</span>'; }
+  if (k === 6) { $("sites").textContent = "+" + Math.round(6000 * eout(seg(Lt, P(.05), P(.35)))).toLocaleString("pt-BR"); UF.forEach((u, i) => { const on = Lt > P(.3 + i * .015); const e = $("uf" + i); e.style.color = on ? "#fff" : "var(--mu)"; e.style.borderColor = on ? "rgba(241,90,37,.8)" : "rgba(255,255,255,.12)"; e.style.boxShadow = on ? "0 0 14px rgba(241,90,37,.45)" : ""; e.style.background = on ? "rgba(241,90,37,.12)" : ""; }); }
+  if (k === 7) { const p = eout(seg(Lt, P(.72), P(.72) + .4)); $("knob").style.left = `calc(${p * 50}% + 5px)`; $("swB").style.color = p > .5 ? "var(--mu)" : "#fff"; $("swM").style.color = p > .5 ? "#fff" : "var(--mu)"; }
+  if (k === 8) $("apBar").style.width = 100 * eout(seg(Lt, P(.1), P(.42))) + "%";
+  if (k === 9) typeTx($("cnpjT"), "••.•••.•••/0001-••", seg(Lt, P(.08), P(.3)));
+  if (k === 10) { $("upBar").style.width = 100 * eout(seg(Lt, P(.1), P(.5))) + "%"; $("upN").textContent = Math.round(3000 * eout(seg(Lt, P(.2), P(.5)))).toLocaleString("pt-BR"); }
+  if (k === 11) { const s = Lt > P(.45) && Lt < P(.65); $("qc0").style.borderColor = s ? "var(--gr)" : "rgba(255,255,255,.25)"; $("qc0").style.boxShadow = s ? "0 0 26px rgba(63,224,138,.4)" : ""; typeTx($("ativT"), "comércio varejista de roupas, com uma pequena confecção", seg(Lt, P(.72), P(.86))); }
+  if (k === 13) { const a = P(.08) + .5; const q = back(seg(Lt, a, a + .35)); $("seal").style.opacity = clamp(q * 2); $("seal").style.transform = `scale(${2 - clamp(q)}) rotate(${(1 - clamp(q)) * -25}deg)`; $("certB").style.opacity = Lt > a ? 1 - seg(Lt, a, a + .2) : $("certB").style.opacity; $("sr").setAttribute("transform", `rotate(${Lt * 40} 130 130)`);
+    const tx = "Certificada por ██████ em 27/11/2026 · " + LEG; const n = Math.round(tx.length * seg(Lt, P(.5), P(.98))); $("certT").innerHTML = tx.slice(0, n).replace("██████", '<span class="mask" style="width:130px"></span>') + (n < tx.length && Lt > P(.5) ? '<span class="neo">▌</span>' : ""); }
+  if (k === 15) typeTx($("comT"), COM, seg(Lt, P(.6), P(1.0)));
+  // outro
+  $("outro").style.opacity = isO ? seg(Lt, .25, .55) : 0;
+  if (isO) { const o = Lt - .25; $("oLogo").style.transform = `scale(${.4 + .6 * back(seg(o, 0, .6))}) rotate(${(1 - eout(seg(o, 0, .6))) * -40}deg)`; $("oRing").style.transform = `rotate(${o * 30}deg) scale(${.6 + .4 * eout(seg(o, 0, .6))})`; [...$("oList").children].forEach((e, i) => { const q = back(seg(o, .3 + i * .15, .6 + i * .15)); e.style.opacity = clamp(q * 2); e.style.transform = `scale(${1.4 - .4 * clamp(q)})`; }); $("oCta").style.transform = `scale(${1 + .04 * Math.sin(Math.max(0, o - 1) * 6)})`; }
+  $("ilu").style.opacity = inP ? 1 : 0;
+  const G = TL.legendas.find((x) => t >= x.ini && t < x.fim); const lg = $("leg");
+  if (G && !isO) { lg.style.opacity = Math.min(seg(t, G.ini, G.ini + .12), 1 - seg(t, G.fim - .1, G.fim)); lg.firstChild.innerHTML = G.html; } else lg.style.opacity = 0;
+};
+</script></body></html>

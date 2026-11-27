@@ -67,6 +67,15 @@ Use só o que está aqui. Se precisar de um fato que não está nesta lista, nã
 - Botão **"Certifiquei este vínculo"**: registra quem conferiu e quando, com a base legal anotada (art. 511 e 581 da CLT, atividade preponderante pelo CNAE; base territorial; convenção ligada; art. 611 da CLT). Pode desfazer. Filtros "Certificada" e "Vínculo ainda não certificado".
 - **Ficha da convenção** (piso, reajuste, data-base, benefícios, o que mudou em relação à anterior) extraída pela IA "a conferir", com botão "Confirmar ficha", e texto de **comunicado ao cliente** que você revisa antes de enviar.
 
+### Novidades de 19 a 25/11/2026 (código)
+
+- **Busca:** novos filtros de **município** (lista os municípios do estado com sindicato de base local no CNES) e **segmento** (categoria oficial do sindicato no CNES/MTE, art. 577 CLT, traduzida em segmentos como Comércio, Supermercados e atacarejo, Construção civil, Transportes e logística etc.), além de **palavra no nome do sindicato**.
+- **Mediador ao vivo:** durante a busca, a WFtec consulta a 1ª página do Mediador com os mesmos filtros e traz o que ainda não estava no acervo ("Mediador conferido agora: N novo(s) trazido(s)").
+- **Conferência rápida** (Minhas empresas): uma empresa por vez, com a prova de três colunas e os candidatos; "é este" (teclas 1, 2…), "pular" (tecla P), desfazer. Resolve as que estão "a conferir" ou fora da base do sindicato.
+- **Atividade mista / declarar atividade:** quando há CNAE secundário em outra seção da CNAE, você declara o que a empresa faz de fato (atividade preponderante, CLT art. 581 §2º) e a WFtec refaz o enquadramento.
+- Avisos de **matriz/filial** e **categoria diferenciada**; acordos só obrigam a empresa se o patronal dela também assinou (CLT 511 §3º; Súmula 374 TST).
+- Subir planilha pode **substituir a carteira inteira** (o que não vier é excluído).
+
 ### Dados que podem ser usados
 
 Os números do acervo são públicos e reais. Consulte no D1 a tabela `alertas_convencoes` e a tabela `instrumentos` (com `descoberto_em` e `tipo`).
